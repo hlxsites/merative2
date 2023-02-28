@@ -88,10 +88,17 @@ function getLineCount(text, width, options = {}) {
  */
 function calculateSlideHeight(carousel, slide) {
   requestAnimationFrame(() => {
-    const slideBody = slide.firstElementChild.innerHTML;
-    const bodyStyle = window.getComputedStyle(slide.firstElementChild);
-    const textOptions = { font: `${bodyStyle.fontWeight} ${bodyStyle.fontSize} ${bodyStyle.fontFamily}`, letterSpacing: '0.0175em' };
-    const lineCount = getLineCount(slideBody, parseInt(bodyStyle.width, 10), textOptions);
+    const slideBody = slide.querySelector('div');
+    const bodyStyle = window.getComputedStyle(slideBody);
+    const textOptions = {
+      font: `${bodyStyle.fontWeight} ${bodyStyle.fontSize} ${bodyStyle.fontFamily}`,
+      letterSpacing: '0.0175em',
+    };
+    const lineCount = getLineCount(
+      slideBody.textContent,
+      parseInt(bodyStyle.width, 10),
+      textOptions,
+    );
     const bodyHeight = parseFloat(bodyStyle.lineHeight) * lineCount;
     const figureStyle = window.getComputedStyle(slide.querySelector('figure'));
     const figureHeight = figureStyle ? parseFloat(figureStyle.height) : SLIDE_CAPTION_SIZE;
@@ -152,7 +159,9 @@ function scrollToSlide(carousel, slideIndex = 0) {
  * @param dir the direction of the scroll
  */
 function snapScroll(el, dir = 1) {
-  if (!el) return;
+  if (!el) {
+    return;
+  }
   let threshold = el.offsetWidth * 0.5;
   if (dir >= 0) {
     threshold -= (threshold * 0.5);
@@ -318,7 +327,9 @@ export default function decorate(block) {
   });
 
   carousel.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
+    if (!isDown) {
+      return;
+    }
     e.preventDefault();
     const x = e.pageX - carousel.offsetLeft;
     const walk = (x - startX);

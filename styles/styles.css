@@ -352,7 +352,7 @@ sup {
     }
 
     h3 {
-        font-size: var(--font-size-28);;
+        font-size: var(--font-size-28);
     }
 
     h4 {
@@ -617,7 +617,6 @@ main .section-bottom > div img {
     width: auto;
 }
 
-
 main .section-top-grid > div > div:nth-child(odd) img {
     border-radius: 90% 0 0;
 }
@@ -655,53 +654,86 @@ main .section-bottom-grid p picture {
     border-bottom: 1px solid #e7e2da;
 }
 
-main .section-top {
-    background-image: linear-gradient(#faf8f6, #fff);
+/* Section Arc */
+main .section-arc-top {
+    height: 81px;
+    background: var(--neutral-bone);
     position: relative;
-    z-index: 1;
-    padding-top: 0;
-}
-
-main .section-bottom {
-    background-image: linear-gradient(#faf8f6, #fff);
-    position: relative;
-    z-index: 1;
-    padding-top: 0;
-}
-
-main .section-top::before {
-    background-image: url('./top-circle.svg');
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    content: "";
-    height: 100%;
-    left: 0;
-    position: absolute;
-    width: 100%;
+    padding: 0;
     z-index: -1;
 }
 
-
-main .section-bottom::before {
-    background-image: linear-gradient(#faf8f6, #fff);
-    padding-bottom: 175px;
-    position: relative;
-    z-index: 1;
+main .section-arc-top::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: var(--neutral-white);
+    clip-path: circle(50% at 50%);
 }
 
-main .section-bottom::after {
-    background-image: url('./bottom-circle.svg');
-    background-position: bottom;
-    bottom: 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-    content: "";
-    height: 50%;
-    left: 0;
-    position: absolute;
-    width: 100%;
+main .section-arc-bottom {
+    height: 81px;
+    background: var(--neutral-white);
+    position: relative;
+    padding: 0;
+    overflow: hidden;
     z-index: -1;
+}
+
+main .section-arc-bottom::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: var(--neutral-bone);
+    clip-path: circle(50% at 50% -40%);
+}
+
+main .section-gradient {
+    background-image: linear-gradient(var(--neutral-white), var(--neutral-bone));
+}
+
+main .section-bone {
+    background: var(--neutral-bone);
+}
+
+@media screen and (min-width: 768px) {
+    main .section-arc-top,
+    main .section-arc-bottom {
+        height: 91px;
+    }
+
+    main .section-arc-top::before,
+    main .section-arc-bottom::after {
+        width: 1758px;
+        height: 1758px;
+    }
+
+    main .section-arc-bottom::after {
+        clip-path: circle(50% at 50% -45%);
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    main .section-arc-top,
+    main .section-arc-bottom {
+        height: 260px;
+    }
+
+    main .section-arc-top::before,
+    main .section-arc-bottom::after {
+        width: 2458px;
+        height: 2458px;
+    }
+
+    main .section-arc-bottom::after {
+        clip-path: circle(50% at 50% -40%);
+    }
 }
 
 /* What we do Section */
@@ -799,7 +831,7 @@ main .section.leadership-content {
 main .section.leadership-content .columns>div>div>p {
   font-style: normal;
   font-size: 28px;
-  line-height: 120%;
+  line-height: var(--line-height-120);
   letter-spacing: 0.0175em;
 }
 
@@ -808,7 +840,7 @@ main .section.leadership-content .columns > div > div > h6 {
     font-style: normal;
     font-size: 11px;
     font-weight: 500;
-    line-height: 120%;
+    line-height: var(--line-height-120);
     letter-spacing: 0.2em;
     text-transform: uppercase;
 }
@@ -828,4 +860,3 @@ main .section.leadership-content .columns > div > div > h6 {
         margin-left: unset;
     }
 }
-

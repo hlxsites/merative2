@@ -12,6 +12,7 @@ import {
   loadBlocks,
   loadCSS,
   createOptimizedPicture,
+  readBlockConfig,
 } from './lib-franklin.js';
 
 const LCP_BLOCKS = ['hero', 'blog-home']; // add your LCP blocks to the list
@@ -141,6 +142,23 @@ function buildBlogBreadCrumbBlock(main) {
   }
 }
 
+// auto block to get the pdf url and put it in page metadata
+function buildDocumentUrl(main) {
+  if (getMetadata('template') === 'Document') {
+    const pdfViewer = main.querySelector('.pdf-viewer');
+    if (pdfViewer) {
+      const blockConfig = readBlockConfig(pdfViewer);
+      const docUrl = blockConfig['document-link'];
+      if (docUrl) {
+        const docUrlMetaTag = document.createElement('meta');
+        docUrlMetaTag.setAttribute('name', 'document-link');
+        docUrlMetaTag.setAttribute('content', docUrl);
+        document.head.appendChild(docUrlMetaTag);
+      }
+    }
+  }
+}
+
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
@@ -151,6 +169,7 @@ function buildAutoBlocks(main) {
     buildBackToTopBlock(main);
     buildBlogLeftNavBlock(main);
     buildBlogBreadCrumbBlock(main);
+    buildDocumentUrl(main);
     buildTags(main);
     buildPageDivider(main);
   } catch (error) {

@@ -36,7 +36,15 @@
     transition: all 0.5s;
 }
 
-.carousel .carousel-slide figure {
+.carousel .carousel-slide > div {
+    font-family: var(--serif-font);
+    font-weight: var(--font-weight-light);
+    line-height: var(--line-height-120);
+    letter-spacing: var(--letter-spacing-1-75);
+    font-size: var(--font-size-28);
+}
+
+.carousel .carousel-slide > figure {
     align-content: center;
     align-items: center;
     display: flex;
@@ -47,7 +55,7 @@
     width: fit-content;
 }
 
-.carousel .carousel-slide figure img {
+.carousel .carousel-slide > figure img {
     border-radius: 50%;
     height: 64px;
     width: 64px;
@@ -55,7 +63,7 @@
     margin-right: var(--spacer-layout-02);
 }
 
-.carousel .carousel-slide figcaption.caption {
+.carousel .carousel-slide > figure figcaption.caption {
     font-family: var(--sans-serif-font-semibold);
     font-size: var(--font-size-16);
     letter-spacing: var(--letter-spacing-001-em);
