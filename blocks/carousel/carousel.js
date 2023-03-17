@@ -39,6 +39,7 @@ let resizeTimeout;
 let scrollInterval;
 let curSlide = 0;
 let maxSlide = 0;
+let carouselType = 'default';
 
 /**
  * Clear any active scroll intervals
@@ -86,24 +87,26 @@ function getLineCount(text, width, options = {}) {
  * @param carousel The carousel
  * @param slide A slide within the carousel
  */
-function calculateSlideHeight(carousel, slide) {
-  requestAnimationFrame(() => {
-    const slideBody = slide.querySelector('div');
-    const bodyStyle = window.getComputedStyle(slideBody);
-    const textOptions = {
-      font: `${bodyStyle.fontWeight} ${bodyStyle.fontSize} ${bodyStyle.fontFamily}`,
-      letterSpacing: '0.0175em',
-    };
-    const lineCount = getLineCount(
-      slideBody.textContent,
-      parseInt(bodyStyle.width, 10),
-      textOptions,
-    );
-    const bodyHeight = parseFloat(bodyStyle.lineHeight) * lineCount;
-    const figureStyle = window.getComputedStyle(slide.querySelector('figure'));
-    const figureHeight = figureStyle ? parseFloat(figureStyle.height) : SLIDE_CAPTION_SIZE;
-    carousel.style.height = `${bodyHeight + figureHeight + 32}px`;
-  });
+function calculateSlideHeight(carousel, slide) {  
+  if (carouselType === 'default') {
+    requestAnimationFrame(() => {
+      const slideBody = slide.querySelector('div');
+      const bodyStyle = window.getComputedStyle(slideBody);
+      const textOptions = {
+        font: `${bodyStyle.fontWeight} ${bodyStyle.fontSize} ${bodyStyle.fontFamily}`,
+        letterSpacing: '0.0175em',
+      };
+      const lineCount = getLineCount(
+        slideBody.textContent,
+        parseInt(bodyStyle.width, 10),
+        textOptions,
+      );
+      const bodyHeight = parseFloat(bodyStyle.lineHeight) * lineCount;
+      const figureStyle = window.getComputedStyle(slide.querySelector('figure'));
+      const figureHeight = figureStyle ? parseFloat(figureStyle.height) : SLIDE_CAPTION_SIZE;
+      carousel.style.height = `${bodyHeight + figureHeight + 32}px`;
+    });    
+  }   
 }
 
 /**
@@ -293,6 +296,9 @@ function startAutoScroll(block) {
 export default function decorate(block) {
   const carousel = document.createElement('div');
   carousel.classList.add('carousel-slide-container');
+  if (block.classList.contains('image-carousel-full-width')) {
+    carouselType = 'image-carousel-full-width'
+  }
 
   // make carousel draggable
   let isDown = false;
