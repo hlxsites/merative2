@@ -77,7 +77,7 @@
     display: inline-block;
     content: '';
     margin-left: 24px;
-    vertical-align: middle;
+    vertical-align: sub;
     width: 20px;
     height: 20px;
     background: url('../../icons/arrow-white.svg') no-repeat right center;
@@ -90,7 +90,7 @@
 
 @media only screen and (min-width: 768px) {
     .section.cta-container .cta.block p {
-        width: 375px;
+        width: 80vw;
         margin: 0 auto;
     }
 }

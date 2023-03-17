@@ -190,16 +190,22 @@ export default function decorate(block) {
       const readtimeMeta = getMetadata('readtime');
       // get audience and topic tags from page metadata
       let tags = [];
-      const audience = getMetadata('audience');
-      if (audience) {
-        const audiences = audience.split(',');
-        tags = tags.concat(audiences);
+      const documenttags = getMetadata('documenttags');
+      if (documenttags) {
+        tags = documenttags.split(',');
       }
-      const topic = getMetadata('topic');
-      if (topic) {
-        const topics = topic.split(',');
-        tags = tags.concat(topics);
-      }
+
+      // const audience = getMetadata('audience');
+      // if (audience) {
+      //   const audiences = audience.split(',');
+      //   tags = tags.concat(audiences);
+      // }
+      // const topic = getMetadata('topic');
+      // if (topic) {
+      //   const topics = topic.split(',');
+      //   tags = tags.concat(topics);
+      // }
+
       if (tags.length > 0) {
         const docTagContainer = createTag('div', { class: 'document-tag-container' });
         tags.forEach((tag) => {

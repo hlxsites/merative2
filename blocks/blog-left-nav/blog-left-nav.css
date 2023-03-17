@@ -20,12 +20,12 @@ html {
     background: url("../../icons/linkedin-black.svg") no-repeat center;
     border-radius: 100px;
     display: inline-flex;
-    height: 40px;
+    height: 32px;
     justify-content: center;
     align-content: center;
-    width: 40px;
+    width: 32px;
     border: 1px solid var(--neutral-sand);
-    background-size: 20px 20px;
+    background-size: 16.6px 15.86px;
 }
 
 .blog-left-nav[data-block-status="loaded"] .social-share-links .social-share-linkedin:hover {
@@ -37,12 +37,12 @@ html {
     background: url("../../icons/twitter-black.svg") no-repeat center;
     border-radius: 100px;
     display: inline-flex;
-    height: 40px;
+    height: 32px;
     justify-content: center;
     align-content: center;
-    width: 40px;
+    width: 32px;
     border: 1px solid var(--neutral-sand);
-    background-size: 20px 20px;
+    background-size: 16.13px 13.11px;
 }
 
 .blog-left-nav[data-block-status="loaded"] .social-share-links .social-share-twitter:hover {
@@ -54,12 +54,12 @@ html {
     background: url("../../icons/facebook-black.svg") no-repeat center;
     border-radius: 100px;
     display: inline-flex;
-    height: 40px;
+    height: 32px;
     justify-content: center;
     align-content: center;
-    width: 40px;
+    width: 32px;
     border: 1px solid var(--neutral-sand);
-    background-size: 20px 20px;
+    background-size: 8.8px 17.6px;
 }
 
 .blog-left-nav[data-block-status="loaded"] .social-share-links .social-share-facebook:hover {
@@ -71,12 +71,12 @@ html {
     background: url("../../icons/sharelink-black.svg") no-repeat center;
     border-radius: 100px;
     display: inline-flex;
-    height: 40px;
+    height: 32px;
     justify-content: center;
     align-content: center;
-    width: 40px;
+    width: 32px;
     border: 1px solid var(--neutral-sand);
-    background-size: 20px 20px;
+    background-size: 19.2px 19.2px;
 }
 
 .blog-left-nav[data-block-status="loaded"] .social-share-links .social-share-share:hover {
@@ -86,8 +86,8 @@ html {
 .blog-left-nav[data-block-status="loaded"] .social-share-links::before,
 .blog-left-nav[data-block-status="loaded"] .blog-content-links::before {
     font-family: var(--sans-serif-font-medium);
-    font-weight: 500;
-    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-11);
     line-height: var(--line-height-120);
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -132,8 +132,16 @@ html {
     border-image: linear-gradient(180deg, #90f, #fa1e32) 0 1;
     border-style: solid;
     border-width: 5px 0 5px 5px;
+    left: var(--spacer-element-05);
+    position: relative;
 }
 
+
+.blog-left-nav .content-link:hover, .blog-left-nav .content-link.active:hover  {
+    text-decoration-line: underline;
+    text-decoration-color: var(--primary-purple);
+    text-decoration-thickness: 3px;
+}
 
 @media only screen and (min-width: 1200px) {
     .article-main-wrapper {
@@ -171,6 +179,36 @@ html {
         flex: 1 0 100%;
     }
 
+    .blog-left-nav[data-block-status="loaded"] .social-share-links .social-share-linkedin,
+    .blog-left-nav[data-block-status="loaded"] .social-share-links .social-share-twitter,
+    .blog-left-nav[data-block-status="loaded"] .social-share-links .social-share-facebook,
+    .blog-left-nav[data-block-status="loaded"] .social-share-links .social-share-share{
+        margin : var(--spacer-element-07) var(--spacer-element-05) 0 0 ;
+        width: 40px;
+        height: 40px;
+        }
+
+    .blog-left-nav[data-block-status="loaded"] .social-share-links::before,
+    .blog-left-nav[data-block-status="loaded"] .blog-content-links::before {   
+        font-size: var(--font-size-14);
+        }
+        
+        .blog-left-nav[data-block-status="loaded"] .social-share-links .social-share-linkedin {
+            background-size: 20.37px 20.97px;
+        }
+        
+        .blog-left-nav[data-block-status="loaded"] .social-share-links .social-share-twitter {
+            background-size: 20.16px 16.38px;
+        }
+
+        .blog-left-nav[data-block-status="loaded"] .social-share-links .social-share-facebook {
+            background-size: 11px 22px;
+        }
+        
+        .blog-left-nav[data-block-status="loaded"] .social-share-links .social-share-share {
+            background-size: 24px 24px;
+        }
+
     .scroll-margin {
         scroll-margin-top: 100px;
     }
@@ -201,12 +239,8 @@ html {
         display: none;
     }
 
-    .social-share-links::before {
-        font-size: 11px;
-    }
-
-    .blog-content-links::before {
-        font-size: 11px;
+    .social-share-links::before, .blog-content-links::before {
+        font-size: 14px;
     }
 
     .blog-left-nav.block {

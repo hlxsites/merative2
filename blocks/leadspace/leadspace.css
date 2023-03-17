@@ -16,7 +16,7 @@ main div.leadspace-wrapper {
     padding: 0 var(--spacer-layout-02) 0;
 }
 
-.leadspace:not(.document) > div {
+.leadspace:not(.document) > div:first-child {
     width: 100%;
     display: flex;
     flex-flow: column;
@@ -30,11 +30,11 @@ main div.leadspace-wrapper {
 
 /* Column Specific Styles */
 /* stylelint-disable-next-line no-descending-specificity */
-.leadspace > div > div {
+.leadspace > div:first-child > div {
     position: relative;
 }
 
-.leadspace:not(.document) > div > div:nth-child(1) {
+.leadspace:not(.document) > div:first-child > div:nth-child(1) {
     margin: auto;
 }
 
@@ -80,7 +80,7 @@ main div.leadspace-wrapper {
 }
 
 /* Eyebrow */
-.leadspace > div > div:nth-child(1) > p:first-child {
+.leadspace > div:first-child > div:nth-child(1) > p:first-child {
     font-family: var(--sans-serif-font-medium);
     font-size: var(--font-size-11);
     text-transform: uppercase;
@@ -89,25 +89,25 @@ main div.leadspace-wrapper {
 }
 
 /* Heading */
-.leadspace > div > div:nth-child(1) > h1 {
+.leadspace > div:first-child > div:nth-child(1) > h1 {
     margin: var(--spacer-layout-02) 0 var(--spacer-layout-01) 0;
 }
 
 /* Image/Video */
 /* stylelint-disable-next-line no-descending-specificity */
-.leadspace > div > div:nth-child(2) {
+.leadspace > div:first-child > div:nth-child(2) {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
 }
 
 /* Image Variants */
-.leadspace > div > div:nth-child(2) picture {
+.leadspace > div:first-child > div:nth-child(2) picture {
     display: inline-block;
     align-self: flex-end;
 }
 
-.leadspace > div > div:nth-child(2) picture img {
+.leadspace > div:first-child > div:nth-child(2) picture img {
     margin-bottom: -4px;
 }
 
@@ -307,20 +307,20 @@ main div.leadspace-wrapper {
         padding: 0 var(--spacer-layout-036) 0;
     }
 
-    .leadspace > div {
+    .leadspace:not(.document) > div:first-child {
         flex-flow: row nowrap;
         justify-content: stretch;
     }
 
-    .leadspace:not(.document) > div > div {
+    .leadspace:not(.document) > div:first-child > div {
         width: 50%;
     }
 
-    .leadspace:not(.document) > div > div:nth-child(1) > p:last-of-type {
+    .leadspace:not(.document) > div:first-child > div:nth-child(1) > p:last-of-type {
         max-width: 420px;
     }
 
-    .leadspace > div > div:nth-child(2) {
+    .leadspace > div:first-child > div:nth-child(2) {
         display: flex;
         flex-direction: column;
         justify-content: unset;
@@ -367,15 +367,15 @@ main div.leadspace-wrapper {
         padding-top: var(--spacer-layout-06);
     }
 
-    .leadspace > div {
+    .leadspace > div:first-child {
         flex-flow: row nowrap;
     }
 
-    .leadspace > div > div:nth-child(1) > p:first-child {
+    .leadspace > div:first-child > div:nth-child(1) > p:first-child {
         font-size: var(--font-size-14);
     }
 
-    .leadspace > div > div:nth-child(1) > h1 {
+    .leadspace > div:first-child > div:nth-child(1) > h1 {
         margin: var(--spacer-layout-03) 0 var(--spacer-layout-02) 0;
     }
 

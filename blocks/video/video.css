@@ -7,6 +7,11 @@
     color: var(--neutral-white);
 }
 
+.video.block > div:not(.video-modal) > div:only-child {
+    background-color: unset;
+    border-radius: 20px;
+}
+
 .video.block.dark > div:not(.video-modal) > div {
     background-color: var(--neutral-carbon);
 }

@@ -41,3 +41,10 @@ if (otId) {
   };
 }
 // OneTrust Cookies Consent Notice end
+
+// YouTube API (only when page includes a YouTube video)
+if (document.querySelector('[data-ytid]')) {
+  loadScript('https://www.youtube.com/iframe_api', {
+    type: 'text/javascript',
+  });
+}

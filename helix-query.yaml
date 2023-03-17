@@ -118,3 +118,9 @@ indices:
       documentLink:
         select: head > meta[name="document-link"]
         value: attribute(el, "content")
+      documentTags:
+        select: head > meta[name="documenttags"]
+        value: attribute(el, "content")
+      assetType:
+        select: head > meta[name="assettype"]
+        value: attribute(el, "content")

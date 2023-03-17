@@ -1,6 +1,6 @@
 .section.blog-breadcrumb-container {
-    padding-top: 0;
-    padding-bottom: 12px;
+    padding-top: var(--spacer-layout-03);
+    padding-bottom: var(--spacer-layout-01);
 }
 
 .section.blog-breadcrumb-container .breadcrumb-navigation {
@@ -31,8 +31,12 @@
 }
 
 .breadcrumb-navigation li::after {
-    padding: 0 10px;
-    content: ">";
+    padding: 0 10px 0 0;
+    content: "";
+    background: url('../../icons/arrow-breadcrumb.svg') no-repeat;
+    top: 4px;
+    position: relative;
+    margin: 0 16px 0 10px;
 }
 
 .breadcrumb-navigation li:hover::after {
@@ -44,14 +48,14 @@
         padding: 0 0 10px;
     } */
     .section.blog-breadcrumb-container {
-        padding-top: 32px;
+        padding-top: var(--spacer-layout-03);
     }
 }
 
 
 @media only screen and (min-width: 1200px){
     .section.blog-breadcrumb-container {
-        padding-top: 50px;
-        padding-bottom: 42px;
+        padding-top: var(--spacer-layout-04);
+        padding-bottom: var(--spacer-element-05);
     }
 }

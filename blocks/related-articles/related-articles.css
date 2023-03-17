@@ -50,6 +50,8 @@
     position: relative;
     background-color: #fff;
     height: 100%;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .related-articles[data-block-status="loaded"] > div:hover {
@@ -85,6 +87,11 @@
     text-decoration: none;
     font-weight: 400;
     color: inherit;
+    font-family: var(--sans-serif-font-regular);
+    font-style: var(--font-weight-medium);
+    font-size: var(--font-size-16);
+    line-height: var(--line-height-160);
+    letter-spacing: var(--letter-spacing-001-em);
 }
 
 .related-articles[data-block-status="loaded"] > .blog-card > .card-content {
@@ -93,6 +100,11 @@
 
 .related-articles[data-block-status="loaded"] > .blog-card > .card-content > p {
     margin: var(--spacer-element-03) 0 var(--spacer-element-07);
+    font-family: var(--sans-serif-font-light    );
+    font-style: var(--font-weight-light);
+    font-size: var(--font-size-16);
+    line-height: var(--line-height-160);
+    letter-spacing: var(--letter-spacing-001-em);
 }
 
 .related-articles[data-block-status="loaded"] > .blog-card > .card-content > .blog-author {
@@ -101,9 +113,10 @@
 }
 
 .related-articles[data-block-status="loaded"] > .blog-card > .card-content > .blog-category:not(:empty) {
-    font-size: 14px;
-    letter-spacing: .16px;
-    background-color: #fff;
+    font-size: var(--font-size-16);
+    letter-spacing: var(--letter-spacing-001-em);
+    line-height: var(--line-height-160);
+    background-color: var(--neutral-white);
     opacity: 0.85;
     border-radius: 100px;
     left: var(--spacer-element-05);
