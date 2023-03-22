@@ -7,7 +7,7 @@
 
 .accordion-container p {
     margin: 24px 0;
-    font-size: 16px;
+    font-size: var(--font-size-16);
     letter-spacing: .01em;
     line-height: 160%;
     font-weight: 300;
@@ -78,7 +78,7 @@
     margin: 20px 0;
 }
 
-.accordion-item.accordion-item-open::before {  
+.accordion-item.accordion-item-open::before {
     height: 5px;
 }
 
@@ -88,7 +88,7 @@
     transition: all .5s ease-out;
     display: block;
     right: 0;
-    top: calc(50% - 11px); 
+    top: calc(50% - 11px);
     height: 16px;
     background: url('../../icons/arrow-down-purple.svg') no-repeat;
 }
@@ -103,7 +103,7 @@
     color: var(--neutral-white);
 }
 
-.accordion.accordion-purple .accordion-item.accordion-item-open::before {  
+.accordion.accordion-purple .accordion-item.accordion-item-open::before {
     height: 5px;
     background-image: var(--gradient-left-right);
 }

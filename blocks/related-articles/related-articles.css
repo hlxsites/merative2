@@ -22,7 +22,7 @@
 .related-articles-container[data-section-status="loaded"] > .default-content-wrapper h2{
     font-family: var(--sans-serif-font-medium);
     font-weight: var(--font-weight-medium);
-    font-size: 11px;
+    font-size: var(--font-size-11);
     line-height: var(--line-height-120);
     color: var(--primary-black);
     letter-spacing: var(--letter-spacing-02-em);
@@ -48,7 +48,7 @@
 
 .related-articles[data-block-status="loaded"] > .blog-card {
     position: relative;
-    background-color: #fff;
+    background-color: var(--neutral-white);
     height: 100%;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -108,7 +108,7 @@
 }
 
 .related-articles[data-block-status="loaded"] > .blog-card > .card-content > .blog-author {
-    font-size: 12px;
+    font-size: var(--font-size-12);
     font-family: var(--sans-serif-font-light);
 }
 

@@ -25,7 +25,7 @@ main .section {
 .blog-home[data-block-status="loaded"] > .blog-content > .blog-cards {
     position: relative;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: flex-start;
 
     /* padding-top: var(--spacer-layout-03); */
@@ -64,7 +64,7 @@ main .section {
     font-size: var(--font-size-16);
     letter-spacing: var(--letter-spacing-1);
     line-height: var(--line-height-120);
-    color: #fff;
+    color: var(--neutral-white);
     text-align: center;
     cursor: pointer;
 }
@@ -143,21 +143,21 @@ main .section {
 }
 
 .blog-home > .blog-content > .blog-cards > .blog-card > .card-content p {
-    font-size: 16px;
+    font-size: var(--font-size-16);
     margin: var(--spacer-element-03) 0 var(--spacer-element-08);
 }
 
 .blog-home > .blog-content > .blog-cards > .blog-card > .card-content > .blog-author {
-    font-size: 12px;
+    font-size: var(--font-size-12);
     font-family: var(--sans-serif-font-light);
 }
 
 .blog-home > .blog-content > .blog-cards > .blog-card > .card-content > .blog-category:not(:empty) {
-    font-size: 16px;
+    font-size: var(--font-size-16);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-160);
     letter-spacing: var(--letter-spacing-1);
-    background-color: #fff;
+    background-color: var(--neutral-white);
     opacity: 0.85;
     border-radius: 100px;
     left: var(--spacer-element-05);
@@ -185,23 +185,23 @@ main .section {
         background-color: var(--neutral-white);
         margin-right: -2px;
     }
-    
+
 
 .blog-home[data-block-status="loaded"] .filters[aria-expanded="true"] {
-    position: fixed;    
+    position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    background-color: var(--neutral-white);
     margin-bottom: 48px;
     padding: 24px 24px 0;
     z-index: 100000;
 }
 
-.blog-home[data-block-status="loaded"] .filters[aria-expanded="true"] > .filters-footer, 
+.blog-home[data-block-status="loaded"] .filters[aria-expanded="true"] > .filters-footer,
 .blog-home[data-block-status="loaded"] .filters[aria-expanded="true"] > .filters-main {
     display: unset;
 }
@@ -213,7 +213,7 @@ main .section {
     align-items: center;
     padding: 8px 0 32px;
     width: auto;
-    background-color: #fff;
+    background-color: var(--neutral-white);
     z-index: 1000000;
 }
 
@@ -267,8 +267,8 @@ main .section {
 .blog-home[data-block-status="loaded"] .filters[aria-expanded="true"] > .filters-footer {
     display: flex;
     align-items: center;
-    background-color: #fff;
-    border-top: 1px solid #e7e2da;
+    background-color: var(--neutral-white);
+    border-top: 1px solid var(--neutral-sand);
     bottom: 0;
     justify-content: space-between;
     left: 0;
@@ -280,7 +280,7 @@ main .section {
 .blog-home .filters[aria-expanded="true"] > .filters-footer > div {
     position: relative;
     font-family: var(--sans-serif-font-medium);
-    font-size: 18px;
+    font-size: var(--font-size-18);
     letter-spacing: .16px;
     line-height: 160%;
     background-color: transparent;
@@ -343,7 +343,7 @@ main .section {
 
 .blog-home .filters label {
     padding-left: var(--spacer-element-04);
-    font-weight: var(--font-weight-light);        
+    font-weight: var(--font-weight-light);
 }
 
 .blog-home .filters label,
@@ -362,7 +362,7 @@ main .section {
 .blog-home[data-block-status="loaded"] .filters a.category-link, .blog-home .filters a.category-link.active {
     display: block;
     padding-bottom: var(--spacer-element-05);
-    
+
     /* padding-top: 4px; */
 }
 
@@ -382,7 +382,7 @@ main .section {
     border-width: 0 0 0 4px;
     height:32px;
     padding-left: var(--spacer-layout-01);
-    
+
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
@@ -398,7 +398,7 @@ main .section {
 .blog-home[data-block-status="loaded"] .filters > .filters-main > div > div {
     display:flex;
     flex-direction: row;
-    align-items:center; 
+    align-items:center;
     padding-bottom: var(--spacer-element-03);;
 }
 
@@ -419,16 +419,16 @@ main .section {
 
 
 .blog-home .filters input {
-    border: 1px solid #20201f;
+    border: 1px solid var(--neutral-carbon);
     border-radius: 1px;
     height: 16.5px;
     width: 16.5px;
-} 
+}
 
 .blog-home .filters input:checked {
-    border: 1px solid #20201f;
+    border: 1px solid var(--neutral-carbon);
     accent-color: var(--neutral-carbon);
-} 
+}
 
 /* Selected filters */
 .blog-home[data-block-status="loaded"] .selected-filters-list {
@@ -463,7 +463,7 @@ main .section {
 /* Tablet small and large styles */
 @media only screen and (min-width: 768px) {
     main .section {
-        padding-top: unset;       
+        padding-top: unset;
     }
 
 
@@ -490,7 +490,7 @@ main .section {
     .blog-home > .blog-content > .blog-cards > .blog-card.featured-article {
         width: 695px;
     }
-    
+
     .blog-home > .blog-content > .blog-cards > .blog-card.featured-article {
         border-radius: 10px;
     }
@@ -523,7 +523,7 @@ main .section {
     }
 
     .blog-home > .blog-content > .blog-cards > .blog-card > .card-content a {
-        font-size: 16px;
+        font-size: var(--font-size-16);
         font-family: var(--sans-serif-font-regular);
         font-style: regular;
         font-weight: var(--font-weight-regular);
@@ -532,7 +532,7 @@ main .section {
     }
 
     .blog-home > .blog-content > .blog-cards > .blog-card.featured-article > .card-content a {
-        font-size: 18px;
+        font-size: var(--font-size-18);
         font-family: var(--sans-serif-font-light);
     }
 
@@ -559,7 +559,7 @@ main .section {
     }
 
     .blog-home .filters[aria-expanded="true"]::after {
-        background-color: #faf8f6;
+        background-color: var(--neutral-bone);
         content: '';
         height: 100%;
         left: 387px;
@@ -582,7 +582,7 @@ main .section {
 
     .blog-home > .blog-content > .blog-cards > .blog-card.featured-article > .card-content p {
         margin: var(--spacer-element-03) 0 var(--spacer-element-10);
-        font-size: 16px;
+        font-size: var(--font-size-16);
     }
 
     .blog-home[data-block-status="loaded"] > .blog-content > .load-more {
@@ -597,15 +597,15 @@ main .section {
     main .section {
         padding-top: 96px;
     }
-    
+
     .blog-home-container {
         padding: var(--spacer-layout-06) var(--spacer-layout-156) 0 var(--spacer-layout-156);
     }
-    
+
     .blog-home .blog-content {
         padding: unset;
     }
-    
+
     .blog-home > .blog-content,
     .blog-home > .blog-content > .blog-cards,
     .blog-home > .blog-content > .blog-cards > .blog-card.featured-article {
@@ -624,7 +624,7 @@ main .section {
     .blog-home[data-block-status="loaded"] .blog-content {
         display: grid;
         grid-template-columns: 1fr 3fr;
-        grid-template-areas: 
+        grid-template-areas:
             "leftnav defaultcontent"
             "leftnav selectedfilters"
             "leftnav cards"
@@ -650,7 +650,7 @@ main .section {
         grid-area: leftnav;
     }
 
-    
+
     .blog-home[data-block-status="loaded"] .filters[aria-expanded="false"] > .filters-header,
     .blog-home[data-block-status="loaded"] .filters[aria-expanded="false"] > .filters-footer {
         display: none;
@@ -659,13 +659,13 @@ main .section {
     .blog-home[data-block-status="loaded"] .filters[aria-expanded="false"] > .filters-main {
         display: flex;
         flex-direction: column;
-        
+
     }
 
     .blog-home[data-block-status="loaded"] .filters a.category-link, .blog-home .filters a.category-link.active {
         padding-bottom: var(--spacer-element-03);
     }
-    
+
 
     .blog-home[data-block-status="loaded"] .filters .blog-home-link a.category-link {
         font-size: var(--font-size-21);
@@ -785,8 +785,8 @@ main .section {
         font-family: var(--sans-serif-font-medium);
         float: right;
         text-decoration: underline;
-    }    
-    
+    }
+
     .blog-home .selected-filters-title > h4{
         height: 34px;
         width: 194px;
@@ -799,7 +799,7 @@ main .section {
         border: 1px solid var(--neutral-sand);
         border-radius: 100px;
     }
-    
+
     .blog-home .selected-filters .selected-value:not(:empty)::after {
         content: '';
         position: absolute;

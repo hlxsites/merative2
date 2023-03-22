@@ -7,8 +7,8 @@
     grid-gap: 16px;
 }
 
-.cards>ul>li {
-    border: 1px solid var(--highlight-background-color);
+.cards > ul > li {
+    border: 1px solid var(--neutral-sand);
     background-color: var(--neutral-bone)
 }
 
@@ -20,11 +20,11 @@
     line-height: 0;
 }
 
-.cards .cards-card-body>*:first-child {
+.cards .cards-card-body > *:first-child {
     margin-top: 0;
 }
 
-.cards>ul>li img {
+.cards ul > li img {
     width: 100%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
@@ -32,7 +32,7 @@
 
 /* changes for news card */
 
-.cards.newscard>ul {
+.cards.newscard > ul {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -43,19 +43,16 @@
 }
 
 .cards.newscard .cards-card-body::before {
-    font-size: 32px;
-    font-family: 'Alliance Medium', sans-serif;
+    font-size: var(--font-size-11);
     letter-spacing: 3.2px;
-    line-height: 120%;
     content: "NEWS";
-    color: #20201f;
-    padding-top: 50px;
+    padding-top: var(--spacer-element-10);
+    font-family: var(--sans-serif-font-medium);
 }
 
-.cards.newscard>ul>li {
-    background-color: var(--neutral-bone);
+.cards.newscard > ul > li {
     border: 0;
-    display: grid;
+    display: flex;
 
 }
 
@@ -72,23 +69,12 @@
 }
 
 .cards.newscard .cards-card-body h2 {
-    display: block;
-    font-size: 45px;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-    font-family: 'Source Serif4 Light', sans-serif;
-    color: #20201f;
-    line-height: 120%;
-    font-style: normal;
-    font-weight: 300;
     padding-top: 25px;
 }
 
 .cards.newscard .cards-card-body a {
-    font-family: 'Alliance Medium', sans-serif;
-    font-size: 16px;
+    font-family: var(--sans-serif-font-medium);
+    font-size: var(--font-size-16);
     letter-spacing: .16px;
     line-height: 120%;
     border-bottom: 2px solid #90f;
@@ -111,38 +97,10 @@
     padding-right: 0;
 }
 
-@media (min-width: 900px) {
-    .cards.newscard>ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: row-reverse;
-        align-items: center;
-        grid-gap: 16px;
-    }
-
-    .cards.newscard .cards-card-body::before {
-        font-size: 15px;
-        font-family: 'Alliance Medium', sans-serif;
-        letter-spacing: 3.2px;
-        line-height: 120%;
-        content: "NEWS";
-        color: #20201f;
-        padding-top: 50px;
-    }
-
-    .cards.newscard>ul>li {
-        background-color: var(--neutral-bone);
-        border: 0;
-        display: grid;
-        grid-template-columns: 33% 67%;
-        grid-gap: 165px;
-    }
-
-    .cards.newscard .cards-card-body {
-        margin: 16px;
-        width: 482px;
+@media (min-width: 768px) {
+    .cards.newscard > ul > li {
+        gap:32px;
+        margin: 32px 0 ;
     }
 
     .cards.newscard .cards-card-image {
@@ -150,59 +108,37 @@
         display: block;
     }
 
-    .cards.newscard .cards-card-body>*:first-child {
+    .cards.newscard .cards-card-body > *:first-child {
         margin-top: 0;
     }
 
-    .cards.newscard>ul>li img {
+    .cards.newscard > ul > li img {
         border-radius: 0 90% 0 0;
         object-fit: cover;
         aspect-ratio: 1 / 1;
+        height: 338px;
+        width: 338px;
+        max-width: 338px;
     }
 
     .cards.newscard .cards-card-body h2 {
         display: block;
-        font-size: 45px;
+        font-size: 32px;
         margin-block-start: 0.83em;
         margin-block-end: 0.83em;
         margin-inline-start: 0;
         margin-inline-end: 0;
-        font-family: 'Source Serif4 Light', sans-serif;
-        color: #20201f;
+        font-family: var(--serif-font);
+        color: var(--neutral-carbon);
         line-height: 120%;
         font-style: normal;
         font-weight: 300;
         padding-top: 25px;
-    }
-
-    .cards.newscard .cards-card-body a {
-        font-family: 'Alliance Medium', sans-serif;
-        font-size: 16px;
-        letter-spacing: .16px;
-        line-height: 120%;
-        border-bottom: 2px solid #90f;
-        border-radius: 0;
-        color: #90f;
-        display: inline-block;
-        background: none;
-        text-align: left;
-        padding-left: 0;
-        text-decoration: none;
-    }
-
-    .cards.newscard .cards-card-body a::after {
-        background-image: url('./../../icons/external-arrow-purple.svg');
-        content: "";
-        display: inline-block;
-        height: 10px;
-        margin-left: 8px;
-        width: 10px;
-        padding-right: 0;
     }
 }
 
 @media (min-width: 1200px) {
-    .cards.newscard>ul {
+    .cards.newscard > ul {
         list-style: none;
         margin: 0;
         padding: 0;
@@ -212,27 +148,12 @@
         grid-gap: 16px;
     }
 
+    .cards.newscard > ul > li {
+        gap: var(--spacer-layout-06);
+    }
+
     .cards.newscard .cards-card-body::before {
-        font-size: 15px;
-        font-family: 'Alliance Medium', sans-serif;
-        letter-spacing: 3.2px;
-        line-height: 120%;
-        content: "NEWS";
-        color: #20201f;
-        padding-top: 50px;
-    }
-
-    .cards.newscard>ul>li {
-        background-color: var(--neutral-bone);
-        border: 0;
-        display: grid;
-        grid-template-columns: 33% 67%;
-        grid-gap: 165px;
-    }
-
-    .cards.newscard .cards-card-body {
-        margin: 16px;
-        width: 582px;
+        font-size: var(--font-size-14);
     }
 
     .cards.newscard .cards-card-image {
@@ -241,52 +162,17 @@
         aspect-ratio: 1 / 1;
     }
 
-    .cards.newscard .cards-card-body>*:first-child {
+    .cards.newscard .cards-card-body > *:first-child {
         margin-top: 0;
     }
 
-    .cards.newscard>ul>li img {
-        border-radius: 0 90% 0 0;
-        object-fit: cover;
+    .cards.newscard > ul > li img {
+        height: 555px;
+        width: 555px;
+        max-width: 555px;
     }
 
     .cards.newscard .cards-card-body h2 {
-        display: block;
         font-size: 45px;
-        margin-block-start: 0.83em;
-        margin-block-end: 0.83em;
-        margin-inline-start: 0;
-        margin-inline-end: 0;
-        font-family: 'Source Serif4 Light', sans-serif;
-        color: #20201f;
-        line-height: 120%;
-        font-style: normal;
-        font-weight: 300;
-        padding-top: 25px;
-    }
-
-    .cards.newscard .cards-card-body a {
-        font-family: 'Alliance Medium', sans-serif;
-        font-size: 16px;
-        letter-spacing: .16px;
-        line-height: 120%;
-        border-bottom: 2px solid #90f;
-        border-radius: 0;
-        color: #90f;
-        display: inline-block;
-        background: none;
-        text-align: left;
-        padding-left: 0;
-        text-decoration: none;
-    }
-
-    .cards.newscard .cards-card-body a::after {
-        background-image: url('./../../icons/external-arrow-purple.svg');
-        content: "";
-        display: inline-block;
-        height: 10px;
-        margin-left: 8px;
-        width: 10px;
-        padding-right: 0;
     }
 }

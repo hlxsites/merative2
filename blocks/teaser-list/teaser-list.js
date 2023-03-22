@@ -6,10 +6,10 @@ function createCard(row, style) {
   const link = document.createElement('a');
   link.classList.add('teaser-link');
   link.href = row.path;
-  if (row['teaser-link-text']) {
+  if (row['teaser-link-text'] && row['teaser-link-text'] !== '0') {
     link.innerText = row['teaser-link-text'];
   } else {
-    link.innerText = 'Explore Solutions';
+    link.innerText = 'Learn more about';
   }
   if (row.title) card.innerHTML += `<h6>${row.title}</h6>`;
   if (row.description) card.innerHTML += `<p>${row.description}</p>`;

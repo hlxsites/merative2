@@ -50,7 +50,7 @@ header .nav-brand a span.icon-merative-mark {
 
 /* sections */
 header nav .nav-sections ul {
-  font-size: 16px;
+  font-size: var(--font-size-16);
   font-weight: 400;
   list-style: none;
   padding-left: 0;
@@ -60,7 +60,7 @@ header nav .nav-sections ul {
 }
 
 header nav .nav-sections>ul>li {
-  font-size: 16px;
+  font-size: var(--font-size-16);
   letter-spacing: .01em;
   line-height: 160%;
   font-weight: 500;
@@ -77,7 +77,7 @@ header nav .nav-sections>ul>li {
   }
 
 
-  
+
 }
 
 
@@ -112,13 +112,13 @@ header nav .nav-sections>ul>li {
   header .nav-brand > p{
     margin: var(--spacer-element-07) 0 var(--spacer-element-07);
   }
-  
+
 
   /* hamburger */
   header nav>.nav-hamburger {
     height: 40px;
     width: 40px;
-    
+
     /* padding-top: 3px; */
     cursor: pointer;
   }
@@ -266,7 +266,7 @@ header nav .nav-sections>ul>li {
   header.is-sticky nav {
     height: var(--sticky-nav-height);
   }
-  
+
   header nav .nav-hamburger {
     display: none;
   }
@@ -306,9 +306,9 @@ header nav .nav-sections>ul>li {
 
   header nav .nav-tools p {
     margin: 0;
-    font-size: 18px;
+    font-size: var(--font-size-18);
   }
-  
+
   header nav .nav-tools h2 {
     font-size: unset;
   }
@@ -318,7 +318,7 @@ header nav .nav-sections>ul>li {
     padding-right: 25px;
     background: url('../../icons/envelope-icon.svg') no-repeat right center;
     font-family: var(--sans-serif-font-medium);
-    font-size: 16px;
+    font-size: var(--font-size-16);
     font-weight: 400;
     list-style: none;
     padding-left: 0;
@@ -372,7 +372,7 @@ header nav .nav-sections>ul>li {
   /* stylelint-disable-next-line no-descending-specificity */
   header nav .nav-sections > ul > li {
     margin-right: 27px;
-    font-size: 16px;
+    font-size: var(--font-size-16);
     cursor: pointer;
     padding: 1.4rem 0;
   }
@@ -420,7 +420,7 @@ header nav .nav-sections>ul>li {
   header.is-sticky nav .nav-sections .nav-drop[aria-expanded='true'] .section-heading,
   header.is-sticky nav .nav-sections .nav-drop .section-heading:hover {
     padding-bottom: 23px;
-  } 
+  }
 
   header nav .nav-sections > ul > li > p {
     margin: 0;
@@ -442,7 +442,7 @@ header nav .nav-sections>ul>li {
 
   /* stylelint-disable-next-line no-descending-specificity */
   header nav .nav-sections > ul > li > ul > li {
-    font-size: 18px;
+    font-size: var(--font-size-18);
     padding: 8px 16px;
   }
 
@@ -456,8 +456,8 @@ header nav .nav-sections>ul>li {
     top: calc(var(--nav-height) + 37px);
     left: 0;
     justify-content: space-between;
-    padding-left: calc((100vw - var(--section-width-desktop))/2); 
-    padding-right: calc((100vw - var(--section-width-desktop))/2); 
+    padding-left: calc((100vw - var(--section-width-desktop))/2);
+    padding-right: calc((100vw - var(--section-width-desktop))/2);
     color: var(--neutral-carbon);
     height: 100vh;
     max-height: none;
@@ -486,7 +486,7 @@ header nav .nav-sections>ul>li {
   header.is-sticky nav .nav-sections > ul > li[aria-expanded='true'] > ul::before {
     top: calc(var(--nav-height) - 20px);
   }
-  
+
 
   header nav .nav-sections > ul > li[aria-expanded='true'] > ul::after {
     background-color: var(--neutral-carbon);
@@ -494,7 +494,7 @@ header nav .nav-sections>ul>li {
     height: 100vh;
     opacity: .5;
     position: absolute;
-    
+
     /* top: calc(var(--nav-height) + 37px); */
     width: 100vw;
     z-index: -2;
@@ -507,14 +507,14 @@ header nav .nav-sections>ul>li {
   header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.level-two {
     padding: 1% 0;
     width: 280px;
-   
-    
+
+
   }
 
   header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.level-two a {
     text-decoration: none;
     margin-bottom: 16px;
-    position: relative;   
+    position: relative;
   }
 
   header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.level-two:hover > a {
@@ -536,10 +536,10 @@ header nav .nav-sections>ul>li {
 
   header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.level-two:hover > a::after {
     opacity: 1;
-    transform: rotate(0);   
-    transition: transform .3s;  
+    transform: rotate(0);
+    transition: transform .3s;
   }
-  
+
   header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.level-two .level-three {
     font-family: var(--sans-serif-font-light);
     margin-top: 16px;

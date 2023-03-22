@@ -5,13 +5,13 @@ main .section.related-resources-container {
 /* Mobile styles and defaults */
 .related-resources-container {
     /* padding: 0 24px 64px; */
-    background: #FFF;
-    color: #20201F;
+    background: var(--neutral-white);
+    color: var(--neutral-carbon);
 }
 
 .related-resources-container.highlight {
     background: #7E00D3;
-    color: #FFF;
+    color: var(--neutral-white);
 }
 
 .related-resources-container .default-content-wrapper h5,
@@ -61,7 +61,7 @@ main .section.related-resources-container {
     flex: 0 0 70%;
     display: flex;
     flex-direction: column;
-    background: #FAF8F6;
+    background: var(--neutral-bone);
     border-radius: 10px;
     padding: 48px 24px 24px;
     gap: 24px;
@@ -78,7 +78,7 @@ main .section.related-resources-container {
 }
 
 .related-resources .document-card .document-category {
-    font-size: 11px;
+    font-size: var(--font-size-11);
 }
 
 .related-resources .document-card h3 {
@@ -86,7 +86,7 @@ main .section.related-resources-container {
 }
 
 .related-resources .document-card p {
-    font-size: 16px;
+    font-size: var(--font-size-16);
 }
 
 .related-resources > div:hover {
@@ -123,7 +123,7 @@ main .section.related-resources-container {
 
 .related-resources-container.highlight .related-resources a.document-link::before,
 .related-resources-container.highlight .related-resources a.document-link::after {
-    border: 2px solid #fff;
+    border: 2px solid var(--neutral-white);
 }
 
 .related-resources-container.highlight .related-resources a.document-link::after {
@@ -155,7 +155,7 @@ main .section.related-resources-container {
     /* Gap is 24px within the card except for the gap between
      * title and desc where it is 16px */
     .related-resources .document-card > p {
-        margin-top: -8px; 
+        margin-top: -8px;
     }
 }
 
@@ -186,12 +186,12 @@ main .section.related-resources-container {
         padding: 48px 24px 24px;
         gap: 24px;
     }
-    
+
     .related-resources .document-card .document-category {
-        font-size: 14px;
+        font-size: var(--font-size-14);
     }
 
     .related-resources .document-card h3 {
         font-size: 32px;
-    }    
+    }
 }

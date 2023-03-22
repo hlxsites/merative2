@@ -17,7 +17,7 @@
 .mktoForm .mktoFieldWrap .mktoHtmlText {
     color: var(--neutral-carbon) !important;
     font-family: var(--sans-serif-font-light) !important;
-    font-size: 12px !important;
+    font-size: var(--font-size-12) !important;
     letter-spacing: .01em !important;
     line-height: 160% !important;
     width: 100% !important
@@ -44,7 +44,7 @@
 .mktoForm .mktoFieldWrap .mktoHtmlText p {
     color: var(--neutral-carbon) !important;
     font-family: var(--sans-serif-font-light) !important;
-    font-size: 12px !important;
+    font-size: var(--font-size-12) !important;
     letter-spacing: .01em !important;
     line-height: 160% !important;
     width: 100% !important
@@ -61,7 +61,7 @@
 }
 
 .mktoForm div:first-of-type .mktoFormCol .mktoFieldWrap .mktoHtmlText {
-    font-size: 16px !important;
+    font-size: var(--font-size-16) !important;
     margin-bottom: 1rem !important
 }
 
@@ -71,7 +71,7 @@
 
 .mktoForm div:first-of-type .mktoFormCol .mktoFieldWrap .mktoHtmlText small {
     float: right;
-    font-size: 16px;
+    font-size: var(--font-size-16);
     margin-top: 37px;
     text-align: right !important
 }
@@ -83,17 +83,17 @@
     background: var(--primary-purple) !important;
     border: 0 !important;
     border-radius: 40px !important;
-    
+
     /* -webkit-box-sizing: border-box !important; */
     box-sizing: border-box !important;
-    color: #fff !important;
+    color: var(--neutral-white) !important;
     cursor: pointer !important;
-    
+
     /* display: -webkit-box !important;
     display: -ms-flexbox !important; */
     display: flex !important;
     font-family: var(--sans-serif-font-medium) !important;
-    font-size: 16px !important;
+    font-size: var(--font-size-16) !important;
     font-weight: 400 !important;
     -webkit-box-pack: justify !important;
     -ms-flex-pack: justify !important;
@@ -102,7 +102,7 @@
     margin: 37px 0;
     max-height: 62px !important;
     padding: 11px 16px 11px 24px !important;
-    
+
     /* -webkit-transition: all .4s ease-in-out !important; */
     transition: all .4s ease-in-out !important;
     width: auto !important
@@ -112,14 +112,14 @@
 .mktoForm .mktoButtonWrap .mktoButton:hover {
     /* background-image: -webkit-gradient(linear, right top, left top, from(#fa1e32), to(var(--primary-purple))) !important; */
     background-image: linear-gradient(270deg, #fa1e32, var(--primary-purple)) !important;
-    
+
     /* -webkit-transition: all .2s ease-in-out !important; */
     transition: all .2s ease-in-out !important
 }
 
 .mktoForm .mktoButtonWrap .mktoButton::after {
     background-size: contain !important;
-    color: #fff !important;
+    color: var(--neutral-white) !important;
     content: url('../../icons/arrow-white.svg') !important;
     height: 22px !important;
     width: 22px !important;
@@ -134,7 +134,7 @@
 .mktoForm .mktoLabel {
     color: var(--neutral-carbon) !important;
     font-family: var(--sans-serif-font-light) !important;
-    font-size: 16px !important;
+    font-size: var(--font-size-16) !important;
     font-weight: 400 !important;
     letter-spacing: .01em !important;
     line-height: 160% !important;
@@ -156,12 +156,12 @@
     /* -webkit-appearance: none !important;
     -moz-appearance: none !important; */
     appearance: none !important;
-    background: #faf8f6 !important;
+    background: var(--neutral-bone) !important;
     border-color: var(--neutral-carbon) !important;
     border-width: 0 0 1px !important;
     color: var(--neutral-carbon) !important;
     font-family: var(--sans-serif-font-light) !important;
-    font-size: 16px !important;
+    font-size: var(--font-size-16) !important;
     height: 43px !important;
     letter-spacing: .01em !important;
     line-height: 160% !important;
@@ -208,7 +208,7 @@
 .mktoForm select.mktoField option {
     color: var(--neutral-carbon) !important;
     font-family: var(--sans-serif-font-light) !important;
-    font-size: 16px !important;
+    font-size: var(--font-size-16) !important;
     letter-spacing: .16px;
     line-height: 160% !important
 }
@@ -247,12 +247,12 @@
     background-image: none !important;
     border: 0 !important;
     border-radius: none !important;
-    
+
     /* -webkit-box-shadow: none !important; */
     box-shadow: none !important;
     color: #d2192a !important;
     font-family: var(--sans-serif-font-light) !important;
-    font-size: 12px !important;
+    font-size: var(--font-size-12)!important;
     letter-spacing: .01em !important;
     line-height: 120% !important;
     margin-top: 0 !important;
@@ -318,7 +318,7 @@ input[type=radio] {
 .mktoForm select.mktoField[multiple] option {
     height: 26px !important;
     padding: 15px 16px !important;
-    
+
     /* display: -webkit-box !important;
     display: -ms-flexbox !important; */
     display: flex !important;
@@ -330,7 +330,7 @@ input[type=radio] {
 .mktoForm .mktoRadioList>label {
     color: var(--neutral-carbon) !important;
     font-family: var(--sans-serif-font-light) !important;
-    font-size: 16px !important;
+    font-size: var(--font-size-16) !important;
     letter-spacing: .16px;
     line-height: 160% !important
 }

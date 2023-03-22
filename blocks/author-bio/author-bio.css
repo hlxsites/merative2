@@ -16,7 +16,7 @@ main .author-bio img.author-img{
     width: 48px;
     border-radius: 50%;
     height: 48px;
-    border: 1px solid #E7E2DA;
+    border: 1px solid var(--neutral-sand);
 }
 
 @media only screen and (min-width: 1200px) {
