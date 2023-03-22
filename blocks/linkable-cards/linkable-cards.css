@@ -17,15 +17,62 @@
   background: #6400a6;
   border-radius: 10px;
   min-height: 372px;
-  min-width: 68vw;
+  min-width: 315px;
+  max-width: 360px;
+  margin-left: 5px;
+  margin-right: 5px;
   position: relative;
 }
+
+.linkable-cards > div::after {
+  content: "";
+    display: inline-block;
+    height: 55px;
+    right: 20px;
+    bottom: 20px;
+    position: absolute;
+    width: 55px;
+    background: url("../../icons/download-arrow-white.svg") no-repeat center;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+
+.linkable-cards.neutral-bone-style>div::after {
+  background: url("../../icons/download-arrow-purple.svg") no-repeat center;
+  border: 2px solid var(--primary-purple);
+}
+
+.linkable-cards>div:hover {
+  transition: all .2s ease-out;
+  box-shadow: 2px 4px 4px 2px rgb(0 0 0 / 15%);
+}
+
+.section .linkable-cards>div:hover::after {
+  cursor: pointer;
+  transition: all .2s ease-out;
+  background: url("../../icons/download-arrow-white.svg") no-repeat center, linear-gradient(270deg,#fa1e32,#90f); 
+}
+
+.linkable-cards.neutral-bone-style>div::after
+
+.neutral-bone-style .linkable-cards-container {
+  background-color: var(--neutral-bone);
+}
+
+.linkable-cards.neutral-bone-style>div {
+  background-color: var(--neutral-bone);
+  color: black;
+} 
 
 .linkable-cards > div > a {
   padding: 40px 23px 90px;
   display: block;
   text-decoration: none;
   color: var(--neutral-white);
+}
+
+.linkable-cards.neutral-bone-style>div a {
+  color: inherit;
 }
 
 .linkable-cards a:nth-child(1) > p:first-child {
@@ -44,21 +91,6 @@
   margin: 20px 0 25px;
 }
 
-.linkable-cards > div::after {
-  content: "";
-    display: inline-block;
-    height: 55px;
-    right: 20px;
-    bottom: 20px;
-    position: absolute;
-    width: 55px;
-    background: url("../../icons/download-arrow-white.svg") no-repeat center;
-    border: 2px solid var(--neutral-white);
-    border-radius: 50%;
-}
-
-@media only screen and (min-width: 768px) {
-  .linkable-cards > div {
-    min-width: 316px
-  }
+.linkable-cards.lc-static-style {
+  flex-wrap: wrap;
 }

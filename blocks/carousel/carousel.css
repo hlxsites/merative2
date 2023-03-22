@@ -97,6 +97,29 @@
     right: 0;
 }
 
+.carousel.image-carousel-full-width .carousel-slide {
+    width: auto;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.carousel.image-carousel-full-width .carousel-slide img {
+    max-width: inherit;
+}
+
+.carousel.image-carousel-full-width .carousel-slide-container {
+    max-width: 100%;
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap;
+}
+
+.carousel.image-carousel-full-width figure,
+.carousel.image-carousel-full-width .carousel-nav,
+.carousel.image-carousel-full-width .carousel-dots {
+    display: none;
+}
+
 .carousel ul.carousel-dots {
     width: 100%;
     left: 50%;
