@@ -169,30 +169,29 @@ main .section-bottom .columns-2-cols > div >:nth-child(2) p:nth-of-type(3)  {
         padding-right: var(--spacer-layout-06);
         width: 616px;
         }
-	
-	main .section-bottom .columns-2-cols > div > :nth-child(2) h1 {
+
+    main .section-bottom .columns-2-cols > div > :nth-child(2) h1 {
         font-family: var(--serif-font);
         margin: 40px 0 0;
         font-size: 128px;
         }
-	
-	.section-top-grid > div:nth-child(1) > div:nth-child(1) > p, .article-content-wrapper ul {
-    	font-family: var(--sans-serif-font-light);
-    	font-size: var(--font-size-21);
-    	font-weight: var(--font-weight-light);
-    	line-height: var(--line-height-160);
-    	letter-spacing: var(--letter-spacing-1);
-  		}
 
-	main .section-top-grid > div:nth-of-type(2) > div:nth-of-type(2) > h1,
-    main .section-top-grid > div:nth-of-type(2) > div:nth-of-type(2) > p {
+    .section-top-grid > div:nth-child(1) > div:nth-child(1), p, .article-content-wrapper ul {
+        font-family: var(--sans-serif-font-light);
+        font-size: var(--font-size-21);
+        font-weight: var(--font-weight-light);
+        line-height: var(--line-height-160);
+        letter-spacing: var(--letter-spacing-1);
+        }
+
+    main .section-top-grid > div:nth-of-type(2) > div:nth-of-type(2) > h1, main .section-top-grid > div:nth-of-type(2) > div:nth-of-type(2) > p {
         margin-left: var(--spacer-element-09);
         }
 
-	main .section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(1) {
-		font-size: var(--font-size-14);
-	    }
-	
+    main .section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(1) {
+        font-size: var(--font-size-14);
+        }
+
     main .section-top-grid > div:nth-of-type(2) > div:nth-of-type(2) {
         margin-left: var(--spacer-element-07);
         padding-top: var(--spacer-element-09);
