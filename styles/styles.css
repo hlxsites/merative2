@@ -276,6 +276,10 @@ main .section > div {
   margin: 0 auto;
   }
 
+main .columns-gap-50 > div {
+  gap: 50px
+}
+
 main .column-content-top-border div > div {
   margin-bottom: 32px;
   max-width: 350px;
@@ -300,6 +304,7 @@ main .columns.columns-gap-50 > div {
 
 main .padding-bottom-40 {
   padding-bottom: 40px;
+
 }
 
 main .padding-bottom-60 {
@@ -1035,6 +1040,15 @@ main .column-content-top-border > div > div::before {
 
   main .columns.row-header div > div > h2,
   main .section.section-header > div:nth-child(1) > h2 {
+    max-width: 60%;
+  }
+
+  main .section.leadership-content .columns > div {
+	align-items: normal;
+    flex-direction: unset;
+  }
+
+  main .section.section-header>div:nth-child(1)>h2 {
     max-width: 60%;
     }
 
