@@ -383,7 +383,7 @@ export async function createDocumentCard(row, style) {
 }
 
 /**
- * Gets details about blogs that are indexed
+ * Gets details about documents that are indexed
  * @param {Array} pathnames list of pathnames
  */
 
@@ -405,7 +405,15 @@ export async function lookupDocuments(pathnames) {
       lookup,
     };
   }
-  const result = pathnames.map((path) => window.documentIndex.lookup[path]).filter((e) => e);
+  const result = pathnames.map((path) => {
+    // path is not in the documentIndex (pdfs)
+    if (window.documentIndex.lookup[path] === undefined) {
+      return {
+        path,
+      };
+    }
+    return window.documentIndex.lookup[path];
+  });
   return (result);
 }
 

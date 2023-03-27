@@ -1,12 +1,58 @@
 import { lookupDocuments, createDocumentCard } from '../../scripts/scripts.js';
 
+async function setRowDetails(row, block) {
+  // Get the right element for this row
+  let aElement = {};
+  [...block.querySelectorAll('a')].forEach((a) => {
+    const { pathname } = new URL(a.href);
+    if ((a.href === row.path) || (pathname === row.path)) aElement = a;
+  });
+  if (aElement) {
+    // Go up one level since <a> is wrapped inside a <p> usually
+    let el = aElement.parentElement;
+    // Loop through previous elements until you hit an <a>
+    while (el) {
+      el = el.previousElementSibling;
+      // Break if you find an anchor link in the previous element
+      const childAnchor = el.querySelector('a');
+      if (childAnchor) {
+        break;
+      }
+      // set the row object properties based on the type of node we hit
+      switch (el.nodeName) {
+        case 'H1':
+        case 'H2':
+        case 'H3':
+          row.title = el.innerHTML;
+          break;
+        case 'H4':
+        case 'H5':
+          row.assetType = el.innerHTML;
+          break;
+        case 'P':
+          row.description = el.innerHTML;
+          break;
+        default:
+          break;
+      }
+    }
+  }
+}
+
 export default async function decorate(block) {
-  const pathnames = [...block.querySelectorAll('a')].map((a) => new URL(a.href).pathname);
+  const pathnames = [...block.querySelectorAll('a')].map((a) => {
+    const url = new URL(a.href);
+    if (window.location.hostname === url.hostname) return url.pathname;
+    return a.href;
+  });
+  const blockCopy = block.cloneNode(true);
   block.textContent = '';
   // Make a call to the document index and get the json for just the pathnames the author has put in
   const pageList = await lookupDocuments(pathnames);
   if (pageList.length) {
     pageList.forEach(async (row) => {
+      // If the URL was not in the index, it is curated. Let's get the content differently
+      if (row.title === undefined) setRowDetails(row, blockCopy);
       block.append(await createDocumentCard(row, 'document-card'));
     });
   } else {
