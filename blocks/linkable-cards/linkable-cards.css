@@ -75,7 +75,7 @@
 .section .linkable-cards > div:hover::after {
   cursor: pointer;
   transition: all .2s ease-out;
-  background: url("../../icons/download-arrow-white.svg") no-repeat center, linear-gradient(270deg,#fa1e32,#90f);
+  background: url("../../icons/download-arrow-white.svg") no-repeat center, var(--gradient-left-right);
 }
 
 .neutral-bone-style .linkable-cards-container {
