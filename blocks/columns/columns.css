@@ -3,6 +3,20 @@
     flex-direction: column;
     }
 
+.columns-container h2 {
+    margin: var(--spacer-element-07) 0;
+    }
+
+/* this is considered an eyebrow style */
+.columns-container h4 {
+    font-family: var(--sans-serif-font-medium);
+    font-size: var(--font-size-11);
+    letter-spacing: .2em;
+    line-height: var(--line-height-120);
+    color: var(--neutral-carbon);
+    margin: var(--spacer-layout-03) auto;
+    }
+
 .columns img {
     width: 100%;
     }
@@ -13,6 +27,11 @@ main .section-top-grid > div > div {
 
 main .section-top-grid > div > div > h1 {
     padding: 0;
+    }
+
+.teaser-list-manual .teaser-list div div {
+    padding: var(--spacer-element-10) 0;
+    border-bottom: 1px solid var(--neutral-sand);
     }
 
 main .section-top-grid > div:nth-of-type(1) > div:nth-of-type(2) {
@@ -85,6 +104,10 @@ main .section-bottom .columns-2-cols > div >:nth-child(2) p:nth-of-type(3)  {
     padding-bottom: 140px;
     }
 
+.teaser-list-manual picture, .teaser-list-manual p > picture {
+    display: none;
+    }
+
 .section-bottom-grid p picture {
     display: block;
     border-image-slice: 1;
@@ -104,6 +127,37 @@ main .section-bottom .columns-2-cols > div >:nth-child(2) p:nth-of-type(3)  {
     padding: 0;
     }
 
+.columns.picture-circle h2 {
+    margin: 20px 0;
+    }
+
+/* teaser-list-manual */
+.teaser-list-manual.columns-container {
+    background-color: var(--neutral-white);
+    margin-bottom: 0;
+    }
+
+.teaser-list-manual h6 {
+    font-size: var(--font-size-18);
+    letter-spacing: .16px;
+    }
+
+.teaser-list-manual .teaser-list div:last-child div:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+    }
+
+.teaser-list-manual .teaser-list {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    }
+
+.teaser-list-manual .teaser-list .button-container {
+    margin: 0;
+    }
+
+
 @media (min-width: 768px) {
     .columns > div {
         display: flex;
@@ -119,13 +173,22 @@ main .section-bottom .columns-2-cols > div >:nth-child(2) p:nth-of-type(3)  {
         padding-bottom: var(--spacer-element-04);
         }
 
+    .columns.teaser-list > div {
+        display: grid;
+        grid-template-rows: 300px 1fr max-content;
+        }
+
     .columns > div > div:first-of-type {
         margin-left: unset;
         }
 
-    main .section-bottom .columns-2-cols > div  {
+    main .section-bottom .columns-2-cols > div {
         flex-flow: row nowrap;
         gap: 84px;
+        }
+
+    .columns.teaser-list > div > div {
+        margin-left: 0;
         }
 
     .section-top-grid > div:nth-child(1) > div:nth-child(1) {
@@ -135,7 +198,7 @@ main .section-bottom .columns-2-cols > div >:nth-child(2) p:nth-of-type(3)  {
         }
 
     main .section-top-grid > div:nth-of-type(1) > div:nth-of-type(2) {
-        align-self:flex-end;
+        align-self: flex-end;
         margin-left: 0;
         }
 
@@ -144,7 +207,7 @@ main .section-bottom .columns-2-cols > div >:nth-child(2) p:nth-of-type(3)  {
         }
 
     main .section-top-grid > div > div:nth-child(odd) img {
-        width : 432px;
+        width: 432px;
         max-width: 432px;
         height: 411px;
         }
@@ -162,9 +225,36 @@ main .section-bottom .columns-2-cols > div >:nth-child(2) p:nth-of-type(3)  {
     .columns.section-bottom-grid > div > div > p {
         font-size: var(--font-size-16);
         }
+
+    /* teaser-list-manual min 768 */
+    .teaser-list-manual picture, .teaser-list-manual p > picture {
+        display: unset;
+        }
+
+    .section.teaser-list-manual { /* needs specificity here  */
+        padding: var(--spacer-layout-06) 0;
+        display: flex;
+        margin: 0 auto;
+        width: var(--section-width-tablet-small);
+        gap: var(--spacer-element-10);
+        flex-flow: row nowrap;
+        }
+
+    .teaser-list-manual > .default-content-wrapper {
+        width: 45%;
+        }
     }
 
 @media (min-width: 1200px) {
+    .columns.picture-circle {
+        padding-bottom: var(--spacer-layout-04);
+        }
+
+    .columns-container h4 {
+        font-size: var(--font-size-14);
+        margin-bottom: var(--spacer-element-08);
+        }
+
     .section-top-grid > div:nth-child(1) > div:nth-child(1) {
         padding-right: var(--spacer-layout-06);
         width: 616px;
@@ -184,7 +274,12 @@ main .section-bottom .columns-2-cols > div >:nth-child(2) p:nth-of-type(3)  {
         letter-spacing: var(--letter-spacing-1);
         }
 
-    main .section-top-grid > div:nth-of-type(2) > div:nth-of-type(2) > h1, main .section-top-grid > div:nth-of-type(2) > div:nth-of-type(2) > p {
+    .teaser-list-manual p {
+        font-size: var(--font-size-16);
+        }
+
+    main .section-top-grid > div:nth-of-type(2) > div:nth-of-type(2) > h1,
+    main .section-top-grid > div:nth-of-type(2) > div:nth-of-type(2) > p {
         margin-left: var(--spacer-element-09);
         }
 
@@ -215,7 +310,7 @@ main .section-bottom .columns-2-cols > div >:nth-child(2) p:nth-of-type(3)  {
 
     .section-top.columns-container{
         background-size: 2600px 150%;
-        padding-top: 220px;
+        padding-bottom: var(--spacer-element-10);
         }
 
     .section-bottom.columns-container {
@@ -225,5 +320,39 @@ main .section-bottom .columns-2-cols > div >:nth-child(2) p:nth-of-type(3)  {
 
     .section-bottom .columns-2-cols {
         padding: 96px 0;
+        }
+
+    /* teaser-list-manual min 1200 */
+    .teaser-list-manual .teaser-list {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px 0;
+        }
+
+    .teaser-list-manual .teaser-list > div:nth-child(1) > div > * {
+        margin-right: 50px;
+        }
+
+    .teaser-list-manual .teaser-list > div:nth-child(2) > div > * {
+        margin-left: 50px;
+        }
+
+    .teaser-list-manual .teaser-list div:last-child div:last-child {
+        border-bottom: 1px solid var(--neutral-sand);
+        }
+
+    .teaser-list-manual h4 {
+        font-size: var(--font-size-14);
+        }
+
+    .section.teaser-list-manual {
+        width: var(--section-width-desktop);
+        gap: 140px;
+        }
+
+    .teaser-list-manual h6 {
+        font-size: var(--font-size-21);
+        line-height: 156%;
         }
     }

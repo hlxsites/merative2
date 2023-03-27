@@ -12,15 +12,40 @@
   padding-bottom: 60px;
 }
 
+/* this is considered an eyebrow style */
+.linkable-cards-container h4 {
+  font-family: var(--sans-serif-font-medium);
+  font-size: var(--font-size-11);
+  letter-spacing: .2em;
+  line-height: var(--line-height-120);
+  color: var(--neutral-white);
+  margin: var(--spacer-layout-03) auto;
+  }
+
+.linkable-cards-container p {
+  font-size: var(--font-size-16);
+  }
+
+.case-study.linkable-cards-container {
+  background-color: var(--neutral-white);
+  }
+
+.linkable-cards-container.related-resources-container h4 {
+  color: var(--neutral-carbon);
+  }
+
+.case-study.linkable-cards-container h4 {
+  color: var(--neutral-carbon);
+  }
+
 .linkable-cards > div {
   flex: 1;
-  background: #6400a6;
+  background: var(--neutral-bone);
   border-radius: 10px;
-  min-height: 372px;
-  min-width: 315px;
-  max-width: 360px;
-  margin-left: 5px;
-  margin-right: 5px;
+  min-height: 435px;
+  min-width: 255px;
+  max-width: 255px;
+  margin: 0 var(--spacer-element-02) var(--spacer-element-06);
   position: relative;
 }
 
@@ -37,44 +62,43 @@
     border-radius: 50%;
 }
 
-.linkable-cards.neutral-bone-style>div::after {
+.linkable-cards.neutral-bone-style > div::after {
   background: url("../../icons/download-arrow-purple.svg") no-repeat center;
   border: 2px solid var(--primary-purple);
 }
 
-.linkable-cards>div:hover {
+.linkable-cards > div:hover {
   transition: all .2s ease-out;
   box-shadow: 2px 4px 4px 2px rgb(0 0 0 / 15%);
 }
 
-.section .linkable-cards>div:hover::after {
+.section .linkable-cards > div:hover::after {
   cursor: pointer;
   transition: all .2s ease-out;
-  background: url("../../icons/download-arrow-white.svg") no-repeat center, linear-gradient(270deg,#fa1e32,#90f); 
+  background: url("../../icons/download-arrow-white.svg") no-repeat center, linear-gradient(270deg,#fa1e32,#90f);
 }
-
-.linkable-cards.neutral-bone-style>div::after
 
 .neutral-bone-style .linkable-cards-container {
   background-color: var(--neutral-bone);
 }
 
-.linkable-cards.neutral-bone-style>div {
+.linkable-cards.neutral-bone-style > div {
   background-color: var(--neutral-bone);
   color: black;
-} 
+}
 
 .linkable-cards > div > a {
-  padding: 40px 23px 90px;
+  margin: var(--spacer-element-10) var(--spacer-element-06);
   display: block;
   text-decoration: none;
   color: var(--neutral-white);
 }
 
-.linkable-cards.neutral-bone-style>div a {
+.linkable-cards.neutral-bone-style > div a {
   color: inherit;
 }
 
+/* if we make all eyebrows h4 then we don't need this */
 .linkable-cards a:nth-child(1) > p:first-child {
   font-family: var(--sans-serif-font-medium);
   font-size: var(--font-size-11);
@@ -85,12 +109,24 @@
 }
 
 .linkable-cards a:nth-child(1) > h3 {
-  font-size: 28px;
-  line-height: 120%;
-  letter-spacing: .0175em;
-  margin: 20px 0 25px;
+  margin: var(--spacer-element-06) 0 var(--spacer-element-07);
 }
 
 .linkable-cards.lc-static-style {
   flex-wrap: wrap;
 }
+
+@media (min-width: 768px) {
+  .linkable-cards > div {
+    min-height: 405px;
+    min-width: 315px;
+    max-width: 315px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .linkable-cards > div {
+      min-height: 445px;
+      min-width: 335px;
+      max-width: 335px;
+      }
+  }

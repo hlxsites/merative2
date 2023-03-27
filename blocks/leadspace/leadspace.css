@@ -1,6 +1,10 @@
 /* Leadspace block styles */
 
 /** Section styling */
+.section.leadspace-container + .section.columns-container {
+    padding-top: var(--spacer-layout-05);
+    }
+
 .section.leadspace-container {
     background: var(--neutral-bone);
     padding: 0;
@@ -31,7 +35,7 @@ main div.leadspace-wrapper {
 }
 
 .leadspace:not(.document) > div:first-child > div:nth-child(1) {
-    margin: var(--spacer-layout-04) auto var(--spacer-layout-02);
+    margin: var(--spacer-layout-03) auto var(--spacer-layout-02);
 }
 
 .leadspace.document .document-tag-container {
@@ -105,10 +109,6 @@ main div.leadspace-wrapper {
     align-self: flex-end;
 }
 
-.leadspace > div:first-child > div:nth-child(2) picture img {
-    margin-bottom: -4px;
-}
-
 /* stylelint-disable-next-line no-descending-specificity */
 .leadspace.event picture {
     display: none;
@@ -119,9 +119,9 @@ main div.leadspace-wrapper {
     clip-path: circle(50% at 50% 100%);
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .leadspace.quarter-circle img {
     clip-path: circle(100% at 100% 100%);
+    max-height: 335px;
 }
 
 /* Button Group */
@@ -314,8 +314,16 @@ main div.leadspace-wrapper {
     .leadspace > div:first-child > div:nth-child(2) {
         display: flex;
         flex-direction: column;
-        justify-content: unset;
+        justify-content: flex-end;
+    }
+
+    .leadspace.event picture {
+        display: block;
         }
+
+    .leadspace > div:first-child > div:nth-child(2) picture {
+        font-size: 0;
+    }
 
     .leadspace:not(.document) > div:first-child > div:nth-child(1) {
         padding-right: 30px;
@@ -331,10 +339,6 @@ main div.leadspace-wrapper {
 
     .leadspace .button-group {
         margin: var(--spacer-element-09) 0;
-    }
-
-    .leadspace.event picture {
-        display: block;
     }
 
     .leadspace.video .video-wrapper {
@@ -364,6 +368,10 @@ main div.leadspace-wrapper {
 }
 
 @media screen and (min-width: 1200px) {
+    .section.leadspace-container + .section.columns-container {
+    padding-top: var(--spacer-layout-07);
+        }
+
     .leadspace > div:first-child {
         flex-flow: row nowrap;
         }
@@ -374,6 +382,14 @@ main div.leadspace-wrapper {
 
     .leadspace:not(.document) > div:first-child > div:nth-child(1) {
         margin: auto;
+        }
+
+    .leadspace.quarter-circle img {
+        max-height: 555px;
+        }
+
+    .leadspace > div:first-child > div:nth-child(2) picture {
+        margin-top: var(--spacer-element-10);
         }
 
     .leadspace > div:first-child > div:nth-child(1) > p:first-child {

@@ -2,7 +2,6 @@
 .section.cta-container[data-section-status='loaded'] {
     position: relative;
     display: block;
-    padding: unset;
 }
 
 .section.cta-container img {
@@ -16,8 +15,6 @@
 }
 
 .section.cta-container .cta.block {
-    padding-top: 64px;
-    padding-bottom: 64px;
     text-align: center;
 }
 
@@ -95,10 +92,6 @@
 }
 
 @media only screen and (min-width: 1200px) {
-    .section.cta-container .cta.block {
-        padding: var(--spacer-layout-07) 0;
-    }
-
     .section.cta-container .cta.block h2 {
         font-size: 45px;
         padding-bottom: 24px;
@@ -108,9 +101,5 @@
         width: 740px;
         font-size: 21px;
         margin: 0 auto;
-    }
-
-    .section.cta-container .cta.block p.button-container{
-        padding-top: 48px;
     }
 }
