@@ -1052,15 +1052,6 @@ main .column-content-top-border > div > div::before {
     max-width: 60%;
     }
 
-  main .section.leadership-content .columns > div {
-    align-items: normal;
-    flex-direction: unset;
-    }
-
-  main .section.section-header > div:nth-child(1) > h2 {
-    max-width: 60%;
-    }
-
   main .section.section-header > div:nth-child(1) > h1 {
     max-width: 70%;
     }
