@@ -11,6 +11,14 @@
     margin-top: var(--spacer-element-07);
 }
 
+.section.marketo-container .default-content-wrapper p {
+    font-size: var(--font-size-16);
+    font-family: var(--sans-serif-font-light);
+    letter-spacing: var(--letter-spacing-001-em);
+    line-height: var(--line-height-160);
+    font-weight: 300;
+}
+
 .marketo {
     width: 100%;
 }
