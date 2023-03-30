@@ -7,7 +7,7 @@
     letter-spacing: var(--letter-spacing-1);
     }
 
-.leadspace h1, h2 {
+.leadspace h1, .leadspace h2 {
     font-family: var(--serif-font);
     font-weight: var(--font-weight-light);
     line-height: var(--line-height-120);
@@ -30,6 +30,7 @@
     line-height: var(--line-height-120);
     color: var(--neutral-carbon);
     margin: 0 0 var(--spacer-layout-03);
+    text-transform: uppercase;
     }
 
 /** Section styling */
