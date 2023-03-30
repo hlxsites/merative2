@@ -572,6 +572,10 @@ main .button-container a.button span.icon {
   height: 24px;
 }
 
+main .button-container > a.button span.icon {
+  margin-left: var(--spacer-element-02);
+}
+
 main .button-container a.button span.icon.external {
   transform: rotate(-45deg);
 }
@@ -615,7 +619,7 @@ main .button-container > a.primary:not(.has-icon) {
 main .button-container > a.primary.has-icon::before {
   content: '';
   position: absolute;
-  width: calc(100% - 32px);
+  width: calc(100% - 28px);
   height: 100%;
   border-bottom: 2px solid var(--primary-purple);
 }

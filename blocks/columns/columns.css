@@ -206,6 +206,11 @@ main .section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(3) {
         margin-left: var(--spacer-layout-04);
     }
 
+    .columns.middle > div > div {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
     .columns.section-bottom-grid div {
         padding-bottom: var(--spacer-element-04);
     }

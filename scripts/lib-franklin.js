@@ -485,18 +485,21 @@ export function decorateTemplateAndTheme() {
 }
 
 const iconMap = Object.freeze({
-  video: { expression: /^.*\.(mp4)$/i, className: 'icon-play-button' },
-  download: { expression: /^.*\.(pdf)$/i, className: 'icon-download' },
-  bookmark: { expression: /^#.+$/i, className: 'icon-arrow' },
-  external: { expression: /^((?!merative.com).)*$/i, className: 'icon-arrow' },
+  video: { expression: [/^.*\.(mp4)$/i], className: 'icon-play-button' },
+  download: { expression: [/^.*\.(pdf)$/i], className: 'icon-download' },
+  bookmark: { expression: [/^#.+$/i], className: 'icon-arrow' },
+  external: { expression: [/^((?!merative.com).)*$/i, /^mailto.*$/i], className: 'icon-arrow' },
 });
 
 function getButtonIcon(button) {
-  if (button.querySelector('span.icon') || !button.href) {
+  if (button.querySelector('span.icon')
+    || !button.href
+    || button.closest('.section')?.classList.contains('no-link-icon')) {
     return undefined;
   }
   // automatically apply icon
-  const iconEntry = Object.entries(iconMap).find(([, item]) => item.expression.test(button.href));
+  const iconEntry = Object.entries(iconMap).find(([, item]) => item.expression.some((e) => e.test(button.getAttribute('href'))));
+
   if (iconEntry) {
     const [iconVariant, iconItem] = iconEntry;
     return [iconItem.className, iconVariant];
