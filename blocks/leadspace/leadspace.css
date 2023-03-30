@@ -398,7 +398,6 @@ main div.leadspace-wrapper {
 }
 
 @media screen and (min-width: 1200px) {
-
     .leadspace, .leadspace p {
         font-size: var(--font-size-21);
         }
