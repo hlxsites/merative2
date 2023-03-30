@@ -1,5 +1,16 @@
 /* stylelint-disable selector-id-pattern */
 /* stylelint-disable selector-class-pattern */
+
+.section.marketo-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.section.marketo-container > div:last-of-type {
+    margin-top: var(--spacer-element-07);
+}
+
 .marketo {
     width: 100%;
 }
@@ -333,4 +344,32 @@ input[type=radio] {
     font-size: var(--font-size-16) !important;
     letter-spacing: .16px;
     line-height: 160% !important
+}
+
+/* Media queries */
+@media screen and (min-width: 768px) {
+    .section.marketo-container {
+        display: flex;
+        flex-direction: column;
+        width: var(--section-width-tablet);
+        margin: 0 auto;
+    }
+
+    .section.marketo-container > div:last-of-type {
+        margin-top: var(--spacer-element-08);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .section.marketo-container {
+        display: flex;
+        flex-direction: row;
+        width: var(--section-width-desktop);
+        margin: 0 auto;
+    }
+
+    .section.marketo-container > div:last-of-type {
+        margin-left: 8%;
+        margin-top: 0;
+    }
 }
