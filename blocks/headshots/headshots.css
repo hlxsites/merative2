@@ -59,7 +59,7 @@ main .headshots .headshot-item .headshot-links {
     gap: var(--spacer-element-05);
     border-top: 1px solid var(--neutral-sand);
     padding: var(--spacer-element-05) 0 0;
-    margin-top: var(--spacer-element-06);
+    margin-top: var(--spacer-element-05);
 }
 
 main .headshots .headshot-links span.icon {

@@ -18,7 +18,7 @@
     margin: var(--spacer-layout-03) auto;
 }
 
-.quarter-circle h4 {
+.columns > div> div > h4:first-child {
     text-transform: uppercase;
 }
 
