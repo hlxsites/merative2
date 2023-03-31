@@ -18,12 +18,24 @@
     margin: var(--spacer-layout-03) auto;
 }
 
+.quarter-circle h4 {
+    text-transform: uppercase;
+}
+
 .content-band.icon-list h4 {
     font-size: var(--font-size-18);
     line-height: var(--line-height-160);
     letter-spacing: var(--letter-spacing-1);
     margin: var(--spacer-layout-02) auto;
 }
+
+.content-band p, .content-band li {
+    font-family: var(--sans-serif-font-light);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-light);
+    line-height: var(--line-height-160);
+    letter-spacing: var(--letter-spacing-1);
+    }
 
 .columns img {
     width: 100%;
@@ -409,6 +421,10 @@ main .section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(3) {
     .teaser-list-manual h4 {
         font-size: var(--font-size-14);
     }
+
+    .content-band.icon-list h4 {
+        font-size: var(--font-size-21);
+        }
 
     .section.teaser-list-manual {
         width: var(--section-width-desktop);

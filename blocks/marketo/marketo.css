@@ -19,6 +19,11 @@
     font-weight: 300;
 }
 
+.section.marketo-container h3 {
+    font-family: var(--sans-serif-font-light);
+    font-size: var(--font-size-24);
+}
+
 .marketo {
     width: 100%;
     margin-top: var(--spacer-element-07);
@@ -391,7 +396,7 @@ input[type=radio] {
     .section.marketo-container > div {
         width: unset;
     }
-    
+
     .section.marketo-container > .h2 {
         flex-basis: 100%;
     }

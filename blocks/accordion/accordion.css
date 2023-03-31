@@ -23,6 +23,11 @@
     margin: 48px 0 0;
 }
 
+.accordion-container > .default-content-wrapper > h2:first-child {
+    margin-top: 0;
+    margin-bottom: var(--spacer-layout-06);
+    }
+
 .accordion-container,
 .accordion-item>div {
     padding-right: 40px;

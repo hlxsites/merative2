@@ -12,8 +12,9 @@ main .headshots span.icon {
     position: relative;
     width: 64px;
     height: 64px;
-    border: solid 1px black;
+    border: solid 1px var(--neutral-sand);
     border-radius: 50%;
+    background-color: var(--neutral-white);
 }
 
 main .headshots span.icon svg {
@@ -33,6 +34,7 @@ main .headshots .headshot-item {
 main .headshots .headshot-item h3 {
     font-size: var(--font-size-24);
     margin: 0 0 var(--spacer-element-03) 0;
+    font-family: var(--sans-serif-font-light);
 }
 
 main .headshots .headshot-item p {
@@ -57,7 +59,7 @@ main .headshots .headshot-item .headshot-links {
     gap: var(--spacer-element-05);
     border-top: 1px solid var(--neutral-sand);
     padding: var(--spacer-element-05) 0 0;
-    margin-top: var(--spacer-element-08);
+    margin-top: var(--spacer-element-06);
 }
 
 main .headshots .headshot-links span.icon {

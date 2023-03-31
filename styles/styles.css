@@ -314,6 +314,10 @@ main .section-top div > h1 {
   margin: var(--spacer-element-08) 0 var(--spacer-element-07);
   }
 
+main .columns.content-band h1 {
+  margin-top: 0;
+  }
+
 main .section .column-content-top-border > div > div h1 {
   font-size: 96px;
   line-height: 120%;
@@ -1429,10 +1433,6 @@ main .column-content-top-border > div > div::before {
   main .list-section ul > li {
     display: block;
     font-size: 21px;
-  }
-
-  main .columns.content-band.icon-list p {
-    font-size: var(--font-size-16);
   }
 
   main .section.section-header-right-content>div:nth-child(1) > p {
