@@ -21,6 +21,7 @@
 
 .marketo {
     width: 100%;
+    margin-top: var(--spacer-element-07);
 }
 
 /* Merative styling for Marketo form */
@@ -381,8 +382,22 @@ input[type=radio] {
     .section.marketo-container {
         display: flex;
         flex-direction: row;
+        /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+        flex-wrap: wrap;
         width: var(--section-width-desktop);
         margin: 0 auto;
+    }
+
+    .section.marketo-container > div {
+        width: unset;
+    }
+    
+    .section.marketo-container > .h2 {
+        flex-basis: 100%;
+    }
+
+    .section.marketo-container > div:not(.h2) {
+        flex-basis: 40%;
     }
 
     .section.marketo-container > div:last-of-type {

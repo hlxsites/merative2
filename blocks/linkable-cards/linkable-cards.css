@@ -26,15 +26,7 @@
   font-size: var(--font-size-16);
   }
 
-.case-study.linkable-cards-container {
-  background-color: var(--neutral-white);
-  }
-
 .linkable-cards-container.related-resources-container h4 {
-  color: var(--neutral-carbon);
-  }
-
-.case-study.linkable-cards-container h4 {
   color: var(--neutral-carbon);
   }
 

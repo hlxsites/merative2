@@ -26,13 +26,13 @@ const embedMarketoForm = (formId, divId) => {
 };
 
 export default async function decorate(block) {
-  // <script src="go.merative.com/js/forms2/js/forms2.min.js"></script>
-  /* <form id="mktoForm_1001"></form> */
-  /* <script>MktoForms2.loadForm("//go.merative.com", "384-CJL-151", 1001);</script> */
-
   const blockConfig = readBlockConfig(block);
   const formId = blockConfig['form-id'];
   const divId = blockConfig['div-id'];
+
+  // Handle H2s in the section
+  const h2 = block.parentElement.parentElement.querySelector('h2');
+  if (h2 && h2.parentElement) h2.parentElement.classList.add('h2');
 
   if (formId && divId) {
     const formDiv = createTag('form', { id: `mktoForm_${divId}` });

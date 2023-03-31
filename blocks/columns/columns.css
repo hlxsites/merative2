@@ -5,7 +5,7 @@
 }
 
 .columns-container h2 {
-    margin: var(--spacer-element-07) 0;
+    margin: var(--spacer-layout-03) auto;
 }
 
 /* this is considered an eyebrow style */
@@ -18,13 +18,20 @@
     margin: var(--spacer-layout-03) auto;
 }
 
+.content-band.icon-list h4 {
+    font-size: var(--font-size-18);
+    line-height: var(--line-height-160);
+    letter-spacing: var(--letter-spacing-1);
+    margin: var(--spacer-layout-02) auto;
+}
+
 .columns img {
     width: 100%;
 }
 
 .terms div {
     margin: var(--spacer-element-05) 0;
-    }
+}
 
 main .section-top-grid > div > div {
     align-self: flex-start;
@@ -39,18 +46,18 @@ main .section-top-grid > div > div > h1 {
     letter-spacing: .01em;
     line-height: var(--line-height-160);
     margin-top: 0;
-    }
+}
 
 .terms div p:last-of-type {
     margin-bottom: 0;
-    }
+}
 
 .terms > div:nth-child(1) > div:nth-child(2) > p:nth-child(1) > em > strong {
     color: var(--feedback-green);
     font-style: normal;
     padding-left: 30px;
     position: relative;
-    }
+}
 
 .terms > div:nth-child(1) > div:nth-child(2) > p:nth-child(1) > em > strong::after {
     background-color: var(--feedback-green);
@@ -64,7 +71,7 @@ main .section-top-grid > div > div > h1 {
     text-align: center;
     top: 0;
     width: calc(var(--font-size-12) * 1.5);
-    }
+}
 
 .teaser-list-manual .teaser-list div div {
     padding: var(--spacer-element-10) 0;
@@ -212,13 +219,18 @@ main .section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(3) {
 
     .columns.teaser-list > div {
         display: grid;
-        grid-template-rows: 300px 1fr max-content;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .columns.middle > div > div {
+        margin-top: auto;
+        margin-bottom: auto;
     }
 
     .terms > div > div:nth-of-type(even) {
         flex: 2;
         margin-left: var(--spacer-layout-04);
-        }
+    }
 
     .columns > div > div:first-of-type {
         margin-left: unset;
@@ -288,18 +300,9 @@ main .section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(3) {
 }
 
 @media (min-width: 1200px) {
-    .columns.picture-circle {
-        padding-bottom: var(--spacer-layout-04);
-    }
-
-    .columns-container h4 {
-        font-size: var(--font-size-14);
-        margin-bottom: var(--spacer-element-08);
-    }
-
     .terms div {
         margin: var(--spacer-element-06) 0;
-        }
+    }
 
     .section-top-grid > div:nth-child(1) > div:nth-child(1) {
         padding-right: var(--spacer-layout-06);
@@ -322,6 +325,17 @@ main .section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(3) {
 
     .teaser-list-manual p {
         font-size: var(--font-size-16);
+    }
+
+    .columns-container .default-content-wrapper > h2,
+    .columns-container .default-content-wrapper > p {
+        max-width: 720px;
+        margin: 0 0 var(--spacer-element-07);
+        }
+
+    .columns-container h4 {
+        font-size: var(--font-size-14);
+        margin-bottom: var(--spacer-element-08);
     }
 
     main .section-top-grid > div:nth-of-type(2) > div:nth-of-type(2) > h1,
@@ -373,14 +387,18 @@ main .section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(3) {
         position: relative;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 50px 0;
+        gap: 0;
     }
 
-    .teaser-list-manual .teaser-list > div:nth-child(1) > div > * {
+    .teaser-list-manual .teaser-list .button-container {
+        margin-bottom: 25px;
+    }
+
+    .teaser-list-manual .teaser-list > div:nth-child(odd) > div > * {
         margin-right: 50px;
     }
 
-    .teaser-list-manual .teaser-list > div:nth-child(2) > div > * {
+    .teaser-list-manual .teaser-list > div:nth-child(even) > div > * {
         margin-left: 50px;
     }
 
@@ -395,6 +413,7 @@ main .section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(3) {
     .section.teaser-list-manual {
         width: var(--section-width-desktop);
         gap: 140px;
+        padding: var(--spacer-layout-07) 0;
     }
 
     .teaser-list-manual h6 {
