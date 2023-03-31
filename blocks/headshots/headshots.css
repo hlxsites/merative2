@@ -30,6 +30,16 @@ main .headshots .headshot-item {
     gap: var(--spacer-layout-03);
 }
 
+main .headshots .headshot-item h3 {
+    font-size: var(--font-size-24);
+    margin: 0 0 var(--spacer-element-03) 0;
+}
+
+main .headshots .headshot-item p {
+    font-size: var(--font-size-16);
+    margin: 0;
+}
+
 main .headshots .headshot-item .headshot-avatar p {
     margin: 0;
 }
@@ -39,16 +49,6 @@ main .headshots .headshot-item .headshot-avatar img {
     max-width: 64px;
     max-height: 64px;
     aspect-ratio: 1 / 1;
-}
-
-main .headshots .headshot-item h3 {
-    font-size: var(--font-size-24);
-    margin: 0 0 var(--spacer-element-03) 0;
-}
-
-main .headshots .headshot-item p {
-    font-size: var(--font-size-16);
-    margin: 0;
 }
 
 main .headshots .headshot-item .headshot-links {
