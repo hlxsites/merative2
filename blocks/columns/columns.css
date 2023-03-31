@@ -5,9 +5,8 @@
 }
 
 .columns-container h2 {
-    margin: var(--spacer-element-07) 0;
-}
-
+    margin: var(--spacer-layout-03) auto;
+    }
 /* this is considered an eyebrow style */
 .columns-container h4 {
     font-family: var(--sans-serif-font-medium);
@@ -164,6 +163,13 @@ main .section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(3) {
     padding: 0;
 }
 
+.content-band.icon-list h4 {
+    line-height: var(--line-height-160);
+    letter-spacing: var(--letter-spacing-1);
+    margin: var(--spacer-layout-02) auto;
+    }
+
+
 .columns.picture-circle h2 {
     margin: 20px 0;
 }
@@ -212,7 +218,7 @@ main .section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(3) {
 
     .columns.teaser-list > div {
         display: grid;
-        grid-template-rows: 300px 1fr max-content;
+        grid-template-rows: 1fr 1fr;
     }
 
     .terms > div > div:nth-of-type(even) {
@@ -288,9 +294,11 @@ main .section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(3) {
 }
 
 @media (min-width: 1200px) {
-    .columns.picture-circle {
-        padding-bottom: var(--spacer-layout-04);
-    }
+    .columns-container .default-content-wrapper > h2,
+    .columns-container .default-content-wrapper > p {
+        max-width: 720px;
+        margin: 0 0 var(--spacer-element-07);
+        }
 
     .columns-container h4 {
         font-size: var(--font-size-14);
@@ -373,14 +381,18 @@ main .section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(3) {
         position: relative;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 50px 0;
+        gap: 0;
     }
 
-    .teaser-list-manual .teaser-list > div:nth-child(1) > div > * {
+    .teaser-list-manual .teaser-list .button-container {
+        margin-bottom: 25px;
+        }
+
+    .teaser-list-manual .teaser-list > div:nth-child(odd) > div > * {
         margin-right: 50px;
     }
 
-    .teaser-list-manual .teaser-list > div:nth-child(2) > div > * {
+    .teaser-list-manual .teaser-list > div:nth-child(even) > div > * {
         margin-left: 50px;
     }
 
