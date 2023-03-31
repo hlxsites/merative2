@@ -18,15 +18,15 @@
     margin: var(--spacer-layout-03) auto;
 }
 
-.columns > div> div > h4:first-child {
-    text-transform: uppercase;
-}
-
 .content-band.icon-list h4 {
     font-size: var(--font-size-18);
     line-height: var(--line-height-160);
     letter-spacing: var(--letter-spacing-1);
     margin: var(--spacer-layout-02) auto;
+    }
+
+.columns > div> div > h4:first-child {
+    text-transform: uppercase;
 }
 
 .content-band p, .content-band li {
