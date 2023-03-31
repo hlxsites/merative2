@@ -1,11 +1,5 @@
-.linkable-cards {
-  display: flex;
-  flex-direction: unset;
-  overflow: auto;
-  gap: 24px;
-  margin-top: 40px;
-}
 
+/* Linkable cards container styles */
 .linkable-cards-container {
   background: #7e00d3;
   color: var(--neutral-white);
@@ -20,15 +14,28 @@
   line-height: var(--line-height-120);
   color: var(--neutral-white);
   margin: var(--spacer-layout-03) auto;
-  }
+}
 
 .linkable-cards-container p {
   font-size: var(--font-size-16);
-  }
+}
 
 .linkable-cards-container.related-resources-container h4 {
   color: var(--neutral-carbon);
-  }
+}
+
+.neutral-bone-style .linkable-cards-container {
+  background-color: var(--neutral-bone);
+}
+
+/* Linkable cards block */
+.linkable-cards {
+  display: flex;
+  flex-direction: unset;
+  overflow: auto;
+  gap: 24px;
+  margin-top: 40px;
+}
 
 .linkable-cards > div {
   flex: 1;
@@ -65,10 +72,6 @@
   background: url("../../icons/download-arrow-white.svg") no-repeat center, var(--gradient-left-right);
 }
 
-.neutral-bone-style .linkable-cards-container {
-  background-color: var(--neutral-bone);
-}
-
 .linkable-cards.neutral-bone-style > div {
   background-color: var(--neutral-bone);
   color: var(--neutral-carbon);
@@ -80,6 +83,8 @@
   text-decoration: none;
 }
 
+/* Fix greedy styles above */
+.linkable-cards.neutral-bone-style h4,
 .linkable-cards > div a {
   color: var(--neutral-carbon);
 }

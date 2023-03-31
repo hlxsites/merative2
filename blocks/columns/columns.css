@@ -23,9 +23,13 @@
     line-height: var(--line-height-160);
     letter-spacing: var(--letter-spacing-1);
     margin: var(--spacer-layout-02) auto;
-    }
+}
 
-.columns > div> div > h4:first-child {
+.columns > div > div > *:first-child {
+    margin-top: 0;
+}
+
+.columns > div > div > h4:first-child {
     text-transform: uppercase;
 }
 
@@ -255,6 +259,10 @@ main .section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(3) {
 
     .columns.teaser-list > div > div {
         margin-left: 0;
+    }
+
+    .columns.stretch-last > div > div:last-child {
+        flex: 2;
     }
 
     .section-top-grid > div:nth-child(1) > div:nth-child(1) {
