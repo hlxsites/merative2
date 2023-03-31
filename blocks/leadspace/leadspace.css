@@ -121,7 +121,7 @@ main div.leadspace-wrapper {
 }
 
 .leadspace.quarter-circle img {
-    clip-path: circle(100% at 100% 100%);
+    clip-path: circle(100% at 100% 95%);
     max-height: 335px;
 }
 
