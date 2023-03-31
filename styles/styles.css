@@ -1398,7 +1398,7 @@ main .column-content-top-border > div > div::before {
     margin-right: 70px;
     }
 
-  main .columns.content-band.icon-list > div > div {
+  main .columns.content-band.icon-list.picture-circle > div > div {
     margin-top: var(--spacer-layout-04);
     }
 
