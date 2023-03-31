@@ -921,9 +921,14 @@ main .list-section li::before {
   margin-right: 19px;
 }
 
-main .section .bg-dark-purple,
-main .section.bg-dark-purple {
-  background-color: #6400a6;
+main .section .bg-purple,
+main .section.bg-purple {
+  background-color: var(--primary-purple);
+  color: var(--neutral-white);
+}
+
+main .section.bg-purple .button-container > strong > a.button.primary {
+  border: solid 2px;
 }
 
 main .section .font-neutral-white,
