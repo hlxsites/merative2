@@ -7,6 +7,11 @@ async function loadBlocks(content, list) {
   blocks(content, list);
 }
 
+async function loadSections(content, list) {
+  const { default: sections } = await import('./lists/sections.js');
+  sections(content, list);
+}
+
 async function loadPlaceholders(content, list) {
   const { default: placeholders } = await import('./lists/placeholders.js');
   placeholders(content, list);
@@ -22,6 +27,9 @@ async function loadList(type, content, list) {
   switch (type) {
     case 'blocks':
       loadBlocks(content, list);
+      break;
+    case 'sections':
+      loadSections(content, list);
       break;
     case 'placeholders':
       loadPlaceholders(content, list);
@@ -69,6 +77,7 @@ async function combineLibraries(base, supplied) {
 
   const library = {
     blocks: base.blocks.data,
+    sections: base.sections?.data,
     placeholders: base.placeholders?.data,
     assets: await fetchAssetsData(assetsPath),
   };
@@ -76,6 +85,10 @@ async function combineLibraries(base, supplied) {
   if (supplied) {
     if (supplied.blocks.data.length > 0) {
       library.blocks.push(...supplied.blocks.data);
+    }
+
+    if (supplied.sections.data.length > 0) {
+      library.sections.push(...supplied.sections.data);
     }
 
     if (supplied.placeholders.data.length > 0) {
