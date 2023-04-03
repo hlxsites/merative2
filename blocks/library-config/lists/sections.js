@@ -61,7 +61,7 @@ function getSection(section, path) {
     img.width = width * ratio;
     img.height = height * ratio;
   });
-  let output = '';
+  let output = '---';
   const rows = [...section.children];
   rows.forEach((row) => {
     if (row.nodeName === 'DIV') {
@@ -71,6 +71,7 @@ function getSection(section, path) {
       output = output.concat(row.outerHTML);
     }
   });
+  output = output.concat('---');
   return output;
 }
 
