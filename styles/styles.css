@@ -546,8 +546,8 @@ main .button-container a {
   letter-spacing: var(--letter-spacing-1);
 }
 
-main .button-container > strong > a,
-main .button-container > em > a {
+main .button-container a.primary,
+main .button-container a.secondary {
   box-sizing: border-box;
   height: 48px;
   border-radius: 40px;
@@ -559,11 +559,12 @@ main .button-container a.button span.icon {
   display: inline-block;
   content: '';
   margin-left: var(--spacer-element-03);
+  vertical-align: middle;
   width: 24px;
   height: 24px;
 }
 
-main .button-container > a.button span.icon {
+main .button-container > a.button.tertiary span.icon {
   margin-left: var(--spacer-element-02);
 }
 
@@ -576,38 +577,46 @@ main .button-container a.button span.icon.bookmark {
 }
 
 /* Primary Button */
-main .button-container > strong > a.button.primary {
+main .button-container a.button.primary {
   background: var(--primary-purple);
   color: var(--neutral-white);
 }
 
+main .button-container a.button.primary strong {
+  font-weight: 500;
+}
+
 /* Secondary Button */
-main .button-container > em > a.button.secondary {
+main .button-container a.button.secondary {
   border: 1px solid var(--primary-purple);
   font-weight: 500;
   font-style: normal;
 }
 
-main .button-container > em > a.button.secondary.has-icon::after,
-main .button-container > a.primary.has-icon::after {
+main .button-container a.button.secondary em {
+  font-style: normal;
+}
+
+main .button-container a.button.secondary.has-icon::after,
+main .button-container a.button.primary.has-icon::after {
   background-color: var(--primary-purple);
 }
 
-main .button-container > strong > a.button.primary:hover,
-main .button-container > strong > a.button.primary:active,
-main .button-container > em > a.button.secondary:hover,
-main .button-container > em > a.button.secondary:active {
+main .button-container a.button.primary:hover,
+main .button-container a.button.primary:active,
+main .button-container a.button.secondary:hover,
+main .button-container a.button.secondary:active {
   border-style: none;
   background: var(--gradient-left-right);
   color: var(--neutral-white);
 }
 
 /* Tertiary (Link) Button */
-main .button-container > a.primary:not(.has-icon) {
+main .button-container > a.tertiary:not(.has-icon) {
   border-bottom: 2px solid var(--primary-purple);
 }
 
-main .button-container > a.primary.has-icon::before {
+main .button-container > a.tertiary.has-icon::before {
   content: '';
   position: absolute;
   width: calc(100% - 28px);
@@ -615,8 +624,8 @@ main .button-container > a.primary.has-icon::before {
   border-bottom: 2px solid var(--primary-purple);
 }
 
-main .button-container > a.primary:active,
-main .button-container > a.primary:hover {
+main .button-container > a.tertiary:active,
+main .button-container > a.tertiary:hover {
   background: var(--gradient-left-right);
   background-clip: text;
   -webkit-background-clip: text;
@@ -627,30 +636,30 @@ main .button-container > a.primary:hover {
   border-image-source: var(--gradient-left-right);
 }
 
-main .button-container > a.primary:active::before,
-main .button-container > a.primary:hover::before {
+main .button-container > a.tertiary:active::before,
+main .button-container > a.tertiary:hover::before {
   border-image-slice: 1;
   border-image-source: var(--gradient-left-right);
 }
 
-main .button-container > a.primary span.icon svg * {
+main .button-container > a.tertiary span.icon svg * {
   stroke: var(--primary-purple);
 }
 
-main .button-container > a.primary:hover span.icon svg * {
+main .button-container > a.tertiary:hover span.icon svg * {
   stroke: url("#gradient");
 }
 
-main .button-container > strong > a.button.primary span.icon svg * {
+main .button-container a.button.primary span.icon svg * {
   stroke: var(--neutral-white);
 }
 
-main .button-container > em > a.button.secondary span.icon svg * {
+main .button-container a.button.secondary span.icon svg * {
   stroke: var(--primary-purple);
 }
 
-main .button-container > em > a.button.secondary:hover span.icon svg *,
-main .button-container > em > a.button.secondary:active span.icon svg * {
+main .button-container a.button.secondary:hover span.icon svg *,
+main .button-container a.button.secondary:active span.icon svg * {
   stroke: var(--neutral-white);
 }
 
