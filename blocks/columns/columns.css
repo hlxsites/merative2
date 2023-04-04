@@ -402,6 +402,32 @@ main .section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(3) {
         padding: 96px 0;
     }
 
+    .columns.quarter-circle > div {
+        gap: 120px;
+        }
+
+    .columns.quarter-circle.left > div > div:first-child, .columns.quarter-circle.right > div > div:last-child  {
+        width: 552px; /* per ana */
+        }
+
+    .columns.quarter-circle.left > div > div:last-child,  .columns.quarter-circle.right > div > div:first-child {
+        width: 456px; /* per ana */
+        }
+
+    .columns.quarter-circle > div > div {
+        margin-left: 0;
+        flex: unset;
+        align-self: center;
+        }
+
+    .columns.quarter-circle img {
+        width: 552px;
+        }
+
+    .news .columns.quarter-circle img {
+        border-radius: 0 90% 0 0;
+        }
+
     /* teaser-list-manual min 1200 */
     .teaser-list-manual .teaser-list {
         position: relative;

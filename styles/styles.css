@@ -1522,8 +1522,46 @@ main .column-content-top-border > div > div::before {
   main .section-bottom > :nth-child(2) {
     padding-right: 300px;
   }
-
+/*
   .section.news {
     padding: 140px 0 110px;
   }
+
+ */
+
+  /* Charity test stuff to be moved around */
+  main > .section { /* all 1st outer containers. Leadspace and teaser-list will be special. Marketo-block too. */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border-bottom: 1px solid black;
+    }
+
+.section > div:first-child {
+    margin: 0 auto;
+    padding-top: 160px;
+    }
+
+.section > div:last-child {
+    margin: 0 auto;
+    padding-bottom: 160px;
+    }
+
+.section > div:first-child > *:first-child,
+.section > div:first-child > *:first-child > *:first-child { /* no top margin on whatever comes next + 1 inner */
+    margin-top: 0;
+    padding-top: 0;
+    }
+
+  .section > div:last-child > *:last-child,
+.section > div:last-child > *:last-child > *:last-child { /* no bottom margin on whatever the last thing + 1 inner is */
+    margin-bottom: 0;
+    padding-bottom: 0;
+    }
+
+
+  .cards.newscard .cards-card-body { /* add to cards.css line 59 OR get rid of news card?? */
+    width: auto;
+    align-self: center;
+    }
 }

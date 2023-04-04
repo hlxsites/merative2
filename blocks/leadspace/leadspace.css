@@ -34,9 +34,12 @@
     }
 
 /** Section styling */
+/*
 .section.leadspace-container + .section.columns-container {
     padding-top: var(--spacer-layout-05);
     }
+
+ */
 
 .section.leadspace-container {
     background: var(--neutral-bone);
@@ -415,9 +418,12 @@ main div.leadspace-wrapper {
         font-size: var(--font-size-14);
         }
 
+    /*
     .section.leadspace-container + .section.columns-container {
     padding-top: var(--spacer-layout-07);
         }
+
+     */
 
     .leadspace > div:first-child {
         flex-flow: row nowrap;
