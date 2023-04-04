@@ -1,32 +1,20 @@
 import { createTag } from '../../scripts/scripts.js';
 
+const validListTypes = ['blocks', 'sections', 'buttons', 'placeholders', 'assets'];
+
 const LIBRARY_PATH = '/block-library/library.json';
 
-async function runListScript(name, content, list) {
+async function executeList(name, content, list) {
   const { default: listFn } = await import(`./lists/${name}.js`);
   listFn(content, list);
 }
 
 async function loadList(type, content, list) {
   list.innerHTML = '';
-  switch (type) {
-    case 'blocks':
-      runListScript('blocks', content, list);
-      break;
-    case 'sections':
-      runListScript('sections', content, list);
-      break;
-    case 'buttons':
-      runListScript('buttons', content, list);
-      break;
-    case 'placeholders':
-      runListScript('placeholders', content, list);
-      break;
-    case 'assets':
-      runListScript('assets', content, list);
-      break;
-    default:
-      console.log(`Library type not supported: ${type}`); // eslint-disable-line no-console
+  if (validListTypes.includes(type)) {
+    executeList(type, content, list);
+  } else {
+    console.log(`Library type not supported: ${type}`); // eslint-disable-line no-console
   }
 }
 
