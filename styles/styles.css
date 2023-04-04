@@ -780,12 +780,12 @@ main .section.back-to-top.active::after {
   border-radius: 50%;
   background-position: 50%;
   transform: rotate(-90deg);
+  width: 49px;
+  height: 49px;
 }
 
 main .section.back-to-top.active::after {
   background: url('../icons/right-arrow-purple-large.svg') no-repeat center center;
-  width: 49px;
-  height: 49px;
 }
 
 main .section.back-to-top.active:hover::after {
@@ -1094,14 +1094,6 @@ main .column-content-top-border > div > div::before {
 @media only screen and (min-width: 768px) {
   main {
     padding-top: var(--nav-height-mobile)
-    }
-
-  /* Back to top button */
-  main .section.back-to-top.active[data-section-status='loaded'],
-  main .section.back-to-top.active::before,
-  main .section.back-to-top.active::after {
-    width: 78px;
-    height: 78px;
     }
 
   main .section.section-header > div:nth-child(1) > p {
