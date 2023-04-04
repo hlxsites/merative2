@@ -1,5 +1,9 @@
 import { createTag } from '../../../scripts/scripts.js';
-import createCopy from '../library-utils.js';
+import {
+  appendListGroup,
+  createGroupItem,
+  fetchListDocument,
+} from '../library-utils.js';
 
 function getAuthorName(block) {
   const blockSib = block.previousElementSibling;
@@ -50,47 +54,18 @@ function getTable(block, name, path) {
   return table.outerHTML;
 }
 
-export default async function loadBlocks(blocks, list) {
+export default function loadBlocks(blocks, list) {
   blocks.forEach(async (block) => {
-    const titleText = createTag('p', { class: 'item-title' }, block.name);
-    const title = createTag('li', { class: 'block-group' }, titleText);
-    const previewButton = createTag('button', { class: 'preview-group' }, 'Preview');
-    title.append(previewButton);
-    list.append(title);
-
-    const blockList = createTag('ul', { class: 'block-group-list' });
-    list.append(blockList);
-
-    title.addEventListener('click', () => {
-      title.classList.toggle('is-open');
-    });
-
-    previewButton.addEventListener('click', (e) => {
-      e.stopPropagation();
-      window.open(block.path, '_blockpreview');
-    });
-
-    const resp = await fetch(`${block.path}.plain.html`);
-    if (!resp.ok) return;
-
-    const html = await resp.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
-    const pageBlocks = doc.body.querySelectorAll('div[class]');
+    const blockGroup = appendListGroup(list, block);
+    const blockDoc = await fetchListDocument(block);
+    const pageBlocks = blockDoc.body.querySelectorAll('div[class]');
     pageBlocks.forEach((pageBlock) => {
-      const item = document.createElement('li');
-      const name = document.createElement('p');
-      name.textContent = getAuthorName(pageBlock) || getBlockName(pageBlock);
-      const copy = document.createElement('button');
-      copy.addEventListener('click', (e) => {
-        const table = getTable(pageBlock, getBlockName(pageBlock), block.path);
-        e.target.classList.add('copied');
-        setTimeout(() => { e.target.classList.remove('copied'); }, 3000);
-        const blob = new Blob([table], { type: 'text/html' });
-        createCopy(blob);
-      });
-      item.append(name, copy);
-      blockList.append(item);
+      const blockName = getAuthorName(pageBlock) || getBlockName(pageBlock);
+      const blockItem = createGroupItem(
+        blockName,
+        () => getTable(pageBlock, getBlockName(pageBlock), block.path),
+      );
+      blockGroup.append(blockItem);
     });
   });
 }

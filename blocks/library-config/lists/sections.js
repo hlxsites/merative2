@@ -1,5 +1,5 @@
 import { createTag } from '../../../scripts/scripts.js';
-import createCopy from '../library-utils.js';
+import { appendListGroup, createGroupItem, fetchListDocument } from '../library-utils.js';
 import { readBlockConfig } from '../../../scripts/lib-franklin.js';
 
 function getSectionName(section) {
@@ -75,49 +75,19 @@ function getSection(section, path) {
   return output;
 }
 
-export default async function loadSections(sections, list) {
+export default function loadSections(sections, list) {
   sections.forEach(async (section) => {
-    const titleText = createTag('p', { class: 'item-title' }, section.name);
-    const title = createTag('li', { class: 'block-group' }, titleText);
-    const previewButton = createTag('button', { class: 'preview-group' }, 'Preview');
-    title.append(previewButton);
-    list.append(title);
-
-    const sectionList = createTag('ul', { class: 'block-group-list' });
-    list.append(sectionList);
-
-    title.addEventListener('click', () => {
-      title.classList.toggle('is-open');
-    });
-
-    previewButton.addEventListener('click', (e) => {
-      e.stopPropagation();
-      window.open(section.path, '_blockpreview');
-    });
-
-    const resp = await fetch(`${section.path}.plain.html`);
-    if (!resp.ok) return;
-
-    const html = await resp.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
-    const pageSections = doc.body.querySelectorAll(':scope > div');
+    const sectionGroup = appendListGroup(list, section);
+    const sectionDoc = await fetchListDocument(section);
+    const pageSections = sectionDoc.body.querySelectorAll(':scope > div');
     pageSections.forEach((pageSection) => {
       const sectionName = getSectionName(pageSection);
-      if (sectionName) {
-        const item = document.createElement('li');
-        const name = document.createElement('p');
-        name.textContent = getSectionName(pageSection);
-        const copy = document.createElement('button');
-        copy.addEventListener('click', (e) => {
-          const pageSectionContent = getSection(pageSection, section.path);
-          e.target.classList.add('copied');
-          setTimeout(() => { e.target.classList.remove('copied'); }, 3000);
-          const blob = new Blob([pageSectionContent], { type: 'text/html' });
-          createCopy(blob);
-        });
-        item.append(name, copy);
-        sectionList.append(item);
+      const sectionItem = createGroupItem(
+        sectionName,
+        () => getSection(pageSection, section.path),
+      );
+      if (sectionItem) {
+        sectionGroup.append(sectionItem);
       }
     });
   });
