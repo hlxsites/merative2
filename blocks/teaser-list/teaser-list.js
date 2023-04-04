@@ -8,7 +8,7 @@ async function setRowDetails(row, block) {
     if ((a.href === row.path) || (pathname === row.path)) aElement = a;
   });
   if (aElement) {
-    row['teaser-link-text'] = aElement.innerText;
+    row['teaser-link-text'] = aElement.innerText.trim();
     // Go up one level since <a> is wrapped inside a <p> usually
     let el = aElement.parentElement;
     // Loop through previous elements until you hit an <a>
