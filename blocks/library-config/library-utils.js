@@ -27,7 +27,7 @@ export function appendListGroup(list, listData) {
   return groupList;
 }
 
-export function createGroupItem(itemName, onCopy = () => void 0) {
+export function createGroupItem(itemName, onCopy = () => undefined) {
   if (itemName) {
     const item = document.createElement('li');
     const name = document.createElement('p');
