@@ -516,10 +516,17 @@ export function decorateButtons(element) {
     if (a.href !== a.textContent) {
       const up = a.parentElement;
       const twoup = a.parentElement.parentElement;
+      const down = a.firstElementChild;
       if (!a.querySelector('img')) {
         if (up.childNodes.length === 1 && (up.tagName === 'P' || up.tagName === 'DIV')) {
-          a.className = 'button primary'; // default
           up.classList.add('button-container');
+          if (!down || down.tagName === 'SPAN') {
+            a.className = 'button tertiary';
+          } else if (down && down.tagName === 'EM') {
+            a.className = 'button secondary';
+          } else {
+            a.className = 'button primary';
+          }
         }
         if (up.childNodes.length === 1 && up.tagName === 'STRONG'
           && twoup.childNodes.length === 1 && twoup.tagName === 'P') {
@@ -531,16 +538,18 @@ export function decorateButtons(element) {
           a.className = 'button secondary';
           twoup.classList.add('button-container');
         }
-        // add icon
-        const iconClass = getButtonIcon(a);
-        if (iconClass) {
-          // add span
-          const span = document.createElement('span');
-          span.classList.add('icon', ...iconClass);
-          a.appendChild(span);
-        }
-        if (a.querySelector('span.icon')) {
-          a.classList.add('has-icon');
+        if (a.classList.contains('button')) {
+          // add icon
+          const iconClass = getButtonIcon(a);
+          if (iconClass) {
+            // add span
+            const span = document.createElement('span');
+            span.classList.add('icon', ...iconClass);
+            a.appendChild(span);
+          }
+          if (a.querySelector('span.icon')) {
+            a.classList.add('has-icon');
+          }
         }
       }
     }
