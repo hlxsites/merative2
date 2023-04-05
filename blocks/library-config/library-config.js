@@ -9,7 +9,7 @@ async function executeList(name, content, list) {
   listFn(content, list);
 }
 
-async function loadList(type, content, list) {
+async function loadListContent(type, content, list) {
   list.innerHTML = '';
   if (validListTypes.includes(type)) {
     executeList(type, content, list);
@@ -22,13 +22,12 @@ async function fetchLibrary(domain) {
   const { searchParams } = new URL(window.location.href);
   const suppliedLibrary = searchParams.get('library');
   const library = suppliedLibrary || `${domain}${LIBRARY_PATH}`;
-
   const resp = await fetch(library);
   if (!resp.ok) return null;
   return resp.json();
 }
 
-async function getSuppliedLibrary() {
+async function fetchSuppliedLibrary() {
   const { searchParams } = new URL(window.location.href);
   const repo = searchParams.get('repo');
   const owner = searchParams.get('owner');
@@ -46,15 +45,17 @@ async function fetchAssetsData(path) {
 }
 
 async function combineLibraries(base, supplied) {
-  const url = new URL(window.location.href);
-
-  const assetsPath = url.searchParams.get('assets');
+  if (!base) {
+    return {};
+  }
 
   const library = Object.entries(base).reduce((prev, [name, item]) => ({
     ...prev,
     [name]: [...(item.data || [])],
   }), {});
 
+  const url = new URL(window.location.href);
+  const assetsPath = url.searchParams.get('assets');
   library.assets = await fetchAssetsData(assetsPath);
 
   if (supplied) {
@@ -69,7 +70,25 @@ async function combineLibraries(base, supplied) {
   return library;
 }
 
-function createList(libraries) {
+function createHeader() {
+  const nav = createTag('button', { class: 'sk-library-logo' }, 'Franklin Library');
+  const title = createTag('div', { class: 'sk-library-title' }, nav);
+  title.append(createTag('p', { class: 'sk-library-title-text' }, 'Pick a library'));
+  const header = createTag('div', { class: 'sk-library-header' }, title);
+
+  nav.addEventListener('click', (e) => {
+    const skLibrary = e.target.closest('.sk-library');
+    skLibrary.querySelector('.sk-library-title-text').textContent = 'Pick a library';
+    const insetEls = skLibrary.querySelectorAll('.inset');
+    insetEls.forEach((el) => {
+      el.classList.remove('inset');
+    });
+    skLibrary.classList.remove('allow-back');
+  });
+  return header;
+}
+
+function createLibraryList(libraries) {
   const container = createTag('div', { class: 'con-container' });
 
   const libraryList = createTag('ul', { class: 'sk-library-list' });
@@ -91,29 +110,11 @@ function createList(libraries) {
       libraryList.classList.add('inset');
       list.classList.add('inset');
       skLibrary.classList.add('allow-back');
-      loadList(type, lib, list);
+      loadListContent(type, lib, list);
     });
   });
 
   return container;
-}
-
-function createHeader() {
-  const nav = createTag('button', { class: 'sk-library-logo' }, 'Franklin Library');
-  const title = createTag('div', { class: 'sk-library-title' }, nav);
-  title.append(createTag('p', { class: 'sk-library-title-text' }, 'Pick a library'));
-  const header = createTag('div', { class: 'sk-library-header' }, title);
-
-  nav.addEventListener('click', (e) => {
-    const skLibrary = e.target.closest('.sk-library');
-    skLibrary.querySelector('.sk-library-title-text').textContent = 'Pick a library';
-    const insetEls = skLibrary.querySelectorAll('.inset');
-    insetEls.forEach((el) => {
-      el.classList.remove('inset');
-    });
-    skLibrary.classList.remove('allow-back');
-  });
-  return header;
 }
 
 function detectContext() {
@@ -127,9 +128,11 @@ export default async function init(el) {
   detectContext();
 
   // Get the data
-  const base = await fetchLibrary(window.location.origin);
-  const supplied = await getSuppliedLibrary();
-  const libraries = await combineLibraries(base, supplied);
+  const [base, supplied] = await Promise.allSettled([
+    fetchLibrary(window.location.origin),
+    fetchSuppliedLibrary(),
+  ]);
+  const libraries = await combineLibraries(base.value, supplied.value);
 
   // Create the UI
   const skLibrary = createTag('div', { class: 'sk-library' });
@@ -137,7 +140,7 @@ export default async function init(el) {
   const header = createHeader();
   skLibrary.append(header);
 
-  const list = createList(libraries);
+  const list = createLibraryList(libraries);
   skLibrary.append(list);
   el.attachShadow({ mode: 'open' });
 

@@ -1010,6 +1010,8 @@ main pre {
 .section.bg-neutral-carbon,
 .section .bg-neutral-carbon {
   background: var(--neutral-carbon);
+    background: var(--neutral-carbon);
+    color: var(--neutral-white);
 }
 
 .columns.column-content-top-border {
