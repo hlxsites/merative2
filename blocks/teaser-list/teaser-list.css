@@ -131,7 +131,8 @@
         font-size: var(--font-size-21);
         }
 
-    .teaser-card:nth-child(odd) > *, .teaser-card:nth-child(odd) > p {
+    .teaser-card:nth-child(odd) > *,
+    .teaser-card:nth-child(odd) > p {
         margin-right: 60px;
         }
 

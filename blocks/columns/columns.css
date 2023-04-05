@@ -327,11 +327,13 @@
         font-size: var(--font-size-16);
     }
 
-    .columns.quarter-circle.image-start > div > div:first-child, .columns.quarter-circle.image-end > div > div:last-child  {
+    .columns.quarter-circle.image-start > div > div:first-child,
+    .columns.quarter-circle.image-end > div > div:last-child  {
         width: 552px; /* per ana */
         }
 
-    .columns.quarter-circle.image-start > div > div:last-child,  .columns.quarter-circle.image-end > div > div:first-child {
+    .columns.quarter-circle.image-start > div > div:last-child,
+    .columns.quarter-circle.image-end > div > div:first-child {
         width: 456px; /* per ana */
         }
 
