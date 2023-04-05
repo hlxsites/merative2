@@ -380,10 +380,6 @@ main img {
     border-radius: 15px;
     }
 
-main .quarter-circle img {
-    clip-path: circle(100% at 100% 100%);
-}
-
 .section.section-bottom .default-content-wrapper {
   padding-top: var(--spacer-layout-05);
   }
