@@ -1,4 +1,4 @@
-import createCopy from '../library-utils.js';
+import { writeToClipboard } from '../library-utils.js';
 import { createTag } from '../../../scripts/scripts.js';
 
 function buildLink(href) {
@@ -13,7 +13,7 @@ export default async function assetsList(content, list) {
     img.addEventListener('click', () => {
       const html = href.endsWith('.svg') ? buildLink(href) : img.outerHTML;
       const blob = new Blob([html], { type: 'text/html' });
-      createCopy(blob);
+      writeToClipboard(blob);
     });
   });
 }

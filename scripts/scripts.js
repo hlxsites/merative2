@@ -225,7 +225,16 @@ export async function lookupPages(pathnames) {
       lookup,
     };
   }
-  const result = pathnames.map((path) => window.pageIndex.lookup[path]).filter((e) => e);
+
+  const result = pathnames.map((path) => {
+    // path is not in the index (external links)
+    if (window.pageIndex.lookup[path] === undefined) {
+      return {
+        path,
+      };
+    }
+    return window.pageIndex.lookup[path];
+  });
   return (result);
 }
 

@@ -1,6 +1,5 @@
 import { createTag } from '../../../scripts/scripts.js';
-
-import createCopy from '../library-utils.js';
+import { writeToClipboard } from '../library-utils.js';
 
 async function fetchPlaceholders(path) {
   const resp = await fetch(path);
@@ -20,7 +19,7 @@ export default async function placeholderList(content, list) {
       setTimeout(() => { e.target.classList.remove('copied'); }, 3000);
       const formatted = `{{${placeholder.key}}}`;
       const blob = new Blob([formatted], { type: 'text/plain' });
-      createCopy(blob);
+      writeToClipboard(blob);
     });
     title.append(copy);
     list.append(title);

@@ -1,44 +1,20 @@
 import { createTag } from '../../scripts/scripts.js';
 
+const validListTypes = ['blocks', 'sections', 'buttons', 'placeholders', 'assets'];
+
 const LIBRARY_PATH = '/block-library/library.json';
 
-async function loadBlocks(content, list) {
-  const { default: blocks } = await import('./lists/blocks.js');
-  blocks(content, list);
-}
-
-async function loadSections(content, list) {
-  const { default: sections } = await import('./lists/sections.js');
-  sections(content, list);
-}
-
-async function loadPlaceholders(content, list) {
-  const { default: placeholders } = await import('./lists/placeholders.js');
-  placeholders(content, list);
-}
-
-async function loadAssets(content, list) {
-  const { default: assets } = await import('./lists/assets.js');
-  assets(content, list);
+async function executeList(name, content, list) {
+  const { default: listFn } = await import(`./lists/${name}.js`);
+  listFn(content, list);
 }
 
 async function loadList(type, content, list) {
   list.innerHTML = '';
-  switch (type) {
-    case 'blocks':
-      loadBlocks(content, list);
-      break;
-    case 'sections':
-      loadSections(content, list);
-      break;
-    case 'placeholders':
-      loadPlaceholders(content, list);
-      break;
-    case 'assets':
-      loadAssets(content, list);
-      break;
-    default:
-      console.log(`Library type not supported: ${type}`); // eslint-disable-line no-console
+  if (validListTypes.includes(type)) {
+    executeList(type, content, list);
+  } else {
+    console.log(`Library type not supported: ${type}`); // eslint-disable-line no-console
   }
 }
 
@@ -66,8 +42,7 @@ async function fetchAssetsData(path) {
   if (!resp.ok) return null;
 
   const json = await resp.json();
-  const assetHrefs = json.entities.map((entity) => entity.links[0].href);
-  return assetHrefs;
+  return json.entities.map((entity) => entity.links[0].href);
 }
 
 async function combineLibraries(base, supplied) {
@@ -75,25 +50,20 @@ async function combineLibraries(base, supplied) {
 
   const assetsPath = url.searchParams.get('assets');
 
-  const library = {
-    blocks: base.blocks.data,
-    sections: base.sections?.data,
-    placeholders: base.placeholders?.data,
-    assets: await fetchAssetsData(assetsPath),
-  };
+  const library = Object.entries(base).reduce((prev, [name, item]) => ({
+    ...prev,
+    [name]: [...(item.data || [])],
+  }), {});
+
+  library.assets = await fetchAssetsData(assetsPath);
 
   if (supplied) {
-    if (supplied.blocks.data.length > 0) {
-      library.blocks.push(...supplied.blocks.data);
-    }
-
-    if (supplied.sections.data.length > 0) {
-      library.sections.push(...supplied.sections.data);
-    }
-
-    if (supplied.placeholders.data.length > 0) {
-      library.placeholders = supplied.placeholders.data;
-    }
+    Object.entries(supplied).forEach(([name, item]) => {
+      const { data } = item;
+      if (data?.length > 0) {
+        library[name].push(...data);
+      }
+    });
   }
 
   return library;
@@ -105,7 +75,7 @@ function createList(libraries) {
   const libraryList = createTag('ul', { class: 'sk-library-list' });
   container.append(libraryList);
 
-  Object.keys(libraries).forEach((type) => {
+  Object.entries(libraries).forEach(([type, lib]) => {
     if (!libraries[type] || libraries[type].length === 0) return;
 
     const item = createTag('li', { class: 'content-type' }, type);
@@ -121,7 +91,7 @@ function createList(libraries) {
       libraryList.classList.add('inset');
       list.classList.add('inset');
       skLibrary.classList.add('allow-back');
-      loadList(type, libraries[type], list);
+      loadList(type, lib, list);
     });
   });
 
@@ -173,6 +143,7 @@ export default async function init(el) {
 
   el.shadowRoot.append(skLibrary);
 
+  // add styles
   const link = document.createElement('link');
   link.setAttribute('rel', 'stylesheet');
   link.setAttribute('href', '/blocks/library-config/library-config.css');
