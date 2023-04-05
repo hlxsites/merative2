@@ -33,11 +33,6 @@
     padding-right: 40px;
 }
 
-.accordion .accordion-item:last-child::after {
-    bottom: 0;
-    top: inherit;
-}
-
 .accordion .accordion-item::before,
 .accordion .accordion-item:last-child::after {
     content: "";
