@@ -376,12 +376,12 @@ main img {
 }
 
 /* Image variations */
+.leadership-content img {
+    border-radius: 15px;
+    }
+
 main .quarter-circle img {
     clip-path: circle(100% at 100% 100%);
-}
-
-.leadership-content img {
-  border-radius: 15px;
 }
 
 .section.section-bottom .default-content-wrapper {
@@ -1010,8 +1010,7 @@ main pre {
 .section.bg-neutral-carbon,
 .section .bg-neutral-carbon {
   background: var(--neutral-carbon);
-    background: var(--neutral-carbon);
-    color: var(--neutral-white);
+color: var(--neutral-white);
 }
 
 .columns.column-content-top-border {
