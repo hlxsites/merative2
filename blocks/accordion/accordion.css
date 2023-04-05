@@ -1,7 +1,7 @@
 /* Bone style */
 
 .accordion {
-    padding: 10px 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -49,6 +49,11 @@
     top: 0;
     height: 1px;
     transition: all .5s ease-out;
+}
+
+.accordion .accordion-item:last-child::after {
+    bottom: 0;
+    top: inherit;
 }
 
 .accordion-item:first-child::before {
