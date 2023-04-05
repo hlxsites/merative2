@@ -1,72 +1,42 @@
-import { createTag } from '../../../scripts/scripts.js';
-import { appendListGroup, createGroupItem, fetchListDocument } from '../library-utils.js';
+import {
+  appendListGroup,
+  createGroupItem,
+  fetchListDocument,
+  createTable,
+  decorateImages,
+} from '../library-utils.js';
 import { readBlockConfig } from '../../../scripts/lib-franklin.js';
+
+function getAuthorName(sectionMeta) {
+  const sibling = sectionMeta.parentElement.previousElementSibling;
+  if (sibling) {
+    const heading = sibling.querySelector('h2');
+    return heading?.textContent;
+  }
+  return undefined;
+}
 
 function getSectionName(section) {
   const sectionMeta = section.querySelector('div.section-metadata');
-  let styles;
+  let sectionName;
   if (sectionMeta) {
     const meta = readBlockConfig(sectionMeta);
     Object.keys(meta).forEach((key) => {
       if (key === 'style') {
-        styles = meta.style;
+        sectionName = getAuthorName(sectionMeta) || meta.style;
       }
     });
   }
-  return styles;
+  return sectionName;
 }
 
-function getTable(block, name, path) {
-  const url = new URL(path);
-  block.querySelectorAll('img').forEach((img) => {
-    const srcSplit = img.src.split('/');
-    const mediaPath = srcSplit.pop();
-    img.src = `${url.origin}/${mediaPath}`;
-    const { width, height } = img;
-    const ratio = width > 200 ? 200 / width : 1;
-    img.width = width * ratio;
-    img.height = height * ratio;
-  });
-  const rows = [...block.children];
-  const maxCols = rows.reduce((cols, row) => (
-    row.children.length > cols ? row.children.length : cols), 0);
-  const table = document.createElement('table');
-  table.setAttribute('border', 1);
-  const headerRow = document.createElement('tr');
-  headerRow.append(createTag('th', { colspan: maxCols }, name));
-  table.append(headerRow);
-  rows.forEach((row) => {
-    const tr = document.createElement('tr');
-    [...row.children].forEach((col) => {
-      const td = document.createElement('td');
-      if (row.children.length < maxCols) {
-        td.setAttribute('colspan', maxCols);
-      }
-      td.innerHTML = col.innerHTML;
-      tr.append(td);
-    });
-    table.append(tr);
-  });
-  return table.outerHTML;
-}
-
-function getSection(section, path) {
-  const url = new URL(path);
-  section.querySelectorAll('img').forEach((img) => {
-    const srcSplit = img.src.split('/');
-    const mediaPath = srcSplit.pop();
-    img.src = `${url.origin}/${mediaPath}`;
-    const { width, height } = img;
-    const ratio = width > 200 ? 200 / width : 1;
-    img.width = width * ratio;
-    img.height = height * ratio;
-  });
+function createSection(section, path) {
+  decorateImages(section, path);
   let output = '---';
-  const rows = [...section.children];
-  rows.forEach((row) => {
+  [...section.children].forEach((row) => {
     if (row.nodeName === 'DIV') {
       const blockName = row.classList[0];
-      output = output.concat(getTable(row, blockName, path));
+      output = output.concat(createTable(row, blockName, path));
     } else {
       output = output.concat(row.outerHTML);
     }
@@ -84,7 +54,7 @@ export default function loadSections(sections, list) {
       const sectionName = getSectionName(pageSection);
       const sectionItem = createGroupItem(
         sectionName,
-        () => getSection(pageSection, section.path),
+        () => createSection(pageSection, section.path),
       );
       if (sectionItem) {
         sectionGroup.append(sectionItem);
