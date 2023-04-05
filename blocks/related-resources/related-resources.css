@@ -28,15 +28,9 @@
     overflow-x: auto;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* Internet Explorer 10+ */
-
-    /* additional styles */
     padding-bottom: var(--spacer-element-07);
-    font-family: var(--sans-serif-font-regular);
-    font-style: normal;
-    font-weight: var(--font-weight-light);
-    font-size: var(--font-size-16);
-    line-height: var(--line-height-160);
     letter-spacing: var(--letter-spacing-001-em);
+    margin-top: var(--spacer-layout-04);
 }
 
 .related-resources-container[data-section-status="loaded"] .related-resources[data-block-status="loaded"]::-webkit-scrollbar { /* WebKit */

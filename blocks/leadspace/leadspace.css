@@ -16,7 +16,7 @@
 
 .leadspace h1 {
     font-size: var(--font-size-36);
-    margin: var(--spacer-layout-02) 0;
+    margin: 0 0 var(--spacer-element-07);
     }
 
 .leadspace h2 {
@@ -33,13 +33,15 @@
     text-transform: uppercase;
     }
 
-/** Section styling */
-/*
-.section.leadspace-container + .section.columns-container {
+.leadspace-container > div:first-child {
+    margin: 0 auto;
     padding-top: var(--spacer-layout-05);
     }
 
- */
+.leadspace-container > div:last-child {
+    margin: 0 auto;
+    padding-bottom: var(--spacer-layout-05);
+    }
 
 .section.leadspace-container {
     background: var(--neutral-bone);
@@ -69,10 +71,6 @@ main div.leadspace-wrapper {
 .leadspace > div:first-child > div {
     position: relative;
     width: 100%;
-}
-
-.leadspace:not(.document) > div:first-child > div:nth-child(1) {
-    margin: var(--spacer-layout-03) auto var(--spacer-layout-02);
 }
 
 .leadspace.document .document-tag-container {
@@ -125,10 +123,6 @@ main div.leadspace-wrapper {
     line-height: var(--line-height-120);
 }
 
-/* Heading */
-.leadspace > div:first-child > div:nth-child(1) > h1 {
-    margin: var(--spacer-layout-02) 0;
-}
 
 /* Image/Video */
 /* stylelint-disable-next-line no-descending-specificity */
@@ -136,8 +130,7 @@ main div.leadspace-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    padding-bottom: var(--spacer-layout-036);
-    width: 325px;
+    width: 320px;
 }
 
 /* Image Variants */
@@ -216,8 +209,9 @@ main div.leadspace-wrapper {
 
 /* Video */
 .leadspace.video .video-wrapper {
-    clip-path: circle(49% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
     margin-right: -40%;
+    line-height: 0;
 }
 
 .leadspace.video .video-wrapper video {
@@ -227,15 +221,12 @@ main div.leadspace-wrapper {
 }
 
 .leadspace.video button.open-video {
-    width: auto;
+    width: 240px;
     height: 66px;
     background-color: var(--neutral-carbon);
     color: var(--neutral-white);
-    font-family: var(--sans-serif-font-medium);
     letter-spacing: var(--letter-spacing-1);
-    line-height: var(--line-height-160);
     border: none;
-    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     border-radius: 40px;
@@ -243,6 +234,7 @@ main div.leadspace-wrapper {
     align-items: center;
     padding: 11px 0 11px 24px;
     margin-top: var(--spacer-layout-03);
+    margin-bottom: var(--spacer-layout-03);
     cursor: pointer;
 }
 
@@ -257,20 +249,22 @@ main div.leadspace-wrapper {
     font-size: var(--font-size-16);
     font-weight: 500;
     white-space: nowrap;
-}
+    line-height: 1;
+    margin-top: var(--spacer-element-04);
+    }
 
 .leadspace.video button .video-button-content .video-button-duration {
     font-size: var(--font-size-12);
     font-family: var(--sans-serif-font-light);
+
 }
 
 .leadspace.video button .video-button-icon {
     background: var(--primary-purple) url('./../../icons/play-button.svg') no-repeat 55% 50%;
-    background-size: 14px;
     border-radius: 50%;
     height: 66px;
     width: 66px;
-    margin: 0 0 0 24px;
+    margin: 0 0 0 var(--spacer-layout-03);
 }
 
 .leadspace.video button.open-video:hover .video-button-icon {
@@ -334,7 +328,7 @@ main div.leadspace-wrapper {
     display: none;
 }
 
-/* Media queries */
+/* TABLET */
 @media screen and (min-width: 768px) {
     .leadspace:not(.document) > div:first-child {
         flex-flow: row nowrap;
@@ -343,6 +337,10 @@ main div.leadspace-wrapper {
 
     .leadspace:not(.document) > div:first-child > div {
         width: 50%;
+    }
+
+    .leadspace h1 {
+        margin: 0 0 var(--spacer-element-08);
     }
 
     .leadspace:not(.document) > div:first-child > div:nth-child(1) > p:last-of-type {
@@ -360,7 +358,7 @@ main div.leadspace-wrapper {
     }
 
     .leadspace:not(.document) > div:first-child > div:nth-child(1) {
-        padding-right: 30px;
+        width: 334px;
     }
 
     .leadspace.video > div:first-child > div:nth-child(2) {
@@ -368,7 +366,6 @@ main div.leadspace-wrapper {
         flex-direction: column;
         justify-content: unset;
         width: 50%;
-        height: 600px;
     }
 
     .leadspace .button-group {
@@ -376,13 +373,14 @@ main div.leadspace-wrapper {
     }
 
     .leadspace.video .video-wrapper {
-        clip-path: circle(46% at 50% 50%);
-        margin-right: -90%;
-        margin-top: -60px;
+        clip-path: circle(50% at 50% 50%);
+        margin-right: -91%;
+        margin-top: -145px;
+        margin-left: var(--spacer-layout-02);
     }
 
     .leadspace.video .video-wrapper video {
-        height: 600px;
+        height: 640px;
     }
 
     .leadspace.video .video-modal-container {
@@ -424,6 +422,9 @@ main div.leadspace-wrapper {
         }
 
      */
+    .leadspace-container > div:first-child {
+        padding-top: 0;
+        }
 
     .leadspace > div:first-child {
         flex-flow: row nowrap;
@@ -434,7 +435,13 @@ main div.leadspace-wrapper {
         }
 
     .leadspace:not(.document) > div:first-child > div:nth-child(1) {
+        width: 549px;
         margin: auto;
+        }
+
+    .leadspace.video > div:first-child > div:nth-child(1) {
+        width: 648px;
+        margin: var(--spacer-layout-06) 0;
         }
 
     .leadspace.quarter-circle img {
@@ -449,13 +456,9 @@ main div.leadspace-wrapper {
         font-size: var(--font-size-14);
         }
 
-    .leadspace.video > div:first-child > div:nth-child(1) {
-        margin: var(--spacer-layout-06) 0;
-        }
-
     .leadspace.video > div:first-child > div:nth-child(2) {
         width: 45%;
-        height: 900px;
+        height: 850px;
         }
 
     .leadspace .button-group {
@@ -467,7 +470,7 @@ main div.leadspace-wrapper {
     .leadspace.video .video-wrapper {
         clip-path: circle(60% at 105% 42%);
         margin-top: 0;
-        margin-right: 0;
+        margin-right: var(--spacer-element-07);
         }
 
     .leadspace.video .video-wrapper video {
