@@ -101,7 +101,7 @@
 .terms > div:nth-child(1) > div:nth-child(2) > p:nth-child(1) > em > strong::after {
     background-color: var(--feedback-green);
     border-radius: 50%;
-    color: #fff;
+    color: var(--neutral-white);
     content: "✓";
     font-size: var(--font-size-12);
     height: calc(var(--font-size-12) * 1.5);
@@ -141,11 +141,11 @@
 }
 
 /** Quarter circle clipping **/
-.columns.quarter-circle.image-start img {
+.columns.quarter-circle.image-start:not(.no-clip) img {
     clip-path: circle(100% at 0 100%);
 }
 
-.columns.quarter-circle.image-end img {
+.columns.quarter-circle.image-end:not(.no-clip) img {
     clip-path: circle(100% at 100% 100%);
 }
 
