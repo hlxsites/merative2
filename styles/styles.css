@@ -274,37 +274,37 @@ blockquote {
 .no-pad.section, .no-pad.section .default-content-wrapper, .no-pad.section p {
   margin: 0 auto;
   padding: 0;
-  }
+}
 
 .section > div {
   width: calc(100vw - 47px);
   margin: 0 auto;
 }
 
-main > .section { /* all 1st outer containers. Leadspace and teaser-list will be special. Marketo-block too. */
+main > .section {
   margin: 0;
   padding: 0;
   width: 100%;
-  }
+}
 
 .columns-gap-50 > div {
   gap: 50px
-  }
+}
 
 .column-content-top-border div > div {
   margin-bottom: 32px;
   max-width: 350px;
-  }
+}
 
 .section > div:first-child {
   margin: 0 auto;
   padding-top: var( --spacer-layout-06);
-  }
+}
 
 .section > div:last-child {
   margin: 0 auto;
-  padding-bottom: var( --spacer-layout-06); /* leadspace homepage may be special */
-  }
+  padding-bottom: var( --spacer-layout-06);
+}
 
 /* Block Library needs full width */
 .section > div.library-config-wrapper {
@@ -323,15 +323,15 @@ main > .section { /* all 1st outer containers. Leadspace and teaser-list will be
 
 .section-top div > h1 {
   margin: var(--spacer-element-08) 0 var(--spacer-element-07);
-  }
+}
 
 .section.section-top .columns-wrapper {
   padding-bottom: var(--spacer-layout-05);
-  }
+}
 
 .columns.content-band h1 {
   margin-top: 0;
-  }
+}
 
 .section .column-content-top-border > div > div h1 {
   font-size: 96px;
@@ -339,21 +339,21 @@ main > .section { /* all 1st outer containers. Leadspace and teaser-list will be
   letter-spacing: 0;
   font-weight: 300;
   margin: 0;
-  }
+}
 
 .article-content-wrapper h2:first-of-type {
   margin: unset;
-  }
+}
 
 .columns.row-header div > div > h2,
 .section.section-header > div:nth-child(1) > h1,
 .section.section-header > div:nth-child(1) > h2 {
   margin: 24px 0;
-  }
+}
 
 .section:first-of-type > .default-content-wrapper:first-of-type > h1:first-of-type {
   margin-top: 0;
-  }
+}
 
 /* Section Top and Bottom */
 .columns.columns-gap-50 > div {
@@ -362,7 +362,6 @@ main > .section { /* all 1st outer containers. Leadspace and teaser-list will be
 
 .padding-bottom-40 {
   padding-bottom: 40px;
-
 }
 
 .padding-bottom-60 {
@@ -378,15 +377,15 @@ main img {
 /* Image variations */
 .leadership-content img {
     border-radius: 15px;
-    }
+}
 
 .section.section-bottom .default-content-wrapper {
   padding-top: var(--spacer-layout-05);
-  }
+}
 
 .columns.section-bottom-grid > div {
 row-gap: 0;
-  }
+}
 
 .section-bottom-grid > div img {
   width: 56px;
@@ -403,15 +402,15 @@ row-gap: 0;
   height: 219px;
   margin-bottom: 24px;
   aspect-ratio: 3 / 2; /* stylelint-disable-line */
-  }
+}
 
 .content-band.icon-list img {
   width: auto;
-  }
+}
 
 .section-bottom-grid > div img:first-of-type {
   margin-top: var(--spacer-layout-01);
-  }
+}
 
 .margin-bottom-40 {
   margin-bottom: 40px;
@@ -674,34 +673,33 @@ button {
 
 .button-container > a.tertiary span.icon svg * {
   stroke: var(--primary-purple);
-  }
+}
 
 /* stylelint-disable-next-line no-descending-specificity */
 .section > div:last-child > *:last-child,
 .section > div:last-child > *:last-child > *:last-child { /* no bottom margin on whatever the last thing + 1 inner is */
   margin-bottom: 0;
   padding-bottom: 0;
-  }
+}
 
 /* stylelint-disable-next-line no-descending-specificity */
 .section > div:first-child > *:first-child,
 .section > div:first-child > *:first-child > *:first-child { /* no top margin on whatever comes next + 1 inner */
   margin-top: 0;
   padding-top: 0;
-  }
+}
 
 .button-container > a.tertiary:hover span.icon svg * {
- /* stroke: url("#gradient"); */
   stroke: var(--primary-red);
-  }
+}
 
 .button-container a.button.primary span.icon svg * {
   stroke: var(--neutral-white);
-  }
+}
 
 .button-container a.button.secondary span.icon svg * {
   stroke: var(--primary-purple);
-  }
+}
 
 .button-container a.button.secondary:hover span.icon svg *,
 .button-container a.button.secondary:active span.icon svg * {
@@ -724,7 +722,6 @@ button {
 }
 
 .article-content-wrapper .default-content-wrapper p.button-container > a {
-  /* text-align: center; */
   text-decoration: none;
 }
 
@@ -853,7 +850,7 @@ main pre {
   line-height: var(--line-height-120);
   letter-spacing: 0.0175em;
   margin-top: 0;
-  }
+}
 
 .section .columns.row-header div > div > h4,
 .section.section-header > div:nth-child(1) > p:first-child {
@@ -867,7 +864,7 @@ main pre {
 
 /* Leadership Sections */
 .section.leadership-content .columns > div > div {
-  margin: 0 0 var(--spacer-element-10);
+  margin: 0 0 80px;
 }
 
 .section.leadership-content {
@@ -877,6 +874,10 @@ main pre {
 .two-columns-section {
   padding-top: 60px;
 }
+
+.section.leadership-content h3 {
+  margin: var(--spacer-element-07) auto;
+  }
 
 .section.leadership-content .columns > div > div > h6 {
   font-family: var(--sans-serif-font-regular);
@@ -1135,6 +1136,7 @@ color: var(--neutral-white);
   .columns.column-content-top-border div {
     justify-content: space-between;
     align-items: start;
+    column-gap: var(--spacer-layout-02);
     }
 
   /* Content-band tablet styles */
@@ -1155,6 +1157,7 @@ color: var(--neutral-white);
   .section.leadership-content .columns > div {
     align-items: normal;
     flex-direction: unset;
+    gap: var(--spacer-layout-02);
     }
 
     .content-band.columns > div > div:first-of-type {
@@ -1176,7 +1179,6 @@ color: var(--neutral-white);
 
   .section.leadership-content .columns > div > div {
     flex: 1;
-    margin-left: 32px;
     }
 
   .section.leadership-content .columns > div > div:first-of-type {
@@ -1226,7 +1228,6 @@ color: var(--neutral-white);
     h2 {
         font-size: var(--font-size-32);
         font-family: var(--serif-font);
-
     }
 
     h3 {
@@ -1286,7 +1287,6 @@ color: var(--neutral-white);
     h4 {
         font-size: var(--font-size-21);
         font-weight: var(--font-weight-medium);
-
     }
 
 h5 {
@@ -1297,13 +1297,6 @@ h5 {
   main {
     padding-top: calc(var(--nav-height) + 37px);
     }
-
-  /*
-  main .section {
-    padding: var(--spacer-layout-07) var(--spacer-layout-03);
-    }
-
-   */
 
   main .section > div {
     width: var(--section-width-desktop);
@@ -1399,6 +1392,10 @@ h5 {
 
   .section > div:last-child {
     padding-bottom: var( --spacer-layout-07);
+    }
+
+  .section.leadership-content .columns-wrapper {
+    padding-bottom: 80px;
     }
 
   .section.section-header-right-content > div:nth-child(1) {

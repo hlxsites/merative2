@@ -40,6 +40,11 @@
 
 .leadspace-container > div:last-child {
     margin: 0 auto;
+    padding-bottom: 0;
+    }
+
+.home-video.leadspace-container > div:last-child {
+    margin: 0 auto;
     padding-bottom: var(--spacer-layout-05);
     }
 
@@ -147,6 +152,8 @@ main div.leadspace-wrapper {
 /* stylelint-disable-next-line no-descending-specificity */
 .leadspace.half-circle img {
     clip-path: circle(60% at 50% 100%);
+    width: 552px;
+    margin-bottom: -10px;
 }
 
 .leadspace.quarter-circle img {
@@ -350,7 +357,6 @@ main div.leadspace-wrapper {
     .leadspace > div:first-child > div:nth-child(2) {
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
     }
 
     .leadspace.event picture {
@@ -400,6 +406,10 @@ main div.leadspace-wrapper {
 }
 
 @media screen and (min-width: 1200px) {
+    .home-video.leadspace-container .leadspace-wrapper {
+        padding-top: 0;
+        }
+
     .leadspace, .leadspace p {
         font-size: var(--font-size-21);
         }
@@ -416,22 +426,12 @@ main div.leadspace-wrapper {
         font-size: var(--font-size-14);
         }
 
-    /*
-    .section.leadspace-container + .section.columns-container {
-    padding-top: var(--spacer-layout-07);
-        }
-
-     */
-    .leadspace-container > div:first-child {
-        padding-top: 0;
-        }
-
     .leadspace > div:first-child {
         flex-flow: row nowrap;
         }
 
     .leadspace:not(.document) > div:first-child > div {
-        width: 65%;
+        width: 552px;
         }
 
     .leadspace:not(.document) > div:first-child > div:nth-child(1) {
@@ -439,13 +439,22 @@ main div.leadspace-wrapper {
         margin: auto;
         }
 
+    .leadspace.half-circle> div:first-child > div:nth-child(1) {
+        width: 549px;
+        margin-top: var(--spacer-element-07);
+        }
+
     .leadspace.video > div:first-child > div:nth-child(1) {
         width: 648px;
-        margin: var(--spacer-layout-06) 0;
+        margin: var(--spacer-layout-07) 0;
         }
 
     .leadspace.quarter-circle img {
         max-height: 555px;
+        }
+
+    .leadspace.half-circle > div:first-child > div:nth-child(2) picture{
+        margin-top: var(--spacer-element-09);
         }
 
     .leadspace > div:first-child > div:nth-child(2) picture {
