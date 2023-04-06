@@ -142,19 +142,7 @@ export function decorateIcons(element = document) {
         img.src = `data:image/svg+xml,${encodeURIComponent(iconHTML)}`;
         span.appendChild(img);
       } else {
-        const svgContainer = document.createElement('div');
-        svgContainer.innerHTML = iconHTML;
-        // add linear gradient def
-        const svg = svgContainer.querySelector('svg');
-        if (svg) {
-          const defs = document.createElement('defs');
-          defs.innerHTML = `<linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#FA1E32"></stop>
-              <stop offset="100%" stop-color="#9900FF"></stop>
-            </linearGradient>`;
-          svg.prepend(defs);
-        }
-        span.innerHTML = svgContainer.innerHTML;
+        span.innerHTML = iconHTML;
       }
     }
   });
