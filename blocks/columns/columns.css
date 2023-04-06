@@ -7,8 +7,9 @@
     margin: var(--spacer-element-07) 0;
     }
 
-.terms div {
-    margin: var(--spacer-element-05) 0;
+.terms > div {
+    margin-bottom: var(--spacer-layout-05);
+    column-gap: 13px;
     }
 
 .section-top-grid > div {
@@ -41,8 +42,12 @@
     font-size: var(--font-size-18);
     line-height: var(--line-height-160);
     letter-spacing: var(--letter-spacing-1);
-    margin: var(--spacer-layout-02) auto;
+    margin: var(--spacer-layout-01) auto;
 }
+
+.content-band.icon-list .only-picture {
+    margin: var(--spacer-element-02) auto var(--spacer-layout-01) auto;
+    }
 
 .columns > div > div > *:first-child {
     margin-top: 0;
@@ -286,9 +291,15 @@
         }
 
     .terms > div > div:nth-of-type(even) {
-        flex: 2;
-        margin-left: var(--spacer-layout-04);
+        flex: 1;
+        margin-left: unset;
     }
+
+    .terms > div > div:nth-of-type(odd) {
+        width: 167px;
+        flex: unset;
+        }
+
 
     .columns > div > div:first-of-type {
         margin-left: unset;
@@ -369,6 +380,7 @@
 @media (min-width: 1200px) {
     .terms div {
         margin: var(--spacer-element-06) 0;
+        column-gap: 120px;
     }
 
     .section-bottom-grid > div > div {

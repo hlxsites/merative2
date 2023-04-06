@@ -276,6 +276,10 @@ blockquote {
   padding: 0;
 }
 
+main p.only-picture, main div.only-picture {
+line-height: 0;
+  }
+
 .section > div {
   width: calc(100vw - 47px);
   margin: 0 auto;
@@ -1142,7 +1146,7 @@ color: var(--neutral-white);
   /* Content-band tablet styles */
   .content-band.columns > div {
     flex-direction: unset;
-    column-gap: var(--spacer-layout-03);
+    column-gap: var(--spacer-layout-02);
     }
 
     .content-band.columns > div > div {

@@ -35,7 +35,7 @@
 
 .leadspace-container > div:first-child {
     margin: 0 auto;
-    padding-top: var(--spacer-layout-05);
+    padding-top: var(--spacer-layout-04);
     }
 
 .leadspace-container > div:last-child {
@@ -153,13 +153,11 @@ main div.leadspace-wrapper {
 .leadspace.half-circle img {
     clip-path: circle(60% at 50% 100%);
     width: 552px;
-    margin-bottom: -10px;
 }
 
 .leadspace.quarter-circle img {
     clip-path: circle(100% at 100% 95%);
-    max-height: 335px;
-    margin-bottom: -10px;
+    width: 335px;
 }
 
 /* Button Group */
@@ -450,11 +448,7 @@ main div.leadspace-wrapper {
         }
 
     .leadspace.quarter-circle img {
-        max-height: 555px;
-        }
-
-    .leadspace > div:first-child > div:nth-child(2) picture {
-        margin-top: var(--spacer-element-10);
+        width: 552px;
         }
 
     .leadspace.half-circle > div:first-child > div:nth-child(2) picture{

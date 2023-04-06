@@ -36,8 +36,7 @@
 
 /* CTA Button */
 .section.cta-container .cta.block .button-container {
-    margin: 0 auto;
-    padding-top: 32px;
+    margin: var(--spacer-element-08) auto 0 auto;
     width: unset;
 }
 

@@ -28,7 +28,7 @@
     overflow-x: auto;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* Internet Explorer 10+ */
-    padding-bottom: var(--spacer-element-07);
+    padding-bottom: var(--spacer-element-03);
     letter-spacing: var(--letter-spacing-001-em);
     margin-top: var(--spacer-layout-04);
 }
