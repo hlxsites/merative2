@@ -66,6 +66,16 @@
 
 .columns.quarter-circle img {
     width: 552px;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+}
+
+.columns.quarter-circle.image-start img {
+    clip-path: circle(100% at 0 100%);
+}
+
+.columns.quarter-circle.image-end img {
+    clip-path: circle(100% at 100% 100%);
 }
 
 .section-top > div:first-child {
@@ -285,14 +295,6 @@
         gap: 80px;
     }
 
-    .columns.quarter-circle.image-start img {
-        clip-path: circle(100% at 0 100%);
-    }
-
-    .columns.quarter-circle.image-end img {
-        clip-path: circle(100% at 100% 100%);
-    }
-
     .terms > div > div:nth-of-type(even) {
         flex: 2;
         margin-left: var(--spacer-layout-04);
@@ -347,9 +349,6 @@
 
     .news .columns.quarter-circle img {
         display: unset;
-        border-radius: 0 90% 0 0;
-        object-fit: cover;
-        aspect-ratio: 1 / 1;
         height: 338px;
         width: 338px;
         max-width: 338px;
