@@ -64,18 +64,11 @@
     width: 100%;
 }
 
+/** Quarter circle images */
 .columns.quarter-circle img {
     width: 552px;
     object-fit: cover;
     aspect-ratio: 1 / 1;
-}
-
-.columns.quarter-circle.image-start img {
-    clip-path: circle(100% at 0 100%);
-}
-
-.columns.quarter-circle.image-end img {
-    clip-path: circle(100% at 100% 100%);
 }
 
 .section-top > div:first-child {
@@ -145,6 +138,15 @@
     width: 98px;
     height: 95px;
     max-width: 98px;
+}
+
+/** Quarter circle clipping **/
+.columns.quarter-circle.image-start img {
+    clip-path: circle(100% at 0 100%);
+}
+
+.columns.quarter-circle.image-end img {
+    clip-path: circle(100% at 100% 100%);
 }
 
 .section-top.columns-container {
