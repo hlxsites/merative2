@@ -650,7 +650,7 @@ button {
   content: '';
   position: absolute;
   width: calc(100% - 28px);
-  height: 100%;
+  height: 1.1em;
   border-bottom: 2px solid var(--primary-purple);
 }
 
@@ -661,7 +661,7 @@ button {
   -webkit-background-clip: text;
   /* stylelint-disable-line */
   -webkit-text-fill-color: transparent;
-  color: transparent;
+  color: var(--gradient-left-right);
   border-image-slice: 1;
   border-image-source: var(--gradient-left-right);
 }
@@ -691,7 +691,8 @@ button {
   }
 
 .button-container > a.tertiary:hover span.icon svg * {
-  stroke: url("#gradient");
+ /* stroke: url("#gradient"); */
+  stroke: var(--primary-red);
   }
 
 .button-container a.button.primary span.icon svg * {
