@@ -664,7 +664,7 @@ button {
   -webkit-background-clip: text;
   /* stylelint-disable-line */
   -webkit-text-fill-color: transparent;
-  color: var(--gradient-left-right);
+  color: transparent;
   border-image-slice: 1;
   border-image-source: var(--gradient-left-right);
 }
