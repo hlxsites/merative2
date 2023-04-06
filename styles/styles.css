@@ -520,6 +520,10 @@ main .list-section ul li {
   line-height: var(--line-height-160);
 }
 
+.section.leadership-content h3 {
+  margin: var(--spacer-element-07) auto;
+  }
+
 .content-band.icon-list.picture-circle h3 {
   margin: var(--spacer-layout-01) auto;
   }
@@ -874,10 +878,6 @@ main pre {
 .two-columns-section {
   padding-top: 60px;
 }
-
-.section.leadership-content h3 {
-  margin: var(--spacer-element-07) auto;
-  }
 
 .section.leadership-content .columns > div > div > h6 {
   font-family: var(--sans-serif-font-regular);

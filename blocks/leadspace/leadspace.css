@@ -453,12 +453,12 @@ main div.leadspace-wrapper {
         max-height: 555px;
         }
 
-    .leadspace.half-circle > div:first-child > div:nth-child(2) picture{
-        margin-top: var(--spacer-element-09);
-        }
-
     .leadspace > div:first-child > div:nth-child(2) picture {
         margin-top: var(--spacer-element-10);
+        }
+
+    .leadspace.half-circle > div:first-child > div:nth-child(2) picture{
+        margin-top: var(--spacer-element-09);
         }
 
     .leadspace > div:first-child > div:nth-child(1) > p:first-child {
