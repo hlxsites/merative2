@@ -580,11 +580,17 @@ button {
 }
 
 .button-container a.primary,
-.button-container a.secondary {
-  box-sizing: border-box;
-  height: 48px;
-  border-radius: 40px;
-  padding: 11px var(--spacer-layout-02);
+ .button-container a.secondary {
+   box-sizing: border-box;
+   height: 48px;
+   border-radius: 40px;
+   padding: 11px var(--spacer-layout-02);
+ }
+
+.button-container a.tertiary {
+  height: 20px;
+  line-height: 20px;
+  align-items: end;
 }
 
 /** Button icons **/
@@ -602,12 +608,11 @@ button {
   display: inline-block;
   content: '';
   margin-left: var(--spacer-element-07);
-  vertical-align: middle;
-  width: 24px;
-  height: 24px;
+  vertical-align: bottom;
 }
 
 .button-container a.button span.icon > svg {
+  display: block;
   width: 24px;
   height: 24px;
 }
