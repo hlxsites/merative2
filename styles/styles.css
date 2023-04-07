@@ -599,6 +599,8 @@ button {
 
 .button-container > a.button.tertiary span.icon {
   margin-left: var(--spacer-element-02);
+  width: 20px;
+  height: 20px;
 }
 
 .button-container a.button span.icon.external {
@@ -652,7 +654,7 @@ button {
 .button-container > a.tertiary.has-icon::before {
   content: '';
   position: absolute;
-  width: calc(100% - 28px);
+  width: calc(100% - 24px);
   height: 1.1em;
   border-bottom: 2px solid var(--primary-purple);
 }
