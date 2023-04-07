@@ -588,6 +588,16 @@ button {
 }
 
 /** Button icons **/
+.article-content .icon > svg {
+  width: 32px;
+  height: 32px;
+}
+
+.article-content a + .icon > svg {
+  width: 20px;
+  height: 20px;
+}
+
 .button-container a.button span.icon {
   display: inline-block;
   content: '';
@@ -597,8 +607,16 @@ button {
   height: 24px;
 }
 
+.button-container a.button span.icon > svg {
+  width: 24px;
+  height: 24px;
+}
+
 .button-container > a.button.tertiary span.icon {
   margin-left: var(--spacer-element-02);
+}
+
+.button-container > a.button.tertiary span.icon > svg {
   width: 20px;
   height: 20px;
 }
@@ -712,17 +730,8 @@ button {
   stroke: var(--neutral-white);
 }
 
-.article-content .icon > svg {
-  width: 32px;
-  height: 32px;
-}
-
-.article-content a+.icon > svg {
-  width: 20px;
-  height: 20px;
-}
-
-.article-content-wrapper .default-content-wrapper p > a, main .article-content p > a:only-of-type {
+.article-content-wrapper .default-content-wrapper p > a,
+main .article-content p > a:only-of-type {
   text-decoration: underline;
   color:var(--primary-purple);
 }
