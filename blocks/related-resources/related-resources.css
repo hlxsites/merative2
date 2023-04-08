@@ -26,16 +26,9 @@
     flex-direction: row;
     gap: 24px;
     overflow-x: auto;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
     padding-bottom: var(--spacer-element-07);
     letter-spacing: var(--letter-spacing-001-em);
     margin-top: var(--spacer-layout-04);
-}
-
-.related-resources-container[data-section-status="loaded"] .related-resources[data-block-status="loaded"]::-webkit-scrollbar { /* WebKit */
-    width: 0;
-    height: 0;
 }
 
 .related-resources[data-block-status="loaded"] > .document-card {
@@ -124,6 +117,18 @@
     border: unset;
 }
 
+/* Mobile and Tablet hide scrollbar */
+@media only screen and (max-width: 1199px) {
+    .related-resources-container[data-section-status="loaded"] .related-resources[data-block-status="loaded"] {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+    }
+
+    .related-resources-container[data-section-status="loaded"] .related-resources[data-block-status="loaded"]::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 /* Tablet styles */
 @media only screen and (min-width: 768px) {
     .related-resources[data-block-status="loaded"] > .document-card {
@@ -155,6 +160,16 @@
         grid-template-columns: 1fr 1fr 1fr;
         gap: var(--spacer-element-10) var(--spacer-element-07);
         margin-right: -15px;
+    }
+
+    .related-resources-container[data-section-status="loaded"] .scroll.related-resources[data-block-status="loaded"] {
+        display: flex;
+        flex-direction: row;
+        overflow-x: scroll;
+        gap: 24px;
+        padding-bottom: var(--spacer-element-07);
+        letter-spacing: var(--letter-spacing-001-em);
+        margin-top: var(--spacer-layout-04);
     }
 
    .related-resources[data-block-status="loaded"] > .document-card {
