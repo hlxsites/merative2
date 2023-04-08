@@ -66,6 +66,18 @@ indices:
       featuredArticle:        
         select: head > meta[name="featured-article"]
         value: attribute(el, "content")
+      pageType:        
+        select: head > meta[name="page-type"]
+        value: attribute(el, "content")
+      orgFunction:        
+        select: head > meta[name="orgfunction"]
+        value: attribute(el, "content")
+      parent:        
+        select: head > meta[name="parent"]
+        value: attribute(el, "content")
+      productFamily:        
+        select: head > meta[name="product-family"]
+        value: attribute(el, "content")
   blogs:
     include:
       - /blog/**
