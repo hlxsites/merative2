@@ -393,6 +393,15 @@ main img {
 row-gap: 0;
 }
 
+.article-content picture img {
+  border-radius: 10px;
+  margin: 0;
+  width: 328px;
+  height: 219px;
+  margin-bottom: 24px;
+  aspect-ratio: 3 / 2; /* stylelint-disable-line */
+  }
+
 .columns.section-bottom-grid > div img {
   width: 56px;
   height: 56px;
@@ -404,19 +413,6 @@ row-gap: 0;
 .columns.section-bottom-grid > div:last-of-type *:last-child {
   margin-bottom: var(--spacer-layout-02);
   }
-
-.article-content picture img {
-  border-radius: 10px;
-  margin: 0;
-  width: 328px;
-  height: 219px;
-  margin-bottom: 24px;
-  aspect-ratio: 3 / 2; /* stylelint-disable-line */
-}
-
-.content-band.icon-list img {
-  width: auto;
-}
 
 .margin-bottom-40 {
   margin-bottom: 40px;
@@ -677,22 +673,9 @@ button {
   border-image-source: var(--gradient-left-right);
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .button-container > a.tertiary span.icon svg * {
   stroke: var(--primary-purple);
-}
-
-/* stylelint-disable-next-line no-descending-specificity */
-.section > div:last-child > *:last-child,
-.section > div:last-child > *:last-child > *:last-child { /* no bottom margin on whatever the last thing + 1 inner is */
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-/* stylelint-disable-next-line no-descending-specificity */
-.section > div:first-child > *:first-child,
-.section > div:first-child > *:first-child > *:first-child { /* no top margin on whatever comes next + 1 inner */
-  margin-top: 0;
-  padding-top: 0;
 }
 
 .button-container > a.tertiary:hover span.icon svg * {
@@ -711,6 +694,20 @@ button {
 .button-container a.button.secondary:active span.icon svg * {
   stroke: var(--neutral-white);
 }
+
+/* stylelint-disable-next-line no-descending-specificity */
+.section > div:last-child > *:last-child,
+.section > div:last-child > *:last-child > *:last-child { /* no bottom margin on whatever the last thing + 1 inner is */
+  margin-bottom: 0;
+  padding-bottom: 0;
+  }
+
+/* stylelint-disable-next-line no-descending-specificity */
+.section > div:first-child > *:first-child,
+.section > div:first-child > *:first-child > *:first-child { /* no top margin on whatever comes next + 1 inner */
+  margin-top: 0;
+  padding-top: 0;
+  }
 
 .article-content-wrapper .default-content-wrapper p > a,
 main .article-content p > a:only-of-type {

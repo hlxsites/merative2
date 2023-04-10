@@ -90,6 +90,10 @@
     border-radius: 15px;
 }
 
+.content-band.icon-list img {
+    width: auto;
+    }
+
 .columns.quarter-circle img {
     width: 328px;
     object-fit: cover;
@@ -199,10 +203,6 @@
 
 .section:not(.leadspace) .image-end picture,
 .section:not(.leadspace) .image-start picture {
-    display: none;
-}
-
-.news .columns.quarter-circle picture {
     display: none;
 }
 
