@@ -63,11 +63,6 @@
     display: none;
     }
 
-.section-top > div:first-child {
-    margin: 0 auto;
-    padding-top: var(--spacer-layout-04);
-    }
-
 .content-band.icon-list > div > div {
     margin-top: var(--spacer-element-05);
     margin-bottom: var(--spacer-element-06);
