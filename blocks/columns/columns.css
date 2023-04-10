@@ -370,8 +370,8 @@
         display: unset;
     }
 
-    .section:not(.leadspace) .image-end picture,
-    .section:not(.leadspace) .image-start picture {
+    .columns.image-end picture,
+    .columns.image-start picture {
         display: unset;
     }
 
