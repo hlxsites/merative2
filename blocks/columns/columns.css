@@ -223,7 +223,7 @@
 
 .section-bottom .columns-2-cols > div > :nth-child(2) h1 {
     font-family: var(--serif-font);
-    margin: var(--spacer-element-04) 0 0;
+    margin: var(--spacer-element-09) 0 0;
     font-size: 90px;
     -webkit-text-fill-color: transparent;
     background: var(--gradient-diagonal-up);
