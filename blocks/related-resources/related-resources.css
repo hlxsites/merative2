@@ -27,7 +27,6 @@
     gap: 24px;
     overflow-x: auto;
     padding-bottom: var(--spacer-element-03);
-
     letter-spacing: var(--letter-spacing-001-em);
     margin-top: var(--spacer-layout-04);
 }
