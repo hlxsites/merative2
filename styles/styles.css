@@ -857,6 +857,10 @@ main pre {
   background: var(--neutral-white);
 }
 
+.section.leadership-content h3 {
+  margin: var(--spacer-element-08) auto var(--spacer-element-05) auto;
+  }
+
 .two-columns-section {
   padding-top: 60px;
 }
