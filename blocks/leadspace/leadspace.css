@@ -27,8 +27,7 @@
 .leadspace h1 {
     font-size: var(--font-size-36);
     margin: 0 0 var(--spacer-element-06);
-    }
-
+}
 
 .leadspace h2 {
     font-size: var(--font-size-32);
@@ -404,6 +403,11 @@ main div.leadspace-wrapper {
         width: 336px;
     }
 
+    .leadspace.half-circle img,
+    .leadspace.quarter-circle img {
+        width: 336px;
+    }
+
     .leadspace:not(.document) > div:first-child > div:nth-child(1) {
         width: 334px;
     }
@@ -480,7 +484,7 @@ main div.leadspace-wrapper {
         width: 552px;
         padding: 96px 0;
         margin: auto auto auto 0;
-        }
+    }
 
     .leadspace.video > div:first-child > div:nth-child(1) {
         width: 648px;

@@ -217,6 +217,31 @@
     clip-path: circle(100% at 100% 100%);
 }
 
+.teaser-list-manual picture,
+.teaser-list-manual p > picture {
+    display: none;
+}
+
+.section-bottom-grid p picture {
+    display: block;
+    border-image-slice: 1;
+    border-image-source: var(--gradient-diagonal-up);
+    border-bottom: 1px solid var(--neutral-sand);
+}
+
+.news .columns.quarter-circle picture {
+    display: none;
+}
+
+/** Quarter circle clipping **/
+.columns.quarter-circle.image-start:not(.no-clip) picture {
+    clip-path: circle(100% at 0 100%);
+}
+
+.columns.quarter-circle.image-end:not(.no-clip) picture {
+    clip-path: circle(100% at 100% 100%);
+}
+
 .section-top.columns-container {
     background-size: 1400px 150%;
     background-position: 0 0, 50% 0, 0 0, 0 0;
@@ -353,7 +378,7 @@
     .columns.quarter-circle > div {
         gap: 80px;
     }
-
+    
     .content-band div:empty {
         display: unset;
     }
@@ -536,7 +561,7 @@
         height: 254px;
         max-width: 262px;
     }
-
+    
     .content-band.icon-list.picture-circle img {
         border-radius: 50%;
         height: 285px;
