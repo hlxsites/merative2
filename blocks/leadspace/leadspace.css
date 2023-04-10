@@ -142,6 +142,10 @@ main div.leadspace-wrapper {
     width: 320px;
 }
 
+.leadspace.event picture {
+    display: none;
+}
+
 /* Image Variants */
 .leadspace.half-circle:not(.no-clip) picture {
     clip-path: inset(50% 0 0 0 round 50% 50% 0 0);
@@ -156,17 +160,16 @@ main div.leadspace-wrapper {
     align-self: flex-end;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
-.leadspace.event picture {
-    display: none;
-}
-
 .leadspace.half-circle img,
 .leadspace.quarter-circle img {
     width: 328px;
     object-fit: cover;
-    aspect-ratio: 1 / 1;
     margin-bottom: -10px;
+}
+
+.leadspace.half-circle:not(.no-clip) img,
+.leadspace.quarter-circle:not(.no-clip) img {
+    aspect-ratio: 1 / 1;
 }
 
 .leadspace.half-circle:not(.no-clip) img {
