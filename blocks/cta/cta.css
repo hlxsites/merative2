@@ -31,7 +31,6 @@
     line-height: 160%;
     text-align: center;
     letter-spacing: 0.01em;
-    margin: 0;
 }
 
 /* CTA Button */
@@ -43,19 +42,20 @@
 @media only screen and (min-width: 768px) {
     .section.cta-container .cta.block p {
         width: 80vw;
-        margin: 0 auto;
     }
 }
 
 @media only screen and (min-width: 1200px) {
+    .section.cta-container .cta-wrapper {
+        width: 740px;
+        }
+
     .section.cta-container .cta.block h2 {
         font-size: 45px;
         padding-bottom: 24px;
     }
 
     .section.cta-container .cta.block p {
-        width: 740px;
         font-size: 21px;
-        margin: 0 auto;
     }
 }

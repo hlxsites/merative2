@@ -7,15 +7,16 @@
     letter-spacing: var(--letter-spacing-1);
 }
 
-.leadspace div.only-picture, .leadspace p.only-picture {
+.leadspace div.only-picture,
+.leadspace p.only-picture {
     margin-left: auto;
-    }
+}
 
 .leadspace > div:first-child > div:nth-child(2) picture {
     display: inline-block;
     align-self: flex-end;
     margin-top: 24px;
-    }
+}
 
 .leadspace h1, .leadspace h2 {
     font-family: var(--serif-font);
@@ -51,7 +52,7 @@
 .section.leadspace-container > div:first-child { /* need specificity */
     margin: 0 auto;
     padding-top: 0;
-    }
+}
 
 .home-video.leadspace-container > div:last-child {
     margin: 0 auto;
@@ -89,17 +90,17 @@ main div.leadspace-wrapper {
 
 .leadspace > div:first-child > div:last-child {
     text-align: end;
-    }
+}
 
 .leadspace.quarter-circle > div:first-child > div:first-child,
 .leadspace.half-circle > div:first-child > div:first-child {
     margin-top: var(--spacer-layout-05);
-    }
+}
 
 .leadspace.quarter-circle > div:first-child > div:first-child> *:last-child,
 .leadspace.half-circle > div:first-child > div:first-child> *:last-child  {
     margin-bottom: 0;
-    }
+}
 
 .leadspace.document .document-tag-container {
     display: flex;
@@ -154,12 +155,12 @@ main div.leadspace-wrapper {
 /* stylelint-disable-next-line no-descending-specificity */
 .leadspace.half-circle:not(.no-clip) picture {
     clip-path: inset(50% 0 0 0 round 50% 50% 0 0);
-    }
+}
 
 /* stylelint-disable-next-line no-descending-specificity */
 .leadspace.quarter-circle:not(.no-clip) picture {
     clip-path: circle(100% at 100% 100%);
-    }
+}
 
 .leadspace.video > div:first-child > div:nth-child(2) {
     display: flex;
@@ -174,7 +175,7 @@ main div.leadspace-wrapper {
 
 .leadspace.event > div:first-child > div:first-child {
     margin-bottom: var(--spacer-layout-05);
-    }
+}
 
 .leadspace.half-circle img,
 .leadspace.quarter-circle img {
@@ -193,7 +194,7 @@ main div.leadspace-wrapper {
     flex-flow: column;
     gap: var(--spacer-layout-01);
     margin-top: var(--spacer-layout-036);
-    }
+}
 
 /* Any button */
 .leadspace .button-group .button-container {
