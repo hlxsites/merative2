@@ -15,12 +15,27 @@ const loadScript = (url, attrs) => {
   return script;
 };
 
-const embedMarketoForm = (formId, divId) => {
+const embedMarketoForm = (formId, divId, successUrl) => {
   // PDF Viewer for doc pages
   if (formId && divId) {
     const mktoScriptTag = loadScript('//go.merative.com/js/forms2/js/forms2.min.js');
     mktoScriptTag.onload = () => {
-      window.MktoForms2.loadForm('//go.merative.com', `${formId}`, divId);
+      if (successUrl) {
+        window.MktoForms2.loadForm('//go.merative.com', `${formId}`, divId, (form) => {
+          // Add an onSuccess handler
+          // eslint-disable-next-line no-unused-vars
+          form.onSuccess((values, followUpUrl) => {
+            // Take the lead to a different page on successful submit,
+            // ignoring the form's configured followUpUrl
+            // eslint-disable-next-line no-restricted-globals
+            location.href = successUrl;
+            // Return false to prevent the submission handler continuing with its own processing
+            return false;
+          });
+        });
+      } else {
+        window.MktoForms2.loadForm('//go.merative.com', `${formId}`, divId);
+      }
     };
   }
 };
@@ -29,6 +44,7 @@ export default async function decorate(block) {
   const blockConfig = readBlockConfig(block);
   const formId = blockConfig['form-id'];
   const divId = blockConfig['div-id'];
+  const successUrl = blockConfig['success-url'];
 
   // Handle H2s in the section
   const section = block.parentElement.parentElement;
@@ -45,6 +61,6 @@ export default async function decorate(block) {
     block.textContent = '';
     block.append(formDiv);
 
-    window.setTimeout(() => embedMarketoForm(formId, divId), 3000);
+    window.setTimeout(() => embedMarketoForm(formId, divId, successUrl), 3000);
   }
 }
