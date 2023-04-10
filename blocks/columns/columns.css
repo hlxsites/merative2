@@ -5,24 +5,24 @@
 
 .columns p {
     margin: var(--spacer-element-07) 0;
-    }
+}
 
 .terms > div {
     margin-bottom: var(--spacer-layout-05);
     column-gap: 13px;
-    }
+}
 
 .section-top-grid > div {
     margin-bottom: 0;
-    }
+}
 
 .section-top-grid > div > div {
     align-self: flex-start;
-    }
+}
 
 .columns > div:last-of-type {
     margin-bottom: var(--spacer-element-10);
-    }
+}
 
 .content-band p, .content-band li {
     font-family: var(--sans-serif-font-light);
@@ -63,6 +63,11 @@
     display: none;
     }
 
+.section-top > div:first-child {
+    margin: 0 auto;
+    padding-top: var(--spacer-layout-04);
+    }
+
 .content-band.icon-list > div > div {
     margin-top: var(--spacer-element-05);
     margin-bottom: var(--spacer-element-06);
@@ -88,6 +93,12 @@
 
 .leadership-content img {
     border-radius: 15px;
+    }
+
+.columns.quarter-circle img {
+    width: 328px;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
     }
 
 .section-top-grid > div > div:nth-child(odd) img {
@@ -136,7 +147,7 @@
 
 .section.leadership-content .columns > div {
     margin-bottom: 0;
-    }
+}
 
 .section-top-grid > div > div > h1 {
     padding: 0;
@@ -163,7 +174,7 @@
 .terms > div:nth-child(1) > div:nth-child(2) > p:nth-child(1) > em > strong::after {
     background-color: var(--feedback-green);
     border-radius: 50%;
-    color: #fff;
+    color: var(--neutral-white);
     content: "✓";
     font-size: var(--font-size-12);
     height: calc(var(--font-size-12) * 1.5);
@@ -184,12 +195,39 @@
     margin-top: var(--spacer-layout-02);
 }
 
+.teaser-list-manual picture,
+.teaser-list-manual p > picture {
+    display: none;
+}
+
+.section-bottom-grid p picture {
+    display: block;
+    border-image-slice: 1;
+    border-image-source: var(--gradient-diagonal-up);
+    border-bottom: 1px solid var(--neutral-sand);
+}
+
+/** Quarter circle clipping **/
+
+.section:not(.leadspace) .image-end picture,
+.section:not(.leadspace) .image-start picture {
+    display: none;
+    }
+
+.columns.quarter-circle.image-start:not(.no-clip) picture {
+    clip-path: circle(100% at 0 100%);
+}
+
+.columns.quarter-circle.image-end:not(.no-clip) picture {
+    clip-path: circle(100% at 100% 100%);
+}
+
 .section-top.columns-container {
     background-size: 1400px 150%;
     background-position: 0 0, 50% 0, 0 0, 0 0;
     background-image: linear-gradient(0deg, var(--neutral-bone) 60%, rgb(250 248 246 / 0%) 100%),
     radial-gradient(50% 50% at 50% 50%, var(--neutral-white) 0%, var(--neutral-white) 100%, var(--neutral-bone));
-    }
+}
 
 .section-bottom .columns-2-cols > div > :nth-child(2) h1 {
     font-family: var(--serif-font);
@@ -219,17 +257,6 @@
     background-image: linear-gradient(180deg, var(--neutral-bone) 40%, rgb(255 255 255 / 0%) 100%),
     radial-gradient(50% 40% at 50% 0%, var(--neutral-bone) 0%, var(--neutral-bone) 100%, var(--neutral-white));
     padding-bottom: var(--spacer-layout-04);
-}
-
-.teaser-list-manual picture, .teaser-list-manual p > picture {
-    display: none;
-}
-
-.section-bottom-grid p picture {
-    display: block;
-    border-image-slice: 1;
-    border-image-source: var(--gradient-diagonal-up);
-    border-bottom: 1px solid var(--neutral-sand);
 }
 
 .section-bottom .columns-2-cols > div > :nth-child(1) {
@@ -275,10 +302,6 @@
     margin: 0;
 }
 
-.section:not(.leadspace) .image-end picture, .section:not(.leadspace) .image-start picture {
-    display: none;
-    }
-
 /* TABLET */
 @media (min-width: 768px) {
     .columns > div {
@@ -293,15 +316,19 @@
 
     .columns > div:last-of-type {
         margin-bottom: var(--spacer-layout-05);
-        }
+    }
+
+    .columns.quarter-circle img {
+        width: 336px;
+    }
 
     .section-bottom .columns-2-cols > div > :nth-child(2) h1 {
         margin: 0;
-        }
+    }
 
     .section-bottom .columns-2-cols {
         padding-top: var(--spacer-element-05);
-        }
+    }
 
     .columns.section-bottom-grid div {
         padding-bottom: var(--spacer-element-04);
@@ -309,36 +336,32 @@
 
     .section-top > div:first-child {
         padding-top: 80px;
-        }
-
-    .columns.quarter-circle img {
-        width: 552px;
-        }
+    }
 
     .section-top-grid > div > div:nth-child(odd) img {
         width: 432px;
         max-width: 432px;
         height: 411px;
-        }
+    }
 
     .section-top-grid > div > div:nth-child(even) img {
         width: 173px;
         height: 168px;
         max-width: 173px;
-        }
+    }
 
     .section-bottom .columns-2-cols > div {
         flex-flow: row nowrap;
         gap: 84px;
-        }
+    }
 
     .columns.quarter-circle > div {
         gap: 80px;
-        }
+    }
 
     .content-band div:empty {
         display: unset;
-        }
+    }
 
     .terms > div > div:nth-of-type(even) {
         flex: 1;
@@ -348,25 +371,27 @@
     .terms > div > div:nth-of-type(odd) {
         width: 167px;
         flex: unset;
-        }
+    }
 
     .columns > div > div:first-of-type {
         margin-left: unset;
     }
 
-    .teaser-list-manual picture, .teaser-list-manual p > picture {
+    .teaser-list-manual picture,
+    .teaser-list-manual p > picture {
         display: unset;
-        }
+    }
 
-    .section:not(.leadspace) .image-end picture, .section:not(.leadspace) .image-start picture {
+    .section:not(.leadspace) .image-end picture,
+    .section:not(.leadspace) .image-start picture {
         display: unset;
-        }
+    }
 
     .columns.quarter-circle > div > div {
         margin-left: 0;
         flex: unset;
         align-self: center;
-        }
+    }
 
     .columns.stretch-last > div > div:last-child {
         flex: 2;
@@ -378,7 +403,7 @@
         flex: unset;
     }
 
-   .section-top-grid > div:nth-of-type(1) > div:nth-of-type(2) {
+    .section-top-grid > div:nth-of-type(1) > div:nth-of-type(2) {
         align-self: flex-end;
         margin-left: 0;
     }
@@ -396,19 +421,23 @@
     }
 
     .columns.quarter-circle.image-start > div > div:first-child,
-    .columns.quarter-circle.image-end > div > div:last-child  {
+    .columns.quarter-circle.image-end > div > div:last-child {
         width: 552px; /* per ana */
-        }
+    }
 
     .columns.quarter-circle.image-start > div > div:last-child,
     .columns.quarter-circle.image-end > div > div:first-child {
         width: 456px; /* per ana */
-        }
+    }
 
-    .news .columns.quarter-circle img {
+    .news .columns.quarter-circle.image-start img {
         border-radius: 0 90% 0 0;
         aspect-ratio: 1 / 1;
-        }
+    }
+
+    .news .columns.quarter-circle.image-start picture {
+        clip-path: unset;
+    }
 
     .section.teaser-list-manual { /* needs specificity here  */
         padding: var(--spacer-layout-06) 0;
@@ -424,6 +453,7 @@
     }
 }
 
+/** Desktop **/
 @media (min-width: 1200px) {
     .terms div {
         margin: var(--spacer-element-06) 0;
@@ -433,15 +463,19 @@
     .section-bottom-grid > div > div {
         flex: 1;
         margin-left: var(--spacer-layout-05);
-        }
+    }
 
     .section-top > div:first-child {
         padding-top: 160px;
-        }
+    }
 
     .columns.quarter-circle > div {
         gap: 120px;
-        }
+    }
+
+    .columns.quarter-circle img {
+        width: 552px;
+    }
 
     .section-top-grid > div:nth-child(1) > div:nth-child(1) {
         padding-right: var(--spacer-layout-07);
@@ -455,9 +489,11 @@
 
     .section-bottom .columns-2-cols > div > :nth-child(1) {
         flex: 1 1 75%;
-        }
+    }
 
-    .section-top-grid > div:nth-child(1) > div:nth-child(1), p, .article-content-wrapper ul {
+    p,
+    .section-top-grid > div:nth-child(1) > div:nth-child(1),
+    .article-content-wrapper ul {
         font-family: var(--sans-serif-font-light);
         font-size: var(--font-size-21);
         font-weight: var(--font-weight-light);
@@ -473,7 +509,7 @@
     .columns-container .default-content-wrapper > p {
         max-width: 720px;
         margin: 0 0 var(--spacer-element-07);
-        }
+    }
 
     .columns-container h4 {
         font-size: var(--font-size-14);
@@ -482,7 +518,7 @@
     .section-top-grid > div:nth-of-type(2) > div:nth-of-type(2) > h1,
     .section-top-grid > div:nth-of-type(2) > div:nth-of-type(2) > p {
         margin-left: var(--spacer-element-09);
-        margin-bottom: var( --spacer-layout-036);
+        margin-bottom: var(--spacer-layout-036);
     }
 
     .section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(1) {
@@ -508,13 +544,7 @@
         width: 262px;
         height: 254px;
         max-width: 262px;
-        }
-
-    .news .columns.quarter-circle img {
-        height: 552px;
-        width: 552px;
-        max-width: 552px;
-        }
+    }
 
     .content-band.icon-list.picture-circle img {
         border-radius: 50%;
@@ -576,7 +606,7 @@
 
     .content-band.icon-list h4 {
         font-size: var(--font-size-21);
-        }
+    }
 
     .section.teaser-list-manual {
         width: var(--section-width-desktop);

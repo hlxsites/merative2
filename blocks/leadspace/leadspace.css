@@ -5,7 +5,7 @@
     font-weight: var(--font-weight-light);
     line-height: var(--line-height-160);
     letter-spacing: var(--letter-spacing-1);
-    }
+}
 
 .leadspace div.only-picture, .leadspace p.only-picture {
     margin-left: auto;
@@ -22,17 +22,18 @@
     font-weight: var(--font-weight-light);
     line-height: var(--line-height-120);
     letter-spacing: var(--letter-spacing-1-75);
-    }
+}
 
 .leadspace h1 {
     font-size: var(--font-size-36);
     margin: 0 0 var(--spacer-element-06);
     }
 
+
 .leadspace h2 {
     font-size: var(--font-size-32);
     margin-bottom: var(--spacer-layout-02);
-    }
+}
 
 .leadspace h4:first-of-type {
     font-size: var(--font-size-11);
@@ -41,12 +42,12 @@
     color: var(--neutral-carbon);
     margin: 0 0 var(--spacer-layout-03);
     text-transform: uppercase;
-    }
+}
 
 .leadspace-container > div:last-child {
     margin: 0 auto;
     padding-bottom: 0;
-    }
+}
 
 .section.leadspace-container > div:first-child { /* need specificity */
     margin: 0 auto;
@@ -56,7 +57,7 @@
 .home-video.leadspace-container > div:last-child {
     margin: 0 auto;
     padding-bottom: var(--spacer-layout-05);
-    }
+}
 
 .section.leadspace-container {
     background: var(--neutral-bone);
@@ -86,6 +87,10 @@ main div.leadspace-wrapper {
 .leadspace > div:first-child > div {
     position: relative;
 }
+
+.leadspace > div:first-child > div:last-child {
+    text-align: end;
+    }
 
 .leadspace.quarter-circle > div:first-child > div:first-child,
 .leadspace.half-circle > div:first-child > div:first-child {
@@ -147,17 +152,22 @@ main div.leadspace-wrapper {
     line-height: var(--line-height-120);
 }
 
-
-/* Image/Video */
 /* stylelint-disable-next-line no-descending-specificity */
+.leadspace.half-circle:not(.no-clip) picture {
+    clip-path: inset(50% 0 0 0 round 50% 50% 0 0);
+    }
+
+/* stylelint-disable-next-line no-descending-specificity */
+.leadspace.quarter-circle:not(.no-clip) picture {
+    clip-path: circle(100% at 100% 95%);
+    }
+
 .leadspace.video > div:first-child > div:nth-child(2) {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     width: 320px;
 }
-
-/* stylelint-disable-next-line no-descending-specificity */
 
 .leadspace.event > div:first-child > div:nth-child(2) picture {
     display: none;
@@ -167,15 +177,15 @@ main div.leadspace-wrapper {
     margin-bottom: var(--spacer-layout-05);
     }
 
-/* stylelint-disable-next-line no-descending-specificity */
-.leadspace.half-circle img {
-    clip-path: circle(60% at 50% 100%);
-    width: 552px;
+.leadspace.half-circle img,
+.leadspace.quarter-circle img {
+    width: 328px;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
 }
 
-.leadspace.quarter-circle img {
-    clip-path: circle(100% at 100% 95%);
-    width: 335px;
+.leadspace.half-circle:not(.no-clip) img {
+    transform: translateY(50%);
 }
 
 /* Button Group */
@@ -275,7 +285,7 @@ main div.leadspace-wrapper {
     white-space: nowrap;
     line-height: 1;
     margin-top: var(--spacer-element-04);
-    }
+}
 
 .leadspace.video button .video-button-content .video-button-duration {
     font-size: var(--font-size-12);
@@ -389,6 +399,11 @@ main div.leadspace-wrapper {
         display: inline-block;
         }
 
+    .leadspace.half-circle img,
+    .leadspace.quarter-circle img {
+        width: 336px;
+    }
+
     .leadspace:not(.document) > div:first-child > div:nth-child(1) {
         width: 334px;
     }
@@ -431,34 +446,35 @@ main div.leadspace-wrapper {
     }
 }
 
+/** Desktop */
 @media screen and (min-width: 1200px) {
     .home-video.leadspace-container .leadspace-wrapper {
         padding-top: 0;
-        }
+    }
 
     .leadspace, .leadspace p {
         font-size: var(--font-size-21);
-        }
+    }
 
     .leadspace h1 {
         font-size: var(--font-size-64);
-        }
+    }
 
     .leadspace h2 {
         font-size: var(--font-size-45);
-        }
+    }
 
     .leadspace h4:first-of-type {
         font-size: var(--font-size-14);
-        }
+    }
 
     .leadspace > div:first-child {
         flex-flow: row nowrap;
-        }
+    }
 
     .leadspace:not(.document) > div:first-child > div {
         width: 552px;
-        }
+    }
 
     .leadspace:not(.document) > div:first-child > div:nth-child(1) {
         width: 552px;
@@ -469,53 +485,58 @@ main div.leadspace-wrapper {
     .leadspace.video > div:first-child > div:nth-child(1) {
         width: 648px;
         margin: var(--spacer-layout-07) 0;
-        }
+    }
 
+    .leadspace.half-circle img,
     .leadspace.quarter-circle img {
         width: 552px;
-        }
+    }
 
-    .leadspace.half-circle > div:first-child > div:nth-child(2) picture{
+    .leadspace > div:first-child > div:nth-child(2) picture {
+        margin-top: var(--spacer-element-10);
+    }
+
+    .leadspace.half-circle > div:first-child > div:nth-child(2) picture {
         margin-top: var(--spacer-element-09);
-        }
+    }
 
     .leadspace > div:first-child > div:nth-child(1) > p:first-child {
         font-size: var(--font-size-14);
-        }
+    }
 
     .leadspace.video > div:first-child > div:nth-child(2) {
         width: 45%;
         height: 850px;
-        }
+    }
 
     .leadspace .button-group {
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-        }
+    }
 
     .leadspace.video .video-wrapper {
         clip-path: circle(60% at 105% 42%);
         margin-top: 0;
         margin-right: var(--spacer-element-07);
-        }
+    }
 
     .leadspace.video .video-wrapper video {
         height: 1000px;
-        }
+    }
 
     .leadspace.video .video-control {
         bottom: 60px;
         right: 0;
         margin-right: -55px;
-        }
+    }
 
     .leadspace.video button.open-video {
         position: absolute;
         top: 485px;
         left: 104%;
         z-index: 2;
-        }
+    }
 
     .leadspace.video.scroll-border .scroll-border-wrapper {
         display: flex;
@@ -523,7 +544,7 @@ main div.leadspace-wrapper {
         bottom: -100px;
         gap: var(--spacer-layout-03);
         z-index: 2;
-        }
+    }
 
     .leadspace.video .scroll-border-line {
         width: 2px;
@@ -532,10 +553,10 @@ main div.leadspace-wrapper {
         font-size: var(--font-size-14);
         text-transform: uppercase;
         letter-spacing: var(--letter-spacing-02-em);
-        }
+    }
 
     .leadspace.video .video-modal-content video {
         max-height: 581px;
         width: 1033px;
-        }
     }
+}
