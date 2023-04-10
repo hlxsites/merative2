@@ -7,6 +7,25 @@
     letter-spacing: var(--letter-spacing-1);
 }
 
+.leadspace div.only-picture,
+.leadspace p.only-picture {
+    margin-left: auto;
+}
+
+.leadspace.event picture {
+    display: none;
+    }
+
+.leadspace.half-circle:not(.no-clip) picture {
+    clip-path: inset(50% 0 0 0 round 50% 50% 0 0);
+    }
+
+.leadspace > div:first-child > div:nth-child(2) picture {
+    display: inline-block;
+    align-self: flex-end;
+    margin-top: 24px;
+}
+
 .leadspace h1, .leadspace h2 {
     font-family: var(--serif-font);
     font-weight: var(--font-weight-light);
@@ -16,7 +35,7 @@
 
 .leadspace h1 {
     font-size: var(--font-size-36);
-    margin: 0 0 var(--spacer-element-07);
+    margin: 0 0 var(--spacer-element-06);
 }
 
 .leadspace h2 {
@@ -33,14 +52,14 @@
     text-transform: uppercase;
 }
 
-.leadspace-container > div:first-child {
-    margin: 0 auto;
-    padding-top: var(--spacer-layout-05);
-}
-
 .leadspace-container > div:last-child {
     margin: 0 auto;
     padding-bottom: 0;
+}
+
+.section.leadspace-container > div:first-child { /* need specificity */
+    margin: 0 auto;
+    padding-top: 0;
 }
 
 .home-video.leadspace-container > div:last-child {
@@ -75,11 +94,20 @@ main div.leadspace-wrapper {
 /* stylelint-disable-next-line no-descending-specificity */
 .leadspace > div:first-child > div {
     position: relative;
-    width: 100%;
 }
 
 .leadspace > div:first-child > div:last-child {
     text-align: end;
+}
+
+.leadspace.quarter-circle > div:first-child > div:first-child,
+.leadspace.half-circle > div:first-child > div:first-child {
+    margin-top: var(--spacer-layout-05);
+}
+
+.leadspace.quarter-circle > div:first-child > div:first-child> *:last-child,
+.leadspace.half-circle > div:first-child > div:first-child> *:last-child  {
+    margin-bottom: 0;
 }
 
 .leadspace.document .document-tag-container {
@@ -132,9 +160,11 @@ main div.leadspace-wrapper {
     line-height: var(--line-height-120);
 }
 
-
-/* Image/Video */
 /* stylelint-disable-next-line no-descending-specificity */
+.leadspace.quarter-circle:not(.no-clip) picture {
+    clip-path: circle(100% at 100% 100%);
+}
+
 .leadspace.video > div:first-child > div:nth-child(2) {
     display: flex;
     flex-direction: row;
@@ -142,29 +172,18 @@ main div.leadspace-wrapper {
     width: 320px;
 }
 
-.leadspace.event picture {
+.leadspace.event > div:first-child > div:nth-child(2) picture {
     display: none;
 }
 
-/* Image Variants */
-.leadspace.half-circle:not(.no-clip) picture {
-    clip-path: inset(50% 0 0 0 round 50% 50% 0 0);
-}
-
-.leadspace.quarter-circle:not(.no-clip) picture {
-    clip-path: circle(100% at 100% 95%);
-}
-
-.leadspace > div:first-child > div:nth-child(2) picture {
-    display: inline-block;
-    align-self: flex-end;
+.leadspace.event > div:first-child > div:first-child {
+    margin-bottom: var(--spacer-layout-05);
 }
 
 .leadspace.half-circle img,
 .leadspace.quarter-circle img {
     width: 328px;
     object-fit: cover;
-    margin-bottom: -10px;
 }
 
 .leadspace.half-circle:not(.no-clip) img,
@@ -181,6 +200,7 @@ main div.leadspace-wrapper {
     display: flex;
     flex-flow: column;
     gap: var(--spacer-layout-01);
+    margin-top: var(--spacer-layout-036);
 }
 
 /* Any button */
@@ -353,7 +373,7 @@ main div.leadspace-wrapper {
 @media screen and (min-width: 768px) {
     .leadspace:not(.document) > div:first-child {
         flex-flow: row nowrap;
-        justify-content: stretch;
+        align-items: flex-end;
     }
 
     .leadspace:not(.document) > div:first-child > div {
@@ -361,7 +381,7 @@ main div.leadspace-wrapper {
     }
 
     .leadspace h1 {
-        margin: 0 0 var(--spacer-element-08);
+        margin: 0 0 var(--spacer-element-06);
     }
 
     .leadspace:not(.document) > div:first-child > div:nth-child(1) > p:last-of-type {
@@ -373,9 +393,18 @@ main div.leadspace-wrapper {
         flex-direction: column;
     }
 
-    .leadspace.event picture {
-        display: block;
-    }
+    .leadspace > div:first-child > div:nth-child(2) picture {
+        margin-top: 48px;
+        }
+
+    .leadspace.quarter-circle > div:first-child > div:first-child,
+    .leadspace.half-circle > div:first-child > div:first-child {
+        margin-bottom: var(--spacer-layout-05);
+        }
+
+    .leadspace.event > div:first-child > div:nth-child(2) picture {
+        display: inline-block;
+        }
 
     .leadspace.half-circle img,
     .leadspace.quarter-circle img {
@@ -455,13 +484,9 @@ main div.leadspace-wrapper {
     }
 
     .leadspace:not(.document) > div:first-child > div:nth-child(1) {
-        width: 549px;
-        margin: auto;
-    }
-
-    .leadspace.half-circle > div:first-child > div:nth-child(1) {
-        width: 549px;
-        margin-top: var(--spacer-element-07);
+        width: 552px;
+        padding: 96px 0;
+        margin: auto auto auto 0;
     }
 
     .leadspace.video > div:first-child > div:nth-child(1) {

@@ -460,6 +460,14 @@ export function decorateExternalLinks(main) {
   });
 }
 
+/* so we can remove the space that P adds via CSS */
+export function decorateOnlyPicture(main) {
+  const onlyPictures = main.querySelectorAll('p > picture:only-child, div > picture:only-child');
+  onlyPictures.forEach((onlyPicture) => {
+    onlyPicture.closest('p, div').classList.add('only-picture');
+  });
+}
+
 /**
  * Decorates the main element.
  * @param {Element} main The main element
@@ -470,6 +478,7 @@ export function decorateMain(main) {
   decorateButtons(main);
   decorateExternalLinks(main);
   decorateIcons(main);
+  decorateOnlyPicture(main);
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);

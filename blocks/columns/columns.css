@@ -7,8 +7,9 @@
     margin: var(--spacer-element-07) 0;
 }
 
-.terms div {
-    margin: var(--spacer-element-05) 0;
+.terms > div {
+    margin-bottom: var(--spacer-layout-05);
+    column-gap: 13px;
 }
 
 .section-top-grid > div {
@@ -21,6 +22,23 @@
 
 .columns > div:last-of-type {
     margin-bottom: var(--spacer-element-10);
+}
+
+.content-band p,
+.content-band li {
+    font-family: var(--sans-serif-font-light);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-light);
+    line-height: var(--line-height-160);
+    letter-spacing: var(--letter-spacing-1);
+}
+
+.columns > div > div > *:first-child {
+    margin-top: 0;
+}
+
+.columns > div:last-of-type *:last-child {
+    margin-bottom: 0;
 }
 
 .columns-container h2 {
@@ -37,43 +55,88 @@
     margin: var(--spacer-layout-02) auto;
 }
 
-.content-band.icon-list h4 {
-    font-size: var(--font-size-18);
+.section-top > div:first-child {
+    margin: 0 auto;
+    padding-top: var(--spacer-layout-04);
+}
+
+.content-band div:empty {
+    display: none;
+}
+
+.content-band.icon-list > div > div {
+    margin-top: var(--spacer-element-05);
+    margin-bottom: var(--spacer-element-06);
+}
+
+.columns.content-band li {
+    list-style-image: url("../icons/arrow-purple.svg");
+    margin-bottom: var(--spacer-element-03);
     line-height: var(--line-height-160);
-    letter-spacing: var(--letter-spacing-1);
-    margin: var(--spacer-layout-02) auto;
 }
 
-.columns > div > div > *:first-child {
-    margin-top: 0;
-}
-
-.columns > div > div > h4:first-child {
-    text-transform: uppercase;
-}
-
-.content-band p, .content-band li {
-    font-family: var(--sans-serif-font-light);
-    font-size: var(--font-size-16);
-    font-weight: var(--font-weight-light);
-    line-height: var(--line-height-160);
-    letter-spacing: var(--letter-spacing-1);
+.content-band.icon-list.picture-circle h3 {
+    margin: var(--spacer-layout-01) auto;
 }
 
 .columns img {
     width: 100%;
 }
 
-/** Quarter circle images */
+.leadership-content picture {
+    background-color: #e6e3d9;
+    }
+
+.leadership-content img {
+    border-radius: 15px;
+}
+
+.content-band.icon-list img {
+    width: auto;
+    }
+
 .columns.quarter-circle img {
     width: 328px;
     object-fit: cover;
     aspect-ratio: 1 / 1;
 }
 
-.section-top > div:first-child {
-    margin: 0 auto;
-    padding-top: var(--spacer-layout-04);
+.section-top-grid > div > div:nth-child(odd) img {
+    border-radius: 90% 0 0;
+    width: 230px;
+    height: 230px;
+}
+
+.section-top-grid > div > div:nth-child(even) img {
+    border-radius: 0 90% 0 0;
+    width: 98px;
+    height: 95px;
+    max-width: 98px;
+}
+
+.content-band.icon-list.picture-circle img {
+    border-radius: 50%;
+    height: 158px;
+    width: 158px;
+}
+
+.content-band.icon-list h4 {
+    font-size: var(--font-size-18);
+    line-height: var(--line-height-160);
+    letter-spacing: var(--letter-spacing-1);
+    margin: var(--spacer-layout-01) auto;
+}
+
+.content-band.icon-list .only-picture {
+    margin: var(--spacer-element-03) auto var(--spacer-layout-01) auto;
+}
+
+.columns > div > div > h4:first-child {
+    text-transform: uppercase;
+}
+
+.section.leadership-content .columns > div {
+    margin-bottom: 0;
 }
 
 .section-top-grid > div > div > h1 {
@@ -112,11 +175,6 @@
     width: calc(var(--font-size-12) * 1.5);
 }
 
-.teaser-list-manual .teaser-list div div {
-    padding: var(--spacer-element-10) 0;
-    border-bottom: 1px solid var(--neutral-sand);
-}
-
 .section-top-grid > div:nth-of-type(1) > div:nth-of-type(2) {
     margin-left: 230px;
     margin-top: var(--spacer-layout-01);
@@ -125,19 +183,6 @@
 .section-top-grid > div:nth-of-type(2) > div:nth-of-type(2) {
     margin-left: var(--spacer-layout-05);
     margin-top: var(--spacer-layout-02);
-}
-
-.section-top-grid > div > div:nth-child(odd) img {
-    border-radius: 90% 0 0;
-    width: 230px;
-    height: 230px;
-}
-
-.section-top-grid > div > div:nth-child(even) img {
-    border-radius: 0 90% 0 0;
-    width: 98px;
-    height: 95px;
-    max-width: 98px;
 }
 
 .teaser-list-manual picture,
@@ -152,11 +197,11 @@
     border-bottom: 1px solid var(--neutral-sand);
 }
 
-.news .columns.quarter-circle picture {
+.columns.image-end picture,
+.columns.image-start picture {
     display: none;
 }
 
-/** Quarter circle clipping **/
 .columns.quarter-circle.image-start:not(.no-clip) picture {
     clip-path: circle(100% at 0 100%);
 }
@@ -174,7 +219,7 @@
 
 .section-bottom .columns-2-cols > div > :nth-child(2) h1 {
     font-family: var(--serif-font);
-    margin: var(--spacer-element-04) 0 0;
+    margin: var(--spacer-element-09) 0 0;
     font-size: 90px;
     -webkit-text-fill-color: transparent;
     background: var(--gradient-diagonal-up);
@@ -302,13 +347,32 @@
         gap: 80px;
     }
 
+    .content-band div:empty {
+        display: unset;
+    }
+
     .terms > div > div:nth-of-type(even) {
-        flex: 2;
-        margin-left: var(--spacer-layout-04);
+        flex: 1;
+        margin-left: unset;
+    }
+
+    .terms > div > div:nth-of-type(odd) {
+        width: 167px;
+        flex: unset;
     }
 
     .columns > div > div:first-of-type {
         margin-left: unset;
+    }
+
+    .teaser-list-manual picture,
+    .teaser-list-manual p > picture {
+        display: unset;
+    }
+
+    .columns.image-end picture,
+    .columns.image-start picture {
+        display: unset;
     }
 
     .columns.quarter-circle > div > div {
@@ -354,14 +418,9 @@
         width: 456px; /* per ana */
     }
 
-    /* teaser-list-manual min 768 */
-    .teaser-list-manual picture,
-    .teaser-list-manual p > picture {
-        display: unset;
-    }
-
-    .news .columns.quarter-circle picture {
-        display: unset;
+    .news .columns.quarter-circle.image-start img {
+        border-radius: 0 90% 0 0;
+        aspect-ratio: 1 / 1;
     }
 
     .section.teaser-list-manual { /* needs specificity here  */
@@ -382,6 +441,7 @@
 @media (min-width: 1200px) {
     .terms div {
         margin: var(--spacer-element-06) 0;
+        column-gap: 120px;
     }
 
     .section-bottom-grid > div > div {
@@ -469,6 +529,20 @@
         height: 254px;
         max-width: 262px;
     }
+
+    .content-band.icon-list.picture-circle img {
+        border-radius: 50%;
+        height: 285px;
+        width: 285px;
+        }
+
+    .columns.content-band.icon-list.picture-circle > div > div {
+        margin-top: var(--spacer-layout-04);
+        }
+
+    .content-band.icon-list.picture-circle h3 {
+        margin: var(--spacer-layout-03) auto;
+        }
 
     .section-top.columns-container {
         background-size: 2600px 150%;

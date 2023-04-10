@@ -158,8 +158,13 @@
 
     .section.what-we-do.teaser-list-container {
         width: var(--section-width-desktop);
-        padding: var(--spacer-layout-04) 0 var(--spacer-layout-07);
+        padding-top: var(--spacer-layout-05);
+        padding-bottom: var(--spacer-layout-07);
         gap: 90px;
+        }
+
+    .section.what-we-do.solutions.teaser-list-container {
+        padding-top: var(--spacer-layout-06);
         }
 
     .section.what-we-do.teaser-list-container > .default-content-wrapper img {
@@ -168,9 +173,5 @@
 
     .section.what-we-do.teaser-list-container > .teaser-list-wrapper {
         width: 656px;
-        }
-
-    .teaser-list .teaser-card:last-child {
-        border-bottom: 1px solid var(--neutral-sand);
         }
     }
