@@ -279,10 +279,6 @@
     display: none;
     }
 
-.news .columns.quarter-circle img {
-    display: none;
-    }
-
 /* TABLET */
 @media (min-width: 768px) {
     .columns > div {
@@ -410,13 +406,8 @@
         }
 
     .news .columns.quarter-circle img {
-        display: unset;
         border-radius: 0 90% 0 0;
-        object-fit: cover;
         aspect-ratio: 1 / 1;
-        height: 338px;
-        width: 338px;
-        max-width: 338px;
         }
 
     .section.teaser-list-manual { /* needs specificity here  */

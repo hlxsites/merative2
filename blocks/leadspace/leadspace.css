@@ -381,7 +381,7 @@ main div.leadspace-wrapper {
         }
 
     .leadspace.quarter-circle > div:first-child > div:first-child,
-    .leadspace.half-circle > div:first-child > div:first-child{
+    .leadspace.half-circle > div:first-child > div:first-child {
         margin-bottom: var(--spacer-layout-05);
         }
 
