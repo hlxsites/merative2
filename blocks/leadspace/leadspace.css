@@ -403,11 +403,6 @@ main div.leadspace-wrapper {
         width: 336px;
     }
 
-    .leadspace.half-circle img,
-    .leadspace.quarter-circle img {
-        width: 336px;
-    }
-
     .leadspace:not(.document) > div:first-child > div:nth-child(1) {
         width: 334px;
     }
