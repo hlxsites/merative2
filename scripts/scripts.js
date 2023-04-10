@@ -396,7 +396,11 @@ export async function createDocumentCard(row, style) {
   // Get category
   const category = document.createElement('div');
   category.classList.add('document-category');
-  if (row.assetType && row.assetType !== '0') category.innerHTML += row.assetType;
+  if (row.assetType && row.assetType !== '0') {
+    category.innerHTML += row.assetType;
+  } else if (row.template === 'Blog Article') {
+    category.innerHTML += 'Blog';
+  }
   card.append(category);
   // Add the title, description and link to card
   if (row.title) card.innerHTML += `<a href="${row.path}"><h3>${row.title}</h3></a>`;
@@ -414,8 +418,8 @@ export async function createDocumentCard(row, style) {
  */
 
 export async function lookupDocuments(pathnames) {
-  if (!window.documentIndex) {
-    const resp = await fetch(`${window.hlx.codeBasePath}/documents/document-index.json`);
+  if (!window.pageIndex) {
+    const resp = await fetch(`${window.hlx.codeBasePath}/query-index.json`);
     const json = await resp.json();
     const lookup = {};
     json.data.forEach((row) => {
@@ -426,19 +430,19 @@ export async function lookupDocuments(pathnames) {
         row.image = `/${window.hlx.codeBasePath}${row.image}`;
       }
     });
-    window.documentIndex = {
+    window.pageIndex = {
       data: json.data,
       lookup,
     };
   }
   const result = pathnames.map((path) => {
     // path is not in the documentIndex (pdfs)
-    if (window.documentIndex.lookup[path] === undefined) {
+    if (window.pageIndex.lookup[path] === undefined) {
       return {
         path,
       };
     }
-    return window.documentIndex.lookup[path];
+    return window.pageIndex.lookup[path];
   });
   return (result);
 }

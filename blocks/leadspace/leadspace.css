@@ -153,6 +153,19 @@ main div.leadspace-wrapper {
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
+
+.leadspace.video > div:first-child > div:nth-child(2) {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 320px;
+}
+
+.leadspace.event picture {
+    display: none;
+}
+
+/* Image Variants */
 .leadspace.half-circle:not(.no-clip) picture {
     clip-path: inset(50% 0 0 0 round 50% 50% 0 0);
 }
@@ -181,6 +194,10 @@ main div.leadspace-wrapper {
 .leadspace.quarter-circle img {
     width: 328px;
     object-fit: cover;
+}
+
+.leadspace.half-circle:not(.no-clip) img,
+.leadspace.quarter-circle:not(.no-clip) img {
     aspect-ratio: 1 / 1;
 }
 

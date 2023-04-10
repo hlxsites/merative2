@@ -20,7 +20,7 @@ const loadScript = (url, attrs) => {
 const embedPDFViewer = (
   divId,
   docUrl,
-  embedMode = 'FULL_WINDOW',
+  embedMode = 'IN_LINE',
   showAnnotationTools = false,
   showPrintPDF = true,
   showDownloadPDF = true,
@@ -89,9 +89,6 @@ export default async function decorate(block) {
     if (embedMode) {
       const embedModeCleanedUp = embedMode.replace(/\s/g, '-').toLowerCase();
       block.classList.add(embedModeCleanedUp);
-    } else {
-      // Default is FULL_WINDOW
-      block.classList.add('full-window');
     }
     block.textContent = '';
     block.append(docDiv);

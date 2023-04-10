@@ -12,7 +12,11 @@ async function setRowDetails(row, block) {
     let el = aElement.parentElement;
     // Loop through previous elements until you hit an <a>
     while (el) {
-      el = el.previousElementSibling;
+      if (el.previousElementSibling) {
+        el = el.previousElementSibling;
+      } else {
+        break;
+      }
       // Break if you find an anchor link in the previous element
       const childAnchor = el.querySelector('a');
       if (childAnchor) {
@@ -42,7 +46,7 @@ async function setRowDetails(row, block) {
 export default async function decorate(block) {
   const pathnames = [...block.querySelectorAll('a')].map((a) => {
     const url = new URL(a.href);
-    if (url.hostname.endsWith('.page') || url.hostname.endsWith('.live') || url.hostname.endsWith('merative.com')) return url.pathname;
+    if (url.hostname.endsWith('.page') || url.hostname.endsWith('.live') || url.hostname.endsWith('merative.com') || url.hostname.startsWith('localhost')) return url.pathname;
     return a.href;
   });
   const blockCopy = block.cloneNode(true);
