@@ -551,7 +551,7 @@ main div.leadspace-wrapper {
     }
 
     .leadspace.video .scroll-border-line {
-        width: 2px;
+        width: 1px;
         height: 286px;
         background-image: var(--gradient-horizontal-down);
         font-size: var(--font-size-14);
