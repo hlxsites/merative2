@@ -430,10 +430,6 @@
         aspect-ratio: 1 / 1;
     }
 
-    .news .columns.quarter-circle.image-start picture {
-        clip-path: unset;
-    }
-
     .section.teaser-list-manual { /* needs specificity here  */
         padding: var(--spacer-layout-06) 0;
         display: flex;
