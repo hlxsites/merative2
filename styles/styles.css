@@ -351,6 +351,10 @@ main > .section {
   margin: 0;
 }
 
+.section.article-content .article-main-wrapper {
+  padding-top: var(--spacer-element-05);
+  }
+
 .article-content-wrapper h2:first-of-type {
   margin: unset;
 }
@@ -1317,6 +1321,10 @@ h5 {
     width: 744px;
     height: 496px;
     object-fit: cover;
+    }
+
+  .section.article-content .article-main-wrapper {
+    padding-top: 0;
     }
 
   .flex-60-40 > div:first-child {

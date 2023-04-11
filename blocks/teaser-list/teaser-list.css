@@ -136,6 +136,12 @@
         margin-right: 60px;
         }
 
+    .section.teaser-list-container .teaser-list .teaser-card:last-child { /* needs specificity here */
+        margin: 0 auto;
+        padding-bottom: var(--spacer-element-10);
+        border-bottom: 1px solid var(--neutral-sand);
+        }
+
     .section.what-we-do.teaser-list-container > .default-content-wrapper {
         width: 360px;
         }

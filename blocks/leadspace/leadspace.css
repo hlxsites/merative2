@@ -35,7 +35,7 @@
 
 .leadspace h1 {
     font-size: var(--font-size-36);
-    margin: 0 0 var(--spacer-element-06);
+    margin: 0 0 var(--spacer-element-05);
 }
 
 .leadspace h2 {
@@ -380,10 +380,6 @@ main div.leadspace-wrapper {
         width: 50%;
     }
 
-    .leadspace h1 {
-        margin: 0 0 var(--spacer-element-06);
-    }
-
     .leadspace:not(.document) > div:first-child > div:nth-child(1) > p:last-of-type {
         max-width: 420px;
     }
@@ -465,6 +461,7 @@ main div.leadspace-wrapper {
 
     .leadspace h1 {
         font-size: var(--font-size-64);
+        margin: 0 0 var(--spacer-element-07);
     }
 
     .leadspace h2 {
@@ -554,7 +551,7 @@ main div.leadspace-wrapper {
     }
 
     .leadspace.video .scroll-border-line {
-        width: 2px;
+        width: 1px;
         height: 286px;
         background-image: var(--gradient-horizontal-down);
         font-size: var(--font-size-14);
