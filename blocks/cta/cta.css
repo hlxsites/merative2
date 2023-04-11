@@ -35,14 +35,8 @@
 
 /* CTA Button */
 .section.cta-container .cta.block .button-container {
-    margin: var(--spacer-element-08) auto 0 auto;
+    margin: var(--spacer-element-09) auto 0 auto;
     width: unset;
-}
-
-@media only screen and (min-width: 768px) {
-    .section.cta-container .cta.block p {
-        width: 80vw;
-    }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -52,7 +46,7 @@
 
     .section.cta-container .cta.block h2 {
         font-size: 45px;
-        padding-bottom: 24px;
+        margin-bottom: var(--spacer-element-07);
     }
 
     .section.cta-container .cta.block p {
