@@ -63,6 +63,13 @@ export default async function decorate(block) {
     block.textContent = '';
     block.append(formDiv);
 
-    window.setTimeout(() => embedMarketoForm(marketoId, formId, successUrl), 3000);
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) {
+        embedMarketoForm(marketoId, formId, successUrl);
+        observer.disconnect();
+      }
+    });
+    observer.observe(block);
+    // window.setTimeout(() => embedMarketoForm(marketoId, formId, successUrl), 3000);
   }
 }
