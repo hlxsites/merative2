@@ -384,6 +384,10 @@ input[type=radio] {
 }
 
 @media screen and (min-width: 1200px) {
+    .section.marketo-container.multiple h6 {
+        font-size: var(--font-size-21);
+        }
+
     .section.marketo-container.multiple {
         display: flex;
         flex-direction: row;
@@ -406,11 +410,12 @@ input[type=radio] {
 
     .section.marketo-container.multiple > div:last-of-type {
         margin-left: 8%;
-        margin-top: 0;
+        margin-top: 160px;
     }
 
     .section.marketo-container.multiple .marketo.contactus {
         width: 648px;
         margin-right: 130px;
+        margin-bottom: 160px;
     }
 }

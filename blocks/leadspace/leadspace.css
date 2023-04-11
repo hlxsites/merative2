@@ -41,6 +41,7 @@
 .leadspace h2 {
     font-size: var(--font-size-32);
     margin-bottom: var(--spacer-layout-02);
+    margin-top: 0;
 }
 
 .leadspace h4:first-of-type {
@@ -501,7 +502,7 @@ main div.leadspace-wrapper {
     }
 
     .leadspace.half-circle > div:first-child > div:nth-child(2) picture {
-        margin-top: var(--spacer-element-09);
+        margin-top: var(--spacer-layout-06);
     }
 
     .leadspace > div:first-child > div:nth-child(1) > p:first-child {
