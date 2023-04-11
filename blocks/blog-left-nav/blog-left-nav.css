@@ -148,9 +148,9 @@ html {
         display: flex;
     }
 
-    .section.article-content .blog-left-nav {
+    .section.article-content .article-main-wrapper .blog-left-nav {
         width: 240px;
-        margin: 0 48px 0 0;
+        margin: 48px 48px 0 0;
     }
 
     .blog-left-nav[data-block-status="loaded"] .blog-content-links::before {
@@ -346,6 +346,5 @@ html {
     }
 
 }
-
 
 /* end Social Share Icons */
