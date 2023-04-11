@@ -1,7 +1,7 @@
 import { createTag } from '../../scripts/scripts.js';
 
-export function writeToClipboard(blob) {
-  const data = [new ClipboardItem({ [blob.type]: blob })];
+export function writeToClipboard() {
+  const data = {};// [new ClipboardItem({ [blob.type]: blob })];
   navigator.clipboard.write(data);
 }
 

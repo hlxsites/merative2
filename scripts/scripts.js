@@ -386,13 +386,15 @@ export async function createCard(row, style) {
 /**
  * Creates a Card using a JSON object and style associated with the card
  * @param {Object} row JSON Object typically coming from an index array item
- * @param {String} style Class name that needs to be added to the card root div
+ * @param {Array} styles Class names that needs to be added to the card root div
  */
 
-export async function createDocumentCard(row, style) {
+export async function createDocumentCard(row, styles) {
   // Create card div
   const card = document.createElement('div');
-  if (style) card.classList.add(style);
+  if (styles.length) {
+    styles.forEach((style) => card.classList.add(style));
+  }
   // Get category
   const category = document.createElement('div');
   category.classList.add('document-category');

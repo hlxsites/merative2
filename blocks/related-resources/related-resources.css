@@ -92,8 +92,21 @@
     background-position: 50%;
 }
 
-.related-resources a.document-link::after {
+.related-resources .dc-external-type a.document-link::after,
+.related-resources .dc-internal-type a.document-link::after {
     background: url('../../icons/right-arrow-purple-large.svg') no-repeat center center;
+}
+
+.related-resources .dc-video-type a.document-link::after {
+    background: url('../../icons/play-button-purple.svg') no-repeat 20px center;
+}
+
+.related-resources .dc-pdf-type a.document-link::after {
+    background: url('../../icons/download-purple.svg') no-repeat center center;
+}
+
+.related-resources .dc-external-type a.document-link::after {
+    transform: rotate(-45deg);
 }
 
 .related-resources-container.highlight .related-resources a.document-link::before,
@@ -111,10 +124,31 @@
     border: unset;
 }
 
-.related-resources .document-card:hover a.document-link::after,
+.related-resources .document-card:hover a.document-link::after {
+    background: url('../../icons/arrow-white.svg') no-repeat center center;
+    border: unset;
+}
+
+.related-resources .document-card.dc-pdf-type:hover a.document-link::after {
+    background: url('../../icons/download.svg') no-repeat center center;
+
+}
+
+.related-resources .document-card.dc-video-type:hover a.document-link::after {
+    background: url('../../icons/play-button.svg') no-repeat 22px center;
+}
+
 .related-resources-container.highlight .related-resources .document-card:hover a.document-link::after {
     background: url('../../icons/arrow-white.svg') no-repeat center center;
     border: unset;
+}
+
+.related-resources-container.highlight .related-resources .document-card.dc-pdf-type:hover a.document-link::after {
+    background: url('../../icons/download.svg') no-repeat center center;
+}
+
+.related-resources-container.highlight .related-resources .document-card.dc-video-type:hover a.document-link::after {
+    background: url('../../icons/play-button.svg') no-repeat 22px center;
 }
 
 /* Mobile and Tablet hide scrollbar */
