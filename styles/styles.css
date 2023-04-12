@@ -603,11 +603,11 @@ button {
   height: 20px;
 }
 
-.button-container a.button span.icon.external {
+a.button span.icon.external {
   transform: rotate(-45deg);
 }
 
-.button-container a.button span.icon.bookmark {
+a.button span.icon.bookmark {
   transform: rotate(90deg);
 }
 

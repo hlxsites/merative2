@@ -473,9 +473,10 @@ export function decorateTemplateAndTheme() {
 }
 
 const iconMap = Object.freeze({
-  video: { expression: [/^.*\.(mp4)$/i], className: 'icon-play-button' },
+  video: { expression: [/^.*(youtube|vimeo|youtu.be).*$/i, /^.*\.(mp4)$/i], className: 'icon-play-button' },
   download: { expression: [/^.*\.(pdf)$/i], className: 'icon-download' },
   bookmark: { expression: [/^#.+$/i], className: 'icon-arrow' },
+  internal: { expression: [/^\/.+$/i], className: 'icon-arrow' },
   external: { expression: [/^((?!merative.com).)*$/i, /^mailto.*$/i], className: 'icon-arrow' },
 });
 
@@ -497,8 +498,10 @@ function getButtonIcon(button) {
 /**
  * decorates paragraphs containing a single link as buttons.
  * @param {Element} element container element
+ * @param {Object} options options object to control how decoration is performed
  */
-export function decorateButtons(element) {
+export function decorateButtons(element, options = {}) {
+  const mergedOptions = { ...{ decorateClasses: true, excludeIcons: ['internal'] }, ...options };
   element.querySelectorAll('a').forEach((a) => {
     a.title = a.title || a.textContent;
     if (a.href !== a.textContent) {
@@ -506,30 +509,32 @@ export function decorateButtons(element) {
       const twoup = a.parentElement.parentElement;
       const down = a.firstElementChild;
       if (!a.querySelector('img')) {
-        if (up.childNodes.length === 1 && (up.tagName === 'P' || up.tagName === 'DIV')) {
-          up.classList.add('button-container');
-          if (!down || down.tagName === 'SPAN') {
-            a.className = 'button tertiary';
-          } else if (down && down.tagName === 'EM') {
-            a.className = 'button secondary';
-          } else {
-            a.className = 'button primary';
+        if (mergedOptions.decorateClasses) {
+          if (up.childNodes.length === 1 && (up.tagName === 'P' || up.tagName === 'DIV')) {
+            up.classList.add('button-container');
+            if (!down || down.tagName === 'SPAN') {
+              a.classList.add('button', 'tertiary');
+            } else if (down && down.tagName === 'EM') {
+              a.classList.add('button', 'secondary');
+            } else {
+              a.classList.add('button', 'primary');
+            }
           }
-        }
-        if (up.childNodes.length === 1 && up.tagName === 'STRONG'
-          && twoup.childNodes.length === 1 && twoup.tagName === 'P') {
-          a.className = 'button primary';
-          twoup.classList.add('button-container');
-        }
-        if (up.childNodes.length === 1 && up.tagName === 'EM'
-          && twoup.childNodes.length === 1 && twoup.tagName === 'P') {
-          a.className = 'button secondary';
-          twoup.classList.add('button-container');
+          if (up.childNodes.length === 1 && up.tagName === 'STRONG'
+            && twoup.childNodes.length === 1 && twoup.tagName === 'P') {
+            a.classList.add('button', 'primary');
+            twoup.classList.add('button-container');
+          }
+          if (up.childNodes.length === 1 && up.tagName === 'EM'
+            && twoup.childNodes.length === 1 && twoup.tagName === 'P') {
+            a.classList.add('button', 'secondary');
+            twoup.classList.add('button-container');
+          }
         }
         if (a.classList.contains('button')) {
           // add icon
           const iconClass = getButtonIcon(a);
-          if (iconClass) {
+          if (iconClass && iconClass.every((cls) => !mergedOptions.excludeIcons.includes(cls))) {
             // add span
             const span = document.createElement('span');
             span.classList.add('icon', ...iconClass);

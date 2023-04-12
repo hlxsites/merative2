@@ -389,7 +389,7 @@ export async function createCard(row, style) {
  * @param {Array} styles Class names that needs to be added to the card root div
  */
 
-export async function createDocumentCard(row, styles) {
+export function createDocumentCard(row, styles) {
   // Create card div
   const card = document.createElement('div');
   if (styles.length) {
@@ -407,9 +407,10 @@ export async function createDocumentCard(row, styles) {
   // Add the title, description and link to card
   if (row.title) card.innerHTML += `<a href="${row.path}"><h3>${row.title}</h3></a>`;
   if (row.description && row.description !== '0') card.innerHTML += `<a href="${row.path}"><p>${row.description.substring(0, 160)}...</p></a>`;
-  const link = document.createElement('a');
-  link.classList.add('document-link');
-  link.href = row.path;
+
+  const link = document.createElement('div');
+  link.classList.add('document-link-container');
+  link.innerHTML = `<a class="button document-link" href="${row.path}"/>`;
   card.append(link);
   return (card);
 }

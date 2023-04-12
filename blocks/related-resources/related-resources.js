@@ -1,3 +1,4 @@
+import { decorateButtons, decorateIcons } from '../../scripts/lib-franklin.js';
 import { lookupDocuments, createDocumentCard } from '../../scripts/scripts.js';
 
 async function setRowDetails(row, block) {
@@ -43,35 +44,6 @@ async function setRowDetails(row, block) {
   }
 }
 
-const linkTypeParsers = [
-  {
-    name: 'pdf',
-    className: 'dc-pdf-type',
-    check: (link) => link.split('.').pop() === 'pdf',
-  },
-  {
-    name: 'video',
-    className: 'dc-video-type',
-    check: (link) => {
-      const videoServices = ['youtube', 'vimeo', 'youtu.be'];
-      return videoServices.some((service) => link.includes(service));
-    },
-  },
-  {
-    name: 'external',
-    className: 'dc-external-type',
-    check: (link) => link[0] !== '/',
-  },
-  {
-    name: 'default(internal)',
-    className: 'dc-internal-type',
-    check: () => true,
-  },
-];
-
-const getClassNameByLinkType = (link) => linkTypeParsers
-  .find((parser) => parser.check(link)).className;
-
 export default async function decorate(block) {
   const pathnames = [...block.querySelectorAll('a')].map((a) => {
     const url = new URL(a.href);
@@ -83,12 +55,13 @@ export default async function decorate(block) {
   // Make a call to the document index and get the json for just the pathnames the author has put in
   const pageList = await lookupDocuments(pathnames);
   if (pageList.length) {
-    pageList.forEach(async (row) => {
-      const className = getClassNameByLinkType(row.path);
+    pageList.forEach((row) => {
       // If the URL was not in the index, it is curated. Let's get the content differently
       if (row.title === undefined) setRowDetails(row, blockCopy);
-      block.append(await createDocumentCard(row, ['document-card', className]));
+      block.append(createDocumentCard(row, ['document-card']));
     });
+    decorateButtons(block, { decorateClasses: false, excludeIcons: [] });
+    decorateIcons(block);
   } else {
     block.remove();
   }
