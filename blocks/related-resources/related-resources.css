@@ -74,46 +74,57 @@
     text-decoration: none;
 }
 
-.related-resources a.document-link {
+.related-resources .document-link-container {
     height: 54px;
+    min-height: 54px;
 }
 
-.related-resources a.document-link::before,
-.related-resources a.document-link::after {
-    display: block;
-    content: '';
+.related-resources a.document-link {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     bottom: 24px;
     right: 24px;
     width: 54px;
     height: 54px;
-    border: 2px solid #90f;
+    border: 2px solid var(--primary-purple);
     border-radius: 50%;
-    background-position: 50%;
 }
 
-.related-resources a.document-link::after {
-    background: url('../../icons/right-arrow-purple-large.svg') no-repeat center center;
+.related-resources a.document-link span.icon > svg {
+    display: block;
+    width: 24px;
+    height: 24px;
 }
 
-.related-resources-container.highlight .related-resources a.document-link::before,
-.related-resources-container.highlight .related-resources a.document-link::after {
+.related-resources a.document-link span.icon svg * {
+    stroke: var(--primary-purple);
+}
+
+.related-resources a.document-link span.icon.video svg * {
+    stroke: none;
+    fill: var(--primary-purple);
+}
+
+.related-resources-container.highlight .related-resources a.document-link span.icon svg *,
+.related-resources .document-card:hover a.document-link span.icon svg * {
+    stroke: var(--neutral-white);
+}
+
+.related-resources-container.highlight .related-resources a.document-link span.icon.video svg *,
+.related-resources .document-card:hover a.document-link span.icon.video svg * {
+    stroke: none;
+    fill: var(--neutral-white);
+}
+
+.related-resources-container.highlight .related-resources a.document-link {
     border: 2px solid var(--neutral-white);
 }
 
-.related-resources-container.highlight .related-resources a.document-link::after {
-    background: url('../../icons/arrow-white.svg') no-repeat center center;
-}
-
-.related-resources .document-card:hover a.document-link::before,
-.related-resources-container.highlight .related-resources .document-card:hover a.document-link::before {
+.related-resources .document-card:hover a.document-link,
+.related-resources-container.highlight .related-resources .document-card:hover a.document-link {
     background: var(--gradient-diagonal-up);
-    border: unset;
-}
-
-.related-resources .document-card:hover a.document-link::after,
-.related-resources-container.highlight .related-resources .document-card:hover a.document-link::after {
-    background: url('../../icons/arrow-white.svg') no-repeat center center;
     border: unset;
 }
 

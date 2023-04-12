@@ -1,3 +1,4 @@
+import { decorateButtons, decorateIcons } from '../../scripts/lib-franklin.js';
 import { lookupDocuments, createDocumentCard } from '../../scripts/scripts.js';
 
 async function setRowDetails(row, block) {
@@ -54,11 +55,13 @@ export default async function decorate(block) {
   // Make a call to the document index and get the json for just the pathnames the author has put in
   const pageList = await lookupDocuments(pathnames);
   if (pageList.length) {
-    pageList.forEach(async (row) => {
+    pageList.forEach((row) => {
       // If the URL was not in the index, it is curated. Let's get the content differently
       if (row.title === undefined) setRowDetails(row, blockCopy);
-      block.append(await createDocumentCard(row, 'document-card'));
+      block.append(createDocumentCard(row, ['document-card']));
     });
+    decorateButtons(block, { decorateClasses: false, excludeIcons: [] });
+    decorateIcons(block);
   } else {
     block.remove();
   }
