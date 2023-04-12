@@ -477,7 +477,7 @@ const iconMap = Object.freeze({
   download: { expression: [/^.*\.(pdf)$/i], className: 'icon-download' },
   bookmark: { expression: [/^#.+$/i], className: 'icon-arrow' },
   internal: { expression: [/^\/.+$/i], className: 'icon-arrow' },
-  external: { expression: [/^((?!merative.com).)*$/i, /^mailto.*$/i], className: 'icon-arrow' },
+  external: { expression: [/^((?!merative.com|ibm.com).)*$/i, /^mailto.*$/i], className: 'icon-arrow' },
 });
 
 function getButtonIcon(button) {

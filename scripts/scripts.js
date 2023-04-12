@@ -27,19 +27,6 @@ export function isBlockLibrary() {
   return window.location.pathname.includes('block-library');
 }
 
-function buildHeroBlock(main) {
-  const h1 = main.querySelector('h1');
-  const picture = main.querySelector('picture');
-  // eslint-disable-next-line no-bitwise
-  if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
-    const section = document.createElement('div');
-    section.append(buildBlock('hero', {
-      elems: [picture, h1],
-    }));
-    main.prepend(section);
-  }
-}
-
 function buildBackToTopBlock(main) {
   const element = document.createElement('div');
   element.classList.add('back-to-top');
@@ -183,7 +170,6 @@ function buildDocumentUrl(main) {
  */
 function buildAutoBlocks(main) {
   try {
-    buildHeroBlock(main);
     buildBackToTopBlock(main);
     buildBlogLeftNavBlock(main);
     buildBlogBreadCrumbBlock(main);
