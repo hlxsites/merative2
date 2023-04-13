@@ -566,7 +566,12 @@ button {
   box-sizing: border-box;
   height: 48px;
   border-radius: 40px;
-  padding: 11px var(--spacer-layout-02);
+  padding: 11px var(--spacer-element-07);
+}
+
+.button-container a.has-icon.primary,
+.button-container a.has-icon.secondary {
+  padding: 11px var(--spacer-element-05) 11px var(--spacer-element-07);
 }
 
 .button-container a.tertiary {
@@ -733,6 +738,7 @@ main .article-content p > a:only-of-type {
   font-size: 21px;
   line-height: 160%;
   letter-spacing: 0.01em;
+  margin-top: var(--spacer-layout-03);
 }
 
 /* Back to top button */

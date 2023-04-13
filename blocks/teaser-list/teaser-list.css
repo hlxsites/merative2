@@ -95,7 +95,7 @@
 
   .section.what-we-do.teaser-list-container {
     display: flex;
-    padding: var(--spacer-layout-06) 0;
+    padding: calc(var(--spacer-layout-06) - var(--spacer-layout-04)) 0 var(--spacer-layout-06) 0; /* 96px - 48px top padding */
     margin: 0 auto;
     width: var(--section-width-tablet-small);
     gap: 25px;
@@ -168,7 +168,7 @@
 
   .section.what-we-do.teaser-list-container {
     width: var(--section-width-desktop);
-    padding: var(--spacer-layout-07) 0;
+    padding: calc(var(--spacer-layout-07) - var(--spacer-layout-04)) 0 var(--spacer-layout-07) 0; /* 160px - 48px top padding */
     gap: 120px;
   }
 
