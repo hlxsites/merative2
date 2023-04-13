@@ -11,6 +11,7 @@ async function setRowDetails(row, block) {
   if (aElement) {
     // Go up one level since <a> is wrapped inside a <p> usually
     let el = aElement.parentElement;
+    row.description = '';
     // Loop through previous elements until you hit an <a>
     while (el) {
       if (el.previousElementSibling) {
@@ -35,7 +36,7 @@ async function setRowDetails(row, block) {
           row.assetType = el.innerHTML;
           break;
         case 'P':
-          row.description = el.innerHTML;
+          row.description = `<p>${el.innerHTML}</p>${row.description}`;
           break;
         default:
           break;
@@ -50,6 +51,7 @@ export default async function decorate(block) {
     if (url.hostname.endsWith('.page') || url.hostname.endsWith('.live') || url.hostname.endsWith('merative.com') || url.hostname.startsWith('localhost')) return url.pathname;
     return a.href;
   });
+  const longDescription = block.classList.contains('long');
   const blockCopy = block.cloneNode(true);
   block.textContent = '';
   // Make a call to the document index and get the json for just the pathnames the author has put in
@@ -58,7 +60,7 @@ export default async function decorate(block) {
     pageList.forEach((row) => {
       // If the URL was not in the index, it is curated. Let's get the content differently
       if (row.title === undefined) setRowDetails(row, blockCopy);
-      block.append(createDocumentCard(row, ['document-card']));
+      block.append(createDocumentCard(row, ['document-card'], longDescription));
     });
     decorateButtons(block, { decorateClasses: false, excludeIcons: [] });
     decorateIcons(block);
