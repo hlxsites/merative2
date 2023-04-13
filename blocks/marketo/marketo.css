@@ -1,14 +1,13 @@
 /* stylelint-disable selector-id-pattern */
 /* stylelint-disable selector-class-pattern */
 
-.section.marketo-container {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
+.section.marketo-container .default-content-wrapper h2 {
+    margin-bottom: 80px;
 }
 
-.section.marketo-container > div:last-of-type {
-    margin-top: var(--spacer-element-07);
+.section.marketo-container .default-content-wrapper h3 {
+    font-family: var(--sans-serif-font-light);
+    font-size: var(--font-size-21);
 }
 
 .section.marketo-container .default-content-wrapper p {
@@ -19,14 +18,17 @@
     font-weight: 300;
 }
 
-.section.marketo-container h3 {
-    font-family: var(--sans-serif-font-light);
-    font-size: var(--font-size-24);
+.section.marketo-container .default-content-wrapper > * {
+    margin: 0 0 var(--spacer-layout-03);
+}
+
+/* margin after form when there is more content after */
+.section.marketo-container .marketo-wrapper > div:not(:last-child) {
+    margin-bottom: 80px;
 }
 
 .marketo {
     width: 100%;
-    margin-top: var(--spacer-element-07);
 }
 
 /* Merative styling for Marketo form */
@@ -371,51 +373,35 @@ input[type=radio] {
 
 /* Media queries */
 @media screen and (min-width: 768px) {
-    .section.marketo-container {
-        display: flex;
-        flex-direction: column;
-        width: var(--section-width-tablet);
-        margin: 0 auto;
-    }
-
-    .section.marketo-container > div:last-of-type {
-        margin-top: var(--spacer-element-08);
-    }
 }
 
 @media screen and (min-width: 1200px) {
     .section.marketo-container.multiple h6 {
         font-size: var(--font-size-21);
-        }
+    }
 
-    .section.marketo-container.multiple {
+    .section.marketo-container.multiple .marketo-wrapper {
         display: flex;
         flex-direction: row;
         width: var(--section-width-desktop);
         margin: 0 auto;
     }
 
-    /* only wrap if h2 title is present in the section */
-    .section.marketo-container.multiple.h2 {
-        flex-wrap: wrap;
+    .section.marketo-container .marketo-wrapper > div:not(:last-child) {
+        margin-bottom: 0;
     }
 
-    .section.marketo-container.multiple > .h2 {
-        flex-basis: 100%;
-    }
-
-    .section.marketo-container.multiple > div:not(.h2) {
+    .section.marketo-container.multiple .marketo-wrapper > div {
         flex-basis: 45%;
     }
 
-    .section.marketo-container.multiple > div:last-of-type {
+    .section.marketo-container.multiple .marketo-wrapper > div:last-of-type {
         margin-left: 8%;
-        margin-top: 160px;
     }
 
     .section.marketo-container.multiple .marketo.contactus {
         width: 648px;
         margin-right: 130px;
-        margin-bottom: 160px;
     }
+
 }

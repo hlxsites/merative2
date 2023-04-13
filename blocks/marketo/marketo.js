@@ -18,7 +18,6 @@ const loadScript = (url, attrs) => {
 };
 
 const embedMarketoForm = (marketoId, formId, successUrl) => {
-  // PDF Viewer for doc pages
   if (formId && marketoId) {
     const mktoScriptTag = loadScript('//go.merative.com/js/forms2/js/forms2.min.js');
     mktoScriptTag.onload = () => {
@@ -47,21 +46,39 @@ export default async function decorate(block) {
   const marketoId = placeholders.marketoid;
   const formId = blockConfig['form-id'];
   const successUrl = blockConfig['success-url'];
+  const section = block.closest('.section.marketo-container');
 
-  // Handle H2s in the section
-  const section = block.parentElement.parentElement;
-  if (section.children.length > 0) section.classList.add('multiple');
-  const h2 = section.querySelector('h2');
-
-  if (h2 && h2.parentElement) {
-    h2.parentElement.classList.add('h2');
-    section.classList.add('h2');
+  // Handle headings in the section
+  if (section.children.length > 0) {
+    section.classList.add('multiple');
   }
 
+  const h2 = section.querySelector('h2');
+  if (h2 && h2.parentElement) {
+    const clonedWrapper = h2.parentElement.cloneNode();
+    clonedWrapper.classList.add('heading');
+    clonedWrapper.appendChild(h2);
+    section.prepend(clonedWrapper);
+  }
+
+  // Add content to marketo wrapper
+  const wrapper = section.querySelector('.marketo-wrapper');
+  section.querySelectorAll(':scope > .default-content-wrapper:not(.heading)').forEach((div) => {
+    if (div.children.length === 0) {
+      section.removeChild(div);
+      return;
+    }
+    if (div.nextElementSibling === wrapper) {
+      wrapper.prepend(div);
+    } else {
+      wrapper.appendChild(div);
+    }
+  });
+
   if (formId && marketoId) {
-    const formDiv = createTag('form', { id: `mktoForm_${formId}` });
+    const formElement = createTag('form', { id: `mktoForm_${formId}` });
     block.textContent = '';
-    block.append(formDiv);
+    block.append(formElement);
 
     const observer = new IntersectionObserver((entries) => {
       if (entries.some((e) => e.isIntersecting)) {
@@ -71,5 +88,6 @@ export default async function decorate(block) {
     });
     observer.observe(block);
     // window.setTimeout(() => embedMarketoForm(marketoId, formId, successUrl), 3000);
+
   }
 }
