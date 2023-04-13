@@ -417,8 +417,9 @@
     display: unset;
   }
 
-  .columns.stretch-last > div > div:last-child {
-    flex: 2;
+  .columns.stretch-last > div > div:first-child {
+    width: 216px;
+    flex: unset;
   }
 
   .section-top-grid > div:nth-child(1) > div:nth-child(1) {
@@ -507,6 +508,10 @@
   .columns.stretch-last > div,
   .columns.quarter-circle > div {
     gap: 120px;
+  }
+
+  .columns.stretch-last > div > div:first-child {
+    width: 360px;
   }
 
   .columns.quarter-circle img {
