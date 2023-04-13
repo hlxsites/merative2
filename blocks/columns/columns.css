@@ -510,16 +510,16 @@
     gap: 120px;
   }
 
+  .section.promo .columns > div {
+    gap: 90px;
+  }
+
   .columns.stretch-last > div > div:first-child {
     width: 360px;
   }
 
   .columns.quarter-circle img {
     width: 552px;
-  }
-
-  .section.promo .columns > div {
-    gap: 90px;
   }
 
   .section-top-grid > div > div:nth-child(odd) img {
