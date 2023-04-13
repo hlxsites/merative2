@@ -733,6 +733,7 @@ main .article-content p > a:only-of-type {
   font-size: 21px;
   line-height: 160%;
   letter-spacing: 0.01em;
+  margin-top: var(--spacer-layout-03);
 }
 
 /* Back to top button */
