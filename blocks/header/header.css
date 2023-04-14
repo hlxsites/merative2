@@ -539,6 +539,13 @@ header nav .nav-sections>ul>li {
     position: relative;
   }
 
+  header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.level-two[aria-expanded='true']:not(.old) {
+    background-color: #faf8f6;
+    border-color: #e7e2da;
+    border-style: solid;
+    border-width: 1px 0;  
+  }
+
   header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.old.level-two:hover > a,
   header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.level-two:not(.old) .level-two-heading:hover,
   header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.level-two[aria-expanded='true']:not(.old) .level-three a:hover {
@@ -588,7 +595,7 @@ header nav .nav-sections>ul>li {
     animation: fadeIn .25s;
     animation-fill-mode: forwards;
     transition: none;
-    z-index: 0;
+    z-index: 1;
     border-left: 1px solid #e7e2da;;
   }
 
