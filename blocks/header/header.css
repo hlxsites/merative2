@@ -1,4 +1,5 @@
 /* stylelint-disable no-descending-specificity */
+
 /* header and nav layout */
 header {
   position: fixed;
@@ -538,11 +539,15 @@ header nav .nav-sections>ul>li {
     position: relative;
   }
 
-  header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.old.level-two:hover > a {
+  header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.old.level-two:hover > a,
+  header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.level-two:not(.old) .level-two-heading:hover,
+  header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.level-two[aria-expanded='true']:not(.old) .level-three a:hover {
     color: #90f;
   }
 
-  header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.old.level-two > a::after {
+  header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.old.level-two > a::after,
+  header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.level-two:not(.old) .level-two-heading::after,
+  header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.level-two[aria-expanded='true']:not(.old) .level-three a::after {
     display: inline-block;
     content: '';
     position: relative;
@@ -555,7 +560,9 @@ header nav .nav-sections>ul>li {
     transform: rotate(-90deg);
   }
 
-  header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.old.level-two:hover > a::after {
+  header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.old.level-two:hover > a::after,
+  header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.level-two:not(.old) .level-two-heading:hover::after,
+  header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.level-two[aria-expanded='true']:not(.old) .level-three a:hover::after {
     opacity: 1;
     transform: rotate(0);
     transition: transform .3s;
@@ -563,6 +570,26 @@ header nav .nav-sections>ul>li {
 
   header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.level-two:not(.old) .level-three {
     display: none;
+  }
+
+  header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.level-two[aria-expanded='true']:not(.old) .level-three {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    padding-top: 4%;
+    top: calc(var(--nav-height) + 37px);
+    left: 40%;
+    padding-left: 4%;
+    color: var(--neutral-carbon);
+    height: 100vh;
+    max-height: none;
+    width: 100vw;
+    overflow: hidden;
+    animation: fadeIn .25s;
+    animation-fill-mode: forwards;
+    transition: none;
+    z-index: 0;
+    border-left: 1px solid #e7e2da;;
   }
 
   header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.old.level-two .level-three {
