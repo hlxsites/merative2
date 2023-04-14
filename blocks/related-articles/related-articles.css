@@ -121,7 +121,6 @@
 
 /* Tablet styles */
 @media only screen and (min-width: 768px) {
-
     .related-articles[data-block-status="loaded"] {
         position: relative;
         display: grid;
