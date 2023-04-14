@@ -1258,8 +1258,10 @@ main pre {
     font-weight: var(--font-weight-regular);
   }
 
+  p,
+  .columns > div > div,
   .section-top-grid > div:nth-child(1) > div:nth-child(1),
-  p, .article-content-wrapper ul {
+  .article-content-wrapper ul {
     font-family: var(--sans-serif-font-light);
     font-size: var(--font-size-16);
     font-weight: var(--font-weight-light);

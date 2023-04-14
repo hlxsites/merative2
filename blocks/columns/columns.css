@@ -562,7 +562,9 @@
     flex: 1 1 75%;
   }
 
-  p,
+  /* stylelint-disable-next-line no-descending-specificity */
+  .columns p,
+  .columns > div,
   .section-top-grid > div:nth-child(1) > div:nth-child(1),
   .article-content-wrapper ul {
     font-family: var(--sans-serif-font-light);
