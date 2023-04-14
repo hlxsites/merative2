@@ -56,23 +56,20 @@ export default function decorate(block) {
   // Move heading to its own wrapper
   const h2 = section.querySelector('h2');
   if (h2 && h2.parentElement) {
-    const clonedWrapper = h2.parentElement.cloneNode();
+    const h2Wrapper = h2.parentElement;
+    const clonedWrapper = h2Wrapper.cloneNode();
     clonedWrapper.classList.add('heading');
     clonedWrapper.appendChild(h2);
     section.prepend(clonedWrapper);
+    if (h2Wrapper.children.length === 0) {
+      h2Wrapper.parentElement.removeChild(h2Wrapper);
+    }
   }
 
   // Move remaining content to marketo wrapper
-  const wrapper = section.querySelector('.marketo-wrapper');
-  section.querySelectorAll(':scope > .default-content-wrapper:not(.heading)').forEach((div) => {
-    if (div.children.length === 0) {
-      section.removeChild(div);
-      return;
-    }
-    if (div.nextElementSibling === wrapper) {
-      wrapper.prepend(div);
-    } else {
-      wrapper.appendChild(div);
+  section.querySelectorAll('.marketo-wrapper > div:not(.marketo)').forEach((div) => {
+    if (div.querySelector('h6')) {
+      div.classList.add('spacious');
     }
   });
 

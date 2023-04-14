@@ -455,10 +455,33 @@ export function decorateExternalLinks(main) {
 }
 
 /* so we can remove the space that P adds via CSS */
-export function decorateOnlyPicture(main) {
+function decorateOnlyPicture(main) {
   const onlyPictures = main.querySelectorAll('p > picture:only-child, div > picture:only-child');
   onlyPictures.forEach((onlyPicture) => {
     onlyPicture.closest('p, div').classList.add('only-picture');
+  });
+}
+
+/**
+ * Move any content in a Marketo section under marketo wrapper.
+ * @param main
+ */
+function decorateMarketo(main) {
+  // Move remaining content to marketo wrapper
+  const wrapper = main.querySelector('.marketo-wrapper');
+  if (!wrapper) {
+    return;
+  }
+  const section = wrapper.closest('.section');
+  [...section.children].forEach((div) => {
+    if (div === wrapper) {
+      return;
+    }
+    if (div.nextElementSibling === wrapper) {
+      wrapper.prepend(div);
+    } else {
+      wrapper.appendChild(div);
+    }
   });
 }
 
@@ -476,6 +499,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  decorateMarketo(main);
 }
 
 /**
