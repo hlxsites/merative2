@@ -68,8 +68,10 @@ export default async function decorate(block) {
           } else {
             // this is a level 2 link that has the old look and feel
             levelTwo.classList.add('old');
+            levelTwo.parentElement.classList.add('old');
           }
           levelTwo.classList.add('level-two');
+          levelTwo.parentElement.classList.add('level-two');
           levelTwo.addEventListener('click', (event) => {
             const expanded = levelTwo.getAttribute('aria-expanded') === 'true';
             collapseAllNavSections(navSection);
