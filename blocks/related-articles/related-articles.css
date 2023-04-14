@@ -121,9 +121,6 @@
 
 /* Tablet styles */
 @media only screen and (min-width: 768px) {
-    .related-articles-container[data-section-status="loaded"] {
-        padding: var(--spacer-layout-05) var(--spacer-layout-036) var(--spacer-layout-04);
-    }
 
     .related-articles[data-block-status="loaded"] {
         position: relative;
@@ -141,4 +138,8 @@
         grid-template-columns: 1fr 1fr 1fr;
         gap: var(--spacer-element-10) var(--spacer-element-07);
     }
+
+    .related-articles-container[data-section-status="loaded"] > .default-content-wrapper h2 {
+        font-size: var(--font-size-14);
+        }
 }
