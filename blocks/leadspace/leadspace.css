@@ -4,7 +4,7 @@
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-160);
-  letter-spacing: var(--letter-spacing-1);
+  letter-spacing: var(--letter-spacing-001-em);
 }
 
 .leadspace div.only-picture,
@@ -91,7 +91,7 @@ main div.leadspace-wrapper {
   flex-flow: column;
 }
 
-.leadspace.document {
+.section.leadspace-container .leadspace.document {
   padding-bottom: var(--spacer-layout-05);
   padding-top: var(--spacer-layout-05);
 }
@@ -120,19 +120,17 @@ main div.leadspace-wrapper {
   display: flex;
   flex-flow: row wrap;
   row-gap: var(--spacer-element-03);
+  margin-bottom: var(--spacer-element-05);
+  align-items: center;
 }
 
 .leadspace.document .readtime {
   font-family: var(--sans-serif-font-medium);
-  font-style: normal;
-  font-weight: 500;
-  font-size: var(--font-size-14);
-  padding: var(--spacer-element-02) 0;
+  font-size: var(--font-size-11);
   margin-right: var(--spacer-element-07);
   line-height: var(--line-height-120);
   letter-spacing: var(--letter-spacing-02-em);
   text-transform: uppercase;
-  color: var(--neutral-carbon);
 }
 
 .leadspace.document .document-tag {
@@ -143,7 +141,7 @@ main div.leadspace-wrapper {
 }
 
 .leadspace.document .download-link-container {
-  padding-top: var(--spacer-layout-01);
+  margin-top: var(--spacer-layout-03);
 }
 
 .leadspace.document a.download-link {
@@ -416,6 +414,10 @@ main div.leadspace-wrapper {
     width: 334px;
   }
 
+  .leadspace.document .download-link-container {
+    margin-top: var(--spacer-layout-04);
+    }
+
   .leadspace.video > div:first-child > div:nth-child(2) {
     display: flex;
     flex-direction: column;
@@ -473,9 +475,14 @@ main div.leadspace-wrapper {
     font-size: var(--font-size-45);
   }
 
-  .leadspace h4:first-of-type {
+  .leadspace h4:first-of-type,
+  .leadspace.document .readtime {
     font-size: var(--font-size-14);
   }
+
+  .leadspace.document .document-tag-container {
+    margin-bottom: var(--spacer-layout-02);
+    }
 
   .leadspace > div:first-child {
     flex-flow: row nowrap;

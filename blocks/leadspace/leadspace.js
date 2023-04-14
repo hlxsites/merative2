@@ -206,7 +206,7 @@ export default function decorate(block) {
       //   tags = tags.concat(topics);
       // }
 
-      if (tags.length > 0) {
+      if (tags.length >= 0) {
         const docTagContainer = createTag('div', { class: 'document-tag-container' });
         tags.forEach((tag) => {
           if (tag) {
