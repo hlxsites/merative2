@@ -331,7 +331,6 @@ main > .section {
   font-size: var(--font-size-11);
   letter-spacing: .2em;
   line-height: var(--line-height-120);
-  color: var(--neutral-carbon);
   margin: 0 0 var(--spacer-element-07);
   text-transform: uppercase;
 }
