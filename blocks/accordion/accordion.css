@@ -105,8 +105,10 @@
 }
 
 /* purple */
+.section.accordion-purple,
 .accordion.accordion-purple {
     color: var(--neutral-white);
+    background-color: #6400a6;
 }
 
 .accordion.accordion-purple .accordion-item.accordion-item-open::before {
