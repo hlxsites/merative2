@@ -319,7 +319,7 @@ main > .section {
 .section.pdf-viewer-container > .pdf-viewer-wrapper {
   padding-top: 0;
   padding-bottom: 0;
-  }
+}
 
 /* Block Library needs full width */
 .section > div.library-config-wrapper {

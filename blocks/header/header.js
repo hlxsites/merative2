@@ -6,7 +6,7 @@ import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
  */
 
 function collapseAllNavSections(sections) {
-  sections.querySelectorAll('.nav-sections > ul > li').forEach((section) => {
+  sections.querySelectorAll(':scope > ul > li').forEach((section) => {
     section.setAttribute('aria-expanded', 'false');
   });
 }
@@ -17,12 +17,13 @@ function collapseAllNavSections(sections) {
  */
 
 export default async function decorate(block) {
-  const cfg = readBlockConfig(block);
+  // const cfg = readBlockConfig(block);
   block.textContent = '';
 
   // fetch nav content
-  const navPath = cfg.nav || '/nav';
-  const resp = await fetch(`${navPath}.plain.html`);
+  // const navPath = cfg.nav || '/nav';
+  // const resp = await fetch(`${navPath}.plain.html`);
+  const resp = await fetch('/drafts/amol/nav.plain.html');
   if (resp.ok) {
     const html = await resp.text();
 
@@ -55,12 +56,40 @@ export default async function decorate(block) {
           collapseAllNavSections(navSections);
           navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
         });
-        // add classes for the lower level descriptions
+        // Setup level 2 links
         navSection.querySelectorAll(':scope > ul > li').forEach((levelTwo) => {
+          const l2Heading = levelTwo.querySelector(':scope > strong');
+          if (l2Heading) {
+            const l2HeadingNew = document.createElement('div');
+            l2HeadingNew.classList.add('level-two-heading');
+            l2HeadingNew.innerText = l2Heading.innerText;
+            l2Heading.remove();
+            levelTwo.prepend(l2HeadingNew);
+          } else {
+            // this is a level 2 link that has the old look and feel
+            levelTwo.classList.add('old');
+          }
           levelTwo.classList.add('level-two');
-        });
-        navSection.querySelectorAll(':scope > ul > li > ul > li').forEach((levelThree) => {
-          levelThree.classList.add('level-three');
+          levelTwo.addEventListener('click', (event) => {
+            const expanded = levelTwo.getAttribute('aria-expanded') === 'true';
+            collapseAllNavSections(navSection);
+            levelTwo.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            event.stopPropagation();
+          });
+          // Setup level 3 links
+          levelTwo.querySelectorAll(':scope > ul > li').forEach((levelThree) => {
+            levelThree.classList.add('level-three');
+            levelThree.addEventListener('click', (event) => {
+              const expanded = levelThree.getAttribute('aria-expanded') === 'true';
+              collapseAllNavSections(levelTwo);
+              levelThree.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+              event.stopPropagation();
+            });
+            // Setup level 4 links
+            levelThree.querySelectorAll(':scope > ul > li').forEach((levelFour) => {
+              levelFour.classList.add('level-four');
+            });
+          });
         });
       });
     }
