@@ -101,7 +101,7 @@ export default function decorate(block) {
     const linksHeight = document.getElementById('blog-content-link').clientHeight;
     const socialTop = linksHeight + 250;
     document.getElementById('social-share-links-id').style.setProperty('top', `${socialTop}px`);
-    if (scrollAmount >= (articleContentWrapper.offsetHeight) - 130) {
+    if (scrollAmount >= (articleContentWrapper.offsetHeight) - 300) {
       document.getElementById('blog-content-link').classList.add('blog-content-links-is-sticky');
     } else {
       document.getElementById('blog-content-link').classList.remove('blog-content-links-is-sticky');
