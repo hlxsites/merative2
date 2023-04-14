@@ -126,24 +126,26 @@ function buildPageDivider(main) {
 }
 
 // auto block build for blog left nav
-function buildBlogLeftNavBlock(main) {
+function buildBlogLeftNavBlock() {
   if (getMetadata('template') === 'Blog Article') {
+    const topMain = document.querySelector('body > main');
     const section = document.createElement('div');
     section.append(buildBlock('blog-left-nav', {
       elems: [],
     }));
-    main.prepend(section);
+    topMain.prepend(section);
   }
 }
 
 // auto block to create breadcrumb for blog articles
-function buildBlogBreadCrumbBlock(main) {
+function buildBlogBreadCrumbBlock() {
   if (getMetadata('template') === 'Blog Article') {
+    const topMain = document.querySelector('body > main');
     const section = document.createElement('div');
     section.append(buildBlock('blog-breadcrumb', {
       elems: [],
     }));
-    main.prepend(section);
+    topMain.prepend(section);
   }
 }
 
@@ -171,8 +173,8 @@ function buildDocumentUrl(main) {
 function buildAutoBlocks(main) {
   try {
     buildBackToTopBlock(main);
-    buildBlogLeftNavBlock(main);
-    buildBlogBreadCrumbBlock(main);
+    buildBlogLeftNavBlock();
+    buildBlogBreadCrumbBlock();
     buildDocumentUrl(main);
     buildTags(main);
     buildPageDivider(main);
