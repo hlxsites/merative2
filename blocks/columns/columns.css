@@ -82,6 +82,10 @@
   margin: var(--spacer-layout-01) auto;
 }
 
+.columns.icon-list .button-container {
+  margin-top: var(--spacer-layout-03);
+  }
+
 .columns img {
   width: 100%;
 }

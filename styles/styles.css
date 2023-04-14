@@ -1407,6 +1407,10 @@ main pre {
     padding-bottom: var(--spacer-layout-07);
   }
 
+  .content-band.icon-list.columns > div {
+    column-gap: 83px;
+    }
+
   .section.leadership-content .columns-wrapper {
     padding-bottom: 80px;
   }
