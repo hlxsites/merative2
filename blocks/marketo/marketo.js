@@ -41,7 +41,7 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
   }
 };
 
-export default async function decorate(block) {
+export default function decorate(block) {
   const blockConfig = readBlockConfig(block);
   const marketoId = placeholders.marketoid;
   const formId = blockConfig['form-id'];
@@ -53,6 +53,7 @@ export default async function decorate(block) {
     section.classList.add('multiple');
   }
 
+  // Move heading to its own wrapper
   const h2 = section.querySelector('h2');
   if (h2 && h2.parentElement) {
     const clonedWrapper = h2.parentElement.cloneNode();
@@ -61,7 +62,7 @@ export default async function decorate(block) {
     section.prepend(clonedWrapper);
   }
 
-  // Add content to marketo wrapper
+  // Move remaining content to marketo wrapper
   const wrapper = section.querySelector('.marketo-wrapper');
   section.querySelectorAll(':scope > .default-content-wrapper:not(.heading)').forEach((div) => {
     if (div.children.length === 0) {
@@ -88,6 +89,5 @@ export default async function decorate(block) {
     });
     observer.observe(block);
     // window.setTimeout(() => embedMarketoForm(marketoId, formId, successUrl), 3000);
-
   }
 }

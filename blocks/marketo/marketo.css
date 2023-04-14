@@ -372,9 +372,6 @@ input[type=radio] {
 }
 
 /* Media queries */
-@media screen and (min-width: 768px) {
-}
-
 @media screen and (min-width: 1200px) {
     .section.marketo-container.multiple h6 {
         font-size: var(--font-size-21);
@@ -403,5 +400,4 @@ input[type=radio] {
         width: 648px;
         margin-right: 130px;
     }
-
 }
