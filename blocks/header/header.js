@@ -1,4 +1,22 @@
-import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
+import {
+  // readBlockConfig,
+  decorateIcons,
+  loadBlocks,
+  decorateBlock,
+} from '../../scripts/lib-franklin.js';
+
+async function fetchFragment(path) {
+  const resp = await fetch(`${path}.plain.html`);
+  if (resp.ok) {
+    const container = document.createElement('div');
+    container.innerHTML = await resp.text();
+    decorateBlock(container);
+    // decorateMain(container);
+    await loadBlocks(container);
+    return container;
+  }
+  return null;
+}
 
 /**
  * collapses all open nav sections
@@ -95,6 +113,19 @@ export default async function decorate(block) {
         });
       });
     }
+
+    // Auto block fragment urls
+    await Promise.all([...nav.querySelectorAll('a')].map(async (link) => {
+      const url = new URL(link.href);
+      if (url.pathname.startsWith('/fragments/')) {
+        const fragmentBlock = await fetchFragment(link.href);
+        link.parentElement.append(fragmentBlock);
+        link.remove();
+        // link.append(fragmentBlock);
+        return true;
+      }
+      return null;
+    }));
 
     // add page scroll listener to know when header turns to sticky
     const header = block.parentNode;

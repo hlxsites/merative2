@@ -590,7 +590,7 @@ header nav .nav-sections>ul>li {
     color: var(--neutral-carbon);
     height: 100vh;
     max-height: none;
-    width: 100vw;
+    width: 50%;
     overflow: hidden;
     animation: fadeIn .25s;
     animation-fill-mode: forwards;
