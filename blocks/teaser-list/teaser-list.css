@@ -53,11 +53,12 @@
 }
 
 .teaser-list .teaser-card .teaser-link {
+  display: inline-block;
   text-decoration: none;
   font-family: var(--sans-serif-font-medium);
   font-size: var(--font-size-16);
   letter-spacing: .16px;
-  line-height: 120%;
+  height: var(--spacer-element-06);
   border-bottom: 2px solid var(--primary-purple);
   color: var(--primary-purple);
 }

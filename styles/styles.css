@@ -578,9 +578,9 @@ button {
 }
 
 .button-container a.tertiary {
-  height: 20px;
-  line-height: 20px;
+  line-height: var(--spacer-element-06);
   align-items: end;
+  text-decoration: none;
 }
 
 /** Button icons **/
@@ -628,6 +628,7 @@ a.button span.icon.bookmark {
 .button-container a.button.primary {
   background: var(--primary-purple);
   color: var(--neutral-white);
+  text-decoration: none;
 }
 
 .button-container a.button.primary strong {
@@ -661,14 +662,15 @@ a.button span.icon.bookmark {
 
 /* Tertiary (Link) Button */
 .button-container > a.tertiary:not(.has-icon) {
+  display: inline-block;
   border-bottom: 2px solid var(--primary-purple);
+  height: var(--spacer-element-06);
 }
 
 .button-container > a.tertiary.has-icon::before {
   content: '';
   position: absolute;
   width: calc(100% - 24px);
-  height: 1.1em;
   border-bottom: 2px solid var(--primary-purple);
 }
 
@@ -716,7 +718,7 @@ a.button span.icon.bookmark {
 main p a:not(.button):any-link {
   text-decoration: none;
   color: var(--primary-purple);
-  border-bottom: 2px solid var(--primary-purple);
+  border-bottom: 1px solid var(--primary-purple);
 }
 
 main h2 a:not(.button):any-link {
