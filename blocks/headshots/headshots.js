@@ -6,7 +6,7 @@ const socialLinks = Object.freeze({
   twitter: 'twitter.com',
 });
 
-export default function decorate(block) {
+export default async function decorate(block) {
   const headshotElements = block.querySelectorAll(':scope > div > div');
   [...headshotElements].forEach((headshot) => {
     headshot.classList.add('headshot-item');
