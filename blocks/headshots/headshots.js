@@ -1,3 +1,4 @@
+import { decorateIcons } from '../../scripts/lib-franklin.js';
 import { createTag } from '../../scripts/scripts.js';
 
 const socialLinks = Object.freeze({
@@ -27,4 +28,5 @@ export default function decorate(block) {
     linkContainer.append(...links);
     details.appendChild(linkContainer);
   });
+  decorateIcons(block);
 }
