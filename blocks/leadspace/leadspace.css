@@ -156,6 +156,10 @@ main div.leadspace-wrapper {
   background: url('../../icons/arrow-down-download-purple.svg') no-repeat right center;
 }
 
+.leadspace.document a.download-link:hover {
+  -webkit-text-fill-color: unset;
+  }
+
 /* Eyebrow */
 .leadspace > div:first-child > div:nth-child(1) > p:first-child {
   font-family: var(--sans-serif-font-medium);
