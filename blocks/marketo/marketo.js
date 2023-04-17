@@ -73,6 +73,21 @@ export default function decorate(block) {
     }
   });
 
+  // Add read more/less link to default content
+  const defaultContent = section.querySelectorAll('.default-content-wrapper:not(.heading)');
+  defaultContent.forEach((wrapper) => {
+    if (wrapper.querySelectorAll(':scope > p:first-of-type ~ *').length > 0) {
+      const showMore = createTag('a', { role: 'button' });
+      showMore.textContent = 'Read more';
+      showMore.addEventListener('click', () => {
+        wrapper.classList.toggle('open');
+        showMore.textContent = wrapper.classList.contains('open') ? 'Read less' : 'Read more';
+      });
+      wrapper.classList.add('show-more');
+      wrapper.appendChild(showMore);
+    }
+  });
+
   if (formId && marketoId) {
     const formElement = createTag('form', { id: `mktoForm_${formId}` });
     block.textContent = '';

@@ -714,19 +714,14 @@ a.button span.icon.bookmark {
 }
 
 /* Paragraph link styles */
-main p a:not(.button):any-link {
+main a:not(.button):any-link {
   text-decoration: none;
   color: var(--primary-purple);
   border-bottom: 1px solid var(--primary-purple);
 }
 
-main h2 a:not(.button):any-link {
-  text-decoration: none;
-  color: var(--primary-purple);
-}
-
-main h2 a:not(.button):hover,
-main p a:not(.button):hover {
+main a:not(.button):hover,
+main a:not(.button):active {
   background: var(--gradient-left-right);
   background-clip: text;
   -webkit-background-clip: text;
@@ -735,6 +730,10 @@ main p a:not(.button):hover {
   color: transparent;
   border-image-slice: 1;
   border-image-source: var(--gradient-left-right);
+}
+
+main h2 a:not(.button):any-link {
+  color: var(--primary-purple);
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
