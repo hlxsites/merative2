@@ -61,6 +61,12 @@
 
 .related-resources .document-card p {
     font-size: var(--font-size-16);
+    line-clamp: 4;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .related-resources > div:hover {
