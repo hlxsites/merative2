@@ -7,23 +7,6 @@ main .headshots > div {
     margin-bottom: var(--spacer-layout-05);
 }
 
-main .headshots span.icon {
-    display: block;
-    position: relative;
-    width: 64px;
-    height: 64px;
-    border: solid 1px var(--neutral-sand);
-    border-radius: 50%;
-    background-color: var(--neutral-white);
-}
-
-main .headshots span.icon svg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
 main .headshots .headshot-item {
     display: flex;
     flex-flow: row nowrap;
@@ -67,7 +50,14 @@ main .headshots .headshot-links span.icon {
     position: relative;
     width: 40px;
     height: 40px;
+    border: solid 1px var(--neutral-sand);
+    border-radius: 50%;
     background-color: var(--neutral-white);
+}
+
+main .headshots .headshot-links a:hover span.icon,
+main .headshots .headshot-links a:active span.icon {
+    background-image: var(--gradient-left-right);
 }
 
 main .headshots .headshot-links span.icon::after {
@@ -85,11 +75,26 @@ main .headshots .headshot-links .icon-sharelink-black::after {
 }
 
 main .headshots .headshot-links .icon-linkedin::after {
-    background: url('../../icons/linkedin.svg') center no-repeat;
+    background: url('../../icons/linkedin-black.svg') center no-repeat;
 }
 
 main .headshots .headshot-links .icon-twitter::after {
-    background: url('../../icons/twitter.svg') center no-repeat;
+    background: url('../../icons/twitter-black.svg') center no-repeat;
+}
+
+main .headshots .headshot-links a:hover .icon-sharelink-black::after,
+main .headshots .headshot-links a:active .icon-sharelink-black::after {
+    background: url('../../icons/sharelink-white.svg') center no-repeat;
+}
+
+main .headshots .headshot-links a:hover .icon-linkedin::after,
+main .headshots .headshot-links a:active .icon-linkedin::after {
+    background: url('../../icons/linkedin-white.svg') center no-repeat;
+}
+
+main .headshots .headshot-links a:hover .icon-twitter::after,
+main .headshots .headshot-links a:active .icon-twitter::after {
+    background: url('../../icons/twitter-white.svg') center no-repeat;
 }
 
 @media screen and (min-width: 768px) {
