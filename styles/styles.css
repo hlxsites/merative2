@@ -557,6 +557,7 @@ button {
   font-size: var(--font-size-16);
   font-weight: 500;
   letter-spacing: var(--letter-spacing-1);
+  text-decoration: none;
 }
 
 .button-container a > strong,
@@ -580,7 +581,6 @@ button {
 .button-container a.tertiary {
   line-height: var(--spacer-element-06);
   align-items: end;
-  text-decoration: none;
 }
 
 /** Button icons **/
@@ -628,7 +628,6 @@ a.button span.icon.bookmark {
 .button-container a.button.primary {
   background: var(--primary-purple);
   color: var(--neutral-white);
-  text-decoration: none;
 }
 
 .button-container a.button.primary strong {
@@ -664,7 +663,7 @@ a.button span.icon.bookmark {
 .button-container > a.tertiary:not(.has-icon) {
   display: inline-block;
   border-bottom: 2px solid var(--primary-purple);
-  height: var(--spacer-element-06);
+  height: 20px;
 }
 
 .button-container > a.tertiary.has-icon::before {
