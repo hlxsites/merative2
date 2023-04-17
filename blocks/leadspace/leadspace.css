@@ -138,6 +138,7 @@ main div.leadspace-wrapper {
   background: var(--neutral-sand);
   border-radius: 100px;
   margin-right: var(--spacer-element-03);
+  font-size: var(--font-size-16);
 }
 
 .leadspace.document .download-link-container {
@@ -478,7 +479,13 @@ main div.leadspace-wrapper {
   .leadspace h4:first-of-type,
   .leadspace.document .readtime {
     font-size: var(--font-size-14);
+    margin-right: var(--spacer-element-08);
   }
+
+  .leadspace.document .document-tag {
+    padding: var(--spacer-element-03) var(--spacer-element-07);
+    margin-right: var(--spacer-element-03);
+    }
 
   .leadspace.document .document-tag-container {
     margin-bottom: var(--spacer-layout-02);
@@ -579,4 +586,9 @@ main div.leadspace-wrapper {
     max-height: 581px;
     width: 1033px;
   }
+
+  .section.leadspace-container .leadspace.document {
+    padding-bottom: var(--spacer-layout-06);
+    padding-top: var(--spacer-layout-06);
+    }
 }
