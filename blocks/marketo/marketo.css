@@ -471,7 +471,7 @@ input[type=radio] {
     border-bottom: none;
   }
 
-  .section.marketo-container .marketo-wrapper .default-content-wrapper.show-more > * {
+  .section.marketo-container .marketo-wrapper .default-content-wrapper.show-more > p:first-of-type ~ *:not(a) {
     display: revert;
   }
 
