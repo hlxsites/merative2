@@ -141,21 +141,6 @@ main div.leadspace-wrapper {
   font-size: var(--font-size-16);
 }
 
-.leadspace.document .download-link-container {
-  margin-top: var(--spacer-layout-03);
-}
-
-.leadspace.document a.download-link {
-  font-family: var(--sans-serif-font-regular);
-  font-style: normal;
-  font-weight: 500;
-  font-size: var(--font-size-16);
-  line-height: var(--line-height-120);
-  color: var(--primary-purple);
-  padding-right: var(--spacer-element-07);
-  background: url('../../icons/arrow-down-download-purple.svg') no-repeat right center;
-}
-
 /* Eyebrow */
 .leadspace > div:first-child > div:nth-child(1) > p:first-child {
   font-family: var(--sans-serif-font-medium);
@@ -414,10 +399,6 @@ main div.leadspace-wrapper {
   .leadspace:not(.document) > div:first-child > div:nth-child(1) {
     width: 334px;
   }
-
-  .leadspace.document .download-link-container {
-    margin-top: var(--spacer-layout-04);
-    }
 
   .leadspace.video > div:first-child > div:nth-child(2) {
     display: flex;
