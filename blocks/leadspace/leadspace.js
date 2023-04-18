@@ -1,4 +1,4 @@
-import { getMetadata } from '../../scripts/lib-franklin.js';
+import { getMetadata, decorateButtons, decorateIcons } from '../../scripts/lib-franklin.js';
 import { createTag } from '../../scripts/scripts.js';
 
 /**
@@ -220,16 +220,18 @@ export default function decorate(block) {
         docTagContainer.prepend(readtime);
         block.prepend(docTagContainer);
       }
-      // Get PDF URL and create download link
+
       const docUrl = getMetadata('document-link');
       if (docUrl) {
         const downloadLinkContainer = createTag('p', { class: 'button-container' });
-        const downloadLink = createTag('a', { class: 'button tertiary has-icon download-link' });
+        const downloadLink = createTag('a', { class: 'button tertiary has-icon' });
         downloadLink.setAttribute('href', docUrl);
         downloadLink.setAttribute('target', '_blank');
         downloadLink.textContent = 'Download PDF';
         downloadLinkContainer.append(downloadLink);
         block.append(downloadLinkContainer);
+        decorateButtons(block, { decorateClasses: false, excludeIcons: [] });
+        decorateIcons(block);
       }
     }
   }
