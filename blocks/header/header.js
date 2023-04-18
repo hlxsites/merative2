@@ -1,5 +1,6 @@
 import {
   // readBlockConfig,
+  decorateButtons,
   decorateIcons,
   loadBlocks,
   decorateBlock,
@@ -53,14 +54,21 @@ export default async function decorate(block) {
     const classes = ['brand', 'sections', 'tools'];
     classes.forEach((e, j) => {
       const section = nav.children[j];
-      if (section) section.classList.add(`nav-${e}`);
+      if (section) {
+        section.classList.add(`nav-${e}`);
+        if (e === 'tools') {
+          decorateButtons(section);
+        }
+      }
     });
 
     const navSections = [...nav.children][1];
     if (navSections) {
       navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
         // deal with top level dropdowns first
-        if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+        if (navSection.querySelector('ul')) {
+          navSection.classList.add('nav-drop');
+        }
         // replacing bold nav titles with divs for styling
         if (navSection.querySelector('strong')) {
           const sectionHeading = navSection.querySelector('strong');
