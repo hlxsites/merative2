@@ -22,7 +22,7 @@ export default function decorate(block) {
 
   if (buttonGroup.children.length) {
     const pictures = col1.querySelectorAll('p.only-picture');
-    if (pictures !== 'undefined' && pictures !== null) {
+    if (pictures.length > 0) {
       pictures[pictures.length - 1].insertAdjacentElement('beforeBegin', buttonGroup);
     } else {
       col1.append(buttonGroup);
