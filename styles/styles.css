@@ -642,7 +642,7 @@ a.button span.icon.bookmark {
 
 /* Secondary Button */
 .button-container a.button.secondary {
-  border: 1px solid var(--primary-purple);
+  border: 2px solid var(--primary-purple);
   font-weight: 500;
   font-style: normal;
 }
@@ -657,13 +657,17 @@ a.button span.icon.bookmark {
 }
 
 .button-container a.button.primary:hover,
-.button-container a.button.primary:active,
+.button-container a.button.primary:active {
+  background: var(--gradient-left-right);
+}
+
 .button-container a.button.secondary:hover,
 .button-container a.button.secondary:active {
-  border-style: none;
+  border: none;
   background: var(--gradient-left-right);
   color: var(--neutral-white);
-}
+  padding: 13px 26px;
+  }
 
 /* Tertiary (Link) Button */
 .button-container > a.tertiary:not(.has-icon) {

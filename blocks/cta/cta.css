@@ -4,10 +4,6 @@
     display: block;
 }
 
-.section.cta-container img {
-    margin: 40px 0;
-}
-
 .section.cta-container {
     background-color: var(--neutral-sand);
     margin: unset;
@@ -17,6 +13,10 @@
 .section.cta-container .cta.block {
     text-align: center;
 }
+
+.cta.block .button-group p {
+    margin: 0;
+    }
 
 .section.cta-container .cta.block h2 {
     margin: unset;
@@ -33,11 +33,28 @@
     letter-spacing: 0.01em;
 }
 
+.section.cta-container .cta.block p.only-picture:last-child {
+    margin-top: 48px;
+    margin-bottom: 0;
+    }
+
 /* CTA Button */
-.section.cta-container .cta.block .button-container {
-    margin: var(--spacer-element-09) auto 0 auto;
-    width: unset;
-}
+
+.cta.block .button-group {
+    display: flex;
+    flex-flow: column;
+    gap: var(--spacer-layout-01);
+    margin-top: var(--spacer-layout-04);
+    align-items: center;
+    }
+
+@media only screen and (min-width: 768px) {
+    .cta.block .button-group {
+        flex-flow: row;
+        justify-content: center;
+        gap: var(--spacer-layout-01);
+        }
+    }
 
 @media only screen and (min-width: 1200px) {
     .section.cta-container .cta-wrapper {
@@ -52,4 +69,9 @@
     .section.cta-container .cta.block p {
         font-size: 21px;
     }
+
+    .section.cta-container .cta.block p.only-picture:last-child {
+        margin-top: 64px;
+        margin-bottom: 0;
+        }
 }
