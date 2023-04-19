@@ -34,7 +34,7 @@
 }
 
 .section.cta-container .cta.block p.only-picture:last-child {
-    margin-top: 48px;
+    margin-top: var(--spacer-layout-04);
     margin-bottom: 0;
     }
 
@@ -71,7 +71,7 @@
     }
 
     .section.cta-container .cta.block p.only-picture:last-child {
-        margin-top: 64px;
+        margin-top: var(--spacer-layout-05);
         margin-bottom: 0;
         }
 }
