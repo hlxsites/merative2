@@ -59,6 +59,7 @@
     font-size: 28px;
 }
 
+/* stylelint-disable value-no-vendor-prefix */
 .related-resources .document-card p {
     font-size: var(--font-size-16);
     line-clamp: 4;
