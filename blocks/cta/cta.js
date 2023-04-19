@@ -4,7 +4,7 @@ export default function decorate(block) {
   const col1 = block.firstElementChild?.children.item(0);
   // group buttons
   const buttonGroup = createTag('div', { class: 'button-group' });
-  const buttons = [...col1.querySelectorAll('.button-container')] || [];
+  const buttons = [...col1.querySelectorAll('.button-container')];
 
   buttons.forEach((button) => {
     const isPrimary = button.querySelector('strong');
