@@ -8,6 +8,7 @@ import {
   createTag, decorateMain,
 } from '../../scripts/scripts.js';
 
+const mobileMedia = window.matchMedia('(max-width: 1200px)');
 const desktopMedia = window.matchMedia('(min-width: 1200px)');
 
 async function fetchFragment(path) {
@@ -36,6 +37,19 @@ function collapseAllNavSections(sections) {
   });
 }
 
+function copyMegaMenu(navItem) {
+  if (navItem) {
+    const megaMenu = navItem.closest('ul.mega-menu');
+    const megaContent = megaMenu.querySelector('.mega-menu-content');
+    const megaFragment = navItem.querySelector('ul > li.mega-menu');
+    if (megaFragment) {
+      megaContent.innerHTML = megaFragment.innerHTML;
+    } else {
+      megaContent.innerHTML = navItem.querySelector('ul').outerHTML;
+    }
+  }
+}
+
 function toggleSection(section) {
   const expanded = section.getAttribute('aria-expanded') === 'true';
   collapseAllNavSections(section.closest('ul').parentElement);
@@ -47,8 +61,7 @@ function toggleSection(section) {
     const firstNavItem = megaMenu.querySelector('li.mega-menu:first-of-type');
     if (firstNavItem) {
       toggleSection(firstNavItem);
-      const megaContent = megaMenu.querySelector('.mega-menu-content');
-      megaContent.innerHTML = firstNavItem.querySelector('ul').outerHTML;
+      copyMegaMenu(firstNavItem);
     }
   }
 }
@@ -134,10 +147,7 @@ export default async function decorate(block) {
         levelTwo.addEventListener('click', (event) => {
           toggleSection(levelTwo);
           if (levelTwo.classList.contains('mega-menu')) {
-            // copy content
-            const level2Container = levelTwo.closest('ul');
-            const megaContent = level2Container.querySelector('.mega-menu-content');
-            megaContent.innerHTML = levelTwo.querySelector('ul').outerHTML;
+            copyMegaMenu(levelTwo);
           }
           event.stopPropagation();
         });
@@ -193,6 +203,18 @@ export default async function decorate(block) {
     }
     return null;
   }));
+
+  // Update DOM based on screen size
+  const mediaChangeHandler = () => {
+    const navTools = nav.querySelector('.nav-tools');
+    if (mobileMedia.matches && navTools.parentElement === nav) {
+      navSections.appendChild(navTools);
+    } else if (desktopMedia.matches && navTools.parentElement === navSections) {
+      nav.appendChild(navTools);
+    }
+  };
+  mediaChangeHandler();
+  mobileMedia.addEventListener('change', mediaChangeHandler);
 
   // add page scroll listener to know when header turns to sticky
   const header = block.parentNode;
