@@ -141,12 +141,6 @@ html {
     padding-left: var(--spacer-layout-01);
     }
 
-.blog-left-nav .content-link:hover, .blog-left-nav .content-link.active:hover  {
-    text-decoration-line: underline;
-    text-decoration-color: var(--primary-purple);
-    text-decoration-thickness: 3px;
-}
-
 @media only screen and (min-width: 1200px) {
     .article-main-wrapper {
         display: flex;
