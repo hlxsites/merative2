@@ -386,8 +386,8 @@ export function createDocumentCard(row, styles) {
   // Get category
   const category = document.createElement('div');
   category.classList.add('document-category');
-  if (row.assetType && row.assetType !== '0') {
-    category.innerHTML += row.assetType;
+  if (row.assettype && row.assettype !== '0') {
+    category.innerHTML += row.assettype;
   } else if (row.template === 'Blog Article') {
     category.innerHTML += 'Blog';
   }

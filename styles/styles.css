@@ -408,9 +408,9 @@ main img {
 }
 
 .columns.section-bottom-grid > div img {
-  width: 56px;
-  height: 56px;
-  max-width: 56px;
+  width: 54px;
+  height: 54px;
+  max-width: 54px;
   margin-bottom: var(--spacer-layout-02);
   margin-top: var(--spacer-layout-02);
 }

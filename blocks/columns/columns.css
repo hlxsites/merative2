@@ -1,5 +1,5 @@
 .columns-container h2 {
-  margin: var(--spacer-layout-03) auto;
+  margin: var(--spacer-layout-02) auto;
 }
 
 /* this is considered an eyebrow style */
@@ -45,6 +45,10 @@
 .columns p {
   margin: var(--spacer-element-07) 0;
 }
+
+.section-top-grid > div > div > p {
+  margin: var(--spacer-element-08) 0;
+  }
 
 .columns.content-band p,
 .columns.content-band li {
@@ -304,6 +308,10 @@
     overflow: hidden;
   }
 
+  .section-top h1 {
+    font-size: var(--font-size-32);
+    }
+
   .columns > div {
     display: flex;
     flex-direction: unset;
@@ -311,7 +319,7 @@
 
   .columns > div > div {
     flex: 1;
-    margin-left: var(--spacer-layout-04);
+    margin-left: var(--spacer-layout-02);
   }
 
   .columns > div:last-of-type {
@@ -487,10 +495,6 @@
     gap: var(--spacer-element-10);
     flex-flow: row nowrap;
   }
-
-  .teaser-list-manual > .default-content-wrapper {
-    width: 45%;
-  }
 }
 
 /** Desktop **/
@@ -500,9 +504,17 @@
     margin-left: var(--spacer-layout-05);
   }
 
+  .section-top h1 {
+    font-size: var(--font-size-64);
+    }
+
   .section-top > div:first-child {
     padding-top: 160px;
   }
+
+  .news .columns.quarter-circle .button-container {
+    margin-top: var(--spacer-element-09);
+    }
 
   .columns.terms div {
     margin: var(--spacer-element-06) 0;
@@ -550,7 +562,7 @@
 
   .section-top-grid > div:nth-child(1) > div:nth-child(1) {
     padding-right: var(--spacer-layout-07);
-    width: 620px;
+    width: 617px;
     margin-top: var(--spacer-element-10);
   }
 
@@ -572,10 +584,6 @@
     font-weight: var(--font-weight-light);
     line-height: var(--line-height-160);
     letter-spacing: var(--letter-spacing-1);
-  }
-
-  .teaser-list-manual p {
-    font-size: var(--font-size-16);
   }
 
   .columns-container .default-content-wrapper:first-child > h2,
@@ -639,26 +647,6 @@
     gap: 0;
   }
 
-  .teaser-list-manual .teaser-list .button-container {
-    margin-bottom: 25px;
-  }
-
-  .teaser-list-manual .teaser-list > div:nth-child(odd) > div > * {
-    margin-right: 50px;
-  }
-
-  .teaser-list-manual .teaser-list > div:nth-child(even) > div > * {
-    margin-left: 50px;
-  }
-
-  .teaser-list-manual .teaser-list div:last-child div:last-child {
-    border-bottom: 1px solid var(--neutral-sand);
-  }
-
-  .teaser-list-manual h4 {
-    font-size: var(--font-size-14);
-  }
-
   .columns.content-band.icon-list h4 {
     font-size: var(--font-size-21);
   }
@@ -667,11 +655,6 @@
     width: var(--section-width-desktop);
     gap: 140px;
     padding: var(--spacer-layout-07) 0;
-  }
-
-  .teaser-list-manual h6 {
-    font-size: var(--font-size-21);
-    line-height: 156%;
   }
 
   .section.promo .columns .button-container {
