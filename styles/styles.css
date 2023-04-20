@@ -306,6 +306,15 @@ main > .section {
   max-width: 350px;
 }
 
+/* Section Top and Bottom */
+.columns.columns-gap-50 > div {
+  gap: 50px;
+}
+
+.columns.section-bottom-grid > div {
+  row-gap: 0;
+}
+
 main .section > div:first-child {
   margin: 0 auto;
   padding-top: var(--spacer-layout-06);
@@ -373,11 +382,6 @@ main .section > div:last-child {
   margin-top: 0;
 }
 
-/* Section Top and Bottom */
-.columns.columns-gap-50 > div {
-  gap: 50px;
-}
-
 .padding-bottom-40 {
   padding-bottom: 40px;
 }
@@ -395,10 +399,6 @@ main img {
 /* Image variations */
 .section.section-bottom .default-content-wrapper {
   padding-top: var(--spacer-layout-05);
-}
-
-.columns.section-bottom-grid > div {
-  row-gap: 0;
 }
 
 .article-content picture img {
