@@ -19,6 +19,7 @@
   font-size: var(--font-size-16);
   letter-spacing: 0.01em;
   margin: var(--spacer-element-07) 0;
+  line-height: var(--line-height-160);
 }
 
 .section.what-we-do.teaser-list-container > .default-content-wrapper > p {
