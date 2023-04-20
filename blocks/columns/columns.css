@@ -42,13 +42,15 @@
   padding-top: var(--spacer-layout-04);
 }
 
-.section.leadership-content .columns > div {
-  margin-bottom: 0;
-}
-
 .columns p {
   margin: var(--spacer-element-07) 0;
-}
+  }
+
+.columns.content-band li {
+  list-style-image: url("../icons/arrow-purple.svg");
+  margin-bottom: var(--spacer-element-03);
+  line-height: var(--line-height-160);
+  }
 
 .columns.content-band p,
 .columns.content-band li {
@@ -57,6 +59,18 @@
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-160);
   letter-spacing: var(--letter-spacing-1);
+  }
+
+.columns.terms div, .columns.terms div strong,
+.columns.terms div p, .columns.terms div li {
+  font-size: var(--font-size-16);
+  letter-spacing: .01em;
+  line-height: var(--line-height-160);
+  margin-top: 0;
+  }
+
+.section.leadership-content .columns > div {
+  margin-bottom: 0;
 }
 
 .columns > div > div > *:first-child {
@@ -69,17 +83,11 @@
 
 .columns.content-band div:empty {
   display: none;
-}
+  }
 
 .columns.content-band.icon-list > div > div {
   margin-top: var(--spacer-element-05);
   margin-bottom: var(--spacer-element-06);
-}
-
-.columns.content-band li {
-  list-style-image: url("../icons/arrow-purple.svg");
-  margin-bottom: var(--spacer-element-03);
-  line-height: var(--line-height-160);
 }
 
 .columns.content-band.icon-list.picture-circle h3 {
@@ -155,14 +163,6 @@
 
 .section-top-grid > div > div > h1 {
   padding: 0;
-}
-
-.columns.terms div, .columns.terms div strong,
-.columns.terms div p, .columns.terms div li {
-  font-size: var(--font-size-16);
-  letter-spacing: .01em;
-  line-height: var(--line-height-160);
-  margin-top: 0;
 }
 
 .columns.terms div p:last-of-type {
