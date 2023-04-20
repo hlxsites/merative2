@@ -1,19 +1,23 @@
 import {
-  // readBlockConfig,
   decorateButtons,
   decorateIcons,
   loadBlocks,
-  decorateBlock,
 } from '../../scripts/lib-franklin.js';
+
+import {
+  createTag, decorateMain,
+} from '../../scripts/scripts.js';
+
+const desktopMedia = window.matchMedia('(min-width: 1200px)');
 
 async function fetchFragment(path) {
   const resp = await fetch(`${path}.plain.html`);
   if (resp.ok) {
-    const container = document.createElement('div');
+    const container = document.createElement('main');
     container.innerHTML = await resp.text();
-    decorateBlock(container);
+    decorateMain(container);
     await loadBlocks(container);
-    return container;
+    return container.querySelector(':scope .section');
   }
   return null;
 }
@@ -27,7 +31,7 @@ function collapseAllNavSections(sections) {
   if (!sections) {
     return;
   }
-  sections.querySelectorAll(':scope > ul > li').forEach((section) => {
+  sections.querySelectorAll(':scope > ul li').forEach((section) => {
     section.setAttribute('aria-expanded', 'false');
   });
 }
@@ -36,6 +40,17 @@ function toggleSection(section) {
   const expanded = section.getAttribute('aria-expanded') === 'true';
   collapseAllNavSections(section.closest('ul').parentElement);
   section.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+  // auto expand mega-menu
+  const megaMenu = section.querySelector('ul.mega-menu');
+  if (!expanded && megaMenu && desktopMedia.matches) {
+    // copy initial content
+    const firstNavItem = megaMenu.querySelector('li.mega-menu:first-of-type');
+    if (firstNavItem) {
+      toggleSection(firstNavItem);
+      const megaContent = megaMenu.querySelector('.mega-menu-content');
+      megaContent.innerHTML = firstNavItem.querySelector('ul').outerHTML;
+    }
+  }
 }
 
 /**
@@ -83,14 +98,17 @@ export default async function decorate(block) {
       // replacing bold nav titles with divs for styling
       if (navSection.querySelector('strong')) {
         const sectionHeading = navSection.querySelector('strong');
-        const sectionHeadingNew = document.createElement('div');
-        sectionHeadingNew.classList.add('section-heading');
+        const sectionHeadingNew = createTag('div', { class: 'section-heading' });
         sectionHeadingNew.textContent = sectionHeading.textContent;
         navSection.replaceChild(sectionHeadingNew, sectionHeading);
       }
-      navSection.addEventListener('click', () => {
-        toggleSection(navSection);
+
+      navSection.addEventListener('click', (event) => {
+        if (!event.target.closest('.mega-menu')) {
+          toggleSection(navSection);
+        }
       });
+
       // Setup level 2 links
       navSection.querySelectorAll(':scope > ul > li').forEach((levelTwo) => {
         const megaTitle = levelTwo.querySelector(':scope > em');
@@ -103,8 +121,7 @@ export default async function decorate(block) {
         const megaHeading = levelTwo.querySelector(':scope > strong');
         if (megaHeading) {
           // mega menu
-          const megaHeadingNew = document.createElement('div');
-          megaHeadingNew.classList.add('level-two-heading');
+          const megaHeadingNew = createTag('div', { class: 'level-two-heading' });
           megaHeadingNew.innerText = megaHeading.innerText;
           megaHeading.remove();
           levelTwo.prepend(megaHeadingNew);
@@ -113,19 +130,27 @@ export default async function decorate(block) {
         }
         levelTwo.classList.add('level-two');
         levelTwo.parentElement.classList.add('level-two');
+
         levelTwo.addEventListener('click', (event) => {
           toggleSection(levelTwo);
+          if (levelTwo.classList.contains('mega-menu')) {
+            // copy content
+            const level2Container = levelTwo.closest('ul');
+            const megaContent = level2Container.querySelector('.mega-menu-content');
+            megaContent.innerHTML = levelTwo.querySelector('ul').outerHTML;
+          }
           event.stopPropagation();
         });
+
         // Setup level 3 links
         levelTwo.querySelectorAll(':scope > ul > li').forEach((levelThree) => {
           levelThree.classList.add('level-three');
+
           levelThree.addEventListener('click', (event) => {
-            const expanded = levelThree.getAttribute('aria-expanded') === 'true';
-            collapseAllNavSections(levelTwo);
-            levelThree.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            toggleSection(levelThree);
             event.stopPropagation();
           });
+
           // Setup level 4 links
           levelThree.querySelectorAll(':scope > ul > li').forEach((levelFour) => {
             levelFour.classList.add('level-four');
@@ -133,24 +158,28 @@ export default async function decorate(block) {
         });
       });
 
-      const sectionMenu = navSection.querySelector('ul.mega-menu');
-      if (sectionMenu) {
+      // Setup mega menu content
+      const megaMenu = navSection.querySelector('ul.mega-menu');
+      if (megaMenu) {
+        // add some flex containers
+        const megaLinks = createTag('aside');
+        megaLinks.append(...megaMenu.children);
+        const megaContent = createTag('div', { class: 'mega-menu-content' });
         // add close icon
-        const closeLink = document.createElement('a');
-        closeLink.className = 'close';
+        const closeLink = createTag('a', { class: 'close' });
         closeLink.setAttribute('aria-label', 'Close');
         closeLink.innerHTML = '<span class="icon icon-x" />';
-        sectionMenu.appendChild(closeLink);
         closeLink.addEventListener('click', (event) => {
           toggleSection(navSection);
           event.stopPropagation();
-        })
+        });
+        megaMenu.append(megaLinks, megaContent, closeLink);
       }
     });
   }
 
   // Auto block fragment urls
-  await Promise.all([...nav.querySelectorAll('a')].map(async (link) => {
+  await Promise.all([...nav.querySelectorAll('li.level-three a')].map(async (link) => {
     if (!link.href) {
       return null;
     }
@@ -158,6 +187,7 @@ export default async function decorate(block) {
     if (url.pathname.startsWith('/fragments/')) {
       const fragmentBlock = await fetchFragment(link.href);
       link.parentElement.append(fragmentBlock);
+      link.parentElement.classList.add('mega-menu');
       link.remove();
       return true;
     }

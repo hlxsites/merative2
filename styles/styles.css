@@ -240,7 +240,7 @@ main {
   margin: auto;
 }
 
-.section {
+main .section {
   padding: var(--spacer-layout-06) var(--spacer-layout-03);
 }
 
@@ -306,12 +306,12 @@ main > .section {
   max-width: 350px;
 }
 
-.section > div:first-child {
+main .section > div:first-child {
   margin: 0 auto;
   padding-top: var(--spacer-layout-06);
 }
 
-.section > div:last-child {
+main .section > div:last-child {
   margin: 0 auto;
   padding-bottom: var(--spacer-layout-06);
 }
@@ -1431,11 +1431,11 @@ main pre {
     gap: 120px;
   }
 
-  .section > div:first-child {
+  main .section > div:first-child {
     padding-top: var(--spacer-layout-07);
   }
 
-  .section > div:last-child {
+  main .section > div:last-child {
     padding-bottom: var(--spacer-layout-07);
   }
 
