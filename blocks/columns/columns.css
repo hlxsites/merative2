@@ -94,11 +94,6 @@
   width: 100%;
 }
 
-.teaser-list-manual picture,
-.teaser-list-manual p > picture {
-  display: none;
-}
-
 .section-bottom-grid p picture {
   display: block;
   border-image-slice: 1;
@@ -163,7 +158,7 @@
 }
 
 .columns.terms div, .columns.terms div strong,
-.columns.terms div p {
+.columns.terms div p, .columns.terms div li {
   font-size: var(--font-size-16);
   letter-spacing: .01em;
   line-height: var(--line-height-160);
