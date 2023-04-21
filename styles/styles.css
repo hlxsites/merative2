@@ -240,7 +240,7 @@ main {
   margin: auto;
 }
 
-.section {
+main .section {
   padding: var(--spacer-layout-06) var(--spacer-layout-03);
 }
 
@@ -306,12 +306,21 @@ main > .section {
   max-width: 350px;
 }
 
-.section > div:first-child {
+/* Section Top and Bottom */
+.columns.columns-gap-50 > div {
+  gap: 50px;
+}
+
+.columns.section-bottom-grid > div {
+  row-gap: 0;
+}
+
+main .section > div:first-child {
   margin: 0 auto;
   padding-top: var(--spacer-layout-06);
 }
 
-.section > div:last-child {
+main .section > div:last-child {
   margin: 0 auto;
   padding-bottom: var(--spacer-layout-06);
 }
@@ -319,7 +328,7 @@ main > .section {
 .section.pdf-viewer-container > .pdf-viewer-wrapper {
   padding-top: 0;
   padding-bottom: 0;
-  }
+}
 
 /* Block Library needs full width */
 .section > div.library-config-wrapper {
@@ -373,11 +382,6 @@ main > .section {
   margin-top: 0;
 }
 
-/* Section Top and Bottom */
-.columns.columns-gap-50 > div {
-  gap: 50px;
-}
-
 .padding-bottom-40 {
   padding-bottom: 40px;
 }
@@ -395,10 +399,6 @@ main img {
 /* Image variations */
 .section.section-bottom .default-content-wrapper {
   padding-top: var(--spacer-layout-05);
-}
-
-.columns.section-bottom-grid > div {
-  row-gap: 0;
 }
 
 .article-content picture img {
@@ -1435,11 +1435,11 @@ main pre {
     gap: 120px;
   }
 
-  .section > div:first-child {
+  main .section > div:first-child {
     padding-top: var(--spacer-layout-07);
   }
 
-  .section > div:last-child {
+  main .section > div:last-child {
     padding-bottom: var(--spacer-layout-07);
   }
 
