@@ -67,8 +67,7 @@ export default async function decorate(block) {
   const pageList = await lookupPages(pathnames);
   if (pageList.length) {
     pageList.forEach((row) => {
-      // If the URL was not in the index, it is curated. Let's get the content differently
-      if (row.title === undefined) setRowDetails(row, blockCopy);
+      setRowDetails(row, blockCopy);
       block.append(createCard(row, 'teaser-card'));
     });
   } else {
