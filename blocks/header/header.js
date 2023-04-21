@@ -1,4 +1,5 @@
 import {
+  readBlockConfig,
   decorateButtons,
   decorateIcons,
   loadBlocks,
@@ -91,13 +92,12 @@ function toggleSection(section) {
  */
 
 export default async function decorate(block) {
-  // const cfg = readBlockConfig(block);
+  const cfg = readBlockConfig(block);
   block.textContent = '';
 
   // fetch nav content
-  // const navPath = cfg.nav || '/nav';
-  // const resp = await fetch(`${navPath}.plain.html`);
-  const resp = await fetch('/drafts/amol/nav.plain.html');
+  const navPath = cfg.nav || '/nav';
+  const resp = await fetch(`${navPath}.plain.html`);
   if (!resp.ok) {
     return;
   }

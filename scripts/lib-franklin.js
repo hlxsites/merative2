@@ -575,7 +575,7 @@ export async function waitForLCP(lcpBlocks) {
  */
 
 export function loadHeader(header) {
-  const headerBlock = buildBlock('header', '');
+  const headerBlock = buildBlock('header', [['Nav', '/drafts/amol/nav']]);
   header.append(headerBlock);
   decorateBlock(headerBlock);
   return loadBlock(headerBlock);
