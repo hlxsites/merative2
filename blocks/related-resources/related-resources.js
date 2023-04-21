@@ -12,6 +12,7 @@ async function setRowDetails(row, block) {
     // Go up one level since <a> is wrapped inside a <p> usually
     let el = aElement.parentElement;
     // Loop through previous elements until you hit an <a>
+    let description = '';
     while (el) {
       if (el.previousElementSibling) {
         el = el.previousElementSibling;
@@ -23,6 +24,7 @@ async function setRowDetails(row, block) {
       if (childAnchor) {
         break;
       }
+
       // set the row object properties based on the type of node we hit
       switch (el.nodeName) {
         case 'H1':
@@ -35,11 +37,15 @@ async function setRowDetails(row, block) {
           row.assettype = el.innerHTML;
           break;
         case 'P':
-          row.description = `<p>${el.innerHTML}</p>`;
+          description = `<p>${el.innerHTML}</p> ${description}`;
           break;
         default:
           break;
       }
+    }
+
+    if (description) {
+      row.description = description;
     }
   }
 }
