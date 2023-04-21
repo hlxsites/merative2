@@ -11,7 +11,6 @@ async function setRowDetails(row, block) {
   if (aElement) {
     // Go up one level since <a> is wrapped inside a <p> usually
     let el = aElement.parentElement;
-    row.description = '';
     // Loop through previous elements until you hit an <a>
     while (el) {
       if (el.previousElementSibling) {
@@ -33,10 +32,10 @@ async function setRowDetails(row, block) {
           break;
         case 'H4':
         case 'H5':
-          row.assetType = el.innerHTML;
+          row.assettype = el.innerHTML;
           break;
         case 'P':
-          row.description = `<p>${el.innerHTML}</p>${row.description}`;
+          row.description = `<p>${el.innerHTML}</p>`;
           break;
         default:
           break;
@@ -58,7 +57,7 @@ export default async function decorate(block) {
   if (pageList.length) {
     pageList.forEach((row) => {
       // If the URL was not in the index, it is curated. Let's get the content differently
-      if (row.title === undefined) setRowDetails(row, blockCopy);
+      setRowDetails(row, blockCopy);
       block.append(createDocumentCard(row, ['document-card']));
     });
     decorateButtons(block, { decorateClasses: false, excludeIcons: [] });
