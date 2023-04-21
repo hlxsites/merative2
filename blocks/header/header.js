@@ -8,7 +8,9 @@ import {
   createTag, decorateMain,
 } from '../../scripts/scripts.js';
 
-const mobileMedia = window.matchMedia('(max-width: 1200px)');
+const KEY_SPACE = 32;
+
+const mobileMedia = window.matchMedia('(max-width: 1199px)');
 const desktopMedia = window.matchMedia('(min-width: 1200px)');
 
 async function fetchFragment(path) {
@@ -38,16 +40,33 @@ function collapseAllNavSections(sections) {
 }
 
 function copyMegaMenu(navItem) {
-  if (navItem) {
-    const megaMenu = navItem.closest('ul.mega-menu');
-    const megaContent = megaMenu.querySelector('.mega-menu-content');
-    const megaFragment = navItem.querySelector('ul > li.mega-menu');
-    if (megaFragment) {
-      megaContent.innerHTML = megaFragment.innerHTML;
-    } else {
-      megaContent.innerHTML = navItem.querySelector('ul').outerHTML;
-    }
+  if (!navItem) {
+    return;
   }
+  const megaMenu = navItem.closest('ul.mega-menu');
+  const megaContent = megaMenu.querySelector('.mega-menu-content');
+  const megaFragment = navItem.querySelector('ul > li.fragment');
+  if (megaFragment) {
+    megaContent.innerHTML = megaFragment.innerHTML;
+  } else {
+    megaContent.innerHTML = navItem.querySelector('ul').outerHTML;
+  }
+}
+
+function buildFeatured(navItem) {
+  if (!navItem) {
+    return;
+  }
+  const featuredContent = [...navItem.children];
+  const featuredLink = navItem.querySelector('p > a');
+  if (!featuredLink) {
+    return;
+  }
+  const linkParent = featuredLink.parentElement;
+  navItem.appendChild(featuredLink);
+  linkParent.remove();
+  featuredLink.textContent = '';
+  featuredLink.append(...featuredContent);
 }
 
 function toggleSection(section) {
@@ -107,6 +126,7 @@ export default async function decorate(block) {
       // deal with top level dropdowns first
       if (navSection.querySelector('ul')) {
         navSection.classList.add('nav-drop');
+        navSection.setAttribute('tabindex', '0');
       }
       // replacing bold nav titles with divs for styling
       if (navSection.querySelector('strong')) {
@@ -121,6 +141,12 @@ export default async function decorate(block) {
           toggleSection(navSection);
         }
       });
+      navSection.addEventListener('keypress', (event) => {
+        if (!event.target.closest('.mega-menu') && event.which === KEY_SPACE) {
+          toggleSection(navSection);
+          event.preventDefault();
+        }
+      });
 
       // Setup level 2 links
       navSection.querySelectorAll(':scope > ul > li').forEach((levelTwo) => {
@@ -131,15 +157,22 @@ export default async function decorate(block) {
           levelTwo.replaceWith(megaTitleNew);
           return;
         }
+        // mega menu
         const megaHeading = levelTwo.querySelector(':scope > strong');
         if (megaHeading) {
-          // mega menu
           const megaHeadingNew = createTag('div', { class: 'level-two-heading' });
           megaHeadingNew.innerText = megaHeading.innerText;
           megaHeading.remove();
           levelTwo.prepend(megaHeadingNew);
           levelTwo.classList.add('mega-menu');
+          levelTwo.setAttribute('tabindex', '0');
           levelTwo.parentElement.classList.add('mega-menu');
+        }
+        // featured menu
+        const featuredLink = levelTwo.querySelector(':scope > a');
+        if (featuredLink && featuredLink.getAttribute('href').startsWith('/fragments')) {
+          levelTwo.classList.add('featured');
+          levelTwo.parentElement.classList.add('featured');
         }
         levelTwo.classList.add('level-two');
         levelTwo.parentElement.classList.add('level-two');
@@ -189,16 +222,20 @@ export default async function decorate(block) {
   }
 
   // Auto block fragment urls
-  await Promise.all([...nav.querySelectorAll('li.level-three a')].map(async (link) => {
+  await Promise.all([...nav.querySelectorAll('li.featured > a, li.level-three > a')].map(async (link) => {
     if (!link.href) {
       return null;
     }
     const url = new URL(link.href);
     if (url.pathname.startsWith('/fragments/')) {
       const fragmentBlock = await fetchFragment(link.href);
-      link.parentElement.append(fragmentBlock);
-      link.parentElement.classList.add('mega-menu');
+      const navItem = link.parentElement;
+      navItem.append(fragmentBlock);
+      navItem.classList.add('fragment');
       link.remove();
+      if (navItem.classList.contains('featured')) {
+        buildFeatured(navItem);
+      }
       return true;
     }
     return null;
@@ -228,8 +265,7 @@ export default async function decorate(block) {
   });
 
   // hamburger for mobile
-  const hamburger = document.createElement('div');
-  hamburger.classList.add('nav-hamburger');
+  const hamburger = createTag('a', { class: 'nav-hamburger', role: 'button', tabindex: '0' });
   hamburger.innerHTML = '<div class="nav-hamburger-icon"></div>';
   hamburger.addEventListener('click', () => {
     const expanded = nav.getAttribute('aria-expanded') === 'true';
