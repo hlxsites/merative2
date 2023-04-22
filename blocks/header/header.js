@@ -54,6 +54,24 @@ function copyMegaMenu(navItem) {
   }
 }
 
+function buildMegaMenu(navItem) {
+  if (!navItem) {
+    return;
+  }
+  const menuLinks = navItem.querySelectorAll('.columns p > a:not(.button)');
+  [...menuLinks].forEach((link) => {
+    const cell = link.closest('div');
+    const linkParent = link.parentElement;
+    link.textContent = '';
+    while (linkParent.previousElementSibling && linkParent.previousElementSibling.nodeName !== 'A') {
+      link.prepend(linkParent.previousElementSibling);
+    }
+    link.setAttribute('title', link.querySelector('h5').textContent);
+    cell.appendChild(link);
+    linkParent.remove();
+  });
+}
+
 function buildFeatured(navItem) {
   if (!navItem) {
     return;
@@ -235,6 +253,8 @@ export default async function decorate(block) {
       link.remove();
       if (navItem.classList.contains('featured')) {
         buildFeatured(navItem);
+      } else {
+        buildMegaMenu(navItem);
       }
       return true;
     }
