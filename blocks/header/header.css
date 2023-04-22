@@ -679,19 +679,19 @@ header nav .nav-sections > ul > li {
     border-style: none;
   }
 
-  /* Mega menu additional links */
-  header nav .nav-sections > ul > li[aria-expanded='true'] .mega-menu-content .columns > div > div > a  {
+  /* Mega menu solution links */
+  header nav .nav-sections > ul > li[aria-expanded='true'] .mega-menu-content .columns.solution-list > div > div > a  {
     display: block;
     text-decoration: none;
     border-bottom: 1px solid var(--neutral-sand);
     margin: 0 0 var(--spacer-element-05);
   }
 
-  header nav .nav-sections > ul > li[aria-expanded='true'] .mega-menu-content .columns > div > div > a > h5 {
+  header nav .nav-sections > ul > li[aria-expanded='true'] .mega-menu-content .columns.solution-list > div > div > a > h5 {
     margin: 0 0 var(--spacer-element-02);
   }
 
-  header nav .nav-sections > ul > li[aria-expanded='true'] .mega-menu-content .columns > div > div > a > p {
+  header nav .nav-sections > ul > li[aria-expanded='true'] .mega-menu-content .columns.solution-list > div > div > a > p {
     margin: 0 0 var(--spacer-element-05);
     font-size: var(--font-size-14);
     line-height: 160%;

@@ -58,7 +58,7 @@ function buildMegaMenu(navItem) {
   if (!navItem) {
     return;
   }
-  const menuLinks = navItem.querySelectorAll('.columns p > a:not(.button)');
+  const menuLinks = navItem.querySelectorAll('.columns.solution-list p > a:not(.button)');
   [...menuLinks].forEach((link) => {
     const cell = link.closest('div');
     const linkParent = link.parentElement;
