@@ -8,13 +8,17 @@ async function setRowDetails(row, block) {
     if ((a.href === row.path) || (pathname === row.path)) aElement = a;
   });
   if (aElement) {
-    row['teaser-link-text'] = aElement.innerText.trim();
+    if (row['teaser-link-text'] !== '0') {
+      row['teaser-link-text'] = aElement.innerText.trim();
+    }
     // Go up one level since <a> is wrapped inside a <p> usually
     let el = aElement.parentElement;
     // Loop through previous elements until you hit an <a>
     while (el) {
       el = el.previousElementSibling;
       // Break if you find an anchor link in the previous element
+      if (!el) break;
+
       const childAnchor = el.querySelector('a');
       if (childAnchor) {
         break;
@@ -67,8 +71,7 @@ export default async function decorate(block) {
   const pageList = await lookupPages(pathnames);
   if (pageList.length) {
     pageList.forEach((row) => {
-      // If the URL was not in the index, it is curated. Let's get the content differently
-      if (row.title === undefined) setRowDetails(row, blockCopy);
+      setRowDetails(row, blockCopy);
       block.append(createCard(row, 'teaser-card'));
     });
   } else {

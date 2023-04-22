@@ -11,8 +11,8 @@ async function setRowDetails(row, block) {
   if (aElement) {
     // Go up one level since <a> is wrapped inside a <p> usually
     let el = aElement.parentElement;
-    row.description = '';
     // Loop through previous elements until you hit an <a>
+    let description = '';
     while (el) {
       if (el.previousElementSibling) {
         el = el.previousElementSibling;
@@ -24,6 +24,7 @@ async function setRowDetails(row, block) {
       if (childAnchor) {
         break;
       }
+
       // set the row object properties based on the type of node we hit
       switch (el.nodeName) {
         case 'H1':
@@ -33,14 +34,18 @@ async function setRowDetails(row, block) {
           break;
         case 'H4':
         case 'H5':
-          row.assetType = el.innerHTML;
+          row.assettype = el.innerHTML;
           break;
         case 'P':
-          row.description = `<p>${el.innerHTML}</p>${row.description}`;
+          description = `<p>${el.innerHTML}</p> ${description}`;
           break;
         default:
           break;
       }
+    }
+
+    if (description) {
+      row.description = description;
     }
   }
 }
@@ -57,8 +62,7 @@ export default async function decorate(block) {
   const pageList = await lookupDocuments(pathnames);
   if (pageList.length) {
     pageList.forEach((row) => {
-      // If the URL was not in the index, it is curated. Let's get the content differently
-      if (row.title === undefined) setRowDetails(row, blockCopy);
+      setRowDetails(row, blockCopy);
       block.append(createDocumentCard(row, ['document-card']));
     });
     decorateButtons(block, { decorateClasses: false, excludeIcons: [] });
