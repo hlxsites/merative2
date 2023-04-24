@@ -667,6 +667,23 @@ header nav .nav-sections > ul > li {
     height: 24px;
   }
 
+  /* Mega menu column overrides */
+  header nav .nav-sections > ul > li[aria-expanded='true'] .mega-menu-content .columns h4  {
+    margin: var(--spacer-element-07) 0 var(--spacer-element-03);
+  }
+
+  header nav .nav-sections > ul > li[aria-expanded='true'] .mega-menu-content .columns p  {
+    font-size: var(--font-size-16);
+  }
+
+  header nav .nav-sections > ul > li[aria-expanded='true'] .mega-menu-content .columns > div > div:first-child p:not(:last-child)  {
+    margin: 0 0 var(--spacer-element-07);
+  }
+
+  header nav .nav-sections > ul > li[aria-expanded='true'] .mega-menu-content .columns > div > div:first-child p:first-child  {
+    margin: 0 0 var(--spacer-element-05);
+  }
+
   /* Mega menu secondary button override */
   header nav .nav-sections > ul > li[aria-expanded='true'] .mega-menu-content a.button.secondary {
     color: var(--neutral-carbon);

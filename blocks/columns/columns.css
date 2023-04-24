@@ -3,7 +3,7 @@
 }
 
 /* this is considered an eyebrow style */
-.columns-container h4 {
+main .columns-container h4 {
   font-family: var(--sans-serif-font-medium);
   font-size: var(--font-size-11);
   letter-spacing: .2em;
@@ -150,7 +150,7 @@
   width: 158px;
 }
 
-.columns > div > div > h4:first-child {
+main .columns > div > div > h4:first-child {
   text-transform: uppercase;
 }
 
@@ -595,7 +595,7 @@
     margin: 0 0 var(--spacer-element-07);
   }
 
-  .columns-container h4 {
+  main .columns-container h4 {
     font-size: var(--font-size-14);
   }
 
