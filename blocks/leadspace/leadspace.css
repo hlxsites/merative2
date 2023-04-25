@@ -58,12 +58,12 @@
   text-transform: uppercase;
 }
 
-.leadspace-container > div:last-child {
+main .leadspace-container > div:last-child { /* needs this specificity */
   margin: 0 auto;
   padding-bottom: 0;
 }
 
-.section.leadspace-container > div:first-child { /* need specificity */
+.section.leadspace-container > div:first-child {
   margin: 0 auto;
   padding-top: 0;
 }
