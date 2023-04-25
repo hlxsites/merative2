@@ -33,6 +33,7 @@
 }
 
 .teaser-list .teaser-card {
+  width: 100%;
   margin: 0 auto;
   padding: var(--spacer-element-10) 0;
   border-bottom: 1px solid var(--neutral-sand);
