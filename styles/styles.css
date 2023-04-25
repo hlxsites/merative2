@@ -830,6 +830,7 @@ main pre {
   transform: rotate(-90deg);
   width: 49px;
   height: 49px;
+  background-color: var(--neutral-white);
 }
 
 .section.back-to-top.active::after {
