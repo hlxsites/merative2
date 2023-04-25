@@ -11,11 +11,11 @@ main .section.library-config-container {
     padding: 0;
 }
 
-main .section > div:first-child {
+main .section.library-config-container > div:first-child {
     padding-top: 0;
 }
 
-main .section > div:last-child {
+main .section.library-config-container > div:last-child {
     padding-bottom: 0;
 }
 
