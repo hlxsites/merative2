@@ -1334,6 +1334,14 @@ main pre {
     font-weight: var(--font-weight-regular);
   }
 
+  p {
+    font-family: var(--sans-serif-font-light);
+    font-size: var(--font-size-21);
+    font-weight: var(--font-weight-light);
+    line-height: var(--line-height-160);
+    letter-spacing: var(--letter-spacing-1);
+  }
+
   main {
     padding-top: calc(var(--nav-height) + 37px);
   }
@@ -1406,6 +1414,7 @@ main pre {
 
   .section > .default-content-wrapper > h4:first-of-type {
     font-size: var(--font-size-14);
+    margin: 0 0 var(--spacer-element-08);
   }
 
   .columns-image-content > div:nth-child(1) {
@@ -1443,10 +1452,6 @@ main pre {
   main .section > div:last-child {
     padding-bottom: var(--spacer-layout-07);
   }
-
-  .content-band.icon-list.columns > div {
-    column-gap: 83px;
-    }
 
   .section.leadership-content .columns-wrapper {
     padding-bottom: 80px;

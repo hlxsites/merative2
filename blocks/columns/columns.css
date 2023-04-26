@@ -94,7 +94,7 @@ main .columns-container h4 {
   margin-bottom: var(--spacer-element-06);
 }
 
-.columns.content-band.icon-list.picture-circle h3 {
+.columns.content-band.icon-list h3 {
   margin: var(--spacer-layout-01) auto;
 }
 
@@ -154,6 +154,10 @@ main .columns > div > div > h4:first-child {
   text-transform: uppercase;
 }
 
+.columns.terms div p:last-of-type {
+  margin-bottom: 0;
+}
+
 .columns.content-band.icon-list h4 {
   font-size: var(--font-size-18);
   line-height: var(--line-height-160);
@@ -161,16 +165,17 @@ main .columns > div > div > h4:first-child {
   margin: var(--spacer-layout-01) auto;
 }
 
-.columns.content-band.icon-list .only-picture {
-  margin: var(--spacer-element-03) auto var(--spacer-layout-01) auto;
+.columns.content-band.icon-list > div > div > h2,
+.columns.content-band.icon-list > div > div > p {
+  margin: 0 0 var(--spacer-element-05);
+}
+
+.columns.content-band.icon-list > div > div > .button-container:last-child {
+  margin: var(--spacer-element-07) 0 0;
 }
 
 .section-top-grid > div > div > h1 {
   padding: 0;
-}
-
-.columns.terms div p:last-of-type {
-  margin-bottom: 0;
 }
 
 .columns.terms > div:nth-child(1) > div:nth-child(2) > p:nth-child(1) > em > strong {
@@ -505,19 +510,27 @@ main .columns > div > div > h4:first-child {
 
   .section-top h1 {
     font-size: var(--font-size-64);
-    }
+  }
 
   .section-top > div:first-child {
     padding-top: 160px;
   }
 
+  main .columns-container h4 {
+    font-size: var(--font-size-14);
+  }
+
+  .columns > div:last-of-type {
+    margin-bottom: var(--spacer-layout-06);
+  }
+
   .columns.terms h5 {
     margin-bottom: 0;
-    }
+  }
 
   .news .columns.quarter-circle .button-container {
     margin-top: var(--spacer-element-09);
-    }
+  }
 
   .columns.terms div {
     margin: var(--spacer-element-05) 0 var(--spacer-element-07);
@@ -531,6 +544,10 @@ main .columns > div > div > h4:first-child {
 
   .section.promo .columns > div {
     gap: 90px;
+  }
+
+  .columns.content-band.icon-list > div {
+    column-gap: 64px;
   }
 
   .columns.stretch-last > div > div:first-child {
@@ -591,12 +608,21 @@ main .columns > div > div > h4:first-child {
 
   .columns-container .default-content-wrapper:first-child > h2,
   .columns-container .default-content-wrapper:first-child > p {
-    max-width: 720px;
+    max-width: 648px; /* 7 columns (72px) + 6 gutters (24px) */
+    margin: 0 0 var(--spacer-element-08);
+  }
+
+  .columns-container .default-content-wrapper:first-child > p {
+    margin: 0 0 var(--spacer-element-05);
+  }
+
+  .columns.content-band.icon-list > div > div > h3,
+  .columns.content-band.icon-list > div > div > p {
     margin: 0 0 var(--spacer-element-07);
   }
 
-  main .columns-container h4 {
-    font-size: var(--font-size-14);
+  .columns.content-band.icon-list > div > div > p.only-picture {
+    margin: 0 0 var(--spacer-element-08);
   }
 
   .section-top-grid > div:nth-of-type(2) > div:nth-of-type(2) > h1,
@@ -620,10 +646,6 @@ main .columns > div > div > h4:first-child {
 
   .columns.content-band.icon-list.picture-circle > div > div {
     margin-top: var(--spacer-layout-04);
-  }
-
-  .columns.content-band.icon-list.picture-circle h3 {
-    margin: var(--spacer-layout-03) auto;
   }
 
   .section-top.columns-container {
