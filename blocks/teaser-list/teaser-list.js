@@ -77,7 +77,6 @@ export default async function decorate(block) {
   const blockCopy = block.cloneNode(true);
   block.textContent = '';
   const pageList = await lookupPages(pathnames);
-  console.log(pageList);
   if (pageList.length) {
     pageList.forEach((row) => {
       setRowDetails(row, blockCopy);
