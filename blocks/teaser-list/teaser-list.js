@@ -8,9 +8,17 @@ async function setRowDetails(row, block) {
     if ((a.href === row.path) || (pathname === row.path)) aElement = a;
   });
   if (aElement) {
-    if (row['teaser-link-text'] !== '0') {
-      row['teaser-link-text'] = aElement.innerText.trim();
+    const aElementContent = aElement.innerText.trim();
+    let isUrlContent;
+    try {
+      isUrlContent = new URL(aElementContent);
+    } catch (e) {
+      isUrlContent = false;
     }
+    if (!isUrlContent || (new URL(aElement.href)).pathname !== isUrlContent.pathname) {
+      row['teaser-link-text'] = aElementContent;
+    }
+
     // Go up one level since <a> is wrapped inside a <p> usually
     let el = aElement.parentElement;
     // Loop through previous elements until you hit an <a>
@@ -69,6 +77,7 @@ export default async function decorate(block) {
   const blockCopy = block.cloneNode(true);
   block.textContent = '';
   const pageList = await lookupPages(pathnames);
+  console.log(pageList);
   if (pageList.length) {
     pageList.forEach((row) => {
       setRowDetails(row, blockCopy);
