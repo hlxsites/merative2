@@ -89,10 +89,10 @@
 
 .accordion .accordion-arrow-down {
     display: block;
-    width: 16px;
-    height: 16px;
+    width: 32px;
+    height: 32px;
     transition: all .5s ease-out;
-    background: url('../../icons/arrow-down-purple.svg') no-repeat;
+    background: url('../../icons/arrow-down-purple.svg') no-repeat center/contain;
 }
 
 .accordion .accordion-item-open .accordion-arrow-down {
@@ -113,7 +113,7 @@
 }
 
 .accordion.accordion-purple .accordion-arrow-down {
-    background: url('../../icons/arrow-down-white.svg') no-repeat;
+    background: url('../../icons/arrow-down-white.svg') no-repeat center/contain;
 }
 
 .accordion.accordion-purple .accordion-item:last-child::after,

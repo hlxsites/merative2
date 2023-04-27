@@ -26,7 +26,7 @@ main .columns-container h4 {
 
 .columns.terms h5 {
   margin-bottom: var(--spacer-layout-02);
-  }
+}
 
 .columns.terms > div {
   margin-bottom: var(--spacer-layout-04);
@@ -43,8 +43,12 @@ main .columns-container h4 {
 }
 
 .columns p {
-  margin: var(--spacer-element-07) 0;
-  }
+  margin: var(--spacer-layout-02) 0;
+}
+
+.columns p.button-container {
+  margin: var(--spacer-layout-03) 0;
+}
 
 .columns.content-band li {
   list-style-image: url("../icons/arrow-purple.svg");
@@ -63,7 +67,7 @@ main .columns-container h4 {
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-160);
   letter-spacing: var(--letter-spacing-1);
-  }
+}
 
 .columns.terms div, .columns.terms div strong,
 .columns.terms div p, .columns.terms div li {
@@ -71,7 +75,7 @@ main .columns-container h4 {
   letter-spacing: .01em;
   line-height: var(--line-height-160);
   margin-top: 0;
-  }
+}
 
 .section.leadership-content .columns > div {
   margin-bottom: 0;
@@ -87,10 +91,10 @@ main .columns-container h4 {
 
 .columns.content-band div:empty {
   display: none;
-  }
+}
 
 .columns.content-band.icon-list > div > div {
-  margin-top: var(--spacer-element-05);
+  margin-top: var(--spacer-layout-01);
   margin-bottom: var(--spacer-element-06);
 }
 
@@ -100,7 +104,7 @@ main .columns-container h4 {
 
 .columns.icon-list .button-container {
   margin-top: var(--spacer-layout-03);
-  }
+}
 
 .columns img {
   width: 100%;
@@ -162,16 +166,38 @@ main .columns > div > div > h4:first-child {
   font-size: var(--font-size-18);
   line-height: var(--line-height-160);
   letter-spacing: var(--letter-spacing-1);
-  margin: var(--spacer-layout-01) auto;
+  margin: 0 0 var(--spacer-layout-01);
 }
 
 .columns.content-band.icon-list > div > div > h2,
 .columns.content-band.icon-list > div > div > p {
-  margin: 0 0 var(--spacer-element-05);
+  margin: 0 0 var(--spacer-layout-01);
+}
+
+.section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(2),
+.section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(3) {
+  font-family: var(--sans-serif-font-regular);
+  font-size: var(--font-size-16);
+  line-height: 160%;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+.teaser-list-manual .teaser-list .button-container {
+  margin: 0;
+}
+
+.section.promo .columns .button-container {
+  margin-top: var(--spacer-layout-03);
 }
 
 .columns.content-band.icon-list > div > div > .button-container:last-child {
-  margin: var(--spacer-element-07) 0 0;
+  margin: var(--spacer-layout-03) 0 0;
+}
+
+.overview .columns.content-band.icon-list > div > div > h3,
+.overview .columns.content-band.icon-list > div > div > p {
+  margin: 0 0 var(--spacer-layout-01);
 }
 
 .section-top-grid > div > div > h1 {
@@ -242,15 +268,6 @@ main .columns > div > div > h4:first-child {
   border-top: 1px solid var(--neutral-sand);
 }
 
-.section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(2),
-.section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(3) {
-  font-family: var(--sans-serif-font-regular);
-  font-size: var(--font-size-16);
-  line-height: 160%;
-  letter-spacing: 0.01em;
-  margin: 0;
-}
-
 .section-bottom.columns-container {
   background-size: 1900px 239%;
   background-position: 50% -72%, 50% 0, 0 0, 0 0;
@@ -298,14 +315,6 @@ main .columns > div > div > h4:first-child {
   grid-template-columns: 1fr;
 }
 
-.teaser-list-manual .teaser-list .button-container {
-  margin: 0;
-}
-
-.section.promo .columns .button-container {
-  margin-top: var(--spacer-layout-03);
-}
-
 /* TABLET */
 @media (min-width: 768px) {
   .section.promo {
@@ -332,10 +341,6 @@ main .columns > div > div > h4:first-child {
 
   .columns.quarter-circle img {
     width: 336px;
-  }
-
-  .section-bottom .columns-2-cols > div > :nth-child(2) h1 {
-    margin: 0;
   }
 
   .section-bottom .columns-2-cols {
@@ -499,6 +504,28 @@ main .columns > div > div > h4:first-child {
     gap: var(--spacer-element-10);
     flex-flow: row nowrap;
   }
+
+  /* Content band */
+  .columns-container .default-content-wrapper:first-child > h1,
+  .columns-container .default-content-wrapper:first-child > h2 {
+    margin: 0 0 var(--spacer-layout-03);
+  }
+
+  .columns-container .default-content-wrapper:first-child > p {
+    margin: 0 0 var(--spacer-layout-01);
+  }
+
+  .overview.columns-container .default-content-wrapper:first-child > :last-child {
+    margin: 0 0 var(--spacer-layout-03);
+  }
+
+  .columns.content-band.icon-list > div > div > p:first-child {
+    margin: 0 0 var(--spacer-layout-02);
+  }
+
+  .section-bottom .columns-2-cols > div > :nth-child(2) h1 {
+    margin: 0;
+  }
 }
 
 /** Desktop **/
@@ -518,10 +545,15 @@ main .columns > div > div > h4:first-child {
 
   main .columns-container h4 {
     font-size: var(--font-size-14);
+    margin: var(--spacer-layout-03) auto;
   }
 
   .columns > div:last-of-type {
     margin-bottom: var(--spacer-layout-06);
+  }
+
+  .columns p.button-container {
+    margin: var(--spacer-layout-04) 0;
   }
 
   .columns.terms h5 {
@@ -606,23 +638,28 @@ main .columns > div > div > h4:first-child {
     letter-spacing: var(--letter-spacing-1);
   }
 
-  .columns-container .default-content-wrapper:first-child > h2,
-  .columns-container .default-content-wrapper:first-child > p {
+  /* Simple content */
+  .columns-container .default-content-wrapper:first-child > * {
+    max-width: 744px; /* 8 columns (72px) + 7 gutters (24px) */
+  }
+
+  /* Content band and Overview content */
+  .overview .default-content-wrapper:first-child > *,
+  .content-band .default-content-wrapper:first-child > * {
     max-width: 648px; /* 7 columns (72px) + 6 gutters (24px) */
-    margin: 0 0 var(--spacer-element-08);
   }
 
-  .columns-container .default-content-wrapper:first-child > p {
-    margin: 0 0 var(--spacer-element-05);
+  .overview.columns-container .default-content-wrapper:first-child > :last-child {
+    margin: 0 0 var(--spacer-layout-05);
   }
 
-  .columns.content-band.icon-list > div > div > h3,
-  .columns.content-band.icon-list > div > div > p {
-    margin: 0 0 var(--spacer-element-07);
+  .overview .columns.content-band.icon-list > div > div > h3,
+  .overview .columns.content-band.icon-list > div > div > p {
+    margin: 0 0 var(--spacer-layout-02);
   }
 
-  .columns.content-band.icon-list > div > div > p.only-picture {
-    margin: 0 0 var(--spacer-element-08);
+  .columns.content-band.icon-list.picture-circle > div > div > p.only-picture {
+    margin: 0 0 var(--spacer-layout-03);
   }
 
   .section-top-grid > div:nth-of-type(2) > div:nth-of-type(2) > h1,
@@ -642,10 +679,6 @@ main .columns > div > div > h4:first-child {
 
   .columns.section-top-grid > div:nth-child(2) > div:nth-child(1) {
     min-width: 620px
-  }
-
-  .columns.content-band.icon-list.picture-circle > div > div {
-    margin-top: var(--spacer-layout-04);
   }
 
   .section-top.columns-container {
