@@ -169,6 +169,10 @@ main .columns > div > div > h4:first-child {
   margin: 0 0 var(--spacer-layout-01);
 }
 
+.columns.picture-circle h2 {
+  margin: 20px 0;
+}
+
 .columns.content-band.icon-list > div > div > h2,
 .columns.content-band.icon-list > div > div > p {
   margin: 0 0 var(--spacer-layout-01);
@@ -287,10 +291,6 @@ main .columns > div > div > h4:first-child {
 
 .section-bottom .columns-2-cols {
   padding: 0;
-}
-
-.columns.picture-circle h2 {
-  margin: 20px 0;
 }
 
 /* teaser-list-manual */
@@ -653,15 +653,6 @@ main .columns > div > div > h4:first-child {
     margin: 0 0 var(--spacer-layout-05);
   }
 
-  .overview .columns.content-band.icon-list > div > div > h3,
-  .overview .columns.content-band.icon-list > div > div > p {
-    margin: 0 0 var(--spacer-layout-02);
-  }
-
-  .columns.content-band.icon-list.picture-circle > div > div > p.only-picture {
-    margin: 0 0 var(--spacer-layout-03);
-  }
-
   .section-top-grid > div:nth-of-type(2) > div:nth-of-type(2) > h1,
   .section-top-grid > div:nth-of-type(2) > div:nth-of-type(2) > p {
     margin-left: var(--spacer-element-09);
@@ -670,6 +661,15 @@ main .columns > div > div > h4:first-child {
 
   .section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(1) {
     font-size: var(--font-size-16);
+  }
+
+  .overview .columns.content-band.icon-list > div > div > h3,
+  .overview .columns.content-band.icon-list > div > div > p {
+    margin: 0 0 var(--spacer-layout-02);
+  }
+
+  .columns.content-band.icon-list.picture-circle > div > div > p.only-picture {
+    margin: 0 0 var(--spacer-layout-03);
   }
 
   .section-top-grid > div:nth-of-type(2) > div:nth-of-type(2) {
