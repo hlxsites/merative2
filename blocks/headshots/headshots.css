@@ -15,9 +15,13 @@ main .headshots .headshot-item {
 }
 
 main .headshots .headshot-item h3 {
+    font-family: var(--sans-serif-font-light);
     font-size: var(--font-size-24);
     margin: 0 0 var(--spacer-element-03) 0;
-    font-family: var(--sans-serif-font-light);
+}
+
+main .headshots .headshot-item h5 {
+    margin: 0 0 var(--spacer-element-05);
 }
 
 main .headshots .headshot-item p {
@@ -41,8 +45,8 @@ main .headshots .headshot-item .headshot-links {
     flex-flow: row nowrap;
     gap: var(--spacer-element-05);
     border-top: 1px solid var(--neutral-sand);
-    padding: var(--spacer-element-05) 0 0;
-    margin-top: var(--spacer-element-05);
+    padding: var(--spacer-layout-01) 0 0;
+    margin-top: var(--spacer-layout-03);
 }
 
 main .headshots .headshot-links span.icon {

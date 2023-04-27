@@ -54,7 +54,7 @@ export default function decorate(block) {
   }
 
   // Move heading to its own wrapper
-  const h2 = section.querySelector('h2');
+  const h2 = section.querySelector('h2:first-of-type, h3:first-of-type');
   if (h2 && h2.parentElement) {
     const h2Wrapper = h2.parentElement;
     const clonedWrapper = h2Wrapper.cloneNode();

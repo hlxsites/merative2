@@ -453,10 +453,14 @@ main div.leadspace-wrapper {
     font-size: var(--font-size-45);
   }
 
-  .leadspace h4:first-of-type,
-  .leadspace.document .readtime {
+  .leadspace h4:first-of-type {
     font-size: var(--font-size-14);
     margin: 0 0 var(--spacer-element-08);
+  }
+
+  .leadspace.document .readtime {
+    font-size: var(--font-size-14);
+    margin-right: var(--spacer-element-08);
   }
 
   .leadspace.document .document-tag {
