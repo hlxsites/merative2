@@ -167,8 +167,6 @@
   background: var(--primary-purple) !important;
   border: 0 !important;
   border-radius: 40px !important;
-
-  /* -webkit-box-sizing: border-box !important; */
   box-sizing: border-box !important;
   color: var(--neutral-white) !important;
   cursor: pointer !important;
@@ -183,8 +181,6 @@
   margin: 37px 0;
   max-height: 62px !important;
   padding: 11px 16px 11px 24px !important;
-
-  /* -webkit-transition: all .4s ease-in-out !important; */
   transition: all .4s ease-in-out !important;
   width: auto !important
 }
@@ -223,6 +219,10 @@
   padding-top: 0 !important
 }
 
+.mktoForm .mktoFormCol .mktoLabel {
+  padding-bottom: var(--spacer-layout-01) !important;
+}
+
 .mktoForm .mktoRequiredField .mktoLabel::after {
   color: var(--neutral-carbon) !important;
   content: "*" !important;
@@ -244,8 +244,8 @@
   height: 43px !important;
   letter-spacing: .01em !important;
   line-height: 160% !important;
-  margin-bottom: 2rem !important;
   margin-top: 2px !important;
+  margin-bottom: var(--spacer-layout-04) !important;
   outline: 0 !important;
   padding-left: 15px !important;
   width: 100% !important
@@ -373,7 +373,7 @@
 }
 
 .mktoForm .mktoButton {
-  margin-top: 14px !important
+  margin-top: var(--spacer-layout-04) !important
 }
 
 input[type=radio] + label::before {
@@ -427,12 +427,12 @@ input[type=radio] {
 }
 
 @media screen and (min-width: 1200px) {
-  .section.marketo-container .default-content-wrapper h4 {
+  .section.marketo-container .marketo-wrapper .default-content-wrapper h4 {
     font-family: var(--sans-serif-font-light);
     font-size: var(--font-size-21);
   }
 
-  .section.marketo-container .default-content-wrapper h6 {
+  .section.marketo-container .marketo-wrapper .default-content-wrapper h6 {
     font-size: var(--font-size-21);
   }
 

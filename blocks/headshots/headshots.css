@@ -72,6 +72,10 @@ main .headshots .headshot-links a:active span.icon svg * {
     fill: var(--neutral-white);
 }
 
+main .headshots-container .default-content-wrapper:first-child > h2 {
+    margin: 0 0 var(--spacer-layout-04);
+}
+
 @media screen and (min-width: 768px) {
     main .headshots > div {
         display: flex;
@@ -81,5 +85,11 @@ main .headshots .headshot-links a:active span.icon svg * {
 
     main .headshots > div:last-of-type {
         margin-bottom: 0;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    main .headshots-container .default-content-wrapper:first-child > h2 {
+        margin: 0 0 80px;
     }
 }

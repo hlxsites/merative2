@@ -141,7 +141,7 @@ main .back-to-top section {
     list-style: none;
     padding: 0;
     margin: 0;
-    overflow: scroll;
+    overflow-y: auto;
     position: absolute;
     inset: 0;
     transition: transform 0.2s ease-in-out;
