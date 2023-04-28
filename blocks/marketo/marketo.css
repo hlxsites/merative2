@@ -37,6 +37,7 @@
 
 .section.marketo-container .marketo-wrapper .default-content-wrapper h6,
 .section.marketo-container .marketo-wrapper .columns-wrapper h6 {
+  font-family: var(--sans-serif-font-medium);
   font-size: var(--font-size-18);
   margin: 0 0 var(--spacer-element-03);
 }
@@ -146,6 +147,7 @@
 .mktoForm .mktoFormRow .mktoFieldWrap,
 .mktoForm .mktoFormRow .mktoFormCol {
   width: 100% !important;
+  margin-bottom: 0 !important;
 }
 
 .mktoForm div:first-of-type .mktoFormCol .mktoFieldWrap .mktoHtmlText {
@@ -435,12 +437,14 @@ input[type=radio] {
 }
 
 @media screen and (min-width: 1200px) {
-  .section.marketo-container .marketo-wrapper .default-content-wrapper h4 {
+  .section.marketo-container .marketo-wrapper .default-content-wrapper h4,
+  .section.marketo-container .marketo-wrapper .columns-wrapper h4 {
     font-family: var(--sans-serif-font-light);
     font-size: var(--font-size-21);
   }
 
-  .section.marketo-container .marketo-wrapper .default-content-wrapper h6 {
+  .section.marketo-container .marketo-wrapper .default-content-wrapper h6,
+  .section.marketo-container .marketo-wrapper .columns-wrapper h6 {
     font-size: var(--font-size-21);
   }
 
