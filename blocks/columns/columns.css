@@ -42,6 +42,10 @@ main .columns-container h4 {
   padding-top: var(--spacer-layout-04);
 }
 
+.columns h2 {
+  margin: 0 0 var(--spacer-layout-03);
+}
+
 .columns p {
   margin: var(--spacer-layout-02) 0;
 }
