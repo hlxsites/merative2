@@ -578,7 +578,8 @@ main .columns > div > div > h4:first-child {
     gap: 120px;
   }
 
-  .content-band.columns > div > div {
+  .content-band.columns > div > div,
+  .columns.content-band.icon-list > div > div {
     flex: unset;
     width: 320px;
     }
