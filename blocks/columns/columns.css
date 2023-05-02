@@ -610,6 +610,11 @@ main .columns > div > div > h4:first-child {
     width: 356px;
   }
 
+  .content-band.columns > div > div {
+    flex: unset;
+    width: 320px;
+    }
+
   .columns.content-band.icon-list.picture-circle img {
     border-radius: 50%;
     height: 285px;
