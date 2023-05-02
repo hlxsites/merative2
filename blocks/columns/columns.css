@@ -578,6 +578,11 @@ main .columns > div > div > h4:first-child {
     gap: 120px;
   }
 
+  .content-band.columns > div > div {
+    flex: unset;
+    width: 320px;
+    }
+
   .section.promo .columns > div {
     gap: 90px;
   }
@@ -609,11 +614,6 @@ main .columns > div > div > h4:first-child {
   .section.promo .columns > div > div img {
     width: 356px;
   }
-
-  .content-band.columns > div > div {
-    flex: unset;
-    width: 320px;
-    }
 
   .columns.content-band.icon-list.picture-circle img {
     border-radius: 50%;
