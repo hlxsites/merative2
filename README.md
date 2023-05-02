@@ -1,10 +1,11 @@
-# Merative.com
+# Merative.com (Phase 2)
 merative.com on Adobe Franklin.
-Phase 2: Merative.com remaining site except Blogs
+
+- Phase 2: Merative.com remaining site except blogs
 
 ## Environments
-- Preview: https://main--merative--hlxsites.hlx.page/
-- Live: https://main--merative--hlxsites.hlx.live/
+- Preview: https://main--merative2--hlxsites.hlx.page/
+- Live: https://main--merative2--hlxsites.hlx.live/
 
 ## Installation
 
