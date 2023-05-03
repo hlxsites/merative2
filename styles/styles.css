@@ -10,24 +10,18 @@
  * governing permissions and limitations under the License.
  */
 
-/* Above the fold fonts */
-@font-face{
-  font-family: "Source Serif Pro Light";
-  font-style: normal;
-  font-weight: 300;
-  src:url("../styles/fonts/SourceSerif4/SourceSerifPro-Light.ttf") format('truetype');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Alliance No.1 Light";
-  font-style: normal;
-  font-weight: 300;
-  src: url("../styles/fonts/Alliance/AllianceNo.1-Light.woff2") format("woff2");
-  font-display: swap;
-}
-
 /* Fallback fonts */
+@font-face {
+  font-family: "Source Serif Pro Light Fallback";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Times New Roman");
+  ascent-override: 83.34%;
+  descent-override: 30.41%;
+  line-gap-override: 0.00%;
+  size-adjust: 110.16%;
+}
+
 @font-face {
   font-family: "Alliance No.1 Light Fallback";
   font-style: normal;
@@ -43,7 +37,7 @@
   font-family: "Alliance No.1 Regular Fallback";
   font-style: normal;
   font-weight: 400;
-  src: local('Arial');
+  src: local("Arial");
   ascent-override: 91.76%;
   descent-override: 22.56%;
   line-gap-override: 0.00%;
@@ -54,7 +48,7 @@
   font-family: "Alliance No.1 Medium Fallback";
   font-style: normal;
   font-weight: 500;
-  src: local('Arial');
+  src: local("Arial");
   ascent-override: 92.16%;
   descent-override: 23.56%;
   line-gap-override: 0.00%;
@@ -65,11 +59,28 @@
   font-family: "Alliance No.1 Semibold Fallback";
   font-style: normal;
   font-weight: 500;
-  src: local('Arial');
+  src: local("Arial");
   ascent-override: 92.64%;
   descent-override: 24.87%;
   line-gap-override: 0.00%;
   size-adjust: 106.98%;
+}
+
+/* Above the fold fonts */
+@font-face{
+  font-family: "Source Serif Pro Light";
+  font-style: normal;
+  font-weight: 300;
+  src:url("../styles/fonts/SourceSerif4/SourceSerifPro-Light.ttf") format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alliance No.1 Light";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../styles/fonts/Alliance/AllianceNo.1-Light.woff2") format("woff2");
+  font-display: swap;
 }
 
 :root {
@@ -111,7 +122,7 @@
   /* ----typography--- */
 
   /* fonts family */
-  --serif-font: "Source Serif Pro Light", serif;
+  --serif-font: "Source Serif Pro Light", "Source Serif Pro Light Fallback";
   --sans-serif-font-light: "Alliance No.1 Light", "Alliance No.1 Light Fallback";
   --sans-serif-font-regular: "Alliance No.1 Regular", "Alliance No.1 Regular Fallback";
   --sans-serif-font-medium: "Alliance No.1 Medium", "Alliance No.1 Medium Fallback";
