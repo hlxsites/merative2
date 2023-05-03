@@ -1527,6 +1527,11 @@ main pre {
     padding-bottom: var(--spacer-layout-07);
   }
 
+  main .section > div.blog-home-wrapper {
+    padding-top: 0;
+    padding-bottom: 0;
+    }
+
   .section.leadership-content .columns-wrapper {
     padding-bottom: 80px;
   }
