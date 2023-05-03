@@ -10,6 +10,80 @@
  * governing permissions and limitations under the License.
  */
 
+/* Fallback fonts */
+/*
+@font-face {
+  font-family: "Source Serif Pro Light Fallback";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Times New Roman");
+  ascent-override: 83.34%;
+  descent-override: 30.41%;
+  line-gap-override: 0.00%;
+  size-adjust: 110.16%;
+}
+
+@font-face {
+  font-family: "Alliance No.1 Light Fallback";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Arial");
+  ascent-override: 91.40%;
+  descent-override: 21.52%;
+  line-gap-override: 0.00%;
+  size-adjust: 103.17%;
+}
+*/
+
+@font-face {
+  font-family: "Alliance No.1 Regular Fallback";
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arial');
+  ascent-override: 91.76%;
+  descent-override: 22.56%;
+  line-gap-override: 0.00%;
+  size-adjust: 104.62%;
+}
+
+@font-face {
+  font-family: "Alliance No.1 Medium Fallback";
+  font-style: normal;
+  font-weight: 500;
+  src: local('Arial');
+  ascent-override: 92.16%;
+  descent-override: 23.56%;
+  line-gap-override: 0.00%;
+  size-adjust: 105.68%;
+}
+
+@font-face {
+  font-family: "Alliance No.1 Semibold Fallback";
+  font-style: normal;
+  font-weight: 500;
+  src: local('Arial');
+  ascent-override: 92.64%;
+  descent-override: 24.87%;
+  line-gap-override: 0.00%;
+  size-adjust: 106.98%;
+}
+
+@font-face{
+  font-family: "Source Serif Pro Light";
+  font-style: normal;
+  font-weight: 300;
+  src:url("../styles/fonts/SourceSerif4/SourceSerifPro-Light.ttf") format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alliance No.1 Light";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../styles/fonts/Alliance/AllianceNo.1-Light.woff2") format("woff2");
+  font-display: swap;
+}
+
 :root {
   /* ----colors--- */
 
@@ -51,9 +125,9 @@
   /* fonts family */
   --serif-font: "Source Serif Pro Light", serif;
   --sans-serif-font-light: "Alliance No.1 Light", sans-serif;
-  --sans-serif-font-regular: "Alliance No.1 Regular", sans-serif;
-  --sans-serif-font-medium: "Alliance No.1 Medium", sans-serif;
-  --sans-serif-font-semibold: "Alliance No.1 Semibold", sans-serif;
+  --sans-serif-font-regular: "Alliance No.1 Regular", "Alliance No.1 Regular Fallback";
+  --sans-serif-font-medium: "Alliance No.1 Medium", "Alliance No.1 Medium Fallback";
+  --sans-serif-font-semibold: "Alliance No.1 Semibold", "Alliance No.1 Semibold Fallback";
 
   /* font sizes */
   --font-size-64: 64px;
@@ -70,9 +144,9 @@
   --font-size-11: 11px;
 
   /* font weight */
-  --font-weight-light: light;
-  --font-weight-regular: regular;
-  --font-weight-medium: medium;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
 
   /* line height */
   --line-height-120: 120%;

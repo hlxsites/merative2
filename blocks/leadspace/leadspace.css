@@ -2,7 +2,6 @@
 .leadspace, .leadspace p {
   font-family: var(--sans-serif-font-light);
   font-size: var(--font-size-16);
-  font-weight: var(--font-weight-light);
   line-height: var(--line-height-160);
   letter-spacing: var(--letter-spacing-001-em);
 }
@@ -32,7 +31,6 @@
 
 .leadspace h1 {
   font-family: var(--serif-font);
-  font-weight: var(--font-weight-light);
   line-height: var(--line-height-120);
   letter-spacing: var(--letter-spacing-1-75);
   font-size: var(--font-size-36);
@@ -541,7 +539,7 @@ main div.leadspace-wrapper {
   .leadspace.video .video-control {
     bottom: 60px;
     right: 0;
-    margin-right: -55px;
+    margin-right: -32px;
   }
 
   .leadspace.video button.open-video {
