@@ -11,7 +11,6 @@
  */
 
 /* Fallback fonts */
-/*
 @font-face {
   font-family: "Source Serif Pro Light Fallback";
   font-style: normal;
@@ -33,7 +32,6 @@
   line-gap-override: 0.00%;
   size-adjust: 103.17%;
 }
-*/
 
 @font-face {
   font-family: "Alliance No.1 Regular Fallback";
@@ -123,8 +121,8 @@
   /* ----typography--- */
 
   /* fonts family */
-  --serif-font: "Source Serif Pro Light", serif;
-  --sans-serif-font-light: "Alliance No.1 Light", sans-serif;
+  --serif-font: "Source Serif Pro Light", "Source Serif Pro Light Fallback";
+  --sans-serif-font-light: "Alliance No.1 Light", "Alliance No.1 Light Fallback";
   --sans-serif-font-regular: "Alliance No.1 Regular", "Alliance No.1 Regular Fallback";
   --sans-serif-font-medium: "Alliance No.1 Medium", "Alliance No.1 Medium Fallback";
   --sans-serif-font-semibold: "Alliance No.1 Semibold", "Alliance No.1 Semibold Fallback";
