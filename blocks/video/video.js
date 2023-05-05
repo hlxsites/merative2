@@ -5,6 +5,8 @@ const selectors = Object.freeze({
   videoContent: '.video-modal-content',
 });
 
+const pendingPlayers = [];
+
 /**
  * Keep track of all the YouTube players for each video on the page
  */
@@ -144,13 +146,18 @@ const buildVideoModal = (href) => {
     videoContent.dataset.ytid = videoId;
     videoContent.innerHTML = `<div id="ytFrame-${videoId}"></div>`;
     if (!window.YT) {
-      // onYouTubeIframeAPIReady will load the video after the script is loaded
-      window.onYouTubeIframeAPIReady = () => loadYouTubePlayer(
-        videoContent.firstElementChild,
-        videoId,
-      );
+      pendingPlayers.push({ id: videoId, element: videoContent.firstElementChild });
     } else {
       loadYouTubePlayer(videoContent.firstElementChild, videoId);
+    }
+    if (!window.onYouTubeIframeAPIReady) {
+      // onYouTubeIframeAPIReady will load the video after the script is loaded
+      window.onYouTubeIframeAPIReady = () => {
+        while (pendingPlayers.length) {
+          const { id, element } = pendingPlayers.pop();
+          loadYouTubePlayer(element, id);
+        }
+      };
     }
   } else {
     videoContent.innerHTML = `<video controls playsinline loop preload="auto">
