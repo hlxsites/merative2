@@ -31,7 +31,7 @@ function getSectionName(section) {
 }
 
 function createSection(section, path) {
-  decorateImages(section, path);
+  decorateImages(section, path, 'section-image');
   let output = '---';
   [...section.children].forEach((row) => {
     if (row.nodeName === 'DIV') {

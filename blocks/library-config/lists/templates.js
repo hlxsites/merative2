@@ -7,7 +7,7 @@ import {
 } from '../library-utils.js';
 
 function createSection(section, path) {
-  decorateImages(section, path);
+  decorateImages(section, path, 'section-image');
   let output = '';
   [...section.children].forEach((row) => {
     if (row.nodeName === 'DIV') {
@@ -21,7 +21,7 @@ function createSection(section, path) {
 }
 
 function createTemplate(template, path) {
-  decorateImages(template, path);
+  decorateImages(template, path, 'template-image');
   let output = '';
   [...template.children].forEach((row, i) => {
     if (row.nodeName === 'DIV') {

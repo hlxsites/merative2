@@ -152,6 +152,9 @@ export default function decorate(block) {
     // group events
     const eventItems = [...col1.querySelectorAll(`${selectors.eventItem} > em`)] || [];
     const eventGroup = createTag('div', { class: 'event-group' });
+    const imgElement = block.querySelector('img');
+    const imageAltText = col1.querySelector('h1')?.textContent || col1.querySelector('p')?.textContent || 'leadspace-preview-image';
+    imgElement.setAttribute('alt', imageAltText);
 
     eventItems.forEach((item, index) => {
       item.parentElement?.classList.add('event-item', index === 0 ? 'location' : 'date');

@@ -63,7 +63,7 @@ export async function fetchListDocument(listData) {
   }
 }
 
-export function decorateImages(block, path) {
+export function decorateImages(block, path, imageAltText) {
   const url = new URL(path);
   block.querySelectorAll('img').forEach((img) => {
     const srcSplit = img.src.split('/');
@@ -73,11 +73,12 @@ export function decorateImages(block, path) {
     const ratio = width > 200 ? 200 / width : 1;
     img.width = width * ratio;
     img.height = height * ratio;
+    img.alt = img.alt || imageAltText;
   });
 }
 
 export function createTable(block, name, path) {
-  decorateImages(block, path);
+  decorateImages(block, path, 'table image');
   const rows = [...block.children];
   const maxCols = rows.reduce((cols, row) => (
     row.children.length > cols ? row.children.length : cols), 0);
