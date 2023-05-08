@@ -1,6 +1,6 @@
 import { createTag } from '../../scripts/scripts.js';
 
-const validListTypes = ['blocks', 'sections', 'buttons', 'placeholders', 'assets', 'templates'];
+const validListTypes = ['blocks', 'sections', 'buttons', 'placeholders', 'icons', 'templates'];
 
 const LIBRARY_PATH = '/block-library/library.json';
 
