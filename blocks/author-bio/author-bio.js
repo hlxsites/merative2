@@ -26,7 +26,7 @@ export default function decorate(block) {
 
   authors.forEach((author) => {
     const authorContainer = createTag('div', { class: 'author-container' });
-    const authorImageTag = createTag('img', { class: 'author-img' });
+    const authorImageTag = createTag('img', { class: 'author-img', alt: 'author-image' });
     authorImageTag.setAttribute('src', author[imageField] || defaultAuthorImageSrc);
     authorImageTag.setAttribute('alt', 'author-image');
     const authorNameTag = createTag('div', { class: 'author-name' });
