@@ -483,6 +483,19 @@ function decorateMarketo(main) {
   });
 }
 
+export function addTitleToLinks(el) {
+  el.querySelectorAll('a').forEach((a) => {
+    const ariaLabel = a.getAttribute('aria-label');
+    if (!ariaLabel && a.href) {
+      if (a.title) {
+        a.setAttribute('aria-label', a.title);
+      } else {
+        a.setAttribute('aria-label', a.href.replace(/[^\w]/gi, '-'));
+      }
+    }
+  });
+}
+
 /**
  * Decorates the main element.
  * @param {Element} main The main element
@@ -498,6 +511,7 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   decorateMarketo(main);
+  addTitleToLinks(main);
 }
 
 /**

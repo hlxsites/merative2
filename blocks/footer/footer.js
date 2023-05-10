@@ -1,5 +1,5 @@
 import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
-import { createTag } from '../../scripts/scripts.js';
+import { createTag, addTitleToLinks } from '../../scripts/scripts.js';
 
 /**
  * loads and decorates the footer
@@ -94,4 +94,5 @@ export default async function decorate(block) {
       buildMobileFooter(block);
     }
   };
+  addTitleToLinks(block);
 }

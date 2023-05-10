@@ -144,11 +144,6 @@ export function decorateIcons(element = document) {
       } else {
         span.innerHTML = iconHTML;
       }
-      const a = span.closest('a');
-      if (a && !a.title) {
-        const iconName = span.classList[1];
-        a.title = iconName.substring(5) || `${a.href}`;
-      }
     }
   });
 }

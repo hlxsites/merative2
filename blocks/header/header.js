@@ -6,7 +6,7 @@ import {
 } from '../../scripts/lib-franklin.js';
 
 import {
-  createTag, decorateMain,
+  createTag, decorateMain, addTitleToLinks,
 } from '../../scripts/scripts.js';
 
 const KEY_SPACE = 32;
@@ -298,4 +298,5 @@ export default async function decorate(block) {
   nav.setAttribute('aria-expanded', 'false');
   decorateIcons(nav);
   block.append(nav);
+  addTitleToLinks(block);
 }
