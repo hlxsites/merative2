@@ -227,7 +227,7 @@ export default async function decorate(block) {
         megaLinks.append(...megaMenu.children);
         const megaContent = createTag('div', { class: 'mega-menu-content' });
         // add close icon
-        const closeLink = createTag('a', { class: 'close' });
+        const closeLink = createTag('button', { class: 'close' });
         closeLink.setAttribute('aria-label', 'Close');
         closeLink.innerHTML = '<span class="icon icon-x" />';
         closeLink.addEventListener('click', (event) => {

@@ -177,7 +177,8 @@ header nav .nav-sections > ul > li {
   header nav .nav-sections ul.mega-menu aside h3,
   header nav .nav-sections ul.mega-menu .mega-menu-content,
   header nav .nav-sections ul.mega-menu .level-three.fragment,
-  header nav .nav-sections ul.mega-menu a.close {
+  header nav .nav-sections ul.mega-menu a.close,
+  header nav .nav-sections ul.mega-menu button.close {
     display: none;
   }
 
@@ -658,10 +659,12 @@ header nav .nav-sections > ul > li {
     cursor: pointer;
   }
 
-  header nav .nav-sections > ul > li[aria-expanded='true'] > ul.level-two.mega-menu a.close {
+  header nav .nav-sections > ul > li[aria-expanded='true'] > ul.level-two.mega-menu a.close,
+  header nav .nav-sections > ul > li[aria-expanded='true'] > ul.level-two.mega-menu button.close {
     cursor: pointer;
   }
 
+  header nav .nav-sections > ul > li[aria-expanded='true'] > ul.level-two.mega-menu button.close svg,
   header nav .nav-sections > ul > li[aria-expanded='true'] > ul.level-two.mega-menu a.close svg {
     width: 24px;
     height: 24px;
