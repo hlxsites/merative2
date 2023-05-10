@@ -133,6 +133,9 @@ export function decorateIcons(element = document) {
       return;
     }
     const icon = span.classList[1].substring(5);
+    if (span.parentElement.nodeName === 'A' && span.parentElement.ariaLabel === null) {
+      span.parentElement.ariaLabel = icon;
+    }
     // eslint-disable-next-line no-use-before-define
     const resp = await fetch(`${window.hlx.codeBasePath}/icons/${icon}.svg`);
     if (resp.ok) {
