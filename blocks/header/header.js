@@ -285,7 +285,9 @@ export default async function decorate(block) {
   });
 
   // hamburger for mobile
-  const hamburger = createTag('a', { class: 'nav-hamburger', role: 'button', tabindex: '0' });
+  const hamburger = createTag('a', {
+    class: 'nav-hamburger', role: 'button', tabindex: '0', 'aria-label': 'nav-mobile',
+  });
   hamburger.innerHTML = '<div class="nav-hamburger-icon"></div>';
   hamburger.addEventListener('click', () => {
     const expanded = nav.getAttribute('aria-expanded') === 'true';
