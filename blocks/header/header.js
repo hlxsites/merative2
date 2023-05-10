@@ -132,6 +132,9 @@ export default async function decorate(block) {
 
   navChildren.forEach((section, index) => {
     const sectionName = classes[index];
+    if (sectionName === 'brand') {
+      section.querySelector('a').setAttribute('aria-label', 'brand-logo');
+    }
     section.classList.add(`nav-${sectionName}`);
     if (sectionName === 'tools') {
       decorateButtons(section);
