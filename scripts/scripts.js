@@ -166,6 +166,22 @@ function buildDocumentUrl(main) {
   }
 }
 
+function addTitlestoIconLinks(main) {
+  const spans = main.querySelectorAll('span');
+  spans.forEach((span) => {
+    const a = span.closest('a');
+    if (a) {
+      // all icons have a classlist of 'icon icon-name'
+      const iconName = span.classList[1];
+      if (iconName) {
+        a.title = iconName;
+      } else {
+        a.title = 'icon';
+      }
+    }
+  });
+}
+
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
@@ -178,6 +194,7 @@ function buildAutoBlocks(main) {
     buildDocumentUrl(main);
     buildTags(main);
     buildPageDivider(main);
+    addTitlestoIconLinks(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);

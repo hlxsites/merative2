@@ -145,8 +145,6 @@ export function decorateIcons(element = document) {
         span.innerHTML = iconHTML;
       }
     }
-    const a = span.closest('a');
-    if (a) a.title = 'icon';
   });
 }
 
