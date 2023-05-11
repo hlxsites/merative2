@@ -1,5 +1,5 @@
-import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
-import { createTag, addTitleToLinks } from '../../scripts/scripts.js';
+import { readBlockConfig, decorateIcons, decorateButtons } from '../../scripts/lib-franklin.js';
+import { createTag } from '../../scripts/scripts.js';
 
 /**
  * loads and decorates the footer
@@ -69,6 +69,7 @@ export default async function decorate(block) {
   const footer = document.createElement('div');
 
   footer.innerHTML = html;
+  decorateButtons(footer, { decorateClasses: false });
   await decorateIcons(footer);
   block.append(footer);
   addCSSToLinkHeadings(block);
@@ -94,5 +95,4 @@ export default async function decorate(block) {
       buildMobileFooter(block);
     }
   };
-  addTitleToLinks(block);
 }

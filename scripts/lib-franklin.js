@@ -495,6 +495,19 @@ function getButtonIcon(button) {
   return undefined;
 }
 
+function getButtonLabel(button) {
+  // try sibling text
+  const sibling = button.parentElement?.previousElementSibling;
+  if (sibling && sibling.textContent) {
+    return sibling.textContent;
+  }
+  // try href
+  if (button.href) {
+    return button.href.replace(/[^\w]/gi, '-');
+  }
+  return undefined;
+}
+
 /**
  * decorates paragraphs containing a single link as buttons.
  * @param {Element} element container element
@@ -503,7 +516,6 @@ function getButtonIcon(button) {
 export function decorateButtons(element, options = {}) {
   const mergedOptions = { ...{ decorateClasses: true, excludeIcons: ['internal'] }, ...options };
   element.querySelectorAll('a').forEach((a) => {
-    a.title = a.title || a.textContent;
     if (a.href !== a.textContent) {
       const up = a.parentElement;
       const twoup = a.parentElement.parentElement;
@@ -541,10 +553,18 @@ export function decorateButtons(element, options = {}) {
             a.appendChild(span);
           }
           if (a.querySelector('span.icon')) {
-            a.setAttribute('aria-label', (options.areaLabel || a.title) || 'Learn more about');
             a.classList.add('has-icon');
           }
         }
+      }
+    }
+    // add aria-label when included in options or when no text content
+    if (mergedOptions.ariaLabel || !a.textContent) {
+      const label = mergedOptions.ariaLabel || getButtonLabel(a);
+      if (label) {
+        a.setAttribute('aria-label', label);
+      } else {
+        a.setAttribute('aria-hidden', 'true');
       }
     }
   });
