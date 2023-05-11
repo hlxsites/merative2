@@ -65,7 +65,11 @@ export default async function decorate(block) {
       setRowDetails(row, blockCopy);
       if (row.title && row.description) block.append(createDocumentCard(row, ['document-card']));
     });
-    decorateButtons(block, { decorateClasses: false, excludeIcons: [] });
+    decorateButtons(block, {
+      decorateClasses: false,
+      excludeIcons: [],
+      ariaLabel: 'Learn more about',
+    });
     decorateIcons(block);
   } else {
     block.remove();

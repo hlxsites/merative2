@@ -541,6 +541,7 @@ export function decorateButtons(element, options = {}) {
             a.appendChild(span);
           }
           if (a.querySelector('span.icon')) {
+            a.setAttribute('aria-label', (options.areaLabel || a.title) || 'Learn more about');
             a.classList.add('has-icon');
           }
         }

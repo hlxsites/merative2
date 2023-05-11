@@ -12,7 +12,7 @@ export default function decorate(block) {
   } else {
     cols.forEach((col) => {
       const content = col.querySelector('h1, h2, h3, h4, h5')?.textContent || 'Column preview image';
-      col.querySelectorAll('img').forEach((img) => {
+      [...col.querySelectorAll('img')].forEach((img) => {
         img.alt = content;
       });
     });
