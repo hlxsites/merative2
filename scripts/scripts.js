@@ -376,15 +376,14 @@ export async function createCard(row, style) {
  * @param {Object} row JSON Object typically coming from an index array item
  * @param {Array} styles Class names that needs to be added to the card root div
  */
-
 export function createDocumentCard(row, styles) {
   // Create card div
-  const card = document.createElement('div');
+  const card = createTag('div');
   if (styles.length) {
     styles.forEach((style) => card.classList.add(style));
   }
   // Get category
-  const category = document.createElement('div');
+  const category = createTag('div', { class: 'document-category'});
   category.classList.add('document-category');
   if (row.assettype && row.assettype !== '0') {
     category.innerHTML += row.assettype;
@@ -393,14 +392,22 @@ export function createDocumentCard(row, styles) {
   }
   card.append(category);
   // Add the title, description and link to card
-  if (row.title) card.innerHTML += `<a href="${row.path}"><h3>${row.title}</h3></a>`;
-  if (row.description && row.description !== '0') {
-    card.innerHTML += `<a href="${row.path}"><p>${row.description}</p></a>`;
+  const link = createTag('a', { href: row.path, 'aria-label': row.title });
+  if (row.title) {
+    const titleLink = link.cloneNode();
+    titleLink.innerHTML = `<h3>${row.title}</h3>`;
+    card.append(titleLink);
   }
-  const link = document.createElement('div');
-  link.classList.add('document-link-container');
-  link.innerHTML = `<a class="button document-link" href="${row.path}"/>`;
-  card.append(link);
+  if (row.description && row.description !== '0') {
+    const descriptionLink = link.cloneNode();
+    descriptionLink.innerHTML = `<p>${row.description}</p>`;
+    card.append(descriptionLink);
+  }
+  const linkContainer = createTag('div', { class: 'document-link-container' });
+  const buttonLink = link.cloneNode();
+  buttonLink.classList.add('button', 'document-link');
+  linkContainer.append(buttonLink);
+  card.append(linkContainer);
   return (card);
 }
 

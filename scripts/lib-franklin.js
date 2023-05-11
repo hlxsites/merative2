@@ -559,7 +559,8 @@ export function decorateButtons(element, options = {}) {
       }
     }
     // add aria-label when included in options or when no text content
-    if (mergedOptions.ariaLabel || !a.textContent) {
+    const hasAriaLabel = !!a.getAttribute('aria-label');
+    if (!hasAriaLabel && (mergedOptions.ariaLabel || !a.textContent)) {
       const label = mergedOptions.ariaLabel || getButtonLabel(a);
       if (label) {
         a.setAttribute('aria-label', label);
