@@ -624,7 +624,7 @@ header nav .nav-sections > ul > li {
     width: 792px;
     overflow: hidden;
     border-left: 1px solid var(--neutral-sand);
-    padding: var(--spacer-layout-03) 0 var(--spacer-layout-03) var(--spacer-layout-04)
+    padding: var(--spacer-layout-03) 0 0 var(--spacer-layout-04)
   }
 
   header nav .nav-sections > ul > li[aria-expanded='true'] > ul.mega-menu .mega-menu-content li {
@@ -645,7 +645,8 @@ header nav .nav-sections > ul > li {
     line-height: 160%;
     font-size: var(--font-size-14);
     color: var(--neutral-grey-tint120);
-    margin: 0 0 var(--spacer-element-07);
+    margin: 0 0 var(--spacer-layout-01);
+    padding: 0 0 0 var(--spacer-element-03);
   }
 
   header nav .nav-sections > ul > li[aria-expanded='true'] > ul.level-two.mega-menu > aside > li {
@@ -655,7 +656,6 @@ header nav .nav-sections > ul > li {
     line-height: 160%;
     font-size: var(--font-size-16);
     padding: var(--spacer-element-03);
-    margin: 0 0 var(--spacer-element-03);
     cursor: pointer;
   }
 
@@ -697,7 +697,7 @@ header nav .nav-sections > ul > li {
 
   /* Mega menu solution header overrides */
   header nav .nav-sections > ul > li[aria-expanded='true'] .mega-menu-content .columns.solution-header > div:last-of-type {
-    margin-bottom: var(--spacer-layout-04);
+    margin-bottom: var(--spacer-layout-03);
   }
 
   header nav .nav-sections > ul > li[aria-expanded='true'] .mega-menu-content .columns.solution-header h4  {
@@ -726,11 +726,20 @@ header nav .nav-sections > ul > li {
   }
 
   /* Mega menu solution list overrides */
+  header nav .nav-sections > ul > li[aria-expanded='true'] .mega-menu-content .columns.solution-list > div:last-of-type {
+    margin-bottom: 0;
+  }
+
   header nav .nav-sections > ul > li[aria-expanded='true'] .mega-menu-content .columns.solution-list > div > div > a  {
     display: block;
     text-decoration: none;
     border-bottom: 1px solid var(--neutral-sand);
-    margin: 0 0 var(--spacer-element-05);
+    margin: var(--spacer-element-05) 0;
+  }
+
+  header nav .nav-sections > ul > li[aria-expanded='true'] .mega-menu-content .columns.solution-list > div > div > a:last-child  {
+    border: none;
+    margin-bottom: 0;
   }
 
   header nav .nav-sections > ul > li[aria-expanded='true'] .mega-menu-content .columns.solution-list > div > div > a > h5 {
