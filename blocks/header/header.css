@@ -621,7 +621,6 @@ header nav .nav-sections > ul > li {
     display: block;
     font-family: var(--sans-serif-font-light);
     color: var(--neutral-carbon);
-    width: 792px;
     overflow: hidden;
     border-left: 1px solid var(--neutral-sand);
     padding: var(--spacer-layout-03) 0 0 var(--spacer-layout-04)
