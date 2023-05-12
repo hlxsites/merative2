@@ -10,7 +10,7 @@ import {
   decorateMain,
 } from '../../scripts/scripts.js';
 
-const KEY_SPACE = 32;
+const KEY_ENTER = 'Enter';
 
 const mobileMedia = window.matchMedia('(max-width: 1199px)');
 const desktopMedia = window.matchMedia('(min-width: 1200px)');
@@ -162,8 +162,8 @@ export default async function decorate(block) {
           toggleSection(navSection);
         }
       });
-      navSection.addEventListener('keypress', (event) => {
-        if (!event.target.closest('.mega-menu') && event.which === KEY_SPACE) {
+      navSection.addEventListener('keydown', (event) => {
+        if (!event.target.closest('.mega-menu') && event.key === KEY_ENTER) {
           toggleSection(navSection);
           event.preventDefault();
         }
@@ -204,6 +204,15 @@ export default async function decorate(block) {
             copyMegaMenu(levelTwo);
           }
           event.stopPropagation();
+        });
+        levelTwo.addEventListener('keydown', (event) => {
+          if (event.key === KEY_ENTER) {
+            toggleSection(levelTwo);
+            if (levelTwo.classList.contains('mega-menu')) {
+              copyMegaMenu(levelTwo);
+            }
+            event.preventDefault();
+          }
         });
 
         // Setup level 3 links
