@@ -2,8 +2,8 @@ import { decorateIcons } from '../../scripts/lib-franklin.js';
 import { createTag } from '../../scripts/scripts.js';
 
 const socialLinks = Object.freeze({
-  linkedin: 'linkedin.com',
-  twitter: 'twitter.com',
+  linkedin: { url: 'linkedin.com', label: 'Open LinkedIn' },
+  twitter: { url: 'twitter.com', label: 'Open Twitter' },
 });
 
 export default function decorate(block) {
@@ -20,9 +20,11 @@ export default function decorate(block) {
     const linkContainer = createTag('div', { class: 'headshot-links' });
     const links = [...details.querySelectorAll('a')].map((anchor) => {
       const socialEntry = Object.entries(socialLinks).find(
-        ([, url]) => anchor.href.indexOf(url) >= 0,
+        ([, { url }]) => anchor.href.indexOf(url) >= 0,
       );
       anchor.innerHTML = `<span class="icon icon-${socialEntry ? socialEntry[0] : 'sharelink-black'}"></span>`;
+      const label = socialEntry ? socialEntry[1].label : 'Open profile';
+      anchor.setAttribute('aria-label', label);
       return anchor.parentElement;
     });
     linkContainer.append(...links);
