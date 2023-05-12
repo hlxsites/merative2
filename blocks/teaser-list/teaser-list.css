@@ -40,7 +40,7 @@
 }
 
 .teaser-list .teaser-card:last-child {
-  border-bottom: 0;
+  border-bottom: none;
   padding-bottom: 0;
 }
 
@@ -138,15 +138,20 @@
     font-size: var(--font-size-21);
   }
 
-  .teaser-card:nth-child(odd) > *,
-  .teaser-card:nth-child(odd) > p {
+  .teaser-list .teaser-card:nth-child(even) > *,
+  .teaser-list .teaser-card:nth-child(even) > p {
+    margin-left: 60px;
+  }
+  
+  .teaser-list .teaser-card:nth-child(odd) > *,
+  .teaser-list .teaser-card:nth-child(odd) > p {
     margin-right: 60px;
   }
 
-  .section.teaser-list-container .teaser-list .teaser-card:last-child { /* needs specificity here */
-    margin: 0 auto;
-    padding-bottom: var(--spacer-element-10);
-    border-bottom: 1px solid var(--neutral-sand);
+  /* no border on last row of cards */
+  .teaser-list .teaser-card:nth-child(2n + 1):nth-last-child(-n + 2),
+  .teaser-list .teaser-card:nth-child(2n + 1):nth-child(2n + 1):nth-last-child(-n + 2) ~ .teaser-card {
+    border-bottom: none;
   }
 
   .section.what-we-do.teaser-list-container > .default-content-wrapper {
@@ -163,10 +168,6 @@
 
   .section.what-we-do .teaser-list-wrapper {
     padding-bottom: 0;
-  }
-
-  .teaser-card:nth-child(even) > *, .teaser-card:nth-child(even) > p {
-    margin-left: 60px;
   }
 
   .section.what-we-do.teaser-list-container {
