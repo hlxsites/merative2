@@ -6,7 +6,8 @@ import {
 } from '../../scripts/lib-franklin.js';
 
 import {
-  createTag, decorateMain,
+  createTag,
+  decorateMain,
 } from '../../scripts/scripts.js';
 
 const KEY_SPACE = 32;
@@ -133,7 +134,9 @@ export default async function decorate(block) {
   navChildren.forEach((section, index) => {
     const sectionName = classes[index];
     section.classList.add(`nav-${sectionName}`);
-    if (sectionName === 'tools') {
+    if (sectionName === 'brand') {
+      decorateButtons(section, { decorateClasses: false });
+    } else if (sectionName === 'tools') {
       decorateButtons(section);
     }
   });
@@ -227,8 +230,7 @@ export default async function decorate(block) {
         megaLinks.append(...megaMenu.children);
         const megaContent = createTag('div', { class: 'mega-menu-content' });
         // add close icon
-        const closeLink = createTag('button', { class: 'close' });
-        closeLink.setAttribute('aria-label', 'Close');
+        const closeLink = createTag('button', { class: 'close', 'aria-label': 'Close' });
         closeLink.innerHTML = '<span class="icon icon-x" />';
         closeLink.addEventListener('click', (event) => {
           toggleSection(navSection);
@@ -285,9 +287,10 @@ export default async function decorate(block) {
   });
 
   // hamburger for mobile
-  const hamburger = createTag('a', { class: 'nav-hamburger', role: 'button', tabindex: '0' });
+  const hamburger = createTag('a', {
+    class: 'nav-hamburger', role: 'button', tabindex: '0', 'aria-label': 'Menu',
+  });
   hamburger.innerHTML = '<div class="nav-hamburger-icon"></div>';
-  hamburger.setAttribute('aria-label', 'Menu');
   hamburger.addEventListener('click', () => {
     const expanded = nav.getAttribute('aria-expanded') === 'true';
     document.body.style.overflowY = expanded ? '' : 'hidden';

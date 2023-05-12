@@ -1,4 +1,4 @@
-import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
+import { readBlockConfig, decorateIcons, decorateButtons } from '../../scripts/lib-franklin.js';
 import { createTag } from '../../scripts/scripts.js';
 
 /**
@@ -69,6 +69,7 @@ export default async function decorate(block) {
   const footer = document.createElement('div');
 
   footer.innerHTML = html;
+  decorateButtons(footer, { decorateClasses: false });
   await decorateIcons(footer);
   block.append(footer);
   addCSSToLinkHeadings(block);
