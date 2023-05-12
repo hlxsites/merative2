@@ -1,3 +1,6 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable no-undef */
 import { createTag } from '../../scripts/scripts.js';
 import { readBlockConfig, fetchPlaceholders } from '../../scripts/lib-franklin.js';
 
@@ -28,10 +31,55 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
           form.onSuccess((values, followUpUrl) => {
             // Take the lead to a different page on successful submit,
             // ignoring the form's configured followUpUrl
-            // eslint-disable-next-line no-restricted-globals
             location.href = successUrl;
+            if (window._satellite) {
+              _satellite.track('formSubmit', {
+                formName: document.title,
+              });
+            }
             // Return false to prevent the submission handler continuing with its own processing
             return false;
+          });
+
+          // const conReasonField = document.querySelector('#contactmeHowcanwehelp');
+          // const noButtonReasons = ['Customer Support'];
+          let hasTrackedFormLoad = false;
+          window.MktoForms2.whenReady((f) => {
+            if (!hasTrackedFormLoad && window._satellite) {
+              window._satellite.track('formLoad', {
+                formName: document.title,
+              });
+              hasTrackedFormLoad = true;
+            }
+            // Keeping the below code that I got from the original site.
+            // function noMoreButton() {
+            //   const reason = conReasonField.value;
+            //   if (noButtonReasons.includes(reason)) {
+            //     f.submittable(false);
+            //     document.querySelector('.mktoForm .mktoButtonRow').style.display = 'none';
+            //     return false;
+            //   }
+            //   f.submittable(true);
+            //   document.querySelector('.mktoForm .mktoButtonRow').style.display = 'block';
+            //   return false;
+            // }
+            // if (conReasonField) conReasonField.addEventListener('change', noMoreButton);
+
+            f.addHiddenFields({
+              RBN_Referral_URL_Cargo__c: document.URL,
+            });
+          });
+          const formInputEle = document.querySelectorAll('form input, form select');
+          function focusListener() {
+            window._satellite?.track('formStart', {
+              formName: document.title,
+            });
+            formInputEle.forEach((inputEle) => {
+              inputEle.removeEventListener('focusin', focusListener);
+            });
+          }
+          formInputEle.forEach((inputEle) => {
+            inputEle.addEventListener('focusin', focusListener);
           });
         });
       } else {
