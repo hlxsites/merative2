@@ -43,15 +43,13 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
 
           // const conReasonField = document.querySelector('#contactmeHowcanwehelp');
           // const noButtonReasons = ['Customer Support'];
-          let booleanEvent = true;
+          let hasTrackedFormLoad = false;
           window.MktoForms2.whenReady((f) => {
-            if (booleanEvent) {
-              if (window._satellite) {
-                window._satellite.track('formLoad', {
-                  formName: document.title,
-                });
-              }
-              booleanEvent = false;
+            if (!hasTrackedFormLoad && window._satellite) {
+              window._satellite.track('formLoad', {
+                formName: document.title,
+              });
+              hasTrackedFormLoad = true;
             }
             // Keeping the below code that I got from the original site.
             // function noMoreButton() {
@@ -71,13 +69,11 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
               RBN_Referral_URL_Cargo__c: document.URL,
             });
           });
-          const formInputEle = document.querySelectorAll('form input,form select');
+          const formInputEle = document.querySelectorAll('form input, form select');
           function focusListener() {
-            if (window._satellite) {
-              window._satellite.track('formStart', {
-                formName: document.title,
-              });
-            }
+            window._satellite?.track('formStart', {
+              formName: document.title,
+            });
             formInputEle.forEach((inputEle) => {
               inputEle.removeEventListener('focusin', focusListener);
             });
