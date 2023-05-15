@@ -1026,7 +1026,7 @@ main pre {
 }
 
 .list-section li::before {
-  background: url('../../styles/images/CheckBullet.svg') no-repeat;
+  background: url('images/CheckBullet.svg') no-repeat;
   border-radius: 50px;
   content: "";
   display: inline-block;
@@ -1061,7 +1061,7 @@ main pre {
 }
 
 .checked-list li::before {
-  background: var(--neutral-bone) url('../../styles/images/CheckBulletPurple.svg') no-repeat;
+  background: var(--neutral-bone) url('images/CheckBulletPurple.svg') no-repeat;
   border-radius: 50px;
   content: "";
   height: 24px;
@@ -1085,7 +1085,7 @@ main pre {
 }
 
 .section.arrow-list li::before {
-  background: url('../../icons/right-arrow-purple-small.svg') no-repeat;
+  background: url('../icons/right-arrow-purple-small.svg') no-repeat;
   content: "";
   display: inline-block;
   height: 9.3px;
