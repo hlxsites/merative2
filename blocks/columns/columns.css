@@ -55,7 +55,7 @@ main .columns-container h4 {
 }
 
 .columns.content-band li {
-  list-style-image: url("../icons/arrow-purple.svg");
+  list-style-image: url("../../icons/arrow-purple.svg");
   margin-bottom: var(--spacer-element-03);
   line-height: var(--line-height-160);
   }
