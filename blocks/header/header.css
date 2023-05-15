@@ -207,7 +207,7 @@ header nav .nav-sections > ul > li {
     height: 24px;
     top: 50%;
     right: 0;
-    background: url('../../icons/caret-down.svg') no-repeat center / cover;
+    background: url('../../icons/caret-down-24.svg') no-repeat center / cover;
     transform: translateY(-50%);
   }
 
