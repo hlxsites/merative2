@@ -226,6 +226,7 @@ export default async function decorate(block) {
 
           // Setup level 4 links
           levelThree.querySelectorAll(':scope > ul > li').forEach((levelFour) => {
+            levelThree.classList.add('sub-menu');
             levelFour.classList.add('level-four');
           });
         });
