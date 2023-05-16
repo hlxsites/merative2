@@ -1,0 +1,5 @@
+sitemaps:
+   merative:
+     origin: https://www.merative.com
+     source: /query-index.json
+     destination: /sitemap.xml
