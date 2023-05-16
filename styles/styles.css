@@ -379,6 +379,18 @@ main > .section {
   max-width: 350px;
 }
 
+/* progressive section appearance */
+main .section[data-section-status='loading'],
+main .section[data-section-status='initialized'] {
+  display: none;
+}
+
+/* Centered content in section */
+.section.center > * {
+  margin: 0 auto;
+  text-align: center;
+}
+
 /* Section Top and Bottom */
 .columns.columns-gap-50 > div {
   gap: 50px;
@@ -592,12 +604,6 @@ main .list-section ul li {
   border-radius: 40px;
   min-width: calc(50% + 1px);
   list-style-type: none;
-}
-
-/* progressive section appearance */
-main .section[data-section-status='loading'],
-main .section[data-section-status='initialized'] {
-  display: none;
 }
 
 .article-content-wrapper ul {
