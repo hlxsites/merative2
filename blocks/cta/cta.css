@@ -16,7 +16,7 @@
 
 .cta.block .button-group p {
     margin: 0;
-    }
+}
 
 .section.cta-container .cta.block h2 {
     margin: unset;
@@ -36,7 +36,7 @@
 .section.cta-container .cta.block p.only-picture:last-child {
     margin-top: var(--spacer-layout-04);
     margin-bottom: 0;
-    }
+}
 
 /* CTA Button */
 
@@ -46,20 +46,21 @@
     gap: var(--spacer-layout-01);
     margin-top: var(--spacer-layout-04);
     align-items: center;
-    }
+}
 
 @media only screen and (min-width: 768px) {
     .cta.block .button-group {
         flex-flow: row;
         justify-content: center;
         gap: var(--spacer-layout-01);
-        }
     }
+}
 
 @media only screen and (min-width: 1200px) {
-    .section.cta-container .cta-wrapper {
+    .section.cta-container .cta-wrapper,
+    .section.cta-container .default-content-wrapper {
         width: 740px;
-        }
+    }
 
     .section.cta-container .cta.block h2 {
         font-size: 45px;
@@ -73,5 +74,5 @@
     .section.cta-container .cta.block p.only-picture:last-child {
         margin-top: var(--spacer-layout-05);
         margin-bottom: 0;
-        }
+    }
 }
