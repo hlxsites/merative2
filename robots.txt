@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /block-library/
+Disallow: /drafts/
+
+Sitemap: https://www.merative.com/sitemap.xml
