@@ -363,7 +363,6 @@ export default async function decorate(block) {
     // Get default content in this section and add it to blog-content
     const defaultContent = document.querySelectorAll('.blog-home-container > .default-content-wrapper');
     defaultContent.forEach((div) => blogContent.append(div));
-
     // Create the selected filters DOM structure
     const selectedFilters = document.createElement('div');
     selectedFilters.classList.add('selected-filters');
@@ -379,7 +378,6 @@ export default async function decorate(block) {
     selectedFiltersdiv.append(clearAllFilters);
     selectedFilters.append(selectedFiltersdiv);
     selectedFilters.append(selectedFiltersList);
-
     // Create blog cards DOM structure
     const blogCards = document.createElement('div');
     blogCards.classList.add('blog-cards');
@@ -387,7 +385,7 @@ export default async function decorate(block) {
       const blogCard = await createCard(row, 'blog-card');
       // first render show featured article and 6 cards so total 7
       // If featured article, then add class name and make active no matter what
-      if (row.featuredArticle && row.featuredArticle === 'true') {
+      if (row['featured-article'] && row['featured-article'] === 'true') {
         blogCard.classList.add('featured-article');
       }
       if (i < (NUM_CARDS_SHOWN_AT_A_TIME + 1)) {
