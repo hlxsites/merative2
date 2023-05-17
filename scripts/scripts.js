@@ -233,7 +233,7 @@ export async function lookupPages(pathnames) {
 
 export async function lookupBlogs(pathnames) {
   if (!window.blogIndex) {
-    const resp = await fetch(`${window.hlx.codeBasePath}/blog/blog-index-p2.json`);
+    const resp = await fetch(`${window.hlx.codeBasePath}/blog/query-index.json`);
     const json = await resp.json();
     const lookup = {};
     json.data.forEach((row) => {
@@ -261,7 +261,7 @@ export async function lookupBlogs(pathnames) {
 
 export async function getAllBlogs(category) {
   if (!window.allBlogs) {
-    const resp = await fetch(`${window.hlx.codeBasePath}/blog/blog-index-p2.json`);
+    const resp = await fetch(`${window.hlx.codeBasePath}/blog/query-index.json`);
     const json = await resp.json();
     json.data.forEach((row) => {
       if (row.image.startsWith('/default-meta-image.png')) {
@@ -280,10 +280,12 @@ export async function getAllBlogs(category) {
   });
 
   // move featured article to the top of the sorted list
-  const featuredArticleIndex = blogArticles.findIndex((el) => (el.featuredArticle === 'true'));
-  const featuredArticle = blogArticles[featuredArticleIndex];
-  blogArticles.splice(featuredArticleIndex, 1);
-  blogArticles.unshift(featuredArticle);
+  const featuredArticleIndex = blogArticles.findIndex((el) => (el['featured-article'] === 'true'));
+  if (featuredArticleIndex > -1) {
+    const featuredArticle = blogArticles[featuredArticleIndex];
+    blogArticles.splice(featuredArticleIndex, 1);
+    blogArticles.unshift(featuredArticle);
+  }
 
   if (category) {
     // return only blogs that have the same category
@@ -300,7 +302,7 @@ export async function getAllBlogs(category) {
 
 export async function getBlogCategoryPages() {
   if (!window.allBlogs) {
-    const resp = await fetch(`${window.hlx.codeBasePath}/blog/blog-index-p2.json`);
+    const resp = await fetch(`${window.hlx.codeBasePath}/blog/query-index.json`);
     const json = await resp.json();
     json.data.forEach((row) => {
       if (row.image.startsWith('/default-meta-image.png')) {

@@ -387,7 +387,7 @@ export default async function decorate(block) {
       const blogCard = await createCard(row, 'blog-card');
       // first render show featured article and 6 cards so total 7
       // If featured article, then add class name and make active no matter what
-      if (row.featuredArticle && row.featuredArticle === 'true') {
+      if (row['featured-article'] && row['featured-article'] === 'true') {
         blogCard.classList.add('featured-article');
       }
       if (i < (NUM_CARDS_SHOWN_AT_A_TIME + 1)) {
