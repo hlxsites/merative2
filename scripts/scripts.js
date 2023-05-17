@@ -278,7 +278,6 @@ export async function getAllBlogs(category) {
     if (a.lastModified < b.lastModified) return 1;
     return 0;
   });
-
   // move featured article to the top of the sorted list
   const featuredArticleIndex = blogArticles.findIndex((el) => (el['featured-article'] === 'true'));
   if (featuredArticleIndex > -1) {
@@ -286,7 +285,6 @@ export async function getAllBlogs(category) {
     blogArticles.splice(featuredArticleIndex, 1);
     blogArticles.unshift(featuredArticle);
   }
-
   if (category) {
     // return only blogs that have the same category
     const result = blogArticles.filter((e) => e.category.trim() === category);
