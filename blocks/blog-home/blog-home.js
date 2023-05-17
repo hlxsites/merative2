@@ -363,7 +363,6 @@ export default async function decorate(block) {
     // Get default content in this section and add it to blog-content
     const defaultContent = document.querySelectorAll('.blog-home-container > .default-content-wrapper');
     defaultContent.forEach((div) => blogContent.append(div));
-
     // Create the selected filters DOM structure
     const selectedFilters = document.createElement('div');
     selectedFilters.classList.add('selected-filters');
@@ -379,7 +378,6 @@ export default async function decorate(block) {
     selectedFiltersdiv.append(clearAllFilters);
     selectedFilters.append(selectedFiltersdiv);
     selectedFilters.append(selectedFiltersList);
-
     // Create blog cards DOM structure
     const blogCards = document.createElement('div');
     blogCards.classList.add('blog-cards');
