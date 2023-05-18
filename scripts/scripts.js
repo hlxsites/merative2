@@ -1,4 +1,3 @@
-// import authorsParser from './authors-parser.js';
 import {
   sampleRUM,
   buildBlock,
