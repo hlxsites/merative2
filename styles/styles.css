@@ -71,7 +71,7 @@
   font-family: "Source Serif Pro Light";
   font-style: normal;
   font-weight: 300;
-  src:url("../styles/fonts/SourceSerif4/SourceSerifPro-Light.ttf") format('truetype');
+  src:url("../styles/fonts/SourceSerif4/SourceSerifPro-Light.woff2") format("woff2");
   font-display: swap;
 }
 
