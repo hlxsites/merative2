@@ -15,11 +15,12 @@
   font-family: "Source Serif Pro Light Fallback";
   font-style: normal;
   font-weight: 300;
-  src: local("Times New Roman");
-  ascent-override: 83.34%;
+  src: local("Georgia");
+  
+  /* ascent-override: 83.34%;
   descent-override: 30.41%;
-  line-gap-override: 0.00%;
-  size-adjust: 110.16%;
+  line-gap-override: 0.00%; */
+  size-adjust: 100.991%;
 }
 
 @font-face {
