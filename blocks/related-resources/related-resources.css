@@ -11,7 +11,8 @@
 }
 
 .related-resources-container .default-content-wrapper h5,
-.related-resources-container .related-resources .document-category {
+.related-resources-container .related-resources .document-category,
+.related-resources-container .related-resources .document-category code {
     font-family: var(--sans-serif-font-regular);
     font-weight: 500;
     font-size: var(--font-size-14);
@@ -47,11 +48,13 @@
 }
 
 .related-resources .document-card .document-category,
+.related-resources .document-card .document-category code,
 .related-resources .document-card h3 {
     margin: unset;
 }
 
-.related-resources .document-card .document-category {
+.related-resources .document-card .document-category,
+.related-resources .document-card .document-category code {
     font-size: var(--font-size-11);
 }
 
@@ -200,7 +203,8 @@
         gap: 24px;
     }
 
-    .related-resources .document-card .document-category {
+    .related-resources .document-card .document-category,
+    .related-resources .document-card .document-category code {
         font-size: var(--font-size-14);
     }
 
