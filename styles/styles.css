@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity */
+
 /*
  * Copyright 2020 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
@@ -421,7 +423,8 @@ main .section > div:last-child {
 }
 
 /* eyebrow */
-.section > .default-content-wrapper > h4:first-of-type {
+.section > .default-content-wrapper > h4:first-of-type,
+.section > .default-content-wrapper code:first-of-type {
   font-size: var(--font-size-11);
   letter-spacing: .2em;
   line-height: var(--line-height-120);
@@ -550,7 +553,8 @@ main img {
 }
 
 .section.section-header-right-content > div:nth-child(1) > h2,
-.section.section-header-right-content > div:nth-child(1) > h4 {
+.section.section-header-right-content > div:nth-child(1) > h4,
+.section.section-header-right-content > div:nth-child(1) code {
   margin: 24px 0;
   width: 100%
 }
@@ -780,7 +784,6 @@ a.button span.icon.bookmark {
   border-image-source: var(--gradient-left-right);
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .button-container > a.tertiary span.icon svg * {
   stroke: var(--primary-purple);
 }
@@ -831,14 +834,12 @@ main ul a:not(.button):active {
   border-image-source: var(--gradient-left-right);
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .section > div:last-child > *:last-child,
 .section > div:last-child > *:last-child > *:last-child { /* no bottom margin on whatever the last thing + 1 inner is */
   margin-bottom: 0;
   padding-bottom: 0;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .section > div:first-child > *:first-child,
 .section > div:first-child > *:first-child > *:first-child { /* no top margin on whatever comes next + 1 inner */
   margin-top: 0;
@@ -965,12 +966,14 @@ main pre {
 }
 
 .section .columns.row-header div > div > h2,
-.section .columns.row-header div > div > h4 {
+.section .columns.row-header div > div > h4,
+.section .columns.row-header div > div code {
   margin-left: 0;
   max-width: 100%;
 }
 
 .section .columns.row-header div > div > h4,
+.section .columns.row-header div > div code,
 .section.section-header > div:nth-child(1) > p:first-child {
   font-family: var(--sans-serif-font-medium);
   font-size: var(--font-size-11);
@@ -1332,6 +1335,7 @@ main pre {
   }
 
   h4,
+  code,
   h5 {
     font-family: var(--sans-serif-font-regular);
     line-height: var(--line-height-160);
@@ -1351,7 +1355,7 @@ main pre {
     font-size: var(--font-size-28);
   }
 
-  h4 {
+  h4, code {
     font-size: var(--font-size-18);
     font-weight: var(--font-weight-medium);
   }
@@ -1384,7 +1388,8 @@ main pre {
     letter-spacing: var(--letter-spacing-1-75);
   }
 
-  h4,
+  h4, 
+  code,
   h5 {
     font-family: var(--sans-serif-font-regular);
     line-height: var(--line-height-160);
@@ -1403,7 +1408,7 @@ main pre {
     font-size: var(--font-size-32);
   }
 
-  h4 {
+  h4, code {
     font-size: var(--font-size-21);
     font-weight: var(--font-weight-medium);
   }
@@ -1483,7 +1488,8 @@ main pre {
   }
 
   /* Content-band desktop styles */
-  .content-band.icon-list h4 {
+  .content-band.icon-list h4,
+  .content-band.icon-list code {
     font-size: var(--font-size-21);
   }
 
@@ -1491,7 +1497,8 @@ main pre {
     column-gap: var(--spacer-layout-05);
   }
 
-  .section > .default-content-wrapper > h4:first-of-type {
+  .section > .default-content-wrapper > h4:first-of-type,
+  .section > .default-content-wrapper code:first-of-type {
     font-size: var(--font-size-14);
     margin: 0 0 var(--spacer-element-08);
   }
