@@ -48,3 +48,8 @@ if (document.querySelector('[data-ytid]')) {
     type: 'text/javascript',
   });
 }
+
+// Adobe Target
+window.targetGlobalSettings = {
+  bodyHidingEnabled: false,
+};
