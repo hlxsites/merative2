@@ -6,3 +6,4 @@ node_modules/*
 helix-importer-ui
 imported-docs
 .idea/*
+.vscode/*
