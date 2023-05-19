@@ -105,7 +105,15 @@ export default function decorate(block) {
       videoHref = videoLink.href;
 
       // Display video overlay
-      button.addEventListener('click', toggleVideoOverlay);
+      button.addEventListener('click', () => {
+        // add video overlay
+        const modal = block.querySelector(selectors.videoModal);
+        if (!modal && videoHref) {
+          const videoModal = buildVideoModal(videoHref);
+          block.append(videoModal);
+        }
+        toggleVideoOverlay();
+      });
 
       col1.removeChild(videoLink.closest('p'));
       col1.removeChild(videoDuration);
@@ -136,12 +144,6 @@ export default function decorate(block) {
     const scrollBorder = createTag('div', { class: 'scroll-border-wrapper' });
     scrollBorder.innerHTML = '<span class="scroll-border-line"></span><span class="scroll-border-text">SCROLL</span>';
     block.append(scrollBorder);
-
-    // add video overlay
-    if (videoHref) {
-      const videoModal = buildVideoModal(videoHref);
-      block.append(videoModal);
-    }
 
     return;
   }
