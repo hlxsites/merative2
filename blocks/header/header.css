@@ -487,9 +487,10 @@ header nav .nav-sections > ul > li {
     color: var(--neutral-carbon);
     margin: 0;
     padding: 3% calc((100vw - var(--section-width-desktop)) / 2) var(--spacer-layout-07);
-    animation: fadeIn .25s;
+
+    /* animation: fadeIn .25s;
     animation-fill-mode: forwards;
-    transition: none;
+    transition: none; */
     z-index: 0;
   }
 
