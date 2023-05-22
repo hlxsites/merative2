@@ -213,6 +213,7 @@ async function createFilters(categories, topics, audiences) {
   // Root filters div
   const filters = document.createElement('div');
   filters.classList.add('filters');
+  filters.setAttribute('aria-role', 'button');
   filters.setAttribute('aria-expanded', 'false');
 
   // Filters main section
@@ -287,6 +288,7 @@ async function createFilters(categories, topics, audiences) {
   // Audience filters
   const audiencesElement = document.createElement('div');
   audiencesElement.classList.add('audiences');
+  audiencesElement.setAttribute('aria-role', 'button');
   audiencesElement.setAttribute('aria-expanded', 'true');
   const audienceLabel = document.createElement('span');
   audienceLabel.classList.add('list-title');
@@ -306,6 +308,7 @@ async function createFilters(categories, topics, audiences) {
   // Topic filters
   const topicsElement = document.createElement('div');
   topicsElement.classList.add('topics');
+  topicsElement.setAttribute('aria-role', 'button');
   topicsElement.setAttribute('aria-expanded', 'true');
   const topicLabel = document.createElement('span');
   topicLabel.classList.add('list-title');
