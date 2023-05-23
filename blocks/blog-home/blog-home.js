@@ -342,11 +342,11 @@ export default async function decorate(block) {
     const defaultContent = document.querySelectorAll('.blog-home-container > .default-content-wrapper');
     defaultContent.forEach((div) => blogContent.append(div));
     // Create the selected filters DOM structure
-    const selectedFilters = createTag('div', { class: 'selected-filters' });
-    const selectedFiltersdiv = createTag('div', { class: 'selected-filters-div' });
-    const selectedFiltersTitle = createTag('div', { class: 'selected-filters-title' });
-    const clearAllFilters = createTag('div', { class: 'clear-all-filters' });
-    const selectedFiltersList = createTag('div', { class: 'selected-filters-list' });
+    const selectedFilters = createTag('div', { class: 'selected-filters' }),
+      selectedFiltersdiv = createTag('div', { class: 'selected-filters-div' }),
+      selectedFiltersTitle = createTag('div', { class: 'selected-filters-title' }),
+      clearAllFilters = createTag('div', { class: 'clear-all-filters' }),
+      selectedFiltersList = createTag('div', { class: 'selected-filters-list' });
     selectedFiltersdiv.append(selectedFiltersTitle);
     selectedFiltersdiv.append(clearAllFilters);
     selectedFilters.append(selectedFiltersdiv);
