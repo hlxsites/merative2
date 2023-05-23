@@ -77,8 +77,12 @@ function clearFilters() {
 
 async function createCheckboxList(label) {
   const div = document.createElement('div');
-  // eslint-disable-next-line object-curly-newline
-  const inputEl = createTag('input', { type: 'checkbox', name: 'blogFilters', id: label, value: label });
+  const inputEl = createTag('input', {
+    type: 'checkbox',
+    name: 'blogFilters',
+    id: label,
+    value: label,
+  });
   const labelEl = createTag('label', { for: label });
   labelEl.append(label);
   div.append(inputEl);
@@ -206,7 +210,11 @@ async function createCategories(categoriesList) {
 async function createFilters(categories, topics, audiences) {
   // Create DOM elements for topics and audiences to display in the left nav
   // Root filters div
-  const filters = createTag('div', { class: 'filters', role: 'button', 'aria-expanded': 'false' });
+  const filters = createTag('div', {
+    class: 'filters',
+    role: 'button',
+    'aria-expanded': 'false',
+  });
 
   // Filters main section
   const filtersMain = createTag('div', { class: 'filters-main' });
@@ -272,7 +280,11 @@ async function createFilters(categories, topics, audiences) {
   // });
 
   // Audience filters
-  const audiencesElement = createTag('div', { class: 'audiences', role: 'button', 'aria-expanded': 'true' });
+  const audiencesElement = createTag('div', {
+    class: 'audiences',
+    role: 'button',
+    'aria-expanded': 'true',
+  });
   const audienceLabel = createTag('span', { class: 'list-title' });
   audienceLabel.append('Audience');
   audiencesElement.append(audienceLabel);
@@ -288,7 +300,11 @@ async function createFilters(categories, topics, audiences) {
   }
 
   // Topic filters
-  const topicsElement = createTag('div', { class: 'topics', role: 'button', 'aria-expanded': 'true' });
+  const topicsElement = createTag('div', {
+    class: 'topics',
+    role: 'button',
+    'aria-expanded': 'true',
+  });
   const topicLabel = createTag('span', { class: 'list-title' });
   topicLabel.append('Topic');
   topicsElement.append(topicLabel);
@@ -342,11 +358,11 @@ export default async function decorate(block) {
     const defaultContent = document.querySelectorAll('.blog-home-container > .default-content-wrapper');
     defaultContent.forEach((div) => blogContent.append(div));
     // Create the selected filters DOM structure
-    const selectedFilters = createTag('div', { class: 'selected-filters' }),
-      selectedFiltersdiv = createTag('div', { class: 'selected-filters-div' }),
-      selectedFiltersTitle = createTag('div', { class: 'selected-filters-title' }),
-      clearAllFilters = createTag('div', { class: 'clear-all-filters' }),
-      selectedFiltersList = createTag('div', { class: 'selected-filters-list' });
+    const selectedFilters = createTag('div', { class: 'selected-filters' });
+    const selectedFiltersdiv = createTag('div', { class: 'selected-filters-div' });
+    const selectedFiltersTitle = createTag('div', { class: 'selected-filters-title' });
+    const clearAllFilters = createTag('div', { class: 'clear-all-filters' });
+    const selectedFiltersList = createTag('div', { class: 'selected-filters-list' });
     selectedFiltersdiv.append(selectedFiltersTitle);
     selectedFiltersdiv.append(clearAllFilters);
     selectedFilters.append(selectedFiltersdiv);
