@@ -1,4 +1,6 @@
-import { getAllBlogs, createCard, getBlogCategoryPages } from '../../scripts/scripts.js';
+import {
+  getAllBlogs, createCard, getBlogCategoryPages, createTag,
+} from '../../scripts/scripts.js';
 
 const NUM_CARDS_SHOWN_AT_A_TIME = 6;
 let loadMoreElement;
@@ -75,13 +77,9 @@ function clearFilters() {
 
 async function createCheckboxList(label) {
   const div = document.createElement('div');
-  const inputEl = document.createElement('input');
-  inputEl.setAttribute('type', 'checkbox');
-  inputEl.setAttribute('name', 'blogFilters');
-  inputEl.setAttribute('id', label);
-  inputEl.setAttribute('value', label);
-  const labelEl = document.createElement('label');
-  labelEl.setAttribute('for', label);
+  // eslint-disable-next-line object-curly-newline
+  const inputEl = createTag('input', { type: 'checkbox', name: 'blogFilters', id: label, value: label });
+  const labelEl = createTag('label', { for: label });
   labelEl.append(label);
   div.append(inputEl);
   div.append(labelEl);
@@ -167,8 +165,7 @@ function refreshCards() {
     });
 
     checkedList.forEach((val) => {
-      const selectedValue = document.createElement('div');
-      selectedValue.classList.add('selected-value');
+      const selectedValue = createTag('div', { class: 'selected-value' });
       selectedValue.append(val);
       selectedFiltersList.append(selectedValue);
       // Add another event listener for click events to remove this item and uncheck the checkbox
@@ -187,10 +184,8 @@ async function addEventListeners(checkboxes) {
 }
 
 async function createCategories(categoriesList) {
-  const categoriesElement = document.createElement('div');
-  categoriesElement.classList.add('categories');
-  const catLabel = document.createElement('span');
-  catLabel.classList.add('category-title');
+  const categoriesElement = createTag('div', { class: 'categories' });
+  const catLabel = createTag('span', { class: 'category-title' });
   catLabel.append('Categories');
   categoriesElement.append(catLabel);
   categoriesList.forEach((row) => {
@@ -211,38 +206,29 @@ async function createCategories(categoriesList) {
 async function createFilters(categories, topics, audiences) {
   // Create DOM elements for topics and audiences to display in the left nav
   // Root filters div
-  const filters = document.createElement('div');
-  filters.classList.add('filters');
-  filters.setAttribute('role', 'button');
-  filters.setAttribute('aria-expanded', 'false');
+  const filters = createTag('div', { class: 'filters', role: 'button', 'aria-expanded': 'false' });
 
   // Filters main section
-  const filtersMain = document.createElement('div');
-  filtersMain.classList.add('filters-main');
+  const filtersMain = createTag('div', { class: 'filters-main' });
 
   // Filters footer section
-  const filtersFooter = document.createElement('div');
-  filtersFooter.classList.add('filters-footer');
-  const applyDiv = document.createElement('div');
-  applyDiv.classList.add('apply');
+  const filtersFooter = createTag('div', { class: 'filters-footer' });
+  const applyDiv = createTag('div', { class: 'apply' });
   applyDiv.innerHTML = 'Apply';
-  const resetDiv = document.createElement('div');
-  resetDiv.classList.add('reset');
+  const resetDiv = createTag('div', { class: 'reset' });
   resetDiv.innerHTML = 'Reset';
   filtersFooter.append(applyDiv);
   filtersFooter.append(resetDiv);
 
   // Filters header section
-  const filtersHeader = document.createElement('div');
-  filtersHeader.classList.add('filters-header');
+  const filtersHeader = createTag('div', { class: 'filters-header' });
   filtersHeader.innerHTML = '<h4>Filters</h4>';
   filtersHeader.addEventListener('click', () => {
     const expanded = filters.getAttribute('aria-expanded') === 'true';
     filters.setAttribute('aria-expanded', expanded ? 'false' : 'true');
     toggleBodyOverflow();
   });
-  const filtersHeaderArrow = document.createElement('div');
-  filtersHeaderArrow.classList.add('arrow');
+  const filtersHeaderArrow = createTag('div', { class: 'arrow' });
   filtersHeader.append(filtersHeaderArrow);
 
   // Add sticky Filter below header mobile/tablet
@@ -286,12 +272,8 @@ async function createFilters(categories, topics, audiences) {
   // });
 
   // Audience filters
-  const audiencesElement = document.createElement('div');
-  audiencesElement.classList.add('audiences');
-  audiencesElement.setAttribute('role', 'button');
-  audiencesElement.setAttribute('aria-expanded', 'true');
-  const audienceLabel = document.createElement('span');
-  audienceLabel.classList.add('list-title');
+  const audiencesElement = createTag('div', { class: 'audiences', role: 'button', 'aria-expanded': 'true' });
+  const audienceLabel = createTag('span', { class: 'list-title' });
   audienceLabel.append('Audience');
   audiencesElement.append(audienceLabel);
   audienceLabel.addEventListener('click', () => {
@@ -306,12 +288,8 @@ async function createFilters(categories, topics, audiences) {
   }
 
   // Topic filters
-  const topicsElement = document.createElement('div');
-  topicsElement.classList.add('topics');
-  topicsElement.setAttribute('role', 'button');
-  topicsElement.setAttribute('aria-expanded', 'true');
-  const topicLabel = document.createElement('span');
-  topicLabel.classList.add('list-title');
+  const topicsElement = createTag('div', { class: 'topics', role: 'button', 'aria-expanded': 'true' });
+  const topicLabel = createTag('span', { class: 'list-title' });
   topicLabel.append('Topic');
   topicsElement.append(topicLabel);
   topicLabel.addEventListener('click', () => {
@@ -333,10 +311,8 @@ async function createFilters(categories, topics, audiences) {
   filtersMain.prepend(await createCategories(categories));
 
   // Add Blog home link to the top of filters main section
-  const blogHomeEl = document.createElement('div');
-  blogHomeEl.classList.add('blog-home-link');
-  const blogHomeLink = document.createElement('a');
-  blogHomeLink.classList.add('category-link');
+  const blogHomeEl = createTag('div', { class: 'blog-home-link' });
+  const blogHomeLink = createTag('a', { class: 'category-link' });
   blogHomeLink.href = '/blog';
   if (/(^\/blog$)/.test(window.location.pathname)) {
     blogHomeLink.classList.add('active');
@@ -361,29 +337,22 @@ export default async function decorate(block) {
   const topics = new Set();
   const audiences = new Set();
   if (blogList.length) {
-    const blogContent = document.createElement('div');
-    blogContent.classList.add('blog-content');
+    const blogContent = createTag('div', { class: 'blog-content' });
     // Get default content in this section and add it to blog-content
     const defaultContent = document.querySelectorAll('.blog-home-container > .default-content-wrapper');
     defaultContent.forEach((div) => blogContent.append(div));
     // Create the selected filters DOM structure
-    const selectedFilters = document.createElement('div');
-    selectedFilters.classList.add('selected-filters');
-    const selectedFiltersdiv = document.createElement('div');
-    selectedFiltersdiv.classList.add('selected-filters-div');
-    const selectedFiltersTitle = document.createElement('div');
-    selectedFiltersTitle.classList.add('selected-filters-title');
-    const clearAllFilters = document.createElement('div');
-    clearAllFilters.classList.add('clear-all-filters');
-    const selectedFiltersList = document.createElement('div');
-    selectedFiltersList.classList.add('selected-filters-list');
+    const selectedFilters = createTag('div', { class: 'selected-filters' });
+    const selectedFiltersdiv = createTag('div', { class: 'selected-filters-div' });
+    const selectedFiltersTitle = createTag('div', { class: 'selected-filters-title' });
+    const clearAllFilters = createTag('div', { class: 'clear-all-filters' });
+    const selectedFiltersList = createTag('div', { class: 'selected-filters-list' });
     selectedFiltersdiv.append(selectedFiltersTitle);
     selectedFiltersdiv.append(clearAllFilters);
     selectedFilters.append(selectedFiltersdiv);
     selectedFilters.append(selectedFiltersList);
     // Create blog cards DOM structure
-    const blogCards = document.createElement('div');
-    blogCards.classList.add('blog-cards');
+    const blogCards = createTag('div', { class: 'blog-cards' });
     await blogList.forEach(async (row, i) => {
       const blogCard = await createCard(row, 'blog-card');
       // first render show featured article and 6 cards so total 7
@@ -422,8 +391,7 @@ export default async function decorate(block) {
     });
 
     // Load More button
-    loadMoreElement = document.createElement('div');
-    loadMoreElement.classList.add('load-more');
+    loadMoreElement = createTag('div', { class: 'load-more' });
     if (blogList.length > (NUM_CARDS_SHOWN_AT_A_TIME + 1)) {
       loadMoreElement.innerHTML = `Load more (${(blogList.length - (NUM_CARDS_SHOWN_AT_A_TIME + 1))})`;
     } else {
