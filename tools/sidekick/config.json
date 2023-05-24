@@ -13,7 +13,7 @@
         },
         {
             "id": "publish",
-            "excludePaths": [ "**/drafts/**","sites/Merative.comWebsite/Shared%20Documents/Forms/AllItems.aspx?ga=1&id=%2Fsites%2FMerative%2EcomWebsite%2FShared%20Documents%2Fwebsite%2Fdrafts%2F" ]
+            "excludePaths": [ "**/drafts/**","**/Merative.comWebsite/Shared%20Documents/Forms/AllItems.aspx?ga=1&id=/sites/Merative.comWebsite/Shared%20Documents/website/drafts/**" ]
           }
     ]
 }
