@@ -13,7 +13,7 @@
         },
         {
             "id": "publish",
-            "excludePaths": [ "**/drafts/**","sites/Merative.comWebsite/Shared%20Documents/**" ]
+            "excludePaths": [ "**/drafts/**","**/sites/**" ]
           }
     ]
 }
