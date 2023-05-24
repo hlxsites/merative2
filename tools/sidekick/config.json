@@ -13,7 +13,7 @@
         },
         {
             "id": "publish",
-            "excludePaths": [ "**/drafts/**","**/sites/**" ]
+            "excludePaths": [ "**/drafts/**" ]
           }
     ]
 }
