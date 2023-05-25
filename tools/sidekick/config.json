@@ -1,5 +1,6 @@
 {
     "project": "Merative",
+    "host": "www.merative.com",
     "plugins": [
         {
             "id": "library",
@@ -13,6 +14,10 @@
         {
             "id": "publish",
             "excludePaths": [ "**/drafts/**" ]
-          }
+        },        
+        {
+            "id": "bulk-publish",
+            "excludePaths": [ "**/drafts/**" ]
+        }
     ]
 }
