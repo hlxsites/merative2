@@ -12,6 +12,10 @@
             "includePaths": [ "**.docx**" ]
         },
         {
+            "id": "bulk-publish",
+            "excludePaths": [ "**%2Fdrafts**" ]
+          },
+        {
             "id": "publish",
             "excludePaths": [ "**/drafts/**" ]
         }
