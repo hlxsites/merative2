@@ -723,6 +723,7 @@ header nav .nav-sections > ul > li {
     text-decoration: none;
     border-bottom: 1px solid var(--neutral-sand);
     margin: var(--spacer-element-05) 0;
+    color: currentcolor;
   }
 
   header nav .nav-sections > ul > li[aria-expanded='true'] .mega-menu-content .columns.solution-list > div > div > a:last-child  {

@@ -59,7 +59,7 @@ function buildMegaMenu(navItem) {
   if (!navItem) {
     return;
   }
-  const menuLinks = navItem.querySelectorAll('.columns.solution-list p > a:not(.button)');
+  const menuLinks = navItem.querySelectorAll('.columns.solution-list p > a');
   [...menuLinks].forEach((link) => {
     const cell = link.closest('div');
     const linkParent = link.parentElement;
@@ -115,7 +115,7 @@ export default async function decorate(block) {
   block.textContent = '';
 
   // fetch nav content
-  const navPath = cfg.nav || '/nav';
+  const navPath = cfg.nav || '/drafts/chelms/nav';
   const resp = await fetch(`${navPath}.plain.html`);
   if (!resp.ok) {
     return;
