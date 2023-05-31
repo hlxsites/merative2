@@ -719,12 +719,6 @@ main .columns > div > div > h4:first-child {
     padding-bottom: var(--spacer-layout-06);
   }
 
-  .section.teaser-list-manual {
-    width: var(--section-width-desktop);
-    gap: 140px;
-    padding: var(--spacer-layout-07) 0;
-  }
-
   .section.promo .columns .button-container {
     margin-top: var(--spacer-layout-04);
   }
