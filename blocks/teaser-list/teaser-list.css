@@ -48,10 +48,13 @@
   min-height: 727px;
 }
 
-.teaser-list h6 {
+.teaser-list h3 {
+  font-family: var(--sans-serif-font-light);
   font-size: var(--font-size-18);
+  font-weight: 700;
   line-height: 160%;
   letter-spacing: .16px;
+  margin: 0;
 }
 
 .teaser-list .teaser-card .teaser-link {
@@ -134,7 +137,7 @@
     grid-template-rows: auto auto auto;
   }
 
-  .teaser-list .teaser-card h6 {
+  .teaser-list .teaser-card h3 {
     font-size: var(--font-size-21);
   }
 
