@@ -167,11 +167,13 @@ main .columns > div > div > h4:first-child {
   margin-bottom: 0;
 }
 
+.columns.content-band.icon-list h3,
 .columns.content-band.icon-list h4 {
   font-size: var(--font-size-18);
   line-height: var(--line-height-160);
   letter-spacing: var(--letter-spacing-1);
   margin: 0 0 var(--spacer-layout-01);
+  font-family: var(--sans-serif-font-medium);
 }
 
 .columns.picture-circle h2 {
@@ -584,18 +586,6 @@ main .columns > div > div > h4:first-child {
   .content-band.columns > div > div {
     flex: unset;
     width: 320px;
-    }
-
-  .section.promo .columns > div {
-    gap: 90px;
-  }
-
-  .columns.content-band.icon-list > div {
-    column-gap: 64px;
-  }
-
-  .columns.stretch-last > div > div:first-child {
-    width: 360px;
   }
 
   .columns.quarter-circle img {
@@ -614,14 +604,26 @@ main .columns > div > div > h4:first-child {
     max-width: 262px;
   }
 
-  .section.promo .columns > div > div img {
-    width: 356px;
-  }
-
   .columns.content-band.picture-circle img {
     border-radius: 50%;
     height: 285px;
     width: 285px;
+  }  
+
+  .section.promo .columns > div {
+    gap: 90px;
+  }
+
+  .columns.content-band.icon-list > div {
+    column-gap: 64px;
+  }
+
+  .columns.stretch-last > div > div:first-child {
+    width: 360px;
+  }
+
+  .section.promo .columns > div > div img {
+    width: 356px;
   }
 
   .section-top-grid > div:nth-child(1) > div:nth-child(1) {
@@ -675,6 +677,12 @@ main .columns > div > div > h4:first-child {
     font-size: var(--font-size-16);
   }
 
+  .columns.content-band.icon-list h3,
+  .columns.content-band.icon-list h4 {
+    font-size: var(--font-size-21);
+    font-family: var(--sans-serif-font-medium);
+  }
+  
   .overview .columns.content-band.icon-list > div > div > h3,
   .overview .columns.content-band.picture-circle > div > div > h3,
   .overview .columns.content-band.icon-list > div > div > p,
@@ -709,18 +717,6 @@ main .columns > div > div > h4:first-child {
   .section.section-bottom .columns-wrapper .columns-2-cols {
     padding-top: var(--spacer-layout-05);
     padding-bottom: var(--spacer-layout-06);
-  }
-
-  /* teaser-list-manual min 1200 */
-  .teaser-list-manual .teaser-list {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0;
-  }
-
-  .columns.content-band.icon-list h4 {
-    font-size: var(--font-size-21);
   }
 
   .section.teaser-list-manual {
