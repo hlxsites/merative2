@@ -41,9 +41,9 @@ function addContactLink(e) {
 }
 
 function addCSSToLinkHeadings(block) {
-  const h4elements = block.querySelectorAll('.footer-links > div > div > h4');
-  h4elements.forEach((h4element) => {
-    h4element.classList.add('link-section-heading');
+  const h3elements = block.querySelectorAll('.footer-links > div > div > h3');
+  h3elements.forEach((h3element) => {
+    h3element.classList.add('link-section-heading');
   });
 }
 
@@ -62,8 +62,7 @@ function buildMobileFooter(block) {
 export default async function decorate(block) {
   const cfg = readBlockConfig(block);
   block.textContent = '';
-
-  const footerPath = cfg.footer || '/footer';
+  const footerPath = cfg.footer || '/drafts/chelms/footer'; // temporary change for testing
   const resp = await fetch(`${footerPath}.plain.html`);
   const html = await resp.text();
   const footer = document.createElement('div');
