@@ -49,9 +49,8 @@
 }
 
 .teaser-list h3 {
-  font-family: var(--sans-serif-font-light);
+  font-family: var(--sans-serif-font-medium);
   font-size: var(--font-size-18);
-  font-weight: 700;
   line-height: 160%;
   letter-spacing: .16px;
   margin: 0;

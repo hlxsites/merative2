@@ -93,11 +93,19 @@ function buildTags(main) {
   tagsElement.classList.add('tags');
   if (category) {
     tagsElement.append(buildBlock('tags', { elems: [] }));
-    const firstH2 = main.querySelector('h2:first-of-type');
-    const p = main.querySelector('p:first-of-type');
+    // if there's a lede before the picture
+    const firstH1 = main.querySelector('h1:first-of-type');
+    const firstP = main.querySelector('p:first-of-type:not(.only-picture)');
+    if (firstH1 && firstP
+      // eslint-disable-next-line no-bitwise
+      && (firstH1.compareDocumentPosition(firstP) & Node.DOCUMENT_POSITION_FOLLOWING)) {
+      firstP.classList.add('lede');
+    }
+    const pic = main.querySelector('.only-picture');
+    const bio = main.querySelector('.author-bio');
     // eslint-disable-next-line no-bitwise
-    if (firstH2 && p && (firstH2.compareDocumentPosition(p) & Node.DOCUMENT_POSITION_FOLLOWING)) {
-      firstH2.after(tagsElement);
+    if (pic && bio && (pic.compareDocumentPosition(bio) & Node.DOCUMENT_POSITION_FOLLOWING)) {
+      pic.before(tagsElement);
     }
   }
 }
