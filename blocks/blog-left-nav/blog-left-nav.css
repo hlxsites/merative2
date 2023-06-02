@@ -146,11 +146,6 @@ html {
         display: flex;
     }
 
-    .article-content-wrapper h1 {
-        font-size: var(--font-size-45);
-        margin-top: 0;
-        }
-
     .section.article-content .article-main-wrapper .blog-left-nav {
         width: 240px;
         margin: 48px 48px 0 0;
@@ -233,6 +228,7 @@ html {
         padding-top: 24px;
         padding-bottom: 24px !important;
     } */
+
     .article-main-wrapper {
         display: flex;
         flex-direction: column-reverse;
@@ -258,7 +254,6 @@ html {
     }
 
 }
-
 
 /* devices */
 
@@ -300,7 +295,6 @@ html {
     }
 
 }
-
 
 /* mobile devices */
 
