@@ -96,13 +96,13 @@ function buildTags(main) {
     // if there's a lede before the picture
     const firstH1 = main.querySelector('h1:first-of-type');
     const firstP = main.querySelector('p:first-of-type:not(.only-picture)');
-    if (firstH1 && firstP
-      // eslint-disable-next-line no-bitwise
-      && (firstH1.compareDocumentPosition(firstP) & Node.DOCUMENT_POSITION_FOLLOWING)) {
-      firstP.classList.add('lede');
-    }
     const pic = main.querySelector('.only-picture');
     const bio = main.querySelector('.author-bio');
+    if (firstP && pic
+      // eslint-disable-next-line no-bitwise
+      && (firstP.compareDocumentPosition(pic) & Node.DOCUMENT_POSITION_FOLLOWING)) {
+      firstP.classList.add('lede');
+    }
     // eslint-disable-next-line no-bitwise
     if (pic && bio && (pic.compareDocumentPosition(bio) & Node.DOCUMENT_POSITION_FOLLOWING)) {
       pic.before(tagsElement);
