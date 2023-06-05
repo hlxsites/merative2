@@ -47,7 +47,7 @@ export default function decorate(block) {
     const pipeTag = createTag('span', { class: 'pipe' });
     pipeTag.innerHTML = '|';
     const pubDateTag = createTag('span', { class: 'publication-date' });
-    pubDateTag.innerHTML = pubDate;
+    pubDateTag.innerHTML = `Published  ${pubDate}`;
     block.append(pipeTag, pubDateTag);
   }
 
