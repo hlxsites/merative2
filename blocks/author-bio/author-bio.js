@@ -32,8 +32,8 @@ export default function decorate(block) {
     authorImageTag.setAttribute('alt', 'author-image');
     const authorNameTag = createTag('div', { class: 'author-name' });
     authorNameTag.innerHTML = authorsQuantity === 1 ? `${prefix}` : '';
-    const authorNameHighlight = createTag('span', { class: 'author-name-hightlight' });
-    const authorTitleHighlight = createTag('span', { class: 'author-title-hightlight' });
+    const authorNameHighlight = createTag('span', { class: 'author-name-highlight' });
+    const authorTitleHighlight = createTag('span', { class: 'author-title-highlight' });
     authorNameHighlight.innerHTML = author[titleField] ? `${author[nameField]},` : author[nameField];
     authorTitleHighlight.innerHTML = author[titleField] || '';
     authorNameTag.append(authorNameHighlight);
