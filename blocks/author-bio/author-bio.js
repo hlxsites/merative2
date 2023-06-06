@@ -5,6 +5,7 @@ export default function decorate(block) {
   const defaultAuthorImageSrc = '../../styles/favicon-thumbnail-merative.svg';
   const defaultAuthor = 'Merative';
 
+  const pubDate = getMetadata('publication-date');
   const readtime = getMetadata('readtime');
   let authors = getMetadata('authors');
   const nameField = 'name';
@@ -31,8 +32,8 @@ export default function decorate(block) {
     authorImageTag.setAttribute('alt', 'author-image');
     const authorNameTag = createTag('div', { class: 'author-name' });
     authorNameTag.innerHTML = authorsQuantity === 1 ? `${prefix}` : '';
-    const authorNameHighlight = createTag('span', { class: 'author-name-hightlight' });
-    const authorTitleHighlight = createTag('span', { class: 'author-title-hightlight' });
+    const authorNameHighlight = createTag('span', { class: 'author-name-highlight' });
+    const authorTitleHighlight = createTag('span', { class: 'author-title-highlight' });
     authorNameHighlight.innerHTML = author[titleField] ? `${author[nameField]},` : author[nameField];
     authorTitleHighlight.innerHTML = author[titleField] || '';
     authorNameTag.append(authorNameHighlight);
@@ -41,6 +42,14 @@ export default function decorate(block) {
     content.push(authorContainer);
   });
   block.append(...content);
+
+  if (pubDate) {
+    const pipeTag = createTag('span', { class: 'pipe' });
+    pipeTag.innerHTML = '|';
+    const pubDateTag = createTag('span', { class: 'publication-date' });
+    pubDateTag.innerHTML = `Published  ${pubDate}`;
+    block.append(pipeTag, pubDateTag);
+  }
 
   if (readtime) {
     const pipeTag = createTag('span', { class: 'pipe' });
