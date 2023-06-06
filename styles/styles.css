@@ -349,10 +349,11 @@ blockquote {
 
 .article-content-wrapper h1 {
 font-size: var(--font-size-32);
+max-width: var(--text-max-container);
 margin: 16px 0;
 }
 
-p.lede {
+.article-content-wrapper p.lede {
   font-size: var(--font-size-18);
   max-width: var(--text-max-container);
 }
@@ -863,6 +864,7 @@ main ul a:not(.button):active {
 }
 
 .article-content-wrapper {
+  max-width: 744px;
   font-weight: 300;
   font-size: 21px;
   line-height: 160%;
@@ -1488,10 +1490,6 @@ main pre {
 
   .article-content {
     padding-bottom: 160px;
-  }
-
-  .article-content picture img {
-    max-width: 744px;
   }
 
   /* blog article */
