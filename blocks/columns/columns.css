@@ -284,7 +284,8 @@ main .columns > div > div > h4:first-child {
 .section-bottom.columns-container {
   background-size: 1900px 239%;
   background-position: 50% -72%, 50% 0, 0 0, 0 0;
-  background-image: linear-gradient(180deg, var(--neutral-bone) 40%, rgb(255 255 255 / 0%) 100%),
+/*  background-image: linear-gradient(180deg, var(--neutral-bone) 40%, rgb(255 255 255 / 0%) 100%), */
+  background-image: linear-gradient(180deg, var(--neutral-bone) 40%, rgba(255, 255, 255, 0) 100%),
   radial-gradient(50% 40% at 50% 0%, var(--neutral-bone) 0%, var(--neutral-bone) 100%, var(--neutral-white));
   padding-bottom: var(--spacer-layout-04);
 }
