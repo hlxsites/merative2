@@ -13,7 +13,11 @@
         },
         {
             "id": "publish",
-            "excludePaths": [ "**/drafts/**" ]
+
+          "excludePaths": [
+            "**/drafts/**",
+            "**%2Fdrafts**"
+          ]
         },
         {
             "id": "tagger",

@@ -62,7 +62,7 @@ function createCard(row, style) {
   } else {
     link.innerText = 'Learn more about';
   }
-  if (row.title) card.innerHTML += `<h6>${row.title}</h6>`;
+  if (row.title) card.innerHTML += `<h3>${row.title}</h3>`;
   if (row.description) card.innerHTML += `<p>${row.description}</p>`;
   card.append(link);
   return (card);

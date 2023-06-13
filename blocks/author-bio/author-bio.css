@@ -9,8 +9,8 @@ main .author-bio {
     flex-wrap: wrap;
     align-items: center;
     color: var(--neutral-carbon);
+    margin-bottom: 32px;
 }
-
 
 main .author-bio img.author-img{
     width: 48px;
@@ -20,12 +20,15 @@ main .author-bio img.author-img{
 }
 
 @media only screen and (min-width: 1200px) {
+    main .author-bio {
+      margin-bottom: 48px;
+    }
+
     main .author-bio img.author-img {
         width: 64px;
         height: 64px;
     }
 }
-
 
 main .author-bio .author-name {
     margin-left: 16px;

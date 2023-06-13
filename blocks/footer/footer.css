@@ -28,7 +28,7 @@ footer .footer-links > div > div:last-of-type {
     flex: 1 1 6.825rem;
 }
 
-footer .footer-links > div > div > h4 {
+footer .footer-links > div > div > h3 {
     color: var(--neutral-grey-tint120);
     font-size: var(--font-size-18);
     font-family: var(--sans-serif-font-medium);
@@ -233,7 +233,7 @@ footer div:last-of-type > ul:last-of-type > li:last-of-type a:hover {
         height: 75px;
     }
 
-    footer .footer-links > div > div > h4 {
+    footer .footer-links > div > div > h3 {
         margin: 0 0 32px;
     }
 
@@ -336,7 +336,7 @@ footer div:last-of-type > ul:last-of-type > li:last-of-type a:hover {
         height: 0;
     }
 
-    footer .footer-links > div > div > h4 {
+    footer .footer-links > div > div > h3 {
         color: var(--neutral-white);
         font-size: var(--font-size-18);
         font-family: var(--sans-serif-font-semibold);
