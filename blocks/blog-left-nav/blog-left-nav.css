@@ -127,8 +127,12 @@ html {
     padding-bottom: var(--spacer-element-03);
 }
 
+.blog-left-nav .content-link:last-child  {
+    padding-bottom: 0;
+}
+
 .blog-left-nav .content-link.active {
-    font-family: var(--sans-serif-font-semibold);
+    font-family: var(--sans-serif-font-regular);
     }
 
 .blog-left-nav .content-link.active::before {
@@ -160,9 +164,7 @@ html {
         flex-direction: column;
         position: sticky;
         top: 230px;
-
-        /* height: auto; */
-        padding-bottom: 48px;
+        padding-bottom: var(--spacer-layout-04);
     }
 
     .social-share-links {

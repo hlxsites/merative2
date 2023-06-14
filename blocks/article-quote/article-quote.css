@@ -1,9 +1,32 @@
-main .article-content .article-quote{ 
-    margin: 48px auto;
-    padding-left: var(--spacer-layout-05);
-    border: solid 1px;
-    border-image: var(--gradient-horizontal-down) 0 1;
-    border-style: solid;
-    border-width: 5px 0 5px 5px;
-    display: block;
+main .article-content .article-quote { 
+	margin: var(--spacer-layout-04) auto;
+	padding-left: var(--spacer-layout-02);
+	border-image: var(--gradient-horizontal-down) 0 1;
+	border-style: solid;
+	border-width: 5px 0 5px 5px;
+	display: block;
+}
+
+main .article-content .article-quote p {
+	margin: 0;
+	font-family: var(--sans-serif-font-medium);
+	font-size: var(--font-size-18);
+}
+
+main .article-content .article-quote p:last-of-type {
+	font-family: var(--sans-serif-font-regular);
+	font-size: var(--font-size-16);
+	margin-top: var(--spacer-layout-02);
+}
+
+/* Desktop */
+@media only screen and (min-width: 1200px) {
+	main .article-content .article-quote {
+		margin: var(--spacer-layout-06) auto;
+		padding-left: var(--spacer-layout-05);
+	}
+
+	main .article-content .article-quote p {
+		font-size: var(--font-size-21);
+	}
 }
