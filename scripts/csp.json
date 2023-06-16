@@ -31,7 +31,7 @@
       "*.kampyle.com",
       "js.driftt.com",
       "https://rum.hlx.page/",
-      "https://static.hotjar.com"
+      "https://*.hotjar.com"
   ],
   "connect-src": [
       "'self'",
@@ -54,7 +54,7 @@
       "cdn.cookielaw.org",
       "*.medallia.com",
       "*.kampyle.com",
-      "https://csmetrics.hotjar.com"
+      "https://*.hotjar.com"
   ],
   "img-src": [
     "'self'",
