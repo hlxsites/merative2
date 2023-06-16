@@ -54,7 +54,8 @@
       "cdn.cookielaw.org",
       "*.medallia.com",
       "*.kampyle.com",
-      "https://*.hotjar.com"
+      "https://*.hotjar.com",
+      "https://*.hotjar.io"
   ],
   "img-src": [
     "'self'",
