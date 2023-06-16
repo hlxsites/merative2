@@ -8,5 +8,6 @@ export default function decorate(block) {
   podcastIframe.setAttribute('src', podcastIframeUrl);
   podcastIframe.setAttribute('scrolling', 'no');
   podcastContainer.append(podcastIframe);
-  block.append(podcastContainer);
+  block.innerHTML = podcastContainer.outerHTML;
+  
 }
