@@ -30,7 +30,8 @@
       "resources.digital-cloud-west.medallia.com",
       "*.kampyle.com",
       "js.driftt.com",
-      "https://rum.hlx.page/"
+      "https://rum.hlx.page/",
+      "https://static.hotjar.com"
   ],
   "connect-src": [
       "'self'",
@@ -52,7 +53,8 @@
       "dpm.demdex.net",
       "cdn.cookielaw.org",
       "*.medallia.com",
-      "*.kampyle.com"
+      "*.kampyle.com",
+      "https://csmetrics.hotjar.com"
   ],
   "img-src": [
     "'self'",
