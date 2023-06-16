@@ -77,21 +77,6 @@ export function createTag(tag, attributes = {}, html = undefined) {
 }
 
 /**
- * Helper function to create CSP meta elements
- * @param {string} directive CSP directive (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#directives)
- * @param {string} source URL to allow for the particular directive
- */
-
-export function addCSP(directive, source) {
-  const head = document.querySelector('head');
-  const csp = createTag('meta', {
-    'http-equiv': 'Content-Security-Policy',
-    content: `${directive} ${source}`,
-  });
-  head.append(csp);
-}
-
-/**
  * Retrieves the content of a metadata tag.
  * @param {string} name The metadata name (or property)
  * @returns {string} The metadata value

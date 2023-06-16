@@ -1,4 +1,4 @@
-import { addCSP, createTag } from '../../scripts/scripts.js';
+import { createTag } from '../../scripts/scripts.js';
 import { fetchPlaceholders, readBlockConfig } from '../../scripts/lib-franklin.js';
 
 const placeholders = await fetchPlaceholders();
@@ -32,8 +32,6 @@ const embedPDFViewer = (
   // PDF Viewer for doc pages
   if (docUrl) {
     const docFilename = docUrl.split('/').pop();
-    addCSP('frame-src', 'documentservices.adobe.com');
-    addCSP('script-src \'self\' \'unsafe-inline\' \'unsafe-eval\'', 'documentservices.adobe.com');
     loadScript('https://documentservices.adobe.com/view-sdk/viewer.js');
     let pdfAPIKey;
     if (window.location.host.startsWith('localhost')) {
