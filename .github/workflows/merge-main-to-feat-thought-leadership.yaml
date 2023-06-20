@@ -1,4 +1,4 @@
-name: Merge changes from main to feat/thought-leadership
+name: Merge from main to feat/thought-leadership
 
 on:
   push:
@@ -6,15 +6,32 @@ on:
       - main
 
 jobs:
-  merge-changes:
+  merge:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v2
-      
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Fetch latest changes
+        run: git fetch
+
+      - name: Checkout feat/thought-leadership branch
+        run: git checkout feat/thought-leadership
+
       - name: Merge changes from main to feat/thought-leadership
         run: |
-          git checkout feat/thought-leadership
           git merge main --no-ff --no-edit
-          git push origin feat/thought-leadership
+
+      - name: Push changes to remote repository
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: feat/thought-leadership

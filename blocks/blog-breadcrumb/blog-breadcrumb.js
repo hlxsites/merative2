@@ -37,14 +37,27 @@ export default async function decorate(block) {
     liHome.append(createLink('/blog', '...', 'Merative Blog'));
   }
 
+  // Return parameter in sentence case
+  function toSentenceCase(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  }
+
   // Create Category link
   const liCategory = document.createElement('li');
   liCategory.classList.add('category');
   const categoryName = getMetadata('category');
   const categoryBlogPages = await getBlogCategoryPages();
   categoryBlogPages.forEach((row) => {
-    if ((row.path !== '0') && (row.title === categoryName)) {
-      liCategory.append(createLink(row.path, categoryName, categoryName));
+    // Check if the path is not '0' and the title matches the category name (case-insensitive)
+    if ((row.path !== '0') && (row.title.toLowerCase() === categoryName.toLowerCase())) {
+      // Append a link element with the path & category name (in sentence case)
+      liCategory.append(
+        createLink(
+          row.path,
+          toSentenceCase(categoryName),
+          toSentenceCase(categoryName),
+        ),
+      );
     }
   });
   ul.append(liHome);
