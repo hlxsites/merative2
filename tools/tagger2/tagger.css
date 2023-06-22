@@ -32,7 +32,7 @@ main #selected button {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  padding-bottom: 150px;
+  padding-bottom: 350px;
 }
 
 #results > .category {
@@ -71,19 +71,19 @@ span.tag {
 }
 
 .tag.cat-0 {
-  background-color: #0d66d0;
+  background-color: #1385E2;
 }
 
 .tag.cat-1 {
-  background-color: #d7373f;
+  background-color: #FA1E32;
 }
 
 .tag.cat-2 {
-  background-color: #12805c;
+  background-color: #05BC71
 }
 
 .tag.cat-3 {
-  background-color: #d2b200;
+  background-color: #9900FF;
 }
 
 span.tag .highlight {
@@ -111,7 +111,7 @@ span.psep {
 #selected {
   position: fixed;
   bottom: 0;
-  background-color: lightsalmon;
+  background-color: #E7E2DA;
   padding-bottom: 20px;
   width: 100%;
   box-sizing: border-box;
