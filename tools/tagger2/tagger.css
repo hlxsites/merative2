@@ -1,3 +1,7 @@
+body {
+  background-color: #FAF8F6;
+}
+
 main {
   font-family: system-ui, Arial;
 }
@@ -55,7 +59,7 @@ main {
 }
 
 span.tag {
-  color: lightgrey;
+  color: white;
   padding: 2px 20px;
   border-radius: 10px;
   font-size: 16px;
