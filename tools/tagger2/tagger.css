@@ -2,10 +2,6 @@ body {
   background-color: #FAF8F6;
 }
 
-main {
-  font-family: system-ui, Arial;
-}
-
 main .intro {
   font-size: 1.2rem;
 }
@@ -20,11 +16,30 @@ main input {
 }
 
 main .filter {
-  padding: 20px 10px 20px 10px;
+  padding: 20px 10px;
+}
+
+#selected {
+  position: fixed;
+  bottom: 0;
+  background-color: #E7E2DA;
+  padding-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  left: 0;
+  display: grid;
+  gap: 1rem
 }
 
 main #selected {
   padding: 30px;
+}
+
+#selected button {
+  background-color: #F25749;
+  color: white;
+  border: 1px solid white;
+  font-size: 13px;
 }
 
 main #selected button {
@@ -42,8 +57,7 @@ main #selected button {
 #results > .category {
   user-select: none;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
 }
 
 main > div > span,
@@ -53,6 +67,7 @@ main > div > div > span {
 }
 
 main {
+  font-family: system-ui, Arial;
   padding: 20px;
   font-size: 1.3rem;
   line-height: 1.2em;
@@ -70,7 +85,7 @@ span.tag {
 }
 
 .selected span.tag {
-  background-color: #888888;
+  background-color: #888;
   color: lightgrey;
 }
 
@@ -87,7 +102,23 @@ span.tag {
 }
 
 .tag.cat-3 {
-  background-color: #9900FF;
+  background-color: #90F;
+}
+
+.tag.cat-4 {
+  background-color: black;
+}
+
+.tag.cat-5 {
+  background-color: #059641;
+}
+
+.tag.cat-6 {
+  background-color: #D21313;
+}
+
+.tag.cat-7 {
+  background-color: deepskyblue;
 }
 
 span.tag .highlight {
@@ -99,7 +130,7 @@ span.path {
   cursor: pointer;
   border-radius: 10px;
   border: 1px dashed black;
-  padding: 4px 10px 2px 10px;
+  padding: 4px 10px 2px;
   font-size: 12px;
 }
 
@@ -112,18 +143,6 @@ span.psep {
   font-weight: bold;
 }
 
-#selected {
-  position: fixed;
-  bottom: 0;
-  background-color: #E7E2DA;
-  padding-bottom: 20px;
-  width: 100%;
-  box-sizing: border-box;
-  left: 0;
-  display: grid;
-  gap: 1rem
-}
-
 @media (min-width: 600px) {
   #selected {
     grid-template-columns: 1fr 100px;
@@ -131,15 +150,8 @@ span.psep {
 }
 
 #selected button:disabled {
-  background-color: #cccccc;
+  background-color: #ccc;
   color: grey;
-}
-
-#selected button {
-  background-color: #F25749;
-  color: white;
-  border: 1px solid white;
-  font-size: 13px;
 }
 
 .selected-tags {
