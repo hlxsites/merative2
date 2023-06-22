@@ -50,12 +50,12 @@ if (document.querySelector('[data-ytid]')) {
 }
 
 if (document.querySelector('#podcast-container-id')) {
- const podcastURL = document.querySelector('#podcast-container-id').querySelector('.podcast-iframe').src;
- if(podcastURL){
- loadScript(podcastURL, {
-    type: 'text/javascript',
-  });
-}
+  const podcastURL = document.querySelector('#podcast-container-id').querySelector('.podcast-iframe').src;
+  if (podcastURL) {
+    loadScript(podcastURL, {
+      type: 'text/javascript',
+    });
+  }
 }
 
 // Adobe Target
