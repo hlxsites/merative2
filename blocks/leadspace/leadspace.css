@@ -16,13 +16,13 @@
 }
 
 .leadspace > div:first-child > div:nth-child(2) picture {
-    display: inline-block;
-    align-self: flex-end;
-    margin-top: 24px;
+  display: inline-block;
+  align-self: flex-end;
+  margin-top: 24px;
 }
 
 .leadspace.quarter-circle:not(.no-clip) > div > div:nth-child(2) picture {
-    clip-path: circle(100% at 100% 100%);
+  clip-path: circle(100% at 100% 100%);
 }
 
 .leadspace.half-circle:not(.no-clip) > div > div:nth-child(2) picture {
@@ -468,11 +468,11 @@ main div.leadspace-wrapper {
   .leadspace.document .document-tag {
     padding: var(--spacer-element-03) var(--spacer-element-07);
     margin-right: var(--spacer-element-03);
-    }
+  }
 
   .leadspace.document .document-tag-container {
     margin-bottom: var(--spacer-layout-02);
-    }
+  }
 
   .leadspace > div:first-child {
     flex-flow: row nowrap;
@@ -507,7 +507,7 @@ main div.leadspace-wrapper {
   }
 
   .leadspace.half-circle > div:first-child > div:nth-child(2) picture {
-        margin-top: var(--spacer-layout-06);
+    margin-top: var(--spacer-layout-06);
   }
 
   .leadspace > div:first-child > div:nth-child(1) > p:first-child {
@@ -556,13 +556,13 @@ main div.leadspace-wrapper {
   .leadspace.video.scroll-border .scroll-border-wrapper {
     display: flex;
     position: absolute;
-    bottom: -100px;
+    bottom: -106px;
     gap: var(--spacer-layout-03);
     z-index: 2;
   }
 
   .leadspace.video .scroll-border-line {
-        width: 1px;
+    width: 1px;
     height: 286px;
     background-image: var(--gradient-horizontal-down);
     font-size: var(--font-size-14);
@@ -578,5 +578,5 @@ main div.leadspace-wrapper {
   .section.leadspace-container .leadspace.document {
     padding-bottom: var(--spacer-layout-06);
     padding-top: var(--spacer-layout-06);
-    }
+  }
 }

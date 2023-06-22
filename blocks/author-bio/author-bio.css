@@ -17,6 +17,7 @@ main .author-bio img.author-img{
     border-radius: 50%;
     height: 48px;
     border: 1px solid var(--neutral-sand);
+    object-fit: cover;
 }
 
 @media only screen and (min-width: 1200px) {
@@ -27,6 +28,7 @@ main .author-bio img.author-img{
     main .author-bio img.author-img {
         width: 64px;
         height: 64px;
+        object-fit: cover;
     }
 }
 

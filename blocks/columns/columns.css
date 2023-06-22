@@ -58,11 +58,11 @@ main .columns-container h4 {
   list-style-image: url("../../icons/arrow-purple.svg");
   margin-bottom: var(--spacer-element-03);
   line-height: var(--line-height-160);
-  }
+}
 
 .section-top-grid > div > div > p {
   margin: var(--spacer-element-08) 0;
-  }
+}
 
 .columns.content-band p,
 .columns.content-band li {
@@ -264,8 +264,7 @@ main .columns > div > div > h4:first-child {
 .section-top.columns-container {
   background-size: 1400px 150%;
   background-position: 0 0, 50% 0, 0 0, 0 0;
-  background-image: linear-gradient(0deg, var(--neutral-bone) 60%, rgb(250 248 246 / 0%) 100%),
-  radial-gradient(50% 50% at 50% 50%, var(--neutral-white) 0%, var(--neutral-white) 100%, var(--neutral-bone));
+  background-image: linear-gradient(0deg, var(--neutral-bone) 60%, rgb(250 248 246 / 0%) 100%), radial-gradient(50% 50% at 50% 50%, var(--neutral-white) 0%, var(--neutral-white) 99.99%, var(--neutral-bone));
 }
 
 .section-bottom .columns-2-cols > div > :nth-child(2) h1 {
@@ -284,8 +283,7 @@ main .columns > div > div > h4:first-child {
 .section-bottom.columns-container {
   background-size: 1900px 239%;
   background-position: 50% -72%, 50% 0, 0 0, 0 0;
-  background-image: linear-gradient(180deg, var(--neutral-bone) 40%, rgb(255 255 255 / 0%) 100%),
-  radial-gradient(50% 40% at 50% 0%, var(--neutral-bone) 0%, var(--neutral-bone) 100%, var(--neutral-white));
+  background-image: linear-gradient(180deg, var(--neutral-bone) 40%, rgb(255 255 255 / 0%) 100%), radial-gradient(50% 40% at 50% 0%, var(--neutral-bone) 0%, var(--neutral-bone) 99.99%, var(--neutral-white));
   padding-bottom: var(--spacer-layout-04);
 }
 
@@ -332,7 +330,7 @@ main .columns > div > div > h4:first-child {
 
   .section-top h1 {
     font-size: var(--font-size-32);
-    }
+  }
 
   .columns > div {
     display: flex;
@@ -608,7 +606,7 @@ main .columns > div > div > h4:first-child {
     border-radius: 50%;
     height: 285px;
     width: 285px;
-  }  
+  }
 
   .section.promo .columns > div {
     gap: 90px;
@@ -682,7 +680,7 @@ main .columns > div > div > h4:first-child {
     font-size: var(--font-size-21);
     font-family: var(--sans-serif-font-medium);
   }
-  
+
   .overview .columns.content-band.icon-list > div > div > h3,
   .overview .columns.content-band.picture-circle > div > div > h3,
   .overview .columns.content-band.icon-list > div > div > p,
