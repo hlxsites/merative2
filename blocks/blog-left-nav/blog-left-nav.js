@@ -99,7 +99,7 @@ export default function decorate(block) {
   window.addEventListener('scroll', () => {
     const scrollAmount = window.scrollY;
     const linksHeight = document.getElementById('blog-content-link').clientHeight;
-    const socialTop = linksHeight + 250;
+    const socialTop = linksHeight + 240;
     document.getElementById('social-share-links-id').style.setProperty('top', `${socialTop}px`);
     if (scrollAmount >= (articleContentWrapper.offsetHeight) - 300) {
       document.getElementById('blog-content-link').classList.add('blog-content-links-is-sticky');

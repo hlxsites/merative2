@@ -118,6 +118,7 @@ main .section {
 .blog-home .blog-content  .blog-cards .blog-card .card-image {
     width: 328px;
     height: 219px;
+    object-fit: cover;
 }
 
 .blog-home .blog-content  .blog-cards .blog-card.featured-article .card-image img,
@@ -520,6 +521,7 @@ main .section {
     .blog-home .blog-content  .blog-cards .blog-card .card-image img {
         width: 336px;
         height: 224px;
+        object-fit: cover;
     }
 
     .blog-home > .blog-content > .blog-cards > .blog-card > .card-content a {
@@ -727,6 +729,7 @@ main .section {
     .blog-home .blog-content  .blog-cards .blog-card .card-image img {
         width: 396px;
         height: 264px;
+        object-fit: cover;
     }
 
     .blog-home .blog-content  .blog-cards .blog-card.featured-article .card-image,

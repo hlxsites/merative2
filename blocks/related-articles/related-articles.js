@@ -9,6 +9,7 @@ export default async function decorate(block) {
     pageList.forEach(async (row) => {
       block.append(await createCard(row, 'blog-card'));
     });
+    block.innerHTML = '<div class="eyebrow">Related articles</div>';
   } else {
     block.remove();
   }

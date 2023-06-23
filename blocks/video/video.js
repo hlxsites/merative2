@@ -220,4 +220,20 @@ export default function decorate(block) {
       playButton.addEventListener('click', () => toggleVideoOverlay(block, videoHref));
     }
   }
+
+  // decorate video title that's placed below the image
+  const secondRow = block.querySelector('div:nth-of-type(2)');
+  if (secondRow) {
+    const videoTitleElement = secondRow.querySelector('div');
+
+    if (videoTitleElement) {
+      const videoTitleText = videoTitleElement.textContent;
+      const paragraphElement = document.createElement('p');
+      paragraphElement.textContent = videoTitleText;
+      videoTitleElement.innerHTML = '';
+      videoTitleElement.appendChild(paragraphElement);
+
+      videoTitleElement.classList.add('video-title');
+    }
+  }
 }

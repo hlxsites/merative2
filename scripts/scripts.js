@@ -293,11 +293,7 @@ export async function getAllBlogs(category) {
     window.allBlogs = json.data;
   }
   const blogArticles = window.allBlogs.filter((e) => e.template === 'Blog Article');
-  blogArticles.sort((a, b) => {
-    if (a.lastModified > b.lastModified) return -1;
-    if (a.lastModified < b.lastModified) return 1;
-    return 0;
-  });
+
   // move featured article to the top of the sorted list
   const featuredArticleIndex = blogArticles.findIndex((el) => (el['featured-article'] === 'true'));
   if (featuredArticleIndex > -1) {
