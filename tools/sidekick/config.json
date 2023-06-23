@@ -24,12 +24,6 @@
             "title": "Tagger",
             "environments": [ "edit" ],
             "url": "/tools/tagger/index.html"
-          },
-          {
-            "id": "tools",
-            "title": "Tools",
-            "isContainer": true,
-            "environments": [ "dev", "preview" ]
           }
     ]
 }
