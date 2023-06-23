@@ -230,7 +230,7 @@ async function createFilters(categories, topics, audiences) {
 
   // Filters header section
   const filtersHeader = createTag('div', { class: 'filters-header' });
-  filtersHeader.innerHTML = '<h4>Filters</h4>';
+  filtersHeader.innerHTML = '<h2>Filters</h2>';
   filtersHeader.addEventListener('click', () => {
     const expanded = filters.getAttribute('aria-expanded') === 'true';
     filters.setAttribute('aria-expanded', expanded ? 'false' : 'true');
@@ -332,7 +332,7 @@ async function createFilters(categories, topics, audiences) {
   blogHomeLink.href = '/blog';
   if (/(^\/blog$)/.test(window.location.pathname)) {
     blogHomeLink.classList.add('active');
-    blogHomeLink.innerHTML += '<h4>Merative Blog</h4>';
+    blogHomeLink.innerHTML += '<h2>Merative Blog</h2>';
   } else {
     blogHomeLink.innerHTML += 'Merative Blog';
   }
