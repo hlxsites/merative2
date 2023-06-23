@@ -1,0 +1,170 @@
+body {
+  background-color: #FAF8F6;
+}
+
+main .intro {
+  font-size: 1.2rem;
+}
+
+main input {
+  width: 100%;
+  font-size: 2rem;
+  border: none;
+  border-bottom: solid 1px grey;
+  padding-top: 5px;
+  font-family: inherit;
+}
+
+main .filter {
+  padding: 20px 10px;
+}
+
+#selected {
+  position: fixed;
+  bottom: 0;
+  background-color: #E7E2DA;
+  padding-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  left: 0;
+  display: grid;
+  gap: 1rem
+}
+
+main #selected {
+  padding: 30px;
+}
+
+#selected button {
+  background-color: #F25749;
+  color: white;
+  border: 1px solid white;
+  font-size: 13px;
+}
+
+main #selected button {
+  border-radius: 1em;
+  padding: 5px 20px;
+}
+
+#results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-bottom: 350px;
+}
+
+#results > .category {
+  user-select: none;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+main > div > span,
+main > div > div > span {
+  white-space: nowrap;
+  margin: 6px 4px;
+}
+
+main {
+  font-family: system-ui, Arial;
+  padding: 20px;
+  font-size: 1.3rem;
+  line-height: 1.2em;
+}
+
+span.tag {
+  color: white;
+  padding: 2px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.tag {
+  padding-top: 5px;
+}
+
+.selected span.tag {
+  background-color: #888;
+  color: lightgrey;
+}
+
+.tag.cat-0 {
+  background-color: #1385E2;
+}
+
+.tag.cat-1 {
+  background-color: #FA1E32;
+}
+
+.tag.cat-2 {
+  background-color: #05BC71
+}
+
+.tag.cat-3 {
+  background-color: #90F;
+}
+
+.tag.cat-4 {
+  background-color: black;
+}
+
+.tag.cat-5 {
+  background-color: #059641;
+}
+
+.tag.cat-6 {
+  background-color: #D21313;
+}
+
+.tag.cat-7 {
+  background-color: deepskyblue;
+}
+
+span.tag .highlight {
+  font-weight: 700;
+  color: white;
+}
+
+span.path {
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px dashed black;
+  padding: 4px 10px 2px;
+  font-size: 12px;
+}
+
+span.path.filtered {
+  display: none;
+}
+
+span.psep {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@media (min-width: 600px) {
+  #selected {
+    grid-template-columns: 1fr 100px;
+  }
+}
+
+#selected button:disabled {
+  background-color: #ccc;
+  color: grey;
+}
+
+.selected-tags {
+  display: flex;
+  flex-wrap: wrap;
+  height: min-content;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.offscreen {
+  position: absolute;
+  top: -1000px;
+}
