@@ -1,0 +1,123 @@
+{
+  "default-src": [
+      "'self'"
+  ],
+  "script-src": [
+      "'self'",
+      "'unsafe-inline'",
+      "'unsafe-eval'",
+      "*.mktoweb.com",
+      "*.googletagmanager.com",
+      "js.zi-scripts.com",
+      "*.zoominfo.com",
+      "*.merative.com",
+      "*.salesloft.com",
+      "*.googleadservices.com",
+      "*.kryogenix.org",
+      "*.adsrvr.org",
+      "www.youtube.com",
+      "cm.everesttech.net",
+      "documentservices.adobe.com",
+      "googleads.g.doubleclick.net",
+      "assets.adobedtm.com",
+      "merative.tt.omtrdc.net",
+      "cdn.jsdelivr.net",
+      "dpm.demdex.net",
+      "munchkin.marketo.net",
+      "rtp-static.marketo.com",
+      "sjrtp7.marketo.com",
+      "cdn.cookielaw.org",
+      "resources.digital-cloud-west.medallia.com",
+      "*.kampyle.com",
+      "js.driftt.com",
+      "https://rum.hlx.page/",
+      "https://*.hotjar.com"
+  ],
+  "connect-src": [
+      "'self'",
+      "https://rum.hlx.page/",
+      "*.mktoweb.com",
+      "*.mktoresp.com",
+      "*.marketo.com",
+      "*.salesloft.com",
+      "js.zi-scripts.com",
+      "*.zoominfo.com",
+      "*.adsrvr.org",
+      "*.112.2o7.net",
+      "assets.adobedtm.com",
+      "viewlicense.adobe.io",
+      "*.onetrust.com",
+      "merative.tt.omtrdc.net",
+      "analytics.google.com",
+      "stats.g.doubleclick.net",
+      "dpm.demdex.net",
+      "cdn.cookielaw.org",
+      "*.medallia.com",
+      "*.kampyle.com",
+      "https://*.hotjar.com",
+      "https://*.hotjar.io"
+  ],
+  "img-src": [
+    "'self'",
+    "data:",
+    "*.merative.com",
+    "*.mktoweb.com",
+    "*.google.co.in",
+    "*.google.com",
+    "*.google.ca",
+    "*.googletagmanager.com",
+    "*.112.2o7.net",
+    "*.ytimg.com",
+    "assets.adobedtm.com",
+    "dpm.demdex.net",
+    "cdn.cookielaw.org",
+    "cm.everesttech.net",
+    "*.medallia.com",
+    "*.kampyle.com"
+  ],
+  "frame-src": [
+    "'self'",
+    "*.mktoweb.com",
+    "*.navattic.com",
+    "*.adsrvr.org",
+    "www.youtube.com",
+    "player.vimeo.com",
+    "*.merative.com",
+    "documentservices.adobe.com",
+    "merative.demdex.net",
+    "*.medallia.com",
+    "*.kampyle.com",
+    "js.driftt.com"
+  ],
+  "style-src": [
+    "'self'",
+    "'unsafe-inline'",
+    "*.mktoweb.com",
+    "*.marketo.com",
+    "go.merative.com",
+    "assets.adobedtm.com",
+    "cdn.cookielaw.org",
+    "*.medallia.com",
+    "*.kampyle.com"
+  ],
+  "font-src": [
+    "'self'",
+    "*.mktoweb.com",
+    "assets.adobedtm.com",
+    "cdn.cookielaw.org",
+    "*.medallia.com",
+    "*.kampyle.com"
+  ],
+  "object-src": [
+    "'none'"
+  ],
+  "manifest-src": [
+    "'self'"
+  ],
+  "worker-src": [
+    "'none'"
+  ],
+  "media-src": [
+    "'self'"
+  ]
+}

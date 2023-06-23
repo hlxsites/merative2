@@ -32,7 +32,6 @@ const embedPDFViewer = (
   // PDF Viewer for doc pages
   if (docUrl) {
     const docFilename = docUrl.split('/').pop();
-
     loadScript('https://documentservices.adobe.com/view-sdk/viewer.js');
     let pdfAPIKey;
     if (window.location.host.startsWith('localhost')) {
