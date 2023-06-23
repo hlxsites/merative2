@@ -23,7 +23,7 @@
             "id": "tagger",
             "title": "Tagger",
             "environments": [ "edit" ],
-            "url": "/tools/tagger2/index.html"
+            "url": "/tools/tagger/index.html"
           },
           {
             "id": "tools",
