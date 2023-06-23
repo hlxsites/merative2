@@ -51,7 +51,7 @@ function toggleBodyOverflow(val) {
 
 function updateFiltersCount(count) {
   // update the number of checked filters to show in mobile and tablet views
-  const mobileFiltersCount = document.querySelector('.blog-home .filters > .filters-header > h4');
+  const mobileFiltersCount = document.querySelector('.blog-home .filters > .filters-header > h2');
   mobileFiltersCount.innerHTML = `Filters (${count})`;
 }
 
