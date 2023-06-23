@@ -78,7 +78,8 @@
 
 .related-articles[data-block-status="loaded"] > div.blog-card > div.card-image,
 .related-articles[data-block-status="loaded"] > div.blog-card:hover > div.card-image {
-    border-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
     overflow: hidden;
     aspect-ratio: 3 / 2;
     height: auto;
