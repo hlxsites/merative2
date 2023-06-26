@@ -11,7 +11,6 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
-  createOptimizedPicture,
   readBlockConfig,
 } from './lib-franklin.js';
 
@@ -19,6 +18,78 @@ const LCP_BLOCKS = ['leadspace', 'blog-home']; // add your LCP blocks to the lis
 window.hlx.RUM_GENERATION = 'merative'; // add your RUM generation information here
 
 /**
+ * Added 2023-06-26 per new sidekick instructions
+ * Returns the true origin of the current page in the browser.
+ * If the page is running in an iframe with srcdoc, the ancestor origin is returned.
+ * @returns {String} The true origin
+ */
+export function getOrigin() {
+  const { location } = window;
+  return location.href === 'about:srcdoc' ? window.parent.location.origin : location.origin;
+}
+
+/**
+ * Returns the true of the current page in the browser.mac
+ * If the page is running in a iframe with srcdoc,
+ * the ancestor origin + the path query param is returned.
+ * @returns {String} The href of the current page or the href of the block running in the library
+ */
+
+export function getHref() {
+  if (window.location.href !== 'about:srcdoc') return window.location.href;
+
+  const { location: parentLocation } = window.parent;
+  const urlParams = new URLSearchParams(parentLocation.search);
+  return `${parentLocation.origin}${urlParams.get('path')}`;
+}
+
+/** moved from lib-franklin.js
+ * Returns a picture element with webp and fallbacks
+ * @param {string} src The image URL
+ * @param {boolean} eager load image eager
+ * @param {Array} breakpoints breakpoints and corresponding params (eg. width)
+ */
+
+// TODO: Due to new sidekick, need to move this into scripts.js and modify it to use
+// the getHref() function. https://github.com/adobe/franklin-sidekick-library#considerations-when-building-blocks-for-the-library
+export function createOptimizedPicture(src, alt = '', eager = false, breakpoints = [{
+  media: '(min-width: 600px)',
+  width: '2000',
+}, { width: '750' }]) {
+  const url = new URL(src, window.location.href);
+  const picture = document.createElement('picture');
+  const { pathname } = url;
+  const ext = pathname.substring(pathname.lastIndexOf('.') + 1);
+
+  // webp
+  breakpoints.forEach((br) => {
+    const source = document.createElement('source');
+    if (br.media) source.setAttribute('media', br.media);
+    source.setAttribute('type', 'image/webp');
+    source.setAttribute('srcset', `${pathname}?width=${br.width}&format=webply&optimize=medium`);
+    picture.appendChild(source);
+  });
+
+  // fallback
+  breakpoints.forEach((br, i) => {
+    if (i < breakpoints.length - 1) {
+      const source = document.createElement('source');
+      if (br.media) source.setAttribute('media', br.media);
+      source.setAttribute('srcset', `${pathname}?width=${br.width}&format=${ext}&optimize=medium`);
+      picture.appendChild(source);
+    } else {
+      const img = document.createElement('img');
+      img.setAttribute('loading', eager ? 'eager' : 'lazy');
+      img.setAttribute('alt', alt);
+      picture.appendChild(img);
+      img.setAttribute('src', `${pathname}?width=${br.width}&format=${ext}&optimize=medium`);
+    }
+  });
+
+  return picture;
+}
+
+/** BLOCK LIBRARY
  * Determine if we are serving content for the block-library, if so don't load the header or footer
  * @returns {boolean} True if we are loading block library content
  */
