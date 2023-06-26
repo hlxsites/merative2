@@ -3,7 +3,7 @@ import {
   createGroupItem,
   fetchListDocument,
   createTable,
-} from '../library-utils.js';
+} from '../../library-utils.js';
 
 function getAuthorName(block) {
   const blockSib = block.previousElementSibling;

@@ -1,5 +1,5 @@
-import { createTag } from '../../../scripts/scripts.js';
-import { writeToClipboard } from '../library-utils.js';
+import { writeToClipboard } from '../../library-utils.js';
+import { createTag } from '../../../../scripts/scripts.js';
 
 async function fetchPlaceholders(path) {
   const resp = await fetch(path);

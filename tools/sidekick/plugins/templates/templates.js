@@ -4,7 +4,7 @@ import {
   fetchListDocument,
   createTable,
   decorateImages,
-} from '../library-utils.js';
+} from '../../library-utils.js';
 
 function createSection(section, path) {
   decorateImages(section, path, 'section-image');

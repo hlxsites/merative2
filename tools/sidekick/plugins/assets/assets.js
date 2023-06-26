@@ -1,5 +1,5 @@
-import { writeToClipboard } from '../library-utils.js';
-import { createTag } from '../../../scripts/scripts.js';
+import { writeToClipboard } from '../../library-utils.js';
+import { createTag } from '../../../../scripts/scripts.js';
 
 function buildLink(href) {
   return createTag('a', { href }, href).outerHTML;

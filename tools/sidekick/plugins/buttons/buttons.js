@@ -1,4 +1,4 @@
-import { appendListGroup, createGroupItem, fetchListDocument } from '../library-utils.js';
+import { appendListGroup, createGroupItem, fetchListDocument } from '../../library-utils.js';
 
 function getButtonName(button) {
   return button.textContent;

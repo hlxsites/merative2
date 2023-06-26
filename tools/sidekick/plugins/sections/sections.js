@@ -4,8 +4,8 @@ import {
   fetchListDocument,
   createTable,
   decorateImages,
-} from '../library-utils.js';
-import { readBlockConfig } from '../../../scripts/lib-franklin.js';
+} from '../../library-utils.js';
+import { readBlockConfig } from '../../../../scripts/lib-franklin.js';
 
 function getAuthorName(sectionMeta) {
   const sibling = sectionMeta.parentElement.previousElementSibling;
