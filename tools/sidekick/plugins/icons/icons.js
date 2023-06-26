@@ -2,7 +2,7 @@ import {
   appendListGroup,
   createGroupItem,
   fetchListDocument,
-} from '../library-utils.js';
+} from '../../library-utils.js';
 
 function getIconName(span) {
   const heading = span.closest('p').previousElementSibling;
