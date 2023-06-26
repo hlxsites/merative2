@@ -169,6 +169,15 @@ main .section {
 
 /* Filters */
 
+.filters-main h2, .filters-header h2 {
+    margin: unset;
+    font-size: var(--font-size-21);
+    font-weight: var(--font-weight-medium);
+    font-family: var(--sans-serif-font-regular);
+    line-height: var(--line-height-160);
+    letter-spacing: var(--letter-spacing-1);
+}
+
 /* Mobile/Tablet filter functionality */
 .blog-home .filters[aria-expanded="false"] > .filters-footer,
 .blog-home .filters[aria-expanded="false"] > .filters-main {
