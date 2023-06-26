@@ -42,11 +42,12 @@ hosted at the same origin as the library.html document.-->
   const library = document.createElement('sidekick-library')
   library.config = {
     base: '/block-library/library.json',
-    assets: '/tools/sidekick/plugins/assets.js',
-    icons: '/tools/sidekick/plugins/icons.js',
-    placeholders: '/tools/sidekick/plugins/placeholders.js',
-    sections: '/tools/sidekick/plugins/sections.js',
-    templates: '/tools/sidekick/plugins/templates.js',
+    assets: '/tools/sidekick/plugins/assets/assets.js',
+    buttons: '/tools/sidekick/plugins/buttons/buttons.js',
+    icons: '/tools/sidekick/plugins/icons/icons.js',
+    placeholders: '/tools/sidekick/plugins/placeholders/placeholders.js',
+    sections: '/tools/sidekick/plugins/sections/sections.js',
+    templates: '/tools/sidekick/plugins/templates/templates.js',
   }
 
   document.body.prepend(library)
