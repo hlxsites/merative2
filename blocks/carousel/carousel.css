@@ -37,6 +37,7 @@
 }
 
 .carousel .carousel-slide > div {
+    flex-direction: column;
     font-family: var(--serif-font);
     font-weight: var(--font-weight-light);
     line-height: var(--line-height-120);
@@ -44,15 +45,25 @@
     font-size: var(--font-size-28);
 }
 
-.carousel .carousel-slide > figure {
+/* Testimonial */
+.carousel.testimonial p {
+    margin-left: 1em;
+}
+
+.carousel .carousel-slide div {
+    display: flex;
+    flex-direction: column;
+}
+
+.carousel .carousel-slide div figure {
     align-content: center;
     align-items: center;
-    display: flex;
     flex-flow: column nowrap;
     gap: var(--spacer-layout-01);
     justify-content: space-between;
     margin: var(--spacer-layout-03) auto 0;
     width: fit-content;
+    flex-direction: row;
 }
 
 .carousel .carousel-slide > figure img {
@@ -61,14 +72,6 @@
     width: 64px;
     margin-bottom: 0;
     margin-right: var(--spacer-layout-02);
-}
-
-.carousel .carousel-slide > figure figcaption.caption {
-    font-family: var(--sans-serif-font-semibold);
-    font-size: var(--font-size-16);
-    letter-spacing: var(--letter-spacing-001-em);
-    line-height: var(--line-height-160);
-    font-weight: var(--font-weight-medium);
 }
 
 /* Carousel Navigation */
@@ -114,7 +117,6 @@
     flex-wrap: nowrap;
 }
 
-.carousel.image-carousel-full-width figure,
 .carousel.image-carousel-full-width .carousel-nav,
 .carousel.image-carousel-full-width .carousel-dots {
     display: none;
@@ -165,7 +167,18 @@
     }
 
     .carousel .carousel-slide figure {
-        flex-flow: row nowrap;
-        gap: var(--spacer-layout-02);
+        /* flex-flow: row nowrap;
+        gap: var(--spacer-layout-02); */
+        display: inline-flex;
+        flex-direction: row;
+        margin-top: 40px;
+    }
+
+    .carousel .carousel-slide figure img {
+        margin-right: 24px;
+    }
+
+    .carousel .carousel-slide figure p {
+        text-align: left;
     }
 }

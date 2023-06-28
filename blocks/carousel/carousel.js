@@ -104,7 +104,7 @@ function calculateSlideHeight(carousel, slide) {
       const bodyHeight = parseFloat(bodyStyle.lineHeight) * lineCount;
       const figureStyle = window.getComputedStyle(slide.querySelector('figure'));
       const figureHeight = figureStyle ? parseFloat(figureStyle.height) : SLIDE_CAPTION_SIZE;
-      carousel.style.height = `${bodyHeight + figureHeight + 32}px`;
+      carousel.style.height = `${bodyHeight + figureHeight + 132}px`;
     });
   }
 }
@@ -265,18 +265,15 @@ function buildSlide(slide, index) {
   const figure = document.createElement('figure');
 
   const figureImg = document.createElement('img');
-  figureImg.src = '/styles/images/MegaphoneSimple.jpeg';
+  figureImg.src = '/icons/mega-phone-simple.svg';
   figureImg.alt = 'Megaphone Icon with purple background';
   figureImg.width = SLIDE_CAPTION_SIZE;
   figureImg.height = SLIDE_CAPTION_SIZE;
 
-  const figCaption = document.createElement('figcaption');
-  figCaption.classList.add('caption');
-  figCaption.append(slide.children[1]);
-
   figure.append(figureImg);
-  figure.append(figCaption);
-  slide.append(figure);
+  const caption = slide.querySelector('div > p');
+  caption.insertAdjacentElement('beforebegin', figure);
+  figure.append(caption);
   return slide;
 }
 
