@@ -63,6 +63,12 @@ const embedPDFViewer = (
             showBookmarks,
             showThumbnails,
           });
+
+          // Add data-hj-allow-iframe attribute to the generated iframe
+          const iframe = document.querySelector(`#${divId} iframe`);
+          if (iframe) {
+            iframe.setAttribute('data-hj-allow-iframe', '');
+          }
         }
       });
     }

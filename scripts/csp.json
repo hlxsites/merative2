@@ -55,7 +55,8 @@
       "*.medallia.com",
       "*.kampyle.com",
       "https://*.hotjar.com",
-      "https://*.hotjar.io"
+      "https://*.hotjar.io",
+      "wss://*.hotjar.com"
   ],
   "img-src": [
     "'self'",
