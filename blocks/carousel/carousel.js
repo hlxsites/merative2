@@ -102,9 +102,9 @@ function calculateSlideHeight(carousel, slide) {
         textOptions,
       );
       const bodyHeight = parseFloat(bodyStyle.lineHeight) * lineCount;
-      const figureStyle = window.getComputedStyle(slide.querySelector('figure'));
+      const figureStyle = window.getComputedStyle(slide.querySelector('.figure'));
       const figureHeight = figureStyle ? parseFloat(figureStyle.height) : SLIDE_CAPTION_SIZE;
-      carousel.style.height = `${bodyHeight + figureHeight + 132}px`;
+      carousel.style.height = `${bodyHeight + figureHeight + 32}px`;
     });
   }
 }
@@ -261,8 +261,9 @@ function buildSlide(slide, index) {
   if (index !== 0) {
     slide.setAttribute('tabindex', '-1');
   }
-  // caption
-  const figure = document.createElement('figure');
+  // figure(Image and caption)
+  const figure = document.createElement('div');
+  figure.classList.add('figure');
 
   const figureImg = document.createElement('img');
   figureImg.src = '/icons/mega-phone-simple.svg';
