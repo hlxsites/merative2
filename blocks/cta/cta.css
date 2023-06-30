@@ -4,7 +4,7 @@
     display: block;
 }
 
-.section.cta-container {
+.cta-container {
     background-color: var(--neutral-sand);
     margin: unset;
     min-height: 291px;
