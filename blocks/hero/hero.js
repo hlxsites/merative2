@@ -6,6 +6,8 @@ export default function decorate(block) {
     const picture = block.querySelector('picture');
     const icon = block.querySelector('span');
     picture.classList.add('main-banner');
+    const pictureParent = picture.parentNode;
+    pictureParent.setAttribute('class', 'picture-parent');
     icon.setAttribute('id', 'banner-icon');
       const section = document.createElement('div');
       const sectionTwo = document.createElement('div');
