@@ -6,14 +6,14 @@ export default function decorate(block) {
     const picture = block.querySelector('picture');
     const icon = block.querySelector('span');
     picture.classList.add('main-banner');
-    const pictureParent = picture.parentNode;
-    pictureParent.setAttribute('class', 'picture-parent');
     icon.setAttribute('id', 'banner-icon');
       const section = document.createElement('div');
       const sectionTwo = document.createElement('div');
       sectionTwo.append(icon);
       sectionTwo.append(h1);
       sectionTwo.setAttribute('id', 'logo-text-holder');
-      section.append(buildBlock('hero', { elems: [picture, sectionTwo] }));
+      section.append(buildBlock('hero', { elems: [picture, sectionTwo] }));    
+      const pictureParent = section.querySelector('picture').parentNode;
+      pictureParent.setAttribute('class', 'picture-parent');
       block.prepend(section);
 }

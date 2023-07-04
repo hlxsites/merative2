@@ -42,14 +42,20 @@ main .hero-container>div {
     border: 1px solid transparent;
   }
   
-  main .hero #banner-icon {
+ /* main .hero #banner-icon {
     height: 2em;
     position: absolute;
     bottom: 4em;
   }
+  */
+
+  .picture-parent {
+    position: relative;
+  }
   
   main .hero #logo-text-holder {
     position: absolute;
-    bottom: 5em;
-    margin-left: 3em;
+    bottom: 2em;
+    margin-left: 2em;
   }
+
