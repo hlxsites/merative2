@@ -10,7 +10,6 @@ main .hero-container {
 
 main .hero {
   position: relative;
-  /* padding: 32px; */
   min-height: 300px;
 }
 
@@ -22,7 +21,7 @@ main .hero h1 {
   color: white;
   font-size: 28px;
   margin: 0;
-  font-family: "Alliance No.1 Regular";
+  font-family: var(--sans-serif-font-regular);
   font-style: normal;
   font-weight: 400;
 }
@@ -32,10 +31,6 @@ main .hero img {
   height: 100%;
   border-radius: 10px;
   border: 1px solid transparent;
-}
-
-.picture-parent {
-  position: relative;
 }
 
 main .hero #logo-text-holder {
