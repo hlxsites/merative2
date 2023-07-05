@@ -1,61 +1,92 @@
 /* block specific CSS goes here */
 
 main .hero-container>div {
-    max-width: unset;
+  max-width: unset;
+}
+
+main .hero-container {
+  padding: 0;
+}
+
+main .hero {
+  position: relative;
+  /* padding: 32px; */
+  min-height: 300px;
+}
+
+.picture-parent {
+  position: relative;
   }
-  
-  main .hero-container {
-    padding: 0;
+
+main .hero h1 {
+  color: white;
+  font-size: 28px;
+  margin: 0;
+  font-family: "Alliance No.1 Regular";
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* main .hero .main-banner {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  object-fit: cover;
+  box-sizing: border-box;
+} */
+
+main .hero img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+/* main .hero #banner-icon {
+  height: 2em;
+  position: absolute;
+  bottom: 4em;
+}
+*/
+
+.picture-parent {
+  position: relative;
+}
+
+main .hero #logo-text-holder {
+  position: absolute;
+  bottom: 36px;
+  margin-left: 32px;
+}
+
+/* Tablet */
+@media only screen and (max-width: 1200px) and (min-width: 768px)  {
+  main .hero #logo-text-holder{
+    bottom: 32px;
   }
-  
-  main .hero {
-    position: relative;
-    padding: 32px;
-    min-height: 300px;
-  }
-  
-  .picture-parent {
-    position: relative;
+}
+
+/* Mobile */
+
+  @media screen and (max-width: 600px) {
+    main .hero {
+      min-height: unset;
     }
 
-  main .hero h1 {
-    color: white;
-    font-size: 2.5em;
-    margin: 0;
-  }
-  
-  /* main .hero .main-banner {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    object-fit: cover;
-    box-sizing: border-box;
-  } */
-  
-  main .hero img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    border: 1px solid transparent;
-  }
-  
- /* main .hero #banner-icon {
-    height: 2em;
-    position: absolute;
-    bottom: 4em;
-  }
-  */
+    main .hero h1 {
+      font-size: 22px;
+    }
 
-  .picture-parent {
-    position: relative;
-  }
-  
-  main .hero #logo-text-holder {
-    position: absolute;
-    bottom: 2em;
-    margin-left: 2em;
-  }
+    main .hero #logo-text-holder {
+      bottom: 24px;
+      margin-left: 24px;
+    }
 
+    main .hero #logo-text-holder svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
