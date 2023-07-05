@@ -10,7 +10,6 @@ main .hero-container {
 
 main .hero {
   position: relative;
-  min-height: 300px;
 }
 
 .picture-parent {
@@ -19,11 +18,11 @@ main .hero {
 
 main .hero h1 {
   color: white;
-  font-size: 28px;
+  font-size: 22px;
   margin: 0;
   font-family: var(--sans-serif-font-regular);
   font-style: normal;
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
 }
 
 main .hero img {
@@ -35,35 +34,44 @@ main .hero img {
 
 main .hero #logo-text-holder {
   position: absolute;
-  bottom: 36px;
-  margin-left: 32px;
+  bottom: 24px;
+  margin-left: 24px;
+}
+
+main .hero #logo-text-holder svg {
+  width: 35.23px;
+  height: 35.23px;
 }
 
 /* Tablet */
-@media only screen and (max-width: 1200px) and (min-width: 768px)  {
-  main .hero #logo-text-holder{
+@media (min-width: 768px) {
+  main .section .hero-wrapper {
+    width: unset !important;
+    margin: 0 36px !important;
+  }
+  main .hero {
+    min-height: 300px;
+  }
+  main .hero h1 {
+    font-size: var(--font-size-28);
+  }
+  main .hero #logo-text-holder {
     bottom: 32px;
+    margin-left: 32px;
+  }
+  main .hero #logo-text-holder svg {
+    width: 46px;
+    height: 46px;
   }
 }
 
-/* Mobile */
-
-  @media screen and (max-width: 600px) {
-    main .hero {
-      min-height: unset;
-    }
-
-    main .hero h1 {
-      font-size: 22px;
-    }
-
-    main .hero #logo-text-holder {
-      bottom: 24px;
-      margin-left: 24px;
-    }
-
-    main .hero #logo-text-holder svg {
-      width: 32px;
-      height: 32px;
-    }
+/* Desktop */
+@media (min-width: 1200px) {
+  main .section .hero-wrapper {
+    margin: 0 48px !important;
   }
+  main .hero #logo-text-holder {
+    bottom: 36px;
+    margin-left: 32px;
+  }
+}
