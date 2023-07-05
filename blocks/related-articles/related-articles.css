@@ -49,14 +49,14 @@
     line-height: var(--line-height-160);
     letter-spacing: var(--letter-spacing-001-em);
     color: var(--neutral-carbon);
+    width: 360px;
 }
 
 .related-articles[data-block-status="loaded"] > .blog-card {
     position: relative;
     background-color: var(--neutral-white);
     height: 100%;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-radius: 10px;
 }
 
 .related-articles[data-block-status="loaded"] > div:hover {
@@ -69,18 +69,20 @@
     text-decoration-line: underline;
 }
 
+.related-articles > div.blog-card > div.card-image,
+.related-articles > div.blog-card > div.card-image img {
+    width: 360px;
+    height: 240px;
+    object-fit: cover;
+}
+
 .related-articles[data-block-status="loaded"] > div.blog-card > div.card-image,
 .related-articles[data-block-status="loaded"] > div.blog-card:hover > div.card-image {
-    border-radius: 10px 10px 0 0;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
     overflow: hidden;
     aspect-ratio: 3 / 2;
     height: auto;
-    width: 100%;
-}
-
-.related-articles > div.blog-card > div.card-image img {
-    height: 100%;
-    object-fit: cover;
 }
 
 .related-articles[data-block-status="loaded"] > div.blog-card:hover > div.card-image > picture > img {
@@ -139,6 +141,13 @@
         gap: var(--spacer-element-10) var(--spacer-element-07);
     }
 
+    .related-articles > div.blog-card > div.card-image,
+    .related-articles > div.blog-card > div.card-image img {
+        width: 360px;
+        height: 240px;
+        object-fit: cover;
+    }
+    
     .related-articles .eyebrow {
         margin: 0;
     }

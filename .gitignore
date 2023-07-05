@@ -7,3 +7,6 @@ helix-importer-ui
 imported-docs
 .idea/*
 .vscode/*
+.DS_Store
+*/.DS_Store
+*/*/.DS_Store

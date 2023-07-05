@@ -113,11 +113,21 @@ const loadYouTubePlayer = (element, videoId) => {
   const onPlayerReady = (event) => {
     playerMap[videoId] = event.target;
   };
+
+  // Create a new iframe element
+  const iframe = document.createElement('iframe');
+  iframe.src = `https://www.youtube.com/embed/${videoId}`;
+
+  // Add the data-hj-allow-iframe attribute
+  iframe.setAttribute('data-hj-allow-iframe', '');
+
+  // Append the iframe to the specified element
+  element.appendChild(iframe);
+
   // we have to create a new YT Player but then need to wait for its onReady event
   // before assigning it to the player map
   // eslint-disable-next-line no-new
-  new window.YT.Player(element, {
-    videoId,
+  new window.YT.Player(iframe, {
     events: {
       onReady: onPlayerReady,
     },
