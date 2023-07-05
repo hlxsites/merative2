@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<!--
+  Original tagging tool: https://github.com/adobe/blog/blob/main/tools/tagger/index.html
+-->
+<head>
+  <title>Merative - Tagger</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <script src="/tools/tagger/tagger.js" type="module"></script>
+  <link rel="stylesheet" href="/tools/tagger/tagger.css"/>
+</head>
+<body>
+<div id="tags-data"></div>
+<main>
+  <div class="intro">
+    <h1 id="pick-your-tags">Search + copy your tags</h1>
+    <p>Use this page to search and choose the relevant tags for your pages, without fear of misspelling or forgetting any.</p>
+    <p>Once you click on a tag, it will populate at the bottom of the page. Re-clicking a tag will de-select it. When you have picked all the tags, click
+      “copy” and then paste the information directly in your page's metadata (only the solid colored words will be copied, not the whole path). Use the 'clear' button if you want to start over.</p>
+    <ul>
+      <li><strong>Categories</strong> = will place your blog article in the correct category area per the main blog navigation.</li>
+      <li><strong>Audience</strong> = the audience group the content is created for.</li>
+      <li><strong>Asset type</strong> = the type of asset on the page. Primarily used for PDFs and offer registration pages.</li>
+      <li><strong>Page type</strong> = the type of webpage. It must be used on all web pages.</li>
+      <li><strong>orgFunction</strong> = the owning organization function of the webpage. It must be used on all web pages.</li>
+      <li><strong>Topics</strong> = will place your blog article in the correct topic area per the main blog navigation.</li>
+      <li><strong>Parent</strong> = required for analytics. It must be used on all web pages.</li>
+      <li><strong>Product Family</strong> = required for analytics. It must be used on all web pages.</li>
+    </ul>
+  </div>
+  <div class="filter">
+    <input autocomplete="off" placeholder="Type to filter" id="search">
+  </div>
+  <div id="results"></div>
+  <div id="selected" class="hidden">
+    <div class="selected-tags"></div>
+    <div>
+      <button class="copy">Copy</button>
+      <button class="clear">Clear</button>
+    </div>
+  </div>
+</main>
+<textarea class="offscreen" id="copybuffer"></textarea>
+</body>
+</html>
