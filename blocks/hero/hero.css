@@ -27,30 +27,12 @@ main .hero h1 {
   font-weight: 400;
 }
 
-/* main .hero .main-banner {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  object-fit: cover;
-  box-sizing: border-box;
-} */
-
 main .hero img {
   width: 100%;
   height: 100%;
   border-radius: 10px;
   border: 1px solid transparent;
 }
-
-/* main .hero #banner-icon {
-  height: 2em;
-  position: absolute;
-  bottom: 4em;
-}
-*/
 
 .picture-parent {
   position: relative;
