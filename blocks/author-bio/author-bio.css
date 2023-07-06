@@ -1,53 +1,60 @@
-main .author-bio {
-    font-family: var(--sans-serif-font-light);
-    font-size: var(--font-size-16);
-    font-weight: var(--font-weight-light);
-    line-height: var(--line-height-160);
-    letter-spacing: var(--letter-spacing-1);
+.author-bio {
+  font-family: var(--sans-serif-font-light);
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-160);
+  letter-spacing: var(--letter-spacing-1);
+  color: var(--neutral-carbon);
+  margin: var(--spacer-element-08) 0;
+}
+
+.author-bio .author-container+.author-container {
+  margin-top: var(--spacer-element-08);
+}
+
+.author-bio .author-name>span {
+  display: block;
+}
+
+.author-bio img.author-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--neutral-sand);
+  object-fit: cover;
+  margin-right: var(--spacer-element-05);
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) {
+  .author-bio {
     display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    align-items: center;
-    color: var(--neutral-carbon);
-    margin-bottom: 32px;
+    align-items: flex-start;
+    gap: var(--spacer-element-07);
+    flex-shrink: 0;
+  }
+
+  .author-bio .author-container {
+    display: flex;
+    align-items: flex-start;
+    flex-basis: calc((100% - var(--spacer-element-08)) / 2);
+    flex-shrink: 0;
+  }
+
+  .author-bio .author-container+.author-container {
+    margin-top: 0;
+  }
 }
 
-main .author-bio img.author-img{
-    width: 48px;
-    border-radius: 50%;
-    height: 48px;
-    border: 1px solid var(--neutral-sand);
-    object-fit: cover;
-}
-
+/* Desktop */
 @media only screen and (min-width: 1200px) {
-    main .author-bio {
-      margin-bottom: 48px;
-    }
+  main .author-bio {
+    margin: var(--spacer-element-10) 0;
+  }
 
-    main .author-bio img.author-img {
-        width: 64px;
-        height: 64px;
-        object-fit: cover;
-    }
-}
-
-main .author-bio .author-name {
-    margin-left: 16px;
-}
-
-main .author-bio .author-name > span {
-    display: flex;
-    flex-flow: column;
-}
-
-main .author-bio .pipe {
-    color: var(--neutral-sand);
-    font-size: 20px;
-    margin: 0 13px;
-}
-
-main .author-container {
-    display: flex;
-    align-items: center;
+  main .author-bio img.author-img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+  }
 }
