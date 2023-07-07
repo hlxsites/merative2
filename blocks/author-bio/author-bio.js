@@ -2,16 +2,13 @@ import { createTag, getMetadata } from '../../scripts/scripts.js';
 import authorsParser from '../../scripts/authors-parser.js';
 
 export default function decorate(block) {
-  const defaultAuthorImageSrc = '../../styles/favicon-thumbnail-merative.svg';
+  const defaultAuthorImageSrc = '../../styles/images/AuthorPlaceholder.svg';
   const defaultAuthor = 'Merative';
 
-  const pubDate = getMetadata('publication-date');
-  const readtime = getMetadata('readtime');
   let authors = getMetadata('authors');
   const nameField = 'name';
   const titleField = 'title';
   const imageField = 'image';
-  const prefix = 'By ';
   const content = [];
 
   if (!authors) {
@@ -23,7 +20,7 @@ export default function decorate(block) {
 
   const authorsQuantity = authors.length;
   authors = authorsParser(authors);
-  block.innerHTML = authorsQuantity > 1 ? `${prefix}` : '';
+  block.innerHTML = authorsQuantity > 1 ? '' : '';
 
   authors.forEach((author) => {
     const authorContainer = createTag('div', { class: 'author-container' });
@@ -31,7 +28,7 @@ export default function decorate(block) {
     authorImageTag.setAttribute('src', author[imageField] || defaultAuthorImageSrc);
     authorImageTag.setAttribute('alt', 'author-image');
     const authorNameTag = createTag('div', { class: 'author-name' });
-    authorNameTag.innerHTML = authorsQuantity === 1 ? `${prefix}` : '';
+    authorNameTag.innerHTML = authorsQuantity === 1 ? '' : '';
     const authorNameHighlight = createTag('span', { class: 'author-name-highlight' });
     const authorTitleHighlight = createTag('span', { class: 'author-title-highlight' });
     authorNameHighlight.innerHTML = author[titleField] ? `${author[nameField]},` : author[nameField];
@@ -42,20 +39,4 @@ export default function decorate(block) {
     content.push(authorContainer);
   });
   block.append(...content);
-
-  if (pubDate) {
-    const pipeTag = createTag('span', { class: 'pipe' });
-    pipeTag.innerHTML = '|';
-    const pubDateTag = createTag('span', { class: 'publication-date' });
-    pubDateTag.innerHTML = `Published  ${pubDate}`;
-    block.append(pipeTag, pubDateTag);
-  }
-
-  if (readtime) {
-    const pipeTag = createTag('span', { class: 'pipe' });
-    pipeTag.innerHTML = '|';
-    const readtimeTag = createTag('span', { class: 'readtime' });
-    readtimeTag.innerHTML = readtime;
-    block.append(pipeTag, readtimeTag);
-  }
 }

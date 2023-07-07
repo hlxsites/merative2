@@ -52,7 +52,7 @@ function toggleBodyOverflow(val) {
 function updateFiltersCount(count) {
   // update the number of checked filters to show in mobile and tablet views
   const mobileFiltersCount = document.querySelector('.blog-home .filters > .filters-header > h2');
-  mobileFiltersCount.innerHTML = `Filters (${count})`;
+  mobileFiltersCount.innerHTML = count !== null && count !== 0 ? `Filters (${count})` : 'Filters';
 }
 
 function clearFilters() {
@@ -71,7 +71,12 @@ function clearFilters() {
   selectedFiltersTitle.textContent = '';
   const clearAllFilters = document.querySelector('.clear-all-filters');
   clearAllFilters.textContent = '';
-  updateFiltersCount('0');
+
+  if (selectedFiltersList.classList.contains('active')) {
+    selectedFiltersList.classList.remove('active');
+  }
+
+  updateFiltersCount(null);
   loadMoreCards(7);
 }
 
@@ -172,6 +177,7 @@ function refreshCards() {
       const selectedValue = createTag('div', { class: 'selected-value' });
       selectedValue.append(val);
       selectedFiltersList.append(selectedValue);
+      selectedFiltersList.classList.add('active');
       // Add another event listener for click events to remove this item and uncheck the checkbox
       selectedValue.addEventListener('click', () => {
         uncheckCheckbox(val);
