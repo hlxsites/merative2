@@ -272,9 +272,11 @@ function buildSlide(slide, index) {
   figureImg.height = SLIDE_CAPTION_SIZE;
 
   figure.append(figureImg);
-  const caption = slide.querySelector('div > p');
-  caption.insertAdjacentElement('beforebegin', figure);
-  figure.append(caption);
+  if (carouselType === 'default' || carouselType === 'testimonial') {
+    const caption = slide.querySelector('div > p');
+    caption.insertAdjacentElement('beforebegin', figure);
+    figure.append(caption);
+  }
   return slide;
 }
 
@@ -296,6 +298,9 @@ export default function decorate(block) {
   carousel.classList.add('carousel-slide-container');
   if (block.classList.contains('image-carousel-full-width')) {
     carouselType = 'image-carousel-full-width';
+  }
+  if (block.classList.contains('testimonial')) {
+    carouselType = 'testimonial';
   }
 
   // make carousel draggable
