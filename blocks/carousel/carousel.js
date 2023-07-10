@@ -54,7 +54,7 @@ function stopAutoScroll() {
  * that has a maximum width.
  * @param text The full text
  * @param width Width of container
- * @param options Options to be applied to context (eg. font style)
+ * @param options Options to be applied to context (e.g. font style)
  *
  * @return {number} The number of lines
  */
@@ -91,22 +91,20 @@ function calculateSlideHeight(carousel, slide) {
   if (carouselType === 'default' || carouselType === 'testimonial') {
     requestAnimationFrame(() => {
       const slideBody = slide.querySelector('div');
+      const slideH3 = slide.querySelector('H3');
       const bodyStyle = window.getComputedStyle(slideBody);
       const textOptions = {
         font: `${bodyStyle.fontWeight} ${bodyStyle.fontSize} ${bodyStyle.fontFamily}`,
-        letterSpacing: '1%',
       };
       const lineCount = getLineCount(
-        slideBody.textContent,
+        slideH3.textContent,
         parseInt(bodyStyle.width, 10),
         textOptions,
       );
-      console.log(bodyStyle.width, textOptions, lineCount);
       const bodyHeight = parseFloat(bodyStyle.lineHeight) * lineCount;
       const figureStyle = window.getComputedStyle(slide.querySelector('.figure'));
       const figureHeight = figureStyle ? parseFloat(figureStyle.height) : SLIDE_CAPTION_SIZE;
-      //console.log(bodyHeight, figureStyle.height);
-      carousel.style.height = `${bodyHeight + figureHeight + 1}px`;
+      carousel.style.height = `${bodyHeight + figureHeight + 24}px`;
     });
   }
 }
