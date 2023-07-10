@@ -11,7 +11,7 @@ export default function decorate(block) {
   const sectionTwo = document.createElement('div');
   sectionTwo.append(icon);
   sectionTwo.append(h1);
-  sectionTwo.setAttribute('id', 'logo-text-holder');
+  sectionTwo.setAttribute('class', 'logo-text-holder');
 
   // create the <picture> element
   const onePictureElement = document.createElement('picture');
