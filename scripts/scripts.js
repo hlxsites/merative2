@@ -87,6 +87,20 @@ export function getMetadata(name) {
   return $meta && $meta.content;
 }
 
+/**
+ * sets the Content-Security-Policy meta tag to the document based on JSON file
+ */
+async function setCSP() {
+  const resp = await fetch(`${window.hlx.codeBasePath}/scripts/csp.json`);
+  const json = await resp.json();
+  const directives = Object.keys(json);
+  const policy = directives.map((directive) => `${directive} ${json[directive].join(' ')}`).join('; ');
+  const meta = document.createElement('meta');
+  meta.setAttribute('http-equiv', 'Content-Security-Policy');
+  meta.setAttribute('content', policy);
+  document.head.appendChild(meta);
+}
+
 function buildTags(main) {
   const tagsElement = document.createElement('div');
   const category = getMetadata('category');
@@ -105,6 +119,42 @@ function buildTags(main) {
     // eslint-disable-next-line no-bitwise
     if (pic && bio && (pic.compareDocumentPosition(bio) & Node.DOCUMENT_POSITION_FOLLOWING)) {
       pic.before(tagsElement);
+    }
+  }
+}
+
+function buildPublicationInfo() {
+  // Check if the publication info element has already been added
+  const existingPublicationInfo = document.querySelector('.publication-info-wrapper');
+  if (existingPublicationInfo) {
+    return; // Exit the function if the element already exists
+  }
+
+  if (getMetadata('template') === 'Blog Article') {
+    const tagsElement = document.querySelector('.article-content-wrapper .tags-wrapper');
+    if (!tagsElement || !tagsElement.parentNode) {
+      return; // Exit the function if tagsElement or its parent node is null
+    }
+
+    const publicationInfoElement = document.createElement('div');
+    publicationInfoElement.classList.add('publication-info-wrapper');
+
+    const pubDate = getMetadata('publication-date');
+    const readtime = getMetadata('readtime');
+
+    if (pubDate || readtime) {
+      const pubDateTag = createTag('span', { class: 'publication-date' });
+      pubDateTag.innerHTML = `Published ${pubDate}`;
+
+      const pipeTag = createTag('span', { class: 'pipe' });
+      pipeTag.innerHTML = '|';
+      const readtimeTag = createTag('span', { class: 'publication-readtime' });
+      readtimeTag.innerHTML = readtime;
+
+      publicationInfoElement.append(pubDateTag, pipeTag, readtimeTag);
+
+      // Insert the publicationInfoElement before the tagsElement
+      tagsElement.parentNode.insertBefore(publicationInfoElement, tagsElement);
     }
   }
 }
@@ -183,6 +233,7 @@ function buildAutoBlocks(main) {
     buildBlogBreadCrumbBlock();
     buildDocumentUrl(main);
     buildTags(main);
+    buildPublicationInfo();
     buildPageDivider(main);
   } catch (error) {
     // eslint-disable-next-line no-console
@@ -347,7 +398,7 @@ export async function createCard(row, style) {
   link.href = row.path;
   if (row.title) link.innerHTML += `${row.title}`;
   cardContent.append(link);
-  if (row.description && row.description !== '0') cardContent.innerHTML += `<p>${row.description.substring(0, 160)}...</p>`;
+  if (row.description && row.description !== '0') cardContent.innerHTML += `<p>${row.description}</p>`;
   const author = document.createElement('div');
   author.classList.add('blog-author');
 
@@ -448,6 +499,16 @@ export async function lookupDocuments(pathnames) {
   return (result);
 }
 
+/**
+ * Gets pdf and documents list that are indexed
+ */
+
+export async function getPDFsDocuments() {
+  const resp = await fetch(`${window.hlx.codeBasePath}/documents/query-index.json`);
+  const result = await resp.json();
+  return (result);
+}
+
 export function decorateExternalLinks(main) {
   main.querySelectorAll('a').forEach((a) => {
     const href = a.getAttribute('href');
@@ -543,6 +604,7 @@ export function addFavIcon(href) {
  * loads everything that doesn't need to be delayed.
  */
 async function loadLazy(doc) {
+  await setCSP();
   const main = doc.querySelector('main');
   await loadBlocks(main);
 
