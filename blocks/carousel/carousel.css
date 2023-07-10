@@ -6,6 +6,8 @@
     padding: var(--spacer-layout-06) 0 var(--spacer-layout-06);
 }
 
+.section.carousel-
+
 .carousel {
     position: relative;
     width: 100%;
@@ -121,7 +123,7 @@
     flex-flow: column nowrap;
     gap: var(--spacer-layout-01);
     justify-content: space-between;
-    margin: var(--spacer-layout-03) auto 0;
+    margin: var(--spacer-layout-02) auto 0;
     width: fit-content;
 }
 
@@ -210,7 +212,8 @@
 
     .carousel .carousel-slide h3 {
         /* font-size: var(--font-size-24); */
-        margin-bottom: 24px;
+        margin-bottom: 0;
+        margin-top: 0;
     }
 
 .carousel .carousel-slide > div {

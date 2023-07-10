@@ -88,23 +88,25 @@ function getLineCount(text, width, options = {}) {
  * @param slide A slide within the carousel
  */
 function calculateSlideHeight(carousel, slide) {
-  if (carouselType === 'default') {
+  if (carouselType === 'default' || carouselType === 'testimonial') {
     requestAnimationFrame(() => {
       const slideBody = slide.querySelector('div');
       const bodyStyle = window.getComputedStyle(slideBody);
       const textOptions = {
         font: `${bodyStyle.fontWeight} ${bodyStyle.fontSize} ${bodyStyle.fontFamily}`,
-        letterSpacing: '0.0175em',
+        letterSpacing: '1%',
       };
       const lineCount = getLineCount(
         slideBody.textContent,
         parseInt(bodyStyle.width, 10),
         textOptions,
       );
+      console.log(bodyStyle.width, textOptions, lineCount);
       const bodyHeight = parseFloat(bodyStyle.lineHeight) * lineCount;
       const figureStyle = window.getComputedStyle(slide.querySelector('.figure'));
       const figureHeight = figureStyle ? parseFloat(figureStyle.height) : SLIDE_CAPTION_SIZE;
-      carousel.style.height = `${bodyHeight + figureHeight + 32}px`;
+      //console.log(bodyHeight, figureStyle.height);
+      carousel.style.height = `${bodyHeight + figureHeight + 1}px`;
     });
   }
 }
