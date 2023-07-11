@@ -1,80 +1,81 @@
 /* block specific CSS for hero banner goes here */
 
 main .hero-container > div {
-    max-width: unset;
-  }
-  
-  main .only-picture {
-    display: none;
-  }
-  
-  main .hero-container {
-    padding: 0;
-  }
-  
+  max-width: unset;
+}
+
+main .only-picture {
+  display: none;
+}
+
+main .hero-container {
+  padding: 0;
+}
+
+main .hero {
+  position: relative;
+  max-width: 327px;
+  margin: 0 auto;
+}
+
+main .hero h1 {
+  color: var(--neutral-white);
+  font-size: var(--font-size-22);
+  margin: 0;
+  font-family: var(--sans-serif-font-regular);
+  font-style: normal;
+  font-weight: var(--font-weight-regular);
+}
+
+main .hero img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  display: block;
+}
+
+main .hero .hero__content {
+  position: absolute;
+  bottom: var(--spacer-element-07);
+  margin-left: var(--spacer-element-07);
+}
+
+main .hero .hero__content svg {
+  width: 35px;
+  height: 35px;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
   main .hero {
-    position: relative;
-    max-width: 327px;
-    margin: 0 auto;
+    max-width: 696px;
   }
-  
+
   main .hero h1 {
-    color: var(--neutral-white);
-    font-size: var(--font-size-22);
-    margin: 0;
-    font-family: var(--sans-serif-font-regular);
-    font-style: normal;
-    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-28);
   }
-  
-  main .hero img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    border: 1px solid transparent;
-    display: block;
+
+  main .hero .hero__content {
+    bottom: var(--spacer-element-08);
+    margin-left: var(--spacer-element-08);
   }
-  
-  main .hero .logo-text-holder {
-    position: absolute;
-    bottom: 24px;
-    margin-left: 24px;
+
+  main .hero .hero__content svg {
+    width: 45px;
+    height: 45px;
   }
-  
-  main .hero .logo-text-holder svg {
-    width: 35.23px;
-    height: 35.23px;
+}
+
+/* Desktop */
+
+@media (min-width: 1200px) {
+  main .hero .hero__content {
+    bottom: 36px;
+    margin-left: var(--spacer-element-08);
   }
-  
-  /* Tablet */
-  @media (min-width: 768px) {
-    main .hero {
-      max-width: 696px;
-    }
-  
-    main .hero h1 {
-      font-size: var(--font-size-28);
-    }
-  
-    main .hero .logo-text-holder {
-      bottom: 32px;
-      margin-left: 32px;
-    }
-  
-    main .hero .logo-text-holder svg {
-      width: 46px;
-      height: 46px;
-    }
+
+  main .hero {
+    max-width: 816px;
   }
-  
-  /* Desktop */
-  @media (min-width: 1200px) {
-    main .hero .logo-text-holder {
-      bottom: 36px;
-      margin-left: 32px;
-    }
-  
-    main .hero {
-      max-width: 816px;
-    }
-  }
+}
