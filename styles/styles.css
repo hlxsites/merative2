@@ -100,6 +100,7 @@
   --secondary-blue: #1385E2;
   --secondary-green: #05BC71;
   --secondary-yellow: #FFC036;
+  --dark-purple: #6400a6;
 
   /* gradient */
   --gradient-horizontal-down: linear-gradient(180deg, var(--primary-purple) 0%, var(--primary-red) 100%);
@@ -1090,6 +1091,12 @@ main pre {
 .section .bg-purple,
 .section.bg-purple {
   background-color: var(--primary-purple);
+  color: var(--neutral-white);
+}
+
+.section .bg-dark-purple,
+.section.bg-dark-purple {
+  background-color: var(--dark-purple);
   color: var(--neutral-white);
 }
 
