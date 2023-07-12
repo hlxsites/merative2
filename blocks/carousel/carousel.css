@@ -264,3 +264,14 @@ main .section div.carousel-wrapper {
         margin: 0;
     }
 }
+
+@media screen and (max-width: 900px) {
+    .carousel.testimonial .carousel-slide div .figure {
+        margin: var(--spacer-layout-03) auto 0;
+        gap: 0;
+    }
+
+    .carousel.testimonial .carousel-slide .figure p {
+        margin-top: 32px;
+    }
+}
