@@ -3,6 +3,11 @@ div.stat-container {
     padding: 0;
 }
 
+div.stat-container .button-container a.tertiary {
+    color: var(--neutral-white);
+    border-bottom: 2px solid var(--neutral-white);
+}
+
 div.stat-container .stat-wrapper {
     width: 100%;
     margin: 0;
