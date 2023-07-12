@@ -194,6 +194,42 @@ function buildTags(main) {
   }
 }
 
+function buildPublicationInfo() {
+  // Check if the publication info element has already been added
+  const existingPublicationInfo = document.querySelector('.publication-info-wrapper');
+  if (existingPublicationInfo) {
+    return; // Exit the function if the element already exists
+  }
+
+  if (getMetadata('template') === 'Blog Article') {
+    const tagsElement = document.querySelector('.article-content-wrapper .tags-wrapper');
+    if (!tagsElement || !tagsElement.parentNode) {
+      return; // Exit the function if tagsElement or its parent node is null
+    }
+
+    const publicationInfoElement = document.createElement('div');
+    publicationInfoElement.classList.add('publication-info-wrapper');
+
+    const pubDate = getMetadata('publication-date');
+    const readtime = getMetadata('readtime');
+
+    if (pubDate || readtime) {
+      const pubDateTag = createTag('span', { class: 'publication-date' });
+      pubDateTag.innerHTML = `Published ${pubDate}`;
+
+      const pipeTag = createTag('span', { class: 'pipe' });
+      pipeTag.innerHTML = '|';
+      const readtimeTag = createTag('span', { class: 'publication-readtime' });
+      readtimeTag.innerHTML = readtime;
+
+      publicationInfoElement.append(pubDateTag, pipeTag, readtimeTag);
+
+      // Insert the publicationInfoElement before the tagsElement
+      tagsElement.parentNode.insertBefore(publicationInfoElement, tagsElement);
+    }
+  }
+}
+
 function buildPageDivider(main) {
   const allPageDivider = main.querySelectorAll('code');
 
@@ -268,6 +304,7 @@ function buildAutoBlocks(main) {
     buildBlogBreadCrumbBlock();
     buildDocumentUrl(main);
     buildTags(main);
+    buildPublicationInfo();
     buildPageDivider(main);
   } catch (error) {
     // eslint-disable-next-line no-console
@@ -374,7 +411,8 @@ export async function getAllBlogs(category) {
   }
   if (category) {
     // return only blogs that have the same category
-    const result = blogArticles.filter((e) => e.category.trim() === category);
+    const categoryValue = category.trim().toLowerCase();
+    const result = blogArticles.filter((e) => e.category.trim().toLowerCase() === categoryValue);
     return (result);
   }
   return (blogArticles);
@@ -432,7 +470,7 @@ export async function createCard(row, style) {
   link.href = row.path;
   if (row.title) link.innerHTML += `${row.title}`;
   cardContent.append(link);
-  if (row.description && row.description !== '0') cardContent.innerHTML += `<p>${row.description.substring(0, 160)}...</p>`;
+  if (row.description && row.description !== '0') cardContent.innerHTML += `<p>${row.description}</p>`;
   const author = document.createElement('div');
   author.classList.add('blog-author');
 

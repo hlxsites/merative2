@@ -1,7 +1,7 @@
 /* Carousel block styles */
 
 /** Carousel section styling */
-.section.carousel-container {
+.carousel-container {
     background: var(--neutral-bone);
     padding: var(--spacer-layout-06) 0 var(--spacer-layout-06);
 }
