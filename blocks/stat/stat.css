@@ -29,7 +29,7 @@ div.stat-container .stat > div > div::before {
     background-image: var(--gradient-left-right);
 }
 
-div.stat-container .stat h1 {
+div.stat-container .stat h2 {
     font-size: 96px;
     line-height: var(--line-height-120);
     letter-spacing: 0;
@@ -85,7 +85,7 @@ div.stat-container .stat::after {
         padding: var(--spacer-layout-07) var(--spacer-layout-156) var(--spacer-layout-05);
     }
 
-    div.stat-container .stat h1 {
+    div.stat-container .stat h2 {
         font-size: 128px;
     }
 }
