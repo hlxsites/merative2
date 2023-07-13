@@ -105,7 +105,6 @@ function calculateSlideHeight(carousel, slide) {
       const figureStyle = window.getComputedStyle(slide.querySelector('.figure'));
       const figureHeight = figureStyle ? parseFloat(figureStyle.height) : SLIDE_CAPTION_SIZE;
       carousel.style.height = `${bodyHeight + figureHeight}px`;
-      console.log(figureStyle.height);
     });
   }
 }
