@@ -1511,10 +1511,6 @@ main pre {
     font-size: var(--font-size-24);
   }
 
-  .article-content-wrapper p.only-picture {
-    margin-top: var(--spacer-element-10);
-  }
-
   .article-content-wrapper p + p {
     margin: var(--spacer-element-10) 0 var(--spacer-element-10);
   }
