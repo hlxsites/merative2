@@ -351,8 +351,8 @@ export async function getAllBlogs(category) {
  * @param {String} category name of the category
  */
 
-export async function getAllArticles(category) {
-  if (!window.allArticles) {
+export async function getThoughtLeadership(category) {
+  if (!window.allThoughtLeadership) {
     const resp = await fetch(`${window.hlx.codeBasePath}/query-index.json`);
     const json = await resp.json();
     json.data.forEach((row) => {
@@ -362,24 +362,24 @@ export async function getAllArticles(category) {
         row.image = `/${window.hlx.codeBasePath}${row.image}`;
       }
     });
-    window.allArticles = json.data;
+    window.allThoughtLeadership = json.data;
   }
-  const allArticles = window.allArticles.filter((e) => e.template === 'Blog Article' && e.topic.trim().toLowerCase().includes('thought leadership'));
+  const allThoughtLeadership = window.allThoughtLeadership.filter((e) => e.thoughtleadership === 'true');
 
   // move featured article to the top of the sorted list
-  const featuredArticleIndex = allArticles.findIndex((el) => (el['featured-article'] === 'true'));
+  const featuredArticleIndex = allThoughtLeadership.findIndex((el) => (el['featured-article'] === 'true'));
   if (featuredArticleIndex > -1) {
-    const featuredArticle = allArticles[featuredArticleIndex];
-    allArticles.splice(featuredArticleIndex, 1);
-    allArticles.unshift(featuredArticle);
+    const featuredArticle = allThoughtLeadership[featuredArticleIndex];
+    allThoughtLeadership.splice(featuredArticleIndex, 1);
+    allThoughtLeadership.unshift(featuredArticle);
   }
   if (category) {
     // return only blogs that have the same category
     // const result = blogArticles.filter((e) => e.topic.trim().toLowerCase().includes(category));
-    const result = allArticles.filter((e) => e.category.trim() === category);
+    const result = allThoughtLeadership.filter((e) => e.category.trim() === category);
     return (result);
   }
-  return (allArticles);
+  return (allThoughtLeadership);
 }
 
 /**
@@ -560,6 +560,46 @@ export async function getPDFsDocuments() {
   const resp = await fetch(`${window.hlx.codeBasePath}/documents/query-index.json`);
   const result = await resp.json();
   return (result);
+}
+
+export function sortArrayOfObjects(arr, property, type) {
+  let result = [];
+  let sortedArray;
+  // Check if the array empty
+  if (!arr.length && type !== 'set') {
+    return result;
+  }
+  if (!arr.size && type === 'set') {
+    return new Set([]);
+  }
+
+  switch (type) {
+    case 'set':
+      // Convert Set to Array
+      sortedArray = Array.from(arr).sort();
+      result = new Set(sortedArray);
+      break;
+    case 'number':
+      result = arr.sort((a, b) => (a[property] - b[property]));
+      break;
+    case 'string':
+      result = arr.sort((a, b) => {
+        const title1 = a[property]?.toLowerCase();
+        const title2 = b[property]?.toLowerCase();
+
+        if (title1 < title2) {
+          return -1;
+        }
+        if (title1 > title2) {
+          return 1;
+        }
+        return 0;
+      });
+      break;
+    default:
+  }
+
+  return result;
 }
 
 export function decorateExternalLinks(main) {

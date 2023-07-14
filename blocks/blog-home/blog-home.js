@@ -1,5 +1,5 @@
 import {
-  getAllBlogs, createCard, getBlogCategoryPages, createTag,
+  getAllBlogs, createCard, getBlogCategoryPages, createTag, sortArrayOfObjects,
 } from '../../scripts/scripts.js';
 
 const NUM_CARDS_SHOWN_AT_A_TIME = 6;
@@ -318,7 +318,7 @@ export async function createFilters(categories, topics, audiences, contentTypes,
     audiencesElement.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   });
   if (audiences.size) {
-    await audiences.forEach(async (audience) => {
+    await sortArrayOfObjects(audiences, '', 'set').forEach(async (audience) => {
       audiencesElement.append(await createCheckboxList(audience));
     });
     filtersMain.append(audiencesElement);
@@ -339,7 +339,7 @@ export async function createFilters(categories, topics, audiences, contentTypes,
       contentTypeElement.setAttribute('aria-expanded', expanded ? 'false' : 'true');
     });
     if (contentTypes.size) {
-      await contentTypes.forEach(async (contentType) => {
+      await sortArrayOfObjects(contentTypes, '', 'set').forEach(async (contentType) => {
         contentTypeElement.append(await createCheckboxList(contentType, 'content-types'));
       });
       filtersMain.append(contentTypeElement);
@@ -360,7 +360,7 @@ export async function createFilters(categories, topics, audiences, contentTypes,
     topicsElement.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   });
   if (topics.size) {
-    await topics.forEach(async (topic) => {
+    await sortArrayOfObjects(topics, '', 'set').forEach(async (topic) => {
       topicsElement.append(await createCheckboxList(topic));
     });
     filtersMain.append(topicsElement);

@@ -1,5 +1,5 @@
 import {
-  createCard, getSolutionCategoryPages, createTag, getAllArticles,
+  createCard, getSolutionCategoryPages, createTag, getThoughtLeadership,
 } from '../../scripts/scripts.js';
 import { loadMoreCards, createFilters } from '../blog-home/blog-home.js';
 
@@ -11,7 +11,7 @@ export default async function decorate(block) {
   const category = block.textContent.trim();
   block.textContent = '';
   // Make a call to get all thought leadership articles from the global query-index
-  const blogList = await getAllArticles(category);
+  const blogList = await getThoughtLeadership(category);
   const categoriesList = await getSolutionCategoryPages();
   const topics = new Set();
   const audiences = new Set();
