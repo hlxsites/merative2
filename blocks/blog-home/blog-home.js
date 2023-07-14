@@ -1,5 +1,5 @@
 import {
-  getAllBlogs, createCard, getBlogCategoryPages, createTag, sortArrayOfObjects,
+  getAllBlogs, createCard, getBlogCategoryPages, createTag,
 } from '../../scripts/scripts.js';
 
 const NUM_CARDS_SHOWN_AT_A_TIME = 6;
@@ -216,19 +216,12 @@ async function createCategories(categoriesList, mode) {
   const catLabel = createTag('span', { class: 'category-title' });
   catLabel.append(mode !== MODE ? 'Solutions' : 'Categories');
   categoriesElement.append(catLabel);
-  const urlBypass = {
-    '/blog/enterprise-imaging': '/thought-leadership/solutions/merge',
-    '/blog/healthcare-analytics': '/thought-leadership/solutions/health-insights',
-    '/blog/real-world-evidence': '/thought-leadership/solutions/marketscan',
-    '/blog/clinical-development': '/thought-leadership/solutions/zelta',
-    '/blog/clinical-decision-support': '/thought-leadership/solutions/micromedex',
-    '/blog/health-human-services': '/thought-leadership/solutions/curam',
-  };
-  (mode !== MODE ? sortArrayOfObjects(categoriesList, 'title', 'string') : categoriesList).forEach((row) => {
+
+  categoriesList.forEach((row) => {
     if ((row.path !== '0') && (row.title !== '0')) {
       const link = document.createElement('a');
       link.classList.add('category-link');
-      link.href = (mode === MODE) ? row.path : urlBypass[row.path];
+      link.href = row.path;
       if (window.location.pathname === row.path) {
         link.classList.add('active');
         if (row.title) link.innerHTML += `<h5>${row.title}</h5>`;
@@ -325,8 +318,8 @@ export async function createFilters(categories, topics, audiences, contentTypes,
     audiencesElement.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   });
   if (audiences.size) {
-    await (mode !== MODE ? sortArrayOfObjects(audiences, '', 'set') : audiences).forEach(async (audience) => {
-      audiencesElement.append(await createCheckboxList(audience, 'audiences'));
+    await audiences.forEach(async (audience) => {
+      audiencesElement.append(await createCheckboxList(audience));
     });
     filtersMain.append(audiencesElement);
   }
@@ -346,7 +339,7 @@ export async function createFilters(categories, topics, audiences, contentTypes,
       contentTypeElement.setAttribute('aria-expanded', expanded ? 'false' : 'true');
     });
     if (contentTypes.size) {
-      await (mode !== MODE ? sortArrayOfObjects(contentTypes, '', 'set') : contentTypes).forEach(async (contentType) => {
+      await contentTypes.forEach(async (contentType) => {
         contentTypeElement.append(await createCheckboxList(contentType, 'content-types'));
       });
       filtersMain.append(contentTypeElement);
@@ -367,8 +360,8 @@ export async function createFilters(categories, topics, audiences, contentTypes,
     topicsElement.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   });
   if (topics.size) {
-    await (mode !== MODE ? sortArrayOfObjects(topics, '', 'set') : topics).forEach(async (topic) => {
-      topicsElement.append(await createCheckboxList(topic, 'topics'));
+    await topics.forEach(async (topic) => {
+      topicsElement.append(await createCheckboxList(topic));
     });
     filtersMain.append(topicsElement);
   }

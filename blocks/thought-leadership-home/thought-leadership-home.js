@@ -1,5 +1,5 @@
 import {
-  createCard, getBlogCategoryPages, createTag, getAllArticles,
+  createCard, getSolutionCategoryPages, createTag, getAllArticles,
 } from '../../scripts/scripts.js';
 import { loadMoreCards, createFilters } from '../blog-home/blog-home.js';
 
@@ -10,9 +10,9 @@ let loadMoreElement;
 export default async function decorate(block) {
   const category = block.textContent.trim();
   block.textContent = '';
-  // Make a call to get all blog details from the blog index
+  // Make a call to get all thought leadership articles from the global query-index
   const blogList = await getAllArticles(category);
-  const categoriesList = await getBlogCategoryPages();
+  const categoriesList = await getSolutionCategoryPages();
   const topics = new Set();
   const audiences = new Set();
   const contentTypes = new Set();

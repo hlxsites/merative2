@@ -330,11 +330,6 @@ export async function getAllBlogs(category) {
     window.allBlogs = json.data;
   }
   const blogArticles = window.allBlogs.filter((e) => e.template === 'Blog Article');
-  blogArticles.sort((a, b) => {
-    if (a.lastModified > b.lastModified) return -1;
-    if (a.lastModified < b.lastModified) return 1;
-    return 0;
-  });
   // move featured article to the top of the sorted list
   const featuredArticleIndex = blogArticles.findIndex((el) => (el['featured-article'] === 'true'));
   if (featuredArticleIndex > -1) {
@@ -351,8 +346,8 @@ export async function getAllBlogs(category) {
 }
 
 /**
- * Gets details about all blogs that are indexed
- * or only blogs belonging to a specific category
+ * Gets details about all articles that are indexed
+ * or only articles belonging to a specific category
  * @param {String} category name of the category
  */
 
@@ -369,26 +364,22 @@ export async function getAllArticles(category) {
     });
     window.allArticles = json.data;
   }
-  const blogArticles = window.allArticles.filter((e) => e.template === 'Blog Article' && e.topic.trim().toLowerCase().includes('thought leadership'));
-  blogArticles.sort((a, b) => {
-    if (a.lastModified > b.lastModified) return -1;
-    if (a.lastModified < b.lastModified) return 1;
-    return 0;
-  });
+  const allArticles = window.allArticles.filter((e) => e.template === 'Blog Article' && e.topic.trim().toLowerCase().includes('thought leadership'));
+
   // move featured article to the top of the sorted list
-  const featuredArticleIndex = blogArticles.findIndex((el) => (el['featured-article'] === 'true'));
+  const featuredArticleIndex = allArticles.findIndex((el) => (el['featured-article'] === 'true'));
   if (featuredArticleIndex > -1) {
-    const featuredArticle = blogArticles[featuredArticleIndex];
-    blogArticles.splice(featuredArticleIndex, 1);
-    blogArticles.unshift(featuredArticle);
+    const featuredArticle = allArticles[featuredArticleIndex];
+    allArticles.splice(featuredArticleIndex, 1);
+    allArticles.unshift(featuredArticle);
   }
   if (category) {
     // return only blogs that have the same category
     // const result = blogArticles.filter((e) => e.topic.trim().toLowerCase().includes(category));
-    const result = blogArticles.filter((e) => e.category.trim() === category);
+    const result = allArticles.filter((e) => e.category.trim() === category);
     return (result);
   }
-  return (blogArticles);
+  return (allArticles);
 }
 
 /**
@@ -415,48 +406,26 @@ export async function getBlogCategoryPages() {
 }
 
 /**
- * Creates a Card using a JSON object and style associated with the card
- * @param {Object} row JSON Object typically coming from an index array item
- * @param {String} style Class name that needs to be added to the card root div
+ * Gets details about all solution category pages that are indexed
+ * for left nav
  */
 
-export function sortArrayOfObjects(arr, property, type) {
-  let result = [];
-  let sortedArray;
-  // Check if the array empty
-  if (!arr.length && type !== 'set') {
-    return result;
+export async function getSolutionCategoryPages() {
+  if (!window.allPages) {
+    const resp = await fetch(`${window.hlx.codeBasePath}/query-index.json`);
+    const json = await resp.json();
+    json.data.forEach((row) => {
+      if (row.image.startsWith('/default-meta-image.png')) {
+        row.image = getRandomDefaultImage();
+      } else {
+        row.image = `/${window.hlx.codeBasePath}${row.image}`;
+      }
+    });
+    window.allPages = json.data;
   }
-  if (!arr.size && type === 'set') {
-    return new Set([]);
-  }
-
-  switch (type) {
-    case 'set':
-      // Convert Set to Array
-      sortedArray = Array.from(arr).sort();
-      result = new Set(sortedArray);
-      break;
-    case 'number':
-      result = arr.sort((a, b) => (a[property] - b[property]));
-      break;
-    case 'string':
-      result = arr.sort((a, b) => {
-        const title1 = a[property]?.toLowerCase();
-        const title2 = b[property]?.toLowerCase();
-
-        if (title1 < title2) {
-          return -1;
-        }
-        if (title1 > title2) {
-          return 1;
-        }
-        return 0;
-      });
-      break;
-    default:
-  }
-  return result;
+  // return only solution category pages for left navigation
+  const result = window.allPages.filter((e) => e.template === 'solution');
+  return (result);
 }
 
 export async function createCard(row, style) {
