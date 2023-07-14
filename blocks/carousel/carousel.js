@@ -54,7 +54,7 @@ function stopAutoScroll() {
  * that has a maximum width.
  * @param text The full text
  * @param width Width of container
- * @param options Options to be applied to context (eg. font style)
+ * @param options Options to be applied to context (e.g. font style)
  *
  * @return {number} The number of lines
  */
@@ -88,23 +88,23 @@ function getLineCount(text, width, options = {}) {
  * @param slide A slide within the carousel
  */
 function calculateSlideHeight(carousel, slide) {
-  if (carouselType === 'default') {
+  if (carouselType === 'default' || carouselType === 'testimonial') {
     requestAnimationFrame(() => {
       const slideBody = slide.querySelector('div');
+      const slideH3 = slide.querySelector('H3');
       const bodyStyle = window.getComputedStyle(slideBody);
       const textOptions = {
         font: `${bodyStyle.fontWeight} ${bodyStyle.fontSize} ${bodyStyle.fontFamily}`,
-        letterSpacing: '0.0175em',
       };
       const lineCount = getLineCount(
-        slideBody.textContent,
+        slideH3.textContent,
         parseInt(bodyStyle.width, 10),
         textOptions,
       );
       const bodyHeight = parseFloat(bodyStyle.lineHeight) * lineCount;
-      const figureStyle = window.getComputedStyle(slide.querySelector('figure'));
+      const figureStyle = window.getComputedStyle(slide.querySelector('.figure'));
       const figureHeight = figureStyle ? parseFloat(figureStyle.height) : SLIDE_CAPTION_SIZE;
-      carousel.style.height = `${bodyHeight + figureHeight + 32}px`;
+      carousel.style.height = `${bodyHeight + figureHeight}px`;
     });
   }
 }
@@ -261,22 +261,22 @@ function buildSlide(slide, index) {
   if (index !== 0) {
     slide.setAttribute('tabindex', '-1');
   }
-  // caption
-  const figure = document.createElement('figure');
+  // figure(Image and caption)
+  const figure = document.createElement('div');
+  figure.classList.add('figure');
 
   const figureImg = document.createElement('img');
-  figureImg.src = '/styles/images/MegaphoneSimple.jpeg';
+  figureImg.src = '/icons/mega-phone-simple.svg';
   figureImg.alt = 'Megaphone Icon with purple background';
   figureImg.width = SLIDE_CAPTION_SIZE;
   figureImg.height = SLIDE_CAPTION_SIZE;
 
-  const figCaption = document.createElement('figcaption');
-  figCaption.classList.add('caption');
-  figCaption.append(slide.children[1]);
-
   figure.append(figureImg);
-  figure.append(figCaption);
-  slide.append(figure);
+  if (carouselType === 'default' || carouselType === 'testimonial') {
+    const caption = slide.querySelector('div > p');
+    caption.insertAdjacentElement('beforebegin', figure);
+    figure.append(caption);
+  }
   return slide;
 }
 
@@ -298,6 +298,9 @@ export default function decorate(block) {
   carousel.classList.add('carousel-slide-container');
   if (block.classList.contains('image-carousel-full-width')) {
     carouselType = 'image-carousel-full-width';
+  }
+  if (block.classList.contains('testimonial')) {
+    carouselType = 'testimonial';
   }
 
   // make carousel draggable

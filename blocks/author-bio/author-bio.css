@@ -36,7 +36,7 @@
 
   .author-bio .author-container {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     flex-basis: calc((100% - var(--spacer-element-08)) / 2);
     flex-shrink: 0;
   }

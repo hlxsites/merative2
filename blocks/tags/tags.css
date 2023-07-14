@@ -19,12 +19,8 @@
     margin-bottom: var(--spacer-element-05);
 }
 
-.article-content .tags .tag:last-child {
-    margin-bottom: 0;
-}
-
 @media only screen and (min-width: 1200px) {
     .article-content .tags[data-block-status="loaded"]{
-        margin-bottom: var(--spacer-element-10);
+        margin-bottom: var(--spacer-element-08);
     }
 }
