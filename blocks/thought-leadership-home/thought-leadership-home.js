@@ -64,9 +64,9 @@ export default async function decorate(block) {
           if (audienceValue.trim() !== '') audiences.add(audienceValue.trim());
         });
       }
-      if (row['page-type'] && row['page-type'] !== '0') {
-        blogCard.setAttribute('page-type', row['page-type']);
-        const contentTypeValues = row['page-type'].split(',');
+      if (row.assettype && row.assettype !== '0') {
+        blogCard.setAttribute('assettype', row.assettype);
+        const contentTypeValues = row.assettype.split(',');
         contentTypeValues.forEach((contentTypeValue) => {
           if (contentTypeValue.trim() !== '') contentTypes.add(contentTypeValue.trim());
         });
