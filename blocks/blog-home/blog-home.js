@@ -373,21 +373,33 @@ export async function createFilters(categories, topics, audiences, contentTypes,
   // Add Categories to filters main section
   filtersMain.prepend(await createCategories(categories, mode));
 
-  // Add Blog home link to the top of filters main section
-  const blogHomeEl = createTag('div', { class: 'blog-home-link' });
-  const blogHomeLink = createTag('a', { class: 'category-link' });
-  blogHomeLink.href = '/blog';
-  if (/(^\/blog$)/.test(window.location.pathname)) {
-    blogHomeLink.classList.add('active');
-    blogHomeLink.innerHTML += `<h2>${mode !== MODE ? 'Thought leadership' : 'Merative Blog'}</h2>`;
-  } else if (/(^\/thought-leadership$)/.test(window.location.pathname)) {
-    blogHomeLink.classList.add('active');
-    blogHomeLink.innerHTML += `<h2>${mode !== MODE ? 'Thought leadership' : 'Merative Blog'}</h2>`;
+  // Create sidebar elements
+  const sidebarHeadingElement = createTag('div', { class: 'sidebar-heading' });
+  const sidebarLink = createTag('a', { class: 'category-link' });
+
+  // Set sidebar title and attributes
+  const isThoughtLeadership = mode !== MODE;
+  const sidebarTitle = isThoughtLeadership ? 'Thought leadership' : 'Merative Blog';
+  const sidebarPath = isThoughtLeadership ? '/thought-leadership' : '/blog';
+
+  sidebarLink.href = sidebarPath;
+  sidebarLink.title = sidebarTitle;
+
+  // Check active state based on current URL
+  const isBlogPage = /^\/blog$/.test(window.location.pathname);
+  const isThoughtLeadershipPage = /^\/thought-leadership$/.test(window.location.pathname);
+
+  if (isBlogPage || isThoughtLeadershipPage) {
+    sidebarLink.classList.add('active');
   } else {
-    blogHomeLink.innerHTML += `${mode !== MODE ? 'Thought leadership' : 'Merative Blog'}`;
+    sidebarLink.classList.remove('active');
   }
-  blogHomeEl.append(blogHomeLink);
-  filtersMain.prepend(blogHomeEl);
+
+  // Set sidebar content
+  sidebarLink.innerHTML += `<h2>${sidebarTitle}</h2>`;
+  sidebarHeadingElement.append(sidebarLink);
+
+  filtersMain.prepend(sidebarHeadingElement);
   filters.prepend(filtersHeader);
   filters.append(filtersMain);
   filters.append(filtersFooter);
