@@ -18,14 +18,15 @@ export default async function decorate(block) {
   const contentTypes = new Set();
   if (blogList.length) {
     const blogContent = createTag('div', { class: 'blog-content' });
-    // Get default content in this section and add it to blog-content
-    const defaultContent = document.querySelectorAll('.thought-leadership-home-container > .default-content-wrapper');
+    // Get default content and hero block in this section and add it to content section ara
+    const defaultContent = document.querySelectorAll('.thought-leadership-home-container > .default-content-wrapper, .thought-leadership-home-container .hero-wrapper');
     defaultContent.forEach((div) => blogContent.append(div));
     if (!defaultContent.length) {
       const emptyDiv = document.createElement('div');
       emptyDiv.setAttribute('class', 'default-content-wrapper');
       blogContent.appendChild(emptyDiv);
     }
+
     // Create the selected filters DOM structure
     const selectedFilters = createTag('div', { class: 'selected-filters' });
     const selectedFiltersdiv = createTag('div', { class: 'selected-filters-div' });
