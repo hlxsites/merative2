@@ -311,76 +311,76 @@ export async function lookupBlogs(pathnames) {
 }
 
 /**
- * Gets details about all blogs that are indexed
- * or only blogs belonging to a specific category
- * @param {String} category name of the category
+ * Fetches and transforms data from a JSON file
+ * @param {string} path - The path to the JSON file
+ * @returns {Promise<Array>} - A promise resolving to the transformed data array
  */
+async function fetchData(path) {
+  const response = await fetch(path);
+  const json = await response.json();
 
-export async function getAllBlogs(category) {
-  if (!window.allBlogs) {
-    const resp = await fetch(`${window.hlx.codeBasePath}/blog/query-index.json`);
-    const json = await resp.json();
-    json.data.forEach((row) => {
-      if (row.image.startsWith('/default-meta-image.png')) {
-        row.image = getRandomDefaultImage();
-      } else {
-        row.image = `/${window.hlx.codeBasePath}${row.image}`;
-      }
-    });
-    window.allBlogs = json.data;
-  }
-  const blogArticles = window.allBlogs.filter((e) => e.template === 'Blog Article');
-  // move featured article to the top of the sorted list
-  const featuredArticleIndex = blogArticles.findIndex((el) => (el['featured-article'] === 'true'));
-  if (featuredArticleIndex > -1) {
-    const featuredArticle = blogArticles[featuredArticleIndex];
-    blogArticles.splice(featuredArticleIndex, 1);
-    blogArticles.unshift(featuredArticle);
-  }
-  if (category) {
-    // return only blogs that have the same category
-    const categoryValue = category.trim().toLowerCase();
-    const result = blogArticles.filter((e) => e.category.trim().toLowerCase() === categoryValue);
-    return (result);
-  }
-  return (blogArticles);
+  return json.data.map((row) => {
+    if (row.image.startsWith('/default-meta-image.png')) {
+      row.image = getRandomDefaultImage();
+    } else {
+      row.image = `/${window.hlx.codeBasePath}${row.image}`;
+    }
+    return row;
+  });
 }
 
 /**
- * Gets details about all articles that are indexed
- * or only articles belonging to a specific category
- * @param {String} category name of the category
+ * Retrieves all blogs or blogs of a specific category
+ * @param {string} category - The name of the category (optional)
+ * @returns {Promise<Array>} - A promise resolving to the filtered blogs array
  */
+export async function getAllBlogs(category) {
+  if (!window.allBlogs) {
+    window.allBlogs = await fetchData(`${window.hlx.codeBasePath}/blog/query-index.json`);
+  }
 
+  const blogArticles = window.allBlogs.filter((e) => e.template === 'Blog Article');
+
+  // Move the featured article to the top of the sorted list
+  const featuredArticleIndex = blogArticles.findIndex((el) => el['featured-article'] === 'true');
+  if (featuredArticleIndex > -1) {
+    const featuredArticle = blogArticles.splice(featuredArticleIndex, 1)[0];
+    blogArticles.unshift(featuredArticle);
+  }
+
+  if (category) {
+    const categoryValue = category.trim().toLowerCase();
+    return blogArticles.filter((e) => e.category.trim().toLowerCase() === categoryValue);
+  }
+
+  return blogArticles;
+}
+
+/**
+ * Retrieves all thought leadership articles or articles of a specific category
+ * @param {string} category - The name of the category (optional)
+ * @returns {Promise<Array>} - A promise resolving to the filtered thought leadership articles array
+ */
 export async function getThoughtLeadership(category) {
   if (!window.allThoughtLeadership) {
-    const resp = await fetch(`${window.hlx.codeBasePath}/query-index.json`);
-    const json = await resp.json();
-    json.data.forEach((row) => {
-      if (row.image.startsWith('/default-meta-image.png')) {
-        row.image = getRandomDefaultImage();
-      } else {
-        row.image = `/${window.hlx.codeBasePath}${row.image}`;
-      }
-    });
-    window.allThoughtLeadership = json.data;
+    window.allThoughtLeadership = await fetchData(`${window.hlx.codeBasePath}/query-index.json`);
   }
+
   const allThoughtLeadership = window.allThoughtLeadership.filter((e) => e.thoughtleadership === 'true');
 
-  // move featured article to the top of the sorted list
-  const featuredArticleIndex = allThoughtLeadership.findIndex((el) => (el['featured-article'] === 'true'));
+  // Move the featured article to the top of the sorted list
+  const featuredArticleIndex = allThoughtLeadership.findIndex((el) => el['featured-article'] === 'true');
   if (featuredArticleIndex > -1) {
-    const featuredArticle = allThoughtLeadership[featuredArticleIndex];
-    allThoughtLeadership.splice(featuredArticleIndex, 1);
+    const featuredArticle = allThoughtLeadership.splice(featuredArticleIndex, 1)[0];
     allThoughtLeadership.unshift(featuredArticle);
   }
+
   if (category) {
-    // return only blogs that have the same category
-    // const result = blogArticles.filter((e) => e.topic.trim().toLowerCase().includes(category));
-    const result = allThoughtLeadership.filter((e) => e.category.trim() === category);
-    return (result);
+    const categoryValue = category.trim().toLowerCase();
+    return allThoughtLeadership.filter((e) => e.category.trim().toLowerCase() === categoryValue);
   }
-  return (allThoughtLeadership);
+
+  return allThoughtLeadership;
 }
 
 /**
