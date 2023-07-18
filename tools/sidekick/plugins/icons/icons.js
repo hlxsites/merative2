@@ -20,7 +20,8 @@ async function processIcons(pageBlock, path) {
     const iconName = Array.from(icon.classList)
         .find((c) => c.startsWith('icon-'))
         .substring(5);
-    const response = await fetch(`https://${host}/icons/${iconName}.svg`);
+    // temporary URL for testing
+    const response = await fetch(`https://239-sidekickupgrade--merative2--hlxsites.hlx.page/icons/${iconName}.svg`);
     const svg = await response.text();
     icons[iconText] = {label: iconText, name: iconName, svg};
   }));
