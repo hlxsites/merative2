@@ -310,6 +310,8 @@ h5 {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  max-width: 120px;
+  cursor: pointer;
 }
 
 .thought-leadership-home[data-block-status="loaded"] .filters[aria-expanded="false"] > .filters-header > .arrow,
