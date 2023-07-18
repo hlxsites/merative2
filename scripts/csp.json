@@ -35,6 +35,7 @@
   ],
   "connect-src": [
       "'self'",
+      "https://*.hlx.page",
       "https://rum.hlx.page/",
       "*.mktoweb.com",
       "*.mktoresp.com",
