@@ -12,7 +12,7 @@ export function loadMoreCards(num) {
   }
   const numCards = num !== undefined ? num : NUM_CARDS_SHOWN_AT_A_TIME;
   // Get cards that are not hidden and not active to load them
-  const activeCards = document.querySelectorAll('.blog-card:not([aria-hidden="true"]):not([card-active="true"])');
+  const activeCards = document.querySelectorAll('.card-item:not([aria-hidden="true"]):not([card-active="true"])');
   if (activeCards) {
     activeCards.forEach((activeCard, i) => {
       if (i < numCards) activeCard.setAttribute('card-active', 'true');
@@ -61,7 +61,7 @@ function updateFiltersCount(count, mode) {
 
 function clearFilters(mode) {
   // get's called when nothing is selected. every card shows
-  const hiddenCards = document.querySelectorAll('.blog-card');
+  const hiddenCards = document.querySelectorAll('.card-item');
   hiddenCards.forEach((card) => {
     card.removeAttribute('aria-hidden');
     card.setAttribute('card-active', 'false');
@@ -129,7 +129,7 @@ function refreshCards(mode) {
   }));
   updateFiltersCount(checkedList.length, mode);
   if (checkedList.length) {
-    const blogCards = document.querySelectorAll('.blog-card');
+    const blogCards = document.querySelectorAll('.card-item');
     blogCards.forEach((card) => {
       card.setAttribute('aria-hidden', 'true');
       card.setAttribute('card-active', 'false');
@@ -430,9 +430,9 @@ export default async function decorate(block) {
     selectedFilters.append(selectedFiltersdiv);
     selectedFilters.append(selectedFiltersList);
     // Create blog cards DOM structure
-    const blogCards = createTag('div', { class: 'blog-cards' });
+    const blogCards = createTag('div', { class: 'card-group' });
     await blogList.forEach(async (row, i) => {
-      const blogCard = await createCard(row, 'blog-card');
+      const blogCard = await createCard(row, 'card-item');
       // first render show featured article and 6 cards so total 7
       // If featured article, then add class name and make active no matter what
       if (row['featured-article'] && row['featured-article'] === 'true') {
@@ -461,7 +461,7 @@ export default async function decorate(block) {
     });
 
     // Full card should be clickable
-    blogCards.querySelectorAll('.blog-card').forEach((card) => {
+    blogCards.querySelectorAll('.card-item').forEach((card) => {
       card.addEventListener('click', () => {
         const alink = card.getElementsByClassName('blog-link');
         document.location.href = alink[0].href;

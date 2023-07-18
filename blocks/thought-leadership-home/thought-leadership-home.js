@@ -38,9 +38,9 @@ export default async function decorate(block) {
     selectedFilters.append(selectedFiltersdiv);
     selectedFilters.append(selectedFiltersList);
     // Create blog cards DOM structure
-    const blogCards = createTag('div', { class: 'blog-cards' });
+    const blogCards = createTag('div', { class: 'card-group' });
     await blogList.forEach(async (row, i) => {
-      const blogCard = await createCard(row, 'blog-card');
+      const blogCard = await createCard(row, 'card-item');
       // first render show featured article and 6 cards so total 7
       // If featured article, then add class name and make active no matter what
       if (row['featured-article'] && row['featured-article'] === 'true') {
@@ -76,7 +76,7 @@ export default async function decorate(block) {
     });
 
     //  Full card should be clickable
-    blogCards.querySelectorAll('.blog-card').forEach((card) => {
+    blogCards.querySelectorAll('.card-item').forEach((card) => {
       card.addEventListener('click', () => {
         const alink = card.getElementsByClassName('blog-link');
         document.location.href = alink[0].href;
