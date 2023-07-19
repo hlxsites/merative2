@@ -80,7 +80,7 @@ function clearFilters(mode) {
     selectedFiltersList.classList.remove('active');
   }
 
-  updateFiltersCount('0', mode);
+  updateFiltersCount(null, mode);
   loadMoreCards(7);
 }
 
