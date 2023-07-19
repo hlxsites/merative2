@@ -741,7 +741,6 @@ main .columns > div > div > h4:first-child {
     max-width: 311px;
     margin: auto 0 auto auto;
   }
-<<<<<<< HEAD
   
   .section-content-band-list.section.section-header > div:nth-child(1) > p:nth-child(3),
   .section-content-band-list.section.section-header > div:nth-child(1) > h2 {
@@ -750,18 +749,3 @@ main .columns > div > div > h4:first-child {
   }
 
 }
-=======
-
-  .section-content-band-list>div:nth-child(1)>p:nth-child(3) {
-    margin-left: 120px;
-  }
-  
-  .section-content-band-list.section.section-header>div:nth-child(1)>p:nth-child(3),
-  .section-content-band-list.section.section-header>div:nth-child(1)>h2 {
-    max-width: 50%;
-    display: inline-flex;
-    max-width: 50%;
-  }
-
-}
->>>>>>> 167cabb04138dfb1e12468b334d3d2fa1dfbcfa8
