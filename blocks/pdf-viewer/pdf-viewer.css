@@ -1,8 +1,53 @@
+.section.pdf-viewer-container > .pdf-viewer-wrapper {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: calc(var(--spacer-layout-03) * -1);
+  margin-bottom: var(--spacer-element-08);
+  width: calc(100% - 47px);
+}
+
 .pdf-viewer {
-    width: 100%;
+  width: 100%;
+  height: calc(100vh / 2.4);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--neutral-white);
+  box-shadow: 0 var(--spacer-element-03) var(--spacer-element-07) rgba(0 0 0 / 15%);
 }
 
 .pdf-viewer.full-window {
+  width: 100%;
+  height: 90vh;
+}
+
+/** Tablet */
+@media screen and (min-width: 768px) {
+  .section.pdf-viewer-container > .pdf-viewer-wrapper {
+    width: var(--section-width-tablet-small);
+  }
+}
+
+/** Desktop */
+@media screen and (min-width: 1200px) {
+  .section.pdf-viewer-container > .pdf-viewer-wrapper {
+    width: var(--section-width-desktop);
+    margin-top: calc(var(--spacer-layout-06) * -1);
+    margin-bottom: var(--spacer-element-08);
+  }
+
+  .pdf-viewer {
+    height: 1085px;
+  }
+
+  .pdf-viewer.pdf-viewer-orientation--portrait {
+    height: 1810px;
+  }
+}
+
+/** Desktop - Extra Large */
+@media screen and (min-width: 1400px) {
+  .section.pdf-viewer-container > .pdf-viewer-wrapper {
+    max-width: 1400px;
     width: 100%;
-    height: 90vh;
+  }
 }

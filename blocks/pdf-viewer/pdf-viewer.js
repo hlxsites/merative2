@@ -1,4 +1,4 @@
-import { createTag } from '../../scripts/scripts.js';
+import { getMetadata, createTag } from '../../scripts/scripts.js';
 import { fetchPlaceholders, readBlockConfig } from '../../scripts/lib-franklin.js';
 
 const placeholders = await fetchPlaceholders();
@@ -20,14 +20,16 @@ const loadScript = (url, attrs) => {
 const embedPDFViewer = (
   divId,
   docUrl,
-  embedMode = 'IN_LINE',
+  embedMode = 'SIZED_CONTAINER',
   showAnnotationTools = false,
   showPrintPDF = true,
   showDownloadPDF = true,
   defaultViewMode = 'FIT_WIDTH',
-  enableFormFilling = false,
+  enableFormFilling = true,
   showBookmarks = false,
   showThumbnails = false,
+  showZoomControl = true,
+  showLeftHandPanel = true,
 ) => {
   // PDF Viewer for doc pages
   if (docUrl) {
@@ -45,7 +47,7 @@ const embedPDFViewer = (
     }
 
     if (pdfAPIKey) {
-      document.addEventListener('adobe_dc_view_sdk.ready', () => {
+      document.addEventListener('adobe_dc_view_sdk.ready', async () => {
         // eslint-disable-next-line no-undef
         const adobeDCView = new AdobeDC.View({ clientId: pdfAPIKey, divId });
         if (adobeDCView) {
@@ -62,6 +64,8 @@ const embedPDFViewer = (
             enableFormFilling,
             showBookmarks,
             showThumbnails,
+            showZoomControl,
+            showLeftHandPanel,
           });
 
           // Add data-hj-allow-iframe attribute to the generated iframe
@@ -79,13 +83,15 @@ export default async function decorate(block) {
   const blockConfig = readBlockConfig(block);
   const docUrl = blockConfig['document-link'];
   const embedMode = blockConfig['embed-mode'];
-  const showAnnotationTools = (blockConfig['show-annotation-tools'] === 'true');
+  const showAnnotationTools = (blockConfig['show-annotation-tools'] === 'false');
   const showPrintPDF = (blockConfig['show-print-pdf'] === 'true');
   const showDownloadPDF = (blockConfig['show-download-pdf'] === 'true');
   const defaultViewMode = blockConfig['default-view-mode'];
   const enableFormFilling = (blockConfig['enable-form-filling'] === 'true');
-  const showBookmarks = (blockConfig['show-bookmarks'] === 'true');
-  const showThumbnails = (blockConfig['show-thumbnails'] === 'true');
+  const showBookmarks = (blockConfig['show-bookmarks'] === 'false');
+  const showThumbnails = (blockConfig['show-thumbnails'] === 'false');
+  const showZoomControl = (blockConfig['show-zoom-control'] === 'true');
+  const showLeftHandPanel = (blockConfig['show-left-hand-panel'] === 'true');
 
   if (docUrl) {
     const randomUUID = window.crypto.randomUUID();
@@ -98,6 +104,18 @@ export default async function decorate(block) {
     block.textContent = '';
     block.append(docDiv);
 
+    // Get document asset type
+    const assetType = getMetadata('assettype');
+    const isWhitepaper = assetType.toLowerCase() === 'whitepaper';
+    const isSolutionBrief = assetType.toLowerCase() === 'solution brief';
+
+    // If the assetType is 'Whitepaper' or 'Solution Brief'
+    if (isWhitepaper || isSolutionBrief) {
+      block.classList.add('pdf-viewer-orientation--portrait');
+    } else {
+      block.classList.add('pdf-viewer-orientation--landscape');
+    }
+
     window.setTimeout(() => embedPDFViewer(
       divId,
       docUrl,
@@ -109,6 +127,8 @@ export default async function decorate(block) {
       enableFormFilling,
       showBookmarks,
       showThumbnails,
+      showZoomControl,
+      showLeftHandPanel,
     ), 3000);
   }
 }

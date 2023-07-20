@@ -576,7 +576,7 @@ main div.leadspace-wrapper {
   }
 
   .section.leadspace-container .leadspace.document {
-    padding-bottom: var(--spacer-layout-06);
     padding-top: var(--spacer-layout-06);
+    padding-bottom: var(--spacer-layout-07);
   }
 }
