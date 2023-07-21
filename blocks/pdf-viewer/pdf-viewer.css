@@ -36,11 +36,11 @@
   }
 
   .pdf-viewer {
-    height: 1085px;
+    height: 986px;
   }
 
   .pdf-viewer.pdf-viewer-orientation--portrait {
-    height: 1810px;
+    height: 1620px;
   }
 }
 

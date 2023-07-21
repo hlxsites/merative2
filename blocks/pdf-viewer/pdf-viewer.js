@@ -20,11 +20,11 @@ const loadScript = (url, attrs) => {
 const embedPDFViewer = (
   divId,
   docUrl,
-  embedMode = 'SIZED_CONTAINER',
+  embedMode = '',
   showAnnotationTools = false,
   showPrintPDF = true,
   showDownloadPDF = true,
-  defaultViewMode = 'FIT_WIDTH',
+  defaultViewMode = 'FIT_PAGE',
   enableFormFilling = true,
   showBookmarks = false,
   showThumbnails = false,
