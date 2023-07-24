@@ -93,6 +93,7 @@
   ],
   "style-src": [
     "'self'",
+    "*.hlx.live",
     "'unsafe-inline'",
     "*.mktoweb.com",
     "*.marketo.com",
