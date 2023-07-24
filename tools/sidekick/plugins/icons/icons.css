@@ -7,17 +7,18 @@
   column-gap: 32px;
   margin: 64px auto;
 }
-
+/*
 .icon-grid .icon {
   width: 48px;
   height: 48px;
 }
 
+
 .icon-grid sp-card {
   width: 96px;
   height: 96px;
 }
-
+ */
 .grid-container {
   display: flex;
   width: calc(100% - 128px);
