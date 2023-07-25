@@ -13,17 +13,17 @@ import { createElement } from '../../library-utils.js';
 
 async function processIcons(pageBlock, path) {
   const icons = {};
-  const {host} = new URL(path);
+  const { host } = new URL(path);
   const iconElements = [...pageBlock.querySelectorAll('span.icon')];
   await Promise.all(iconElements.map(async (icon) => {
     const iconText = icon.parentElement.nextElementSibling.textContent;
     const iconName = Array.from(icon.classList)
-        .find((c) => c.startsWith('icon-'))
-        .substring(5);
-    // temporary URL for testing
+      .find((c) => c.startsWith('icon-'))
+      .substring(5);
+    // temporary URL for testing, will be replaced with host
     const response = await fetch(`https://239-sidekickupgrade--merative2--hlxsites.hlx.page/icons/${iconName}.svg`);
     const svg = await response.text();
-    icons[iconText] = {label: iconText, name: iconName, svg};
+    icons[iconText] = { label: iconText, name: iconName, svg };
   }));
   return icons;
 }
@@ -44,7 +44,7 @@ export async function fetchBlock(path) {
     const doc = parser.parseFromString(html, 'text/html');
     const icons = await processIcons(doc, path);
 
-    window.blocks[path] = {doc, icons};
+    window.blocks[path] = { doc, icons };
   }
 
   return window.blocks[path];
@@ -63,7 +63,7 @@ export async function decorate(container, data, query) {
   gridContainer.append(iconGrid);
 
   const promises = data.map(async (item) => {
-    const {name, path} = item;
+    const { name, path } = item;
     const blockPromise = fetchBlock(path);
 
     try {
@@ -79,8 +79,8 @@ export async function decorate(container, data, query) {
       });
       keys.sort().forEach((iconText) => {
         const icon = res.icons[iconText];
-        const card = createElement('sp-card', '', {variant: 'quiet', heading: icon.label, size: 's'});
-        const cardIcon = createElement('div', 'icon', {size: 's', slot: 'preview'});
+        const card = createElement('sp-card', '', { variant: 'quiet', heading: icon.label, size: 's' });
+        const cardIcon = createElement('div', 'icon', { size: 's', slot: 'preview' });
         cardIcon.innerHTML = icon.svg;
         card.append(cardIcon);
         iconGrid.append(card);
@@ -88,13 +88,13 @@ export async function decorate(container, data, query) {
         card.addEventListener('click', () => {
           navigator.clipboard.writeText(`:${icon.name}:`);
           // Show toast
-          container.dispatchEvent(new CustomEvent('Toast', {detail: {message: 'Copied Icon'}}));
+          container.dispatchEvent(new CustomEvent('Toast', { detail: { message: 'Copied Icon' } }));
         });
       });
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error(e.message);
-      container.dispatchEvent(new CustomEvent('Toast', {detail: {message: e.message, variant: 'negative'}}));
+      container.dispatchEvent(new CustomEvent('Toast', { detail: { message: e.message, variant: 'negative' } }));
     }
 
     return blockPromise;
