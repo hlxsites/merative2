@@ -391,7 +391,6 @@ export async function loadBlocks(main) {
 
 // createOptimizedPicture moved to scripts.js
 
-
 /**
  * Normalizes all headings within a container element.
  * @param {Element} el The container element
