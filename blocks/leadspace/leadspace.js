@@ -228,15 +228,26 @@ export default function decorate(block) {
         block.prepend(docTagContainer);
       }
 
+      // Get the document URL and downloadPDF value using getMetadata
       const docUrl = getMetadata('document-link');
-      if (docUrl) {
+      const downloadPDF = getMetadata('download-pdf');
+
+      // Check if docUrl exists and downloadPDF is not 'false'
+      if (docUrl && downloadPDF !== 'false') {
+        // Create the download link elements
         const downloadLinkContainer = createTag('p', { class: 'button-container' });
         const downloadLink = createTag('a', { class: 'button tertiary has-icon' });
+
+        // Set the link attributes
         downloadLink.setAttribute('href', docUrl);
         downloadLink.setAttribute('target', '_blank');
         downloadLink.textContent = 'Download PDF';
+
+        // Append the link to the container and the container to the block
         downloadLinkContainer.append(downloadLink);
         block.append(downloadLinkContainer);
+
+        // Decorate the buttons and icons
         decorateButtons(block, { decorateClasses: false, excludeIcons: [] });
         decorateIcons(block);
       }
