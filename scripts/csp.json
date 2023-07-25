@@ -31,7 +31,8 @@
       "*.kampyle.com",
       "js.driftt.com",
       "https://rum.hlx.page/",
-      "https://*.hotjar.com"
+      "https://*.hotjar.com",
+      "*.tt.omtrdc.net"
   ],
   "connect-src": [
       "'self'",
@@ -74,7 +75,8 @@
     "cdn.cookielaw.org",
     "cm.everesttech.net",
     "*.medallia.com",
-    "*.kampyle.com"
+    "*.kampyle.com",
+    "*.salesloft.com"
   ],
   "frame-src": [
     "'self'",
@@ -99,7 +101,8 @@
     "assets.adobedtm.com",
     "cdn.cookielaw.org",
     "*.medallia.com",
-    "*.kampyle.com"
+    "*.kampyle.com",
+    "*.tt.omtrdc.net"
   ],
   "font-src": [
     "'self'",

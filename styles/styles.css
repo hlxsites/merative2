@@ -449,11 +449,6 @@ main .section > div:last-child {
   padding-bottom: var(--spacer-layout-06);
 }
 
-.section.pdf-viewer-container > .pdf-viewer-wrapper {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
 /* Block Library needs full width */
 .section > div.library-config-wrapper {
   width: 100vw;
@@ -1337,10 +1332,6 @@ main pre {
     max-width: 70%;
   }
 
-  .section.pdf-viewer-container > .pdf-viewer-wrapper {
-    padding-top: var(--spacer-layout-05);
-    }
-
   .section.leadership-content .columns > div > div {
     flex: 1;
   }
@@ -1539,10 +1530,6 @@ main pre {
   .section.article-content .article-main-wrapper {
     padding-top: 0;
   }
-
-  .section.pdf-viewer-container > .pdf-viewer-wrapper {
-    padding-top: var(--spacer-layout-06);
-    }
 
   .flex-60-40 > div:first-child {
     width: 60%;
