@@ -54,10 +54,17 @@ main .columns-container h4 {
   margin: var(--spacer-layout-03) 0;
 }
 
+.columns.content-band ul {
+  padding-inline-start: unset;
+}
+
 .columns.content-band li {
-  list-style-image: url("../../icons/arrow-purple.svg");
-  margin-bottom: var(--spacer-element-03);
   line-height: var(--line-height-160);
+  background: url("../../icons/arrow-right-purple.svg") no-repeat left top;
+  padding: 0 0 0 25px;
+  list-style: none;
+  margin: 0 0 var(--spacer-element-03);
+  vertical-align: top;
 }
 
 .section-top-grid > div > div > p {
@@ -97,7 +104,10 @@ main .columns-container h4 {
   display: none;
 }
 
-.columns.content-band.icon-list > div > div,
+.columns.content-band.icon-list > div > div{
+  margin-bottom: var(--spacer-element-10);
+}
+
 .columns.content-band.picture-circle > div > div {
   margin-top: var(--spacer-layout-01);
   margin-bottom: var(--spacer-element-06);
@@ -320,6 +330,11 @@ main .columns > div > div > h4:first-child {
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
+}
+
+.section-content-band-list .default-content-wrapper .only-picture{
+  max-width: 160px;
+  margin: auto 0 auto auto;
 }
 
 /* TABLET */
@@ -727,4 +742,10 @@ main .columns > div > div > h4:first-child {
     min-width: 551px;
     max-width: 551px;
   }
+
+  .section-content-band-list .default-content-wrapper .only-picture{
+    max-width: 311px;
+    margin: auto 0 auto auto;
+  }
+
 }

@@ -1,0 +1,85 @@
+.section-content-band-list .content-intro-wrapper > div p:first-child {
+  font-family: var(--sans-serif-font-medium);
+  font-size: var(--font-size-11);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-120);
+  letter-spacing: var(--letter-spacing-02-em);
+  margin: 0 0 var(--spacer-element-07) 0;
+}
+
+.section-content-band-list .content-intro-wrapper > div h2 {
+  font-family: var(--serif-font);
+  font-size: var(--font-size-32);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-120);
+  letter-spacing: var(--letter-spacing-1-75);
+  margin: 0 0 var(--spacer-element-07) 0;
+}
+
+.section-content-band-list .content-intro-wrapper > div p:not(:first-child):not(.button-container) {
+  font-family: var(--sans-serif-font-light);
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-160);
+  letter-spacing: var(--letter-spacing-001-em);
+  margin: 0 0 var(--spacer-element-10) 0;
+
+}
+
+@media (min-width: 768px) {
+  .section-content-band-list .content-intro-wrapper > div p:first-child {
+      max-width: 516px;
+  }
+
+  .section-content-band-list .content-intro-wrapper>div h2 {
+      margin-bottom: var(--spacer-element-08);
+      max-width: 516px;
+  }
+
+  .section-content-band-list .content-intro-wrapper>div p:not(:first-child):not(.button-container) {
+      max-width: 516px;
+  }
+
+}
+
+@media (min-width: 1200px) {
+  .section-content-band-list .content-intro-wrapper > div p:first-child {
+      font-size: var(--font-size-14);
+      margin-bottom: var(--spacer-element-08);
+      max-width: 648px;
+  }
+
+  .section-content-band-list .content-intro-wrapper > div h2 {
+      font-size: var(--font-size-45);
+      max-width: 648px;
+  }
+
+  .section-content-band-list .content-intro-wrapper > div p:not(:first-child):not(.button-container) {
+      font-size: var(--font-size-21);
+      max-width: 648px;
+  }
+
+  /* Css to make h2 and p side by side by using class 'text-on-right' */
+
+  .section-content-band-list.text-on-right .content-intro-wrapper > div > div > div {
+      display: flex;
+      flex-flow: row wrap;
+  }
+
+  .section-content-band-list.text-on-right .content-intro-wrapper > div > div > div > * {
+      flex: 1 100%;
+  }
+
+  .section-content-band-list.text-on-right .content-intro-wrapper > div h2 {
+      flex: 3 0px;
+      order: 1;
+      max-width: 648px;
+      margin-right: 60px;
+  }
+
+  .section-content-band-list.text-on-right .content-intro-wrapper>div p:not(:first-child):not(.button-container) {
+      order: 2;
+      max-width: 357px;
+      margin-left: 60px;
+  }
+}
