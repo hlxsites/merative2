@@ -103,7 +103,7 @@ export default async function decorate(block) {
     // Add embed mode class
     if (embedMode) {
       const embedModeCleanedUp = embedMode.replace(/[_\s]/g, '-').toLowerCase();
-      const concatenatedClass = "embed-mode--" + embedModeCleanedUp;
+      const concatenatedClass = `embed-mode--${embedModeCleanedUp}`;
       block.classList.add(concatenatedClass);
     } else {
       block.classList.add('embed-mode--full-window');
