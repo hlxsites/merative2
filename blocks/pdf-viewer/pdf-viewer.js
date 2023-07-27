@@ -38,6 +38,8 @@ const embedPDFViewer = (
     let pdfAPIKey;
     if (window.location.host.startsWith('localhost')) {
       pdfAPIKey = placeholders.pdfapikeylocalhost;
+    } else if (window.location.host.startsWith('pdf-viewer')) {
+      pdfAPIKey = placeholders.pdfapikeypdfviewer;
     } else if (window.location.host.endsWith('.page')) {
       pdfAPIKey = placeholders.pdfapikeypage;
     } else if (window.location.host.endsWith('.live')) {
