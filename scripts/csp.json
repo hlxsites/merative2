@@ -32,7 +32,9 @@
       "js.driftt.com",
       "https://rum.hlx.page/",
       "https://*.hotjar.com",
-      "*.tt.omtrdc.net"
+      "*.tt.omtrdc.net",
+      "*.spotify.com",
+      "embed.podcasts.apple.com"
   ],
   "connect-src": [
       "'self'",

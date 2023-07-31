@@ -311,40 +311,76 @@ export async function lookupBlogs(pathnames) {
 }
 
 /**
- * Gets details about all blogs that are indexed
- * or only blogs belonging to a specific category
- * @param {String} category name of the category
+ * Fetches and transforms data from a JSON file
+ * @param {string} path - The path to the JSON file
+ * @returns {Promise<Array>} - A promise resolving to the transformed data array
  */
+async function fetchData(path) {
+  const response = await fetch(path);
+  const json = await response.json();
 
+  return json.data.map((row) => {
+    if (row.image.startsWith('/default-meta-image.png')) {
+      row.image = getRandomDefaultImage();
+    } else {
+      row.image = `/${window.hlx.codeBasePath}${row.image}`;
+    }
+    return row;
+  });
+}
+
+/**
+ * Retrieves all blogs or blogs of a specific category
+ * @param {string} category - The name of the category (optional)
+ * @returns {Promise<Array>} - A promise resolving to the filtered blogs array
+ */
 export async function getAllBlogs(category) {
   if (!window.allBlogs) {
-    const resp = await fetch(`${window.hlx.codeBasePath}/blog/query-index.json`);
-    const json = await resp.json();
-    json.data.forEach((row) => {
-      if (row.image.startsWith('/default-meta-image.png')) {
-        row.image = getRandomDefaultImage();
-      } else {
-        row.image = `/${window.hlx.codeBasePath}${row.image}`;
-      }
-    });
-    window.allBlogs = json.data;
+    window.allBlogs = await fetchData(`${window.hlx.codeBasePath}/blog/query-index.json`);
   }
+
   const blogArticles = window.allBlogs.filter((e) => e.template === 'Blog Article');
 
-  // move featured article to the top of the sorted list
-  const featuredArticleIndex = blogArticles.findIndex((el) => (el['featured-article'] === 'true'));
+  // Move the featured article to the top of the sorted list
+  const featuredArticleIndex = blogArticles.findIndex((el) => el['featured-article'] === 'true');
   if (featuredArticleIndex > -1) {
-    const featuredArticle = blogArticles[featuredArticleIndex];
-    blogArticles.splice(featuredArticleIndex, 1);
+    const featuredArticle = blogArticles.splice(featuredArticleIndex, 1)[0];
     blogArticles.unshift(featuredArticle);
   }
+
   if (category) {
-    // return only blogs that have the same category
     const categoryValue = category.trim().toLowerCase();
-    const result = blogArticles.filter((e) => e.category.trim().toLowerCase() === categoryValue);
-    return (result);
+    return blogArticles.filter((e) => e.category.trim().toLowerCase() === categoryValue);
   }
-  return (blogArticles);
+
+  return blogArticles;
+}
+
+/**
+ * Retrieves all thought leadership articles or articles of a specific category
+ * @param {string} category - The name of the category (optional)
+ * @returns {Promise<Array>} - A promise resolving to the filtered thought leadership articles array
+ */
+export async function getThoughtLeadership(category) {
+  if (!window.allThoughtLeadership) {
+    window.allThoughtLeadership = await fetchData(`${window.hlx.codeBasePath}/query-index.json`);
+  }
+
+  const allThoughtLeadership = window.allThoughtLeadership.filter((e) => e.thoughtleadership === 'true');
+
+  // Move the featured article to the top of the sorted list
+  const featuredArticleIndex = allThoughtLeadership.findIndex((el) => el['featured-article'] === 'true');
+  if (featuredArticleIndex > -1) {
+    const featuredArticle = allThoughtLeadership.splice(featuredArticleIndex, 1)[0];
+    allThoughtLeadership.unshift(featuredArticle);
+  }
+
+  if (category) {
+    const categoryValue = category.trim().toLowerCase();
+    return allThoughtLeadership.filter((e) => e.category.trim().toLowerCase() === categoryValue);
+  }
+
+  return allThoughtLeadership;
 }
 
 /**
@@ -371,10 +407,27 @@ export async function getBlogCategoryPages() {
 }
 
 /**
- * Creates a Card using a JSON object and style associated with the card
- * @param {Object} row JSON Object typically coming from an index array item
- * @param {String} style Class name that needs to be added to the card root div
+ * Gets details about all solution category pages that are indexed
+ * for left nav
  */
+
+export async function getSolutionCategoryPages() {
+  if (!window.allPages) {
+    const resp = await fetch(`${window.hlx.codeBasePath}/query-index.json`);
+    const json = await resp.json();
+    json.data.forEach((row) => {
+      if (row.image.startsWith('/default-meta-image.png')) {
+        row.image = getRandomDefaultImage();
+      } else {
+        row.image = `/${window.hlx.codeBasePath}${row.image}`;
+      }
+    });
+    window.allPages = json.data;
+  }
+  // return only solution category pages for left navigation
+  const result = window.allPages.filter((e) => e.template === 'solution');
+  return (result);
+}
 
 export async function createCard(row, style) {
   // Create card div
@@ -397,7 +450,14 @@ export async function createCard(row, style) {
   const link = document.createElement('a');
   link.classList.add('blog-link');
   link.href = row.path;
-  if (row.title) link.innerHTML += `${row.title}`;
+
+  // Create title - render display-title if it exists
+  if (typeof row['display-title'] !== 'undefined' && row['display-title'] !== null && row['display-title'] !== '0') {
+    link.innerHTML += `${row['display-title']}`;
+  } else {
+    link.innerHTML += `${row.title}`;
+  }
+
   cardContent.append(link);
   if (row.description && row.description !== '0') cardContent.innerHTML += `<p>${row.description}</p>`;
   const author = document.createElement('div');
@@ -498,6 +558,56 @@ export async function lookupDocuments(pathnames) {
     return window.pageIndex.lookup[path];
   });
   return (result);
+}
+
+/**
+ * Gets pdf and documents list that are indexed
+ */
+
+export async function getPDFsDocuments() {
+  const resp = await fetch(`${window.hlx.codeBasePath}/documents/query-index.json`);
+  const result = await resp.json();
+  return (result);
+}
+
+export function sortArrayOfObjects(arr, property, type) {
+  let result = [];
+  let sortedArray;
+  // Check if the array empty
+  if (!arr.length && type !== 'set') {
+    return result;
+  }
+  if (!arr.size && type === 'set') {
+    return new Set([]);
+  }
+
+  switch (type) {
+    case 'set':
+      // Convert Set to Array
+      sortedArray = Array.from(arr).sort();
+      result = new Set(sortedArray);
+      break;
+    case 'number':
+      result = arr.sort((a, b) => (a[property] - b[property]));
+      break;
+    case 'string':
+      result = arr.sort((a, b) => {
+        const title1 = a[property]?.toLowerCase();
+        const title2 = b[property]?.toLowerCase();
+
+        if (title1 < title2) {
+          return -1;
+        }
+        if (title1 > title2) {
+          return 1;
+        }
+        return 0;
+      });
+      break;
+    default:
+  }
+
+  return result;
 }
 
 export function decorateExternalLinks(main) {

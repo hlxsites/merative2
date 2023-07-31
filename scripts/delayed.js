@@ -49,6 +49,16 @@ if (document.querySelector('[data-ytid]')) {
   });
 }
 
+// Check if the element with id 'podcast-container-id' exists in the document
+if (document.querySelector('#podcast-container-id')) {
+  const podcastURL = document.querySelector('#podcast-container-id').querySelector('.podcast-iframe').src;
+  if (podcastURL) {
+    loadScript(podcastURL, {
+      type: 'text/javascript',
+    });
+  }
+}
+
 // Adobe Target
 window.targetGlobalSettings = {
   bodyHidingEnabled: false,
