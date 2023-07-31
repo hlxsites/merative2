@@ -43,15 +43,13 @@ export function getHref() {
   return `${parentLocation.origin}${urlParams.get('path')}`;
 }
 
-/** moved from lib-franklin.js
+/** moved from lib-franklin.js per https://github.com/adobe/franklin-sidekick-library#considerations-when-building-blocks-for-the-library
  * Returns a picture element with webp and fallbacks
  * @param {string} src The image URL
  * @param {boolean} eager load image eager
  * @param {Array} breakpoints breakpoints and corresponding params (eg. width)
  */
 
-// TODO: Due to new sidekick, need to move this into scripts.js and modify it to use
-// the getHref() function. https://github.com/adobe/franklin-sidekick-library#considerations-when-building-blocks-for-the-library
 export function createOptimizedPicture(src, alt = '', eager = false, breakpoints = [{
   media: '(min-width: 600px)',
   width: '2000',
