@@ -24,8 +24,8 @@ const embedPDFViewer = (
   showAnnotationTools = false,
   showPrintPDF = true,
   showDownloadPDF = true,
-  defaultViewMode = 'FIT_PAGE',
-  enableFormFilling = true,
+  defaultViewMode = 'FIT_WIDTH',
+  enableFormFilling = false,
   showBookmarks = false,
   showThumbnails = false,
   showZoomControl = true,
@@ -38,6 +38,8 @@ const embedPDFViewer = (
     let pdfAPIKey;
     if (window.location.host.startsWith('localhost')) {
       pdfAPIKey = placeholders.pdfapikeylocalhost;
+    } else if (window.location.host.startsWith('pdf-viewer')) {
+      pdfAPIKey = placeholders.pdfapikeypdfviewer;
     } else if (window.location.host.endsWith('.page')) {
       pdfAPIKey = placeholders.pdfapikeypage;
     } else if (window.location.host.endsWith('.live')) {
@@ -83,13 +85,13 @@ export default async function decorate(block) {
   const blockConfig = readBlockConfig(block);
   const docUrl = blockConfig['document-link'];
   const embedMode = blockConfig['embed-mode'];
-  const showAnnotationTools = (blockConfig['show-annotation-tools'] === 'false');
+  const showAnnotationTools = (blockConfig['show-annotation-tools'] === 'true');
   const showPrintPDF = (blockConfig['show-print-pdf'] === 'true');
   const showDownloadPDF = (blockConfig['show-download-pdf'] === 'true');
   const defaultViewMode = blockConfig['default-view-mode'];
   const enableFormFilling = (blockConfig['enable-form-filling'] === 'true');
-  const showBookmarks = (blockConfig['show-bookmarks'] === 'false');
-  const showThumbnails = (blockConfig['show-thumbnails'] === 'false');
+  const showBookmarks = (blockConfig['show-bookmarks'] === 'true');
+  const showThumbnails = (blockConfig['show-thumbnails'] === 'true');
   const showZoomControl = (blockConfig['show-zoom-control'] === 'true');
   const showLeftHandPanel = (blockConfig['show-left-hand-panel'] === 'true');
 
@@ -97,9 +99,14 @@ export default async function decorate(block) {
     const randomUUID = window.crypto.randomUUID();
     const divId = `adobe-dc-view-${randomUUID}`;
     const docDiv = createTag('div', { id: divId });
+
+    // Add embed mode class
     if (embedMode) {
-      const embedModeCleanedUp = embedMode.replace(/\s/g, '-').toLowerCase();
-      block.classList.add(embedModeCleanedUp);
+      const embedModeCleanedUp = embedMode.replace(/[_\s]/g, '-').toLowerCase();
+      const concatenatedClass = `embed-mode--${embedModeCleanedUp}`;
+      block.classList.add(concatenatedClass);
+    } else {
+      block.classList.add('embed-mode--full-window');
     }
     block.textContent = '';
     block.append(docDiv);
