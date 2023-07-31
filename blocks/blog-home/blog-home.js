@@ -287,18 +287,26 @@ async function createCategories(categoriesList, mode) {
   categoriesElement.append(catLabel);
 
   categoriesList.forEach((row) => {
-    if ((row.path !== '0') && (row.title !== '0')) {
+    if (row.path !== '0' && (row.title || row['display-title'])) {
       const link = document.createElement('a');
       link.classList.add('category-link');
       link.href = row.path;
       if (window.location.pathname === row.path) {
         link.classList.add('active');
-        if (row.title) link.innerHTML += `<h5>${row.title}</h5>`;
-      } else if (row.title) link.innerHTML += `${row.title}`;
+        if (row['display-title']) {
+          link.innerHTML += `<h5>${row['display-title']}</h5>`;
+        } else if (row.title) {
+          link.innerHTML += `<h5>${row.title}</h5>`;
+        }
+      } else if (row['display-title']) {
+        link.innerHTML += `${row['display-title']}`;
+      } else if (row.title) {
+        link.innerHTML += `${row.title}`;
+      }
       categoriesElement.append(link);
     }
   });
-  return (categoriesElement);
+  return categoriesElement;
 }
 
 export async function createFilters(categories, topics, audiences, contentTypes, mode) {
