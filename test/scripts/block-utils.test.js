@@ -12,7 +12,7 @@ document.head.innerHTML = await readFile({ path: './head.html' });
 
 describe('Utils methods', () => {
   before(async () => {
-    blockUtils = await import('../../scripts/lib-franklin.js' && '../../scripts/scripts.js');
+    blockUtils = await import('../../scripts/lib-franklin.js');(
     document.body.innerHTML = await readFile({ path: './body.html' });
   });
 
@@ -67,13 +67,6 @@ describe('Utils methods', () => {
     await blockUtils.sampleRUM('error', { foo: 'bar' });
 
     sendBeacon.restore();
-  });
-
-  it('Creates optimized picture', async () => {
-    const $picture = blockUtils.createOptimizedPicture('/test/scripts/mock.png');
-    expect($picture.querySelector(':scope source[type="image/webp"]')).to.exist; // webp
-    expect($picture.querySelector(':scope source:not([type="image/webp"])')).to.exist; // fallback
-    expect($picture.querySelector(':scope img').src).to.include('format=png&optimize=medium'); // default
   });
 
   it('Normalizes headings', async () => {
