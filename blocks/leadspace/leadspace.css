@@ -37,6 +37,11 @@
   margin: 0 0 var(--spacer-element-05);
 }
 
+.leadspace.brand-logo h1 {
+  font-size: var(--font-size-32);
+  margin: var(--spacer-element-08) 0 var(--spacer-element-05);
+}
+
 .leadspace.event h1 {
   font-size: var(--font-size-32);
 }
@@ -141,6 +146,14 @@ main div.leadspace-wrapper {
   line-height: var(--line-height-120);
 }
 
+.leadspace.brand-logo > div:first-child > div:nth-child(1) > p:last-of-type{
+  max-width: 303px;
+}
+
+.leadspace.brand-logo > div:first-child > div:nth-child(2){
+  max-width: 328px;
+}
+
 .leadspace.video > div:first-child > div:nth-child(2) {
   display: flex;
   flex-direction: row;
@@ -188,6 +201,15 @@ main div.leadspace-wrapper {
 .leadspace .button-group .button-container {
   margin: 0;
 }
+
+.leadspace.brand-logo .button-group .button-container a{
+  font-weight: var(--font-weight-regular);
+}
+
+.leadspace.brand-logo .button-group .button-container:nth-child(3){
+  margin-top: var(--spacer-element-05);
+}
+
 
 /* Secondary Button */
 .leadspace .button-group .button-container > em > a.button.secondary:hover,
@@ -361,9 +383,22 @@ main div.leadspace-wrapper {
     max-width: 420px;
   }
 
+  .leadspace.brand-logo > div:first-child > div:nth-child(1) > p:last-of-type {
+    max-width: 336px;
+  }
+
+  .leadspace.brand-logo .button-group .button-container a{
+    font-weight: var(--font-weight-medium);
+  }
+
   .leadspace > div:first-child > div:nth-child(2) {
     display: flex;
     flex-direction: column;
+  }
+
+  .leadspace.brand-logo > div:first-child > div:nth-child(2) {
+    margin-left: var(--spacer-element-07);
+    max-width: 336px;
   }
 
   .leadspace > div:first-child > div:nth-child(2) picture {
@@ -387,6 +422,10 @@ main div.leadspace-wrapper {
 
   .leadspace:not(.document) > div:first-child > div:nth-child(1) {
     width: 334px;
+  }
+
+  .leadspace.brand-logo > div:first-child > div:nth-child(1) {
+    margin-bottom: var(--spacer-layout-05);
   }
 
   .leadspace.video > div:first-child > div:nth-child(2) {
@@ -451,6 +490,11 @@ main div.leadspace-wrapper {
     margin: 0 0 var(--spacer-element-07);
   }
 
+  .leadspace.brand-logo h1{
+    font-size: var(--font-size-45);
+    margin: var(--spacer-element-10) 0 var(--spacer-element-07);
+  }
+
   .leadspace.event h1 {
     font-size: var(--font-size-45);
   }
@@ -482,6 +526,23 @@ main div.leadspace-wrapper {
     width: 552px;
   }
 
+  .leadspace.brand-logo > div:first-child > div:nth-child(2){
+    max-width: 552px;
+  }
+
+  .leadspace.brand-logo .button-group .button-container:nth-child(3){
+    margin-left: var(--spacer-element-05);
+    margin-top: unset;
+  }
+
+  .leadspace > div:first-child > div:nth-child(1) > p:first-child {
+    font-size: var(--font-size-14);
+  }
+
+  .leadspace.brand-logo > div:first-child > div:nth-child(1) > p:last-of-type{
+    max-width: 420px;
+  }
+
   .leadspace:not(.document) > div:first-child > div:nth-child(1) {
     width: 552px;
     padding: 96px 0;
@@ -510,10 +571,6 @@ main div.leadspace-wrapper {
     margin-top: var(--spacer-layout-06);
   }
 
-  .leadspace > div:first-child > div:nth-child(1) > p:first-child {
-    font-size: var(--font-size-14);
-  }
-
   .leadspace.video > div:first-child > div:nth-child(2) {
     width: 45%;
     height: 850px;
@@ -528,6 +585,15 @@ main div.leadspace-wrapper {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
+  }
+
+  .leadspace.brand-logo .button-group{
+    margin-top: var(--spacer-element-10);
+  }
+
+  .leadspace.brand-logo .button-group .button-container a{
+    line-height: var(--line-height-160);
+    letter-spacing: var(--letter-spacing-001-em);
   }
 
   .leadspace.video .video-wrapper {
@@ -576,7 +642,7 @@ main div.leadspace-wrapper {
   }
 
   .section.leadspace-container .leadspace.document {
+    padding-bottom: var(--spacer-layout-06);
     padding-top: var(--spacer-layout-06);
-    padding-bottom: var(--spacer-layout-07);
   }
 }
