@@ -110,6 +110,7 @@ main > .section.section-header.list-section.bg-neutral-bone > .content-band-chec
     .content-band-checkmarks > div > div:nth-child(2) > ul>li {
         font-size: var(--font-size-21);
         height: 64px;
+        width: 360px;
     }
 
     .content-band-checkmarks > div > div:first-child > p:not(:first-child):not(.button-container) {
