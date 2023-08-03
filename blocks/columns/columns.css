@@ -99,8 +99,13 @@ main .columns-container h4 {
 
 .columns.content-band.icon-list > div > div,
 .columns.content-band.picture-circle > div > div {
-  margin-top: var(--spacer-layout-01);
-  margin-bottom: var(--spacer-element-06);
+  margin-bottom: var(--spacer-element-10);
+}
+
+/* stylelint-disable no-descending-specificity */
+.columns.content-band.icon-list > div > div:last-child,
+.columns.content-band.picture-circle > div > div:last-child {
+  margin-bottom: 0;
 }
 
 .columns.content-band.icon-list h3 {
@@ -533,6 +538,11 @@ main .columns > div > div > h4:first-child {
   .section-bottom .columns-2-cols > div > :nth-child(2) h1 {
     margin: 0;
   }
+
+  .columns.content-band.icon-list > div > div,
+  .columns.content-band.picture-circle > div > div {
+    margin-bottom: 0;
+  }
 }
 
 /** Desktop **/
@@ -638,7 +648,6 @@ main .columns > div > div > h4:first-child {
     flex: 1 1 75%;
   }
 
-  /* stylelint-disable-next-line no-descending-specificity */
   .columns p,
   .columns > div,
   .section-top-grid > div:nth-child(1) > div:nth-child(1),
