@@ -29,6 +29,11 @@
   clip-path: inset(50% 0 0 0 round 50% 50% 0 0);
 }
 
+.leadspace.brand-logo > div > div svg{
+  height: 45px;
+  width: auto;
+}
+
 .leadspace h1 {
   font-family: var(--serif-font);
   line-height: var(--line-height-120);
@@ -483,6 +488,11 @@ main div.leadspace-wrapper {
 
   .leadspace, .leadspace p {
     font-size: var(--font-size-21);
+  }
+
+  .leadspace.brand-logo > div > div svg{
+    height: 55px;
+    width: auto;
   }
 
   .leadspace h1 {
