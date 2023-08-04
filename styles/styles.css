@@ -563,10 +563,6 @@ main img {
   margin-top: 40px;
 }
 
-.bg-neutral-bone {
-  background-color: var(--neutral-bone);
-}
-
 .section.notification-section {
   padding-top: 14px;
   padding-bottom: 14px;
@@ -1245,6 +1241,28 @@ main pre {
   object-fit: cover;
 }
 
+/* Section - Background Utilities */
+.bg-neutral-bone {
+  background-color: var(--neutral-bone);
+}
+
+.bg-gradient {
+  background-color: var(--neutral-white);
+  border-bottom: 1px solid var(--neutral-sand);
+  background-image: linear-gradient(180deg, var(--neutral-white) 0%, var(--neutral-bone) 100%);
+}
+
+/* Section - Content Band List */
+.section.section-content-band-list .only-picture {
+  justify-content: right;
+  display: flex;
+  margin-top: var(--spacer-element-10);
+}
+
+.section.section-content-band-list .only-picture picture {
+  width: 160px;
+}
+
 /* News section background */
 .section.news {
   background-color: var(--neutral-bone);
@@ -1710,5 +1728,10 @@ main pre {
   .section-bottom .columns-2-cols > div > :nth-child(2) p:nth-of-type(3) {
     font-size: 16px;
     letter-spacing: 0.01em;
+  }
+
+  /* Section - Content Band List */
+  .section.section-content-band-list .only-picture picture {
+    width: 312px;
   }
 }
