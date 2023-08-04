@@ -211,10 +211,14 @@ main div.leadspace-wrapper {
   font-weight: var(--font-weight-regular);
 }
 
+.leadspace.brand-logo .button-group .button-container a.tertiary{
+  line-height: var(--line-height-160);
+}
+
+
 .leadspace.brand-logo .button-group .button-container:nth-child(3){
   margin-top: var(--spacer-element-05);
 }
-
 
 /* Secondary Button */
 .leadspace .button-group .button-container > em > a.button.secondary:hover,
@@ -604,6 +608,11 @@ main div.leadspace-wrapper {
   .leadspace.brand-logo .button-group .button-container a{
     line-height: var(--line-height-160);
     letter-spacing: var(--letter-spacing-001-em);
+  }
+
+  .leadspace.brand-logo .button-group .button-container a.tertiary{
+    line-height: var(--line-height-120);
+    letter-spacing: unset;
   }
 
   .leadspace.video .video-wrapper {
