@@ -185,34 +185,44 @@ export function refreshCards(mode) {
   }));
   updateFiltersCount(checkedList.length, mode);
   if (checkedList.length) {
+    // Set to store active cards that match the filters
+    const activeCards = new Set();
+
+    // Helper function to check if a card has a specific attribute value
+    const checkCardAttribute = (card, attribute) => {
+      if (card.hasAttribute(attribute)) {
+        const filterGroupValues = card.getAttribute(attribute).split(',');
+        const found = filterGroupValues.some(
+          (checkedItem) => checkedList.find((item) => item.value === checkedItem.trim()),
+        );
+        if (found) {
+          card.removeAttribute('aria-hidden');
+          card.setAttribute('card-active', 'true');
+          activeCards.add(card);
+        }
+      }
+    };
+
+    // Get all card items
     const blogCards = document.querySelectorAll('.card-item');
+
+    // Iterate through each card
     blogCards.forEach((card) => {
+      // Hide the card by default
       card.setAttribute('aria-hidden', 'true');
       card.setAttribute('card-active', 'false');
-      if (card.hasAttribute('topics')) {
-        const filterGroupValues = card.getAttribute('topics').split(',');
-        const found = filterGroupValues
-          .some((checkedItem) => checkedList.find((item) => item.value === checkedItem.trim()));
-        if (found) {
-          card.removeAttribute('aria-hidden');
-        }
+
+      // Check each card attribute for matches in the checkedList
+      const cardAttributes = ['topics', 'audiences'];
+      cardAttributes.forEach((attribute) => checkCardAttribute(card, attribute));
+
+      // Check 'content-types' attribute only if mode is not MODE
+      const contentTypesAttr = 'content-types';
+      if (mode !== MODE && card.hasAttribute(contentTypesAttr)) {
+        checkCardAttribute(card, contentTypesAttr);
       }
-      if (card.hasAttribute('audiences')) {
-        const filterGroupValues = card.getAttribute('audiences').split(',');
-        const found = filterGroupValues
-          .some((checkedItem) => checkedList.find((item) => item.value === checkedItem.trim()));
-        if (found) {
-          card.removeAttribute('aria-hidden');
-        }
-      }
-      if (card.hasAttribute('content-types') && mode !== MODE) {
-        const filterGroupValues = card.getAttribute('content-types').split(',');
-        const found = filterGroupValues
-          .some((checkedItem) => checkedList.find((item) => item.value === checkedItem.trim()));
-        if (found) {
-          card.removeAttribute('aria-hidden');
-        }
-      }
+
+      // Show active cards up to NUM_CARDS_SHOWN_AT_A_TIME
       if (!(card.hasAttribute('aria-hidden'))) hits += 1;
       if (hits < NUM_CARDS_SHOWN_AT_A_TIME) card.setAttribute('card-active', 'true');
     });
