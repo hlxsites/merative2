@@ -1,0 +1,139 @@
+/* Content */
+.block.content {
+  padding-top: var(--spacer-layout-07);
+  padding-bottom: var(--spacer-layout-07);
+}
+
+.content .content__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-48);
+  flex-shrink: 0;
+  margin-bottom: var(--spacer-layout-06);
+}
+
+.content .content__item:last-child {
+  margin-bottom: 0;
+}
+
+.content .content__item .only-picture {
+  order: 2;
+}
+
+.content .content__col h2 {
+  margin: 0 0 var(--spacer-element-08) 0;
+}
+
+.content .content__col img {
+  width: 100%;
+}
+
+.content .content__col ul {
+  margin: var(--spacer-element-08) 0 0 0;
+  padding-inline-start: 0;
+  font-size: var(--font-size-16);
+  line-height: var(--line-height-160);
+}
+
+.content .content__col ul li {
+  position: relative;
+  list-style: none;
+  padding-inline-start: calc(var(--spacer-element-01) + var(--spacer-element-08));
+  margin: 0 0 var(--spacer-element-05) 0;
+}
+
+.content .content__col ul li::before {
+  content: "";
+  position: absolute;
+  top: var(--spacer-element-01);
+  left: 0;
+  background: url('../../icons/circular-checkmark.svg') no-repeat;
+  width: var(--spacer-element-07);
+  height: var(--spacer-element-07);
+}
+
+.content .content__col ul li:last-child {
+  margin-bottom: 0;
+}
+
+.content .content__col p.content__eyebrow {
+  font-family: var(--sans-serif-font-medium);
+  text-transform: uppercase;
+  font-size: var(--font-size-11);
+  font-weight: 500;
+  letter-spacing: var(--letter-spacing-02-em);
+  margin: 0 0 var(--spacer-element-07) 0;
+}
+
+.content .content__col p.button-container {
+  margin-top: var(--spacer-element-08);
+  margin-bottom: 0;
+}
+
+/* Content - Complex */
+.content-complex .content .content__col p:not(.content__eyebrow) {
+  font-size: var(--font-size-16);
+  margin: 0 0 var(--spacer-element-03) 0;
+}
+
+.content-complex .content .content__col p:not(.content__eyebrow) strong {
+  font-size: var(--font-size-16);
+  font-family: var(--sans-serif-font-regular);
+}
+
+.content-complex .content .content__col hr {
+  margin: var(--spacer-element-05) 0;
+  border-width: 0;
+}
+
+.content-complex .content .content__col p.button-container {
+  margin-top: var(--spacer-element-08);
+  margin-bottom: 0;
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) {
+  .content .content__item {
+    flex-direction: row;
+    gap: var(--gap-84);
+  }
+
+  .content .content__item .only-picture {
+    order: inherit;
+  }
+
+  .content .content__col {
+    width: 50%;
+  }
+
+  .content .content__col p.button-container {
+    margin-top: var(--spacer-element-10);
+    margin-bottom: 0;
+  }
+}
+
+/* Desktop */
+@media only screen and (min-width: 1200px) {
+  .content .content__item {
+    align-items: center;
+    gap: var(--gap-120);
+  }
+
+  .content .content__col p.content__eyebrow {
+    font-size: var(--font-size-14);
+    margin: 0 0 var(--spacer-element-08) 0;
+  }
+
+  .content .content__col.only-picture {
+    width: 552px;
+  }
+
+  .content .content__col {
+    width: 456px;
+  }
+
+  .content-complex .content .content__col p.button-container {
+    margin-top: var(--spacer-element-10);
+  }
+}
