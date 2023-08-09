@@ -5,13 +5,6 @@ const selectors = Object.freeze({
   videoContent: '.video-modal-content',
 });
 
-const pendingPlayers = [];
-
-/**
- * Keep track of all the YouTube players for each video on the page
- */
-const playerMap = {};
-
 const videoTypeMap = Object.freeze({
   youtube: [/youtube\.com/, /youtu\.be/],
   external: [/vimeo\.com/],
@@ -22,7 +15,7 @@ const videoTypeMap = Object.freeze({
  * @param href
  * @return {undefined|youtube|external}
  */
-const getVideoType = (href) => {
+export const getVideoType = (href) => {
   const videoEntry = Object.entries(videoTypeMap).find(
     ([, allowedUrls]) => allowedUrls.some((urlToCompare) => urlToCompare.test(href)),
   );
@@ -46,11 +39,29 @@ const getYouTubeId = (href) => {
   return null;
 };
 
-const getYouTubePlayer = (element) => {
-  if (!element) {
-    return undefined;
-  }
-  return playerMap[element.dataset.ytid];
+let player;
+
+/**
+ * Create a new YT Player and store the result of its player ready event.
+ * @param element iFrame element YouTube player will be attached to.
+ * @param videoId The YouTube video id
+ */
+const loadYouTubePlayer = (element, videoId) => {
+  // The API will call this function when the video player is ready.
+  const onPlayerReady = (event) => {
+    event.target.playVideo();
+  };
+
+  // eslint-disable-next-line no-new
+  player = new window.YT.Player(element, {
+    videoId,
+    playerVars: {
+      start: 0, // Always start from the beginning
+    },
+    events: {
+      onReady: onPlayerReady,
+    },
+  });
 };
 
 /**
@@ -59,21 +70,43 @@ const getYouTubePlayer = (element) => {
  * When the overlay is closed the video will be paused.
  * @param block Block containing a video modal
  */
-const toggleVideoOverlay = (block) => {
+export const toggleVideoOverlay = (block) => {
   const modal = block.querySelector(selectors.videoModal);
   const videoContent = modal.querySelector(selectors.videoContent);
-  const ytPlayer = getYouTubePlayer(videoContent);
-  if (modal?.classList.contains('open')) {
+  const videoType = videoContent.getAttribute('data-videoType');
+  const videoId = videoContent.getAttribute('data-videoId');
+
+  if (modal?.classList?.contains('open')) {
     modal.classList.remove('open');
-    if (ytPlayer) {
-      ytPlayer.pauseVideo();
+    if (videoType === 'youtube') {
+      player?.stopVideo();
+      // Destroy the iframe when the video is closed.
+      const iFrame = document.getElementById(`ytFrame-${videoId}`);
+      if (iFrame) {
+        const container = iFrame.parentElement;
+        container.removeChild(iFrame);
+      }
     } else {
       modal.querySelector('video')?.pause();
+      modal.querySelector('video').currentTime = 0;
     }
   } else {
     modal.classList.add('open');
-    if (ytPlayer) {
-      ytPlayer.playVideo();
+    if (videoType === 'youtube') {
+      // Create a YouTube compatible iFrame
+      videoContent.innerHTML = `<div id="ytFrame-${videoId}" data-hj-allow-iframe="true"></div>`;
+      if (window.YT) {
+        loadYouTubePlayer(`ytFrame-${videoId}`, videoId);
+      } else {
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        // eslint-disable-next-line func-names
+        window.onYouTubePlayerAPIReady = function () {
+          loadYouTubePlayer(`ytFrame-${videoId}`, videoId);
+        };
+      }
     } else {
       modal.querySelector('video')?.play();
     }
@@ -83,12 +116,13 @@ const toggleVideoOverlay = (block) => {
 /**
  * Decorate the video link as a play button.
  * @param link Existing video link
+ * @param videoType Type of the video
  * @param label Label for the button
  * @return {HTMLElement} The new play button
  */
-const decorateVideoLink = (link, label = 'Play') => {
+const decorateVideoLink = (link, videoType, label = 'Play') => {
   let playBtn = link;
-  if (getVideoType(link.href) !== 'external') {
+  if (videoType !== 'external') {
     playBtn = createTag(
       'button',
       { class: 'open-video', type: 'button', 'aria-label': 'Play video' },
@@ -105,41 +139,11 @@ const decorateVideoLink = (link, label = 'Play') => {
 };
 
 /**
- * Create a new YT Player and store the result of its player ready event.
- * @param element iFrame element YouTube player will be attached to.
- * @param videoId The YouTube video id
- */
-const loadYouTubePlayer = (element, videoId) => {
-  const onPlayerReady = (event) => {
-    playerMap[videoId] = event.target;
-  };
-
-  // Create a new iframe element
-  const iframe = document.createElement('iframe');
-  iframe.src = `https://www.youtube.com/embed/${videoId}`;
-
-  // Add the data-hj-allow-iframe attribute
-  iframe.setAttribute('data-hj-allow-iframe', '');
-
-  // Append the iframe to the specified element
-  element.appendChild(iframe);
-
-  // we have to create a new YT Player but then need to wait for its onReady event
-  // before assigning it to the player map
-  // eslint-disable-next-line no-new
-  new window.YT.Player(iframe, {
-    events: {
-      onReady: onPlayerReady,
-    },
-  });
-};
-
-/**
  * Display video within a modal overlay. Video can be served directly or via YouTube.
  * @param href
  * @return {HTMLElement}
  */
-const buildVideoModal = (href) => {
+export const buildVideoModal = (href, videoType) => {
   const videoModal = createTag('div', { class: 'video-modal', 'aria-modal': 'true', role: 'dialog' });
   const videoOverlay = createTag('div', { class: 'video-modal-overlay' });
   const videoContainer = createTag('div', { class: 'video-modal-container' });
@@ -150,25 +154,11 @@ const buildVideoModal = (href) => {
   videoContainer.appendChild(videoHeader);
 
   const videoContent = createTag('div', { class: 'video-modal-content' });
-  if (getVideoType(href) === 'youtube') {
-    // Create a YouTube compatible iFrame
+  if (videoType === 'youtube') {
     const videoId = getYouTubeId(href);
     videoContent.dataset.ytid = videoId;
-    videoContent.innerHTML = `<div id="ytFrame-${videoId}"></div>`;
-    if (!window.YT) {
-      pendingPlayers.push({ id: videoId, element: videoContent.firstElementChild });
-    } else {
-      loadYouTubePlayer(videoContent.firstElementChild, videoId);
-    }
-    if (!window.onYouTubeIframeAPIReady) {
-      // onYouTubeIframeAPIReady will load the video after the script is loaded
-      window.onYouTubeIframeAPIReady = () => {
-        while (pendingPlayers.length) {
-          const { id, element } = pendingPlayers.pop();
-          loadYouTubePlayer(element, id);
-        }
-      };
-    }
+    videoContent.setAttribute('data-videoType', 'youtube');
+    videoContent.setAttribute('data-videoId', videoId);
   } else {
     videoContent.innerHTML = `<video controls playsinline loop preload="auto">
         <source src="${href}" type="video/mp4" />
@@ -209,6 +199,9 @@ export default function decorate(block) {
   if (picture) {
     const pictureContainer = picture.closest('div');
     pictureContainer.classList.add('video-image');
+    if (pictureContainer.parentNode.childElementCount === 1) {
+      pictureContainer.classList.add('single-video');
+    }
     pictureContainer.appendChild(picture);
   }
 
@@ -217,33 +210,22 @@ export default function decorate(block) {
   let videoHref;
   if (videoLink) {
     videoHref = videoLink.href;
-
-    const playButton = decorateVideoLink(videoLink, 'Play');
-
-    if (getVideoType(videoHref) !== 'external') {
-      const videoModal = buildVideoModal(videoHref);
+    const videoType = getVideoType(videoHref);
+    const playButton = decorateVideoLink(videoLink, videoType, 'Play');
+    if (videoType !== 'external') {
+      const videoModal = buildVideoModal(videoHref, videoType);
       const videoClose = videoModal.querySelector('button.video-modal-close');
       videoClose.addEventListener('click', () => toggleVideoOverlay(block));
       block.append(videoModal);
 
       // Display video overlay when play button is pressed
-      playButton.addEventListener('click', () => toggleVideoOverlay(block, videoHref));
+      playButton.addEventListener('click', () => toggleVideoOverlay(block));
     }
   }
 
-  // decorate video title that's placed below the image
-  const secondRow = block.querySelector('div:nth-of-type(2)');
-  if (secondRow) {
-    const videoTitleElement = secondRow.querySelector('div');
-
-    if (videoTitleElement) {
-      const videoTitleText = videoTitleElement.textContent;
-      const paragraphElement = document.createElement('p');
-      paragraphElement.textContent = videoTitleText;
-      videoTitleElement.innerHTML = '';
-      videoTitleElement.appendChild(paragraphElement);
-
-      videoTitleElement.classList.add('video-title');
-    }
+  // Check if the div is the first element of its parent
+  const textDivElement = block.querySelector('.video-text');
+  if (!textDivElement?.previousElementSibling) {
+    textDivElement?.classList.add('text-left');
   }
 }

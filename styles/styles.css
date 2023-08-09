@@ -163,7 +163,6 @@
   --letter-spacing-001-em: 0.01em;
   --letter-spacing-02-em: 0.2em;
 
-
   /* element spacers */
   --spacer-element-01: 2px;
   --spacer-element-02: 4px;
@@ -192,6 +191,11 @@
   --nav-height-mobile: 93px;
   --nav-height-mobile-section: 93px;
   --sticky-nav-height: 80px;
+
+  /* gap spacers */
+  --gap-48: 48px;
+  --gap-84: 84px;
+  --gap-120: 120px;
 
   /* section widths */
   --section-width-desktop: 1128px;
