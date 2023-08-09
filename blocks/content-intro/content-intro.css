@@ -23,7 +23,7 @@ p.content-intro__eyebrow {
   text-transform: uppercase;
   font-size: var(--font-size-11);
   font-weight: 500;
-  letter-spacing: 0.175rem;
+  letter-spacing: var(--letter-spacing-02-em);
   margin: 0 0 var(--spacer-element-07) 0;
 }
 
@@ -45,7 +45,7 @@ p.content-intro__eyebrow {
     display: flex;
     align-items: flex-start;
     flex-shrink: 0;
-    gap: 120px;
+    gap: var(--gap-120);
     max-width: 1128px;
   }
 
