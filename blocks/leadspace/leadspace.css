@@ -209,6 +209,7 @@ main div.leadspace-wrapper {
 
 .leadspace.brand-logo .button-group .button-container a{
   font-weight: var(--font-weight-regular);
+  height: unset;
 }
 
 .leadspace.brand-logo .button-group .button-container a.tertiary{
@@ -397,7 +398,7 @@ main div.leadspace-wrapper {
   }
 
   .leadspace.brand-logo .button-group .button-container a{
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-regular);
   }
 
   .leadspace > div:first-child > div:nth-child(2) {
@@ -613,6 +614,7 @@ main div.leadspace-wrapper {
   .leadspace.brand-logo .button-group .button-container a.tertiary{
     line-height: var(--line-height-120);
     letter-spacing: unset;
+    font-weight: var(--font-weight-medium);
   }
 
   .leadspace.video .video-wrapper {
