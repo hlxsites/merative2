@@ -212,10 +212,10 @@ main div.leadspace-wrapper {
   height: unset;
 }
 
-.leadspace.brand-logo .button-group .button-container a.tertiary{
-  line-height: var(--line-height-160);
+.leadspace.brand-logo .button-group .button-container a.tertiary {
+  line-height: var(--line-height-120);
+  font-weight: var(--font-weight-medium);
 }
-
 
 .leadspace.brand-logo .button-group .button-container:nth-child(3){
   margin-top: var(--spacer-element-05);
@@ -602,19 +602,13 @@ main div.leadspace-wrapper {
     align-items: center;
   }
 
-  .leadspace.brand-logo .button-group{
+  .leadspace.brand-logo .button-group {
     margin-top: var(--spacer-element-10);
   }
 
-  .leadspace.brand-logo .button-group .button-container a{
+  .leadspace.brand-logo .button-group .button-container a {
     line-height: var(--line-height-160);
     letter-spacing: var(--letter-spacing-001-em);
-  }
-
-  .leadspace.brand-logo .button-group .button-container a.tertiary{
-    line-height: var(--line-height-120);
-    letter-spacing: unset;
-    font-weight: var(--font-weight-medium);
   }
 
   .leadspace.video .video-wrapper {
