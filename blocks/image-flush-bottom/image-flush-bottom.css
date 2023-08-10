@@ -1,4 +1,4 @@
-div:first-child.image-flush-bottom-wrapper,
+main .section.image-flush-bottom-container > .image-flush-bottom-wrapper,
 .image-flush-bottom .only-picture img{
     width: 100% ;
 }
