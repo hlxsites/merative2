@@ -62,7 +62,7 @@
     font-weight: var(--font-weight-medium);
     line-height: var(--line-height-160);
     letter-spacing: var(--letter-spacing-1);
-    padding: 16px var(--spacer-element-07);
+    padding: var(--spacer-element-05) var(--spacer-element-07);
 }
 
 .content-band-checkmarks > div > div:nth-child(2) > ul {
