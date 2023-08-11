@@ -78,7 +78,7 @@
     letter-spacing: var(--letter-spacing-001-em);
     margin: 0 0 var(--spacer-element-05);
     padding: 0 var(--spacer-element-07);
-    height: 48px;
+    height: var(--spacer-layout-04);
     display: flex;
     align-items: center;
 }
