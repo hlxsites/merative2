@@ -1,3 +1,7 @@
+body.document .section.leadspace-container > div:first-child > .leadspace.document {
+  padding-bottom: var(--spacer-layout-05);
+}
+
 .section.pdf-viewer-container > .pdf-viewer-wrapper {
   padding-top: 0;
   padding-bottom: 0;
@@ -32,6 +36,10 @@
 
 /** Desktop */
 @media screen and (min-width: 1200px) {
+  body.document .section.leadspace-container > div:first-child > .leadspace.document {
+    padding-bottom: var(--spacer-layout-07);
+  }
+
   .section.pdf-viewer-container > .pdf-viewer-wrapper {
     width: var(--section-width-desktop);
     margin-top: calc(var(--spacer-layout-06) * -1);
