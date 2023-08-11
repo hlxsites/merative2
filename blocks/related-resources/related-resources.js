@@ -1,7 +1,7 @@
 import { decorateButtons, decorateIcons } from '../../scripts/lib-franklin.js';
-import { lookupDocuments, createDocumentCard } from '../../scripts/scripts.js';
+import { lookupDocuments, getPDFsDocuments, createDocumentCard } from '../../scripts/scripts.js';
 
-async function setRowDetails(row, block) {
+export async function setRowDetails(row, block) {
   // Get the right element for this row
   let aElement = {};
   [...block.querySelectorAll('a')].forEach((a) => {
@@ -72,7 +72,21 @@ export default async function decorate(block) {
       excludeIcons: [],
     });
     decorateIcons(block);
-  } else {
-    block.remove();
+  } else { // fetchign documents and populating top 3 cards.
+    const cardList = await getPDFsDocuments();
+    block.textContent = '';
+    [...cardList.data].forEach((element, index) => {
+      if (index < 3) {
+        setRowDetails(element, blockCopy);
+        if (element.title && element.description) {
+          block.append(createDocumentCard(element, ['document-card']));
+        }
+        decorateButtons(block, {
+          decorateClasses: false,
+          excludeIcons: [],
+        });
+        decorateIcons(block);
+      }
+    });
   }
 }
