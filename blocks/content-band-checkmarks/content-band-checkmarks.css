@@ -29,12 +29,39 @@
     margin: 0 0 var(--spacer-layout-04);
 }
 
-.content-band-checkmarks > div > div:first-child > .button-container > strong > a {
+.content-band-checkmarks > div > div:first-child > .button-container button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: var(--sans-serif-font-medium);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    background: var(--primary-purple);
+    color: var(--neutral-white);
+    border-radius: 40px;
+    border-style: none;
+}
+
+.content-band-checkmarks > div > div:first-child > .button-container button.open-video::after {
+    content: '';
+    background: url("./../../icons/play-button.svg") no-repeat;
+    background-size: contain;
+    height: var(--spacer-element-05);
+    width: 10px;
+    margin-left: var(--spacer-element-07);
+}
+
+.content-band-checkmarks > div > div:first-child > .button-container button.open-video:hover {
+    background: var(--gradient-left-right);
+}
+
+.content-band-checkmarks > div > div:first-child > .button-container > strong > a, .content-band-checkmarks > div > div:first-child > .button-container > strong > button {
     font-family: var(--sans-serif-font-medium);
     font-size: var(--font-size-16);
     font-weight: var(--font-weight-medium);
     line-height: var(--line-height-160);
-    letter-spacing: 0.16px;
+    letter-spacing: var(--letter-spacing-1);
     padding: 16px var(--spacer-element-07);
 }
 
@@ -60,7 +87,7 @@ main > .section.section-header.list-section.bg-neutral-bone > .content-band-chec
     background-color: var(--neutral-white);
 }
 
-.content-band-checkmarks > div > div:nth-child(2) > ul>li::before {
+.content-band-checkmarks > div > div:nth-child(2) > ul > li::before {
     margin-right: var(--spacer-element-07);
 }
 
@@ -92,7 +119,7 @@ main > .section.section-header.list-section.bg-neutral-bone > .content-band-chec
         gap: var(--gap-120);
     }
 
-    .content-band-checkmarks > div > div:first-child {
+    .content-band-checkmarks > div:not(.video-modal) > div:first-child {
         max-width: 644px;
     }
 
@@ -107,7 +134,7 @@ main > .section.section-header.list-section.bg-neutral-bone > .content-band-chec
         max-width: 100%;
     }
 
-    .content-band-checkmarks > div > div:nth-child(2) > ul>li {
+    .content-band-checkmarks > div > div:nth-child(2) > ul > li {
         font-size: var(--font-size-21);
         height: 64px;
         width: 360px;
@@ -119,7 +146,7 @@ main > .section.section-header.list-section.bg-neutral-bone > .content-band-chec
         max-width: 100%;
     }
 
-    .content-band-checkmarks > div > div:nth-child(2) {
+    .content-band-checkmarks > div:not(.video-modal) > div:nth-child(2) {
         max-width: 360px;
     }
 
