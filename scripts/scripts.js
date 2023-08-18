@@ -95,32 +95,6 @@ export function isBlockLibrary() {
   return window.location.pathname.includes('block-library');
 }
 
-function buildBackToTopBlock(main) {
-  const element = document.createElement('div');
-  element.classList.add('back-to-top');
-  main.append(element);
-
-  const backToTop = main.querySelector(':scope > div.back-to-top');
-  // add scroll listener
-  window.addEventListener('scroll', () => {
-    const scrollAmount = window.scrollY;
-    if (scrollAmount > 100) {
-      backToTop.classList.add('active');
-    } else {
-      backToTop.classList.remove('active');
-    }
-  });
-
-  // add click listener
-  backToTop.addEventListener('click', () => {
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
-    });
-  });
-}
-
 /**
  * Helper function to create DOM elements
  * @param {string} tag DOM element to be created
@@ -297,7 +271,6 @@ function buildDocumentUrl(main) {
  */
 function buildAutoBlocks(main) {
   try {
-    buildBackToTopBlock(main);
     buildBlogLeftNavBlock();
     buildBlogBreadCrumbBlock();
     buildDocumentUrl(main);

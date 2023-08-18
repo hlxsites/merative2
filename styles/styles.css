@@ -110,6 +110,10 @@
   --gradient-diagonal-up: linear-gradient(214.42deg, var(--primary-red) 12.94%, var(--primary-purple) 88.28%);
   --gradient-vertical: linear-gradient(90deg, var(--primary-purple) 0%, var(--primary-red) 100%);
   --gradient-left-right: linear-gradient(270deg, var(--primary-red), var(--primary-purple));
+  --gradient-to-right: linear-gradient(-270deg, var(--primary-purple) 0%, var(--primary-purple) 50%, var(--primary-red) 100%);
+  --gradient-to-right-transparent: linear-gradient(-270deg, transparent 0%, transparent 50%, var(--primary-purple) 100%);
+  --gradient-to-right-transparent-hover: linear-gradient(-270deg, transparent 0%, var(--primary-purple) 50%, var(--primary-red) 100%);
+  --gradient-to-right-white: linear-gradient(-270deg, var(--neutral-white) 0%, var(--neutral-white) 50%, var(--primary-red) 100%);
 
   /* neutrals */
   --neutral-carbon: #20201F;
@@ -164,7 +168,6 @@
   --letter-spacing-001-em: 0.01em;
   --letter-spacing-02-em: 0.2em;
 
-
   /* element spacers */
   --spacer-element-01: 2px;
   --spacer-element-02: 4px;
@@ -194,7 +197,14 @@
   --nav-height-mobile-section: 93px;
   --sticky-nav-height: 80px;
 
+  /* gap spacers */
+  --gap-24: 24px;
+  --gap-48: 48px;
+  --gap-84: 84px;
+  --gap-120: 120px;
+
   /* section widths */
+  --secton-max-container: 1128px;
   --section-width-desktop: 1128px;
   --section-width-mobile: 328px;
   --section-width-tablet-small: 696px;
@@ -402,7 +412,6 @@ main source {
 }
 
 .section > div {
-  width: calc(100% - 47px);
   margin: 0 auto;
 }
 
@@ -440,6 +449,13 @@ main .section[data-section-status='initialized'] {
 
 .columns.section-bottom-grid > div {
   row-gap: 0;
+}
+
+/* Section Container */
+main .section > div {
+  max-width: var(--secton-max-container);
+  margin: 0 auto;
+  width: calc(100% - var(--spacer-layout-04));
 }
 
 main .section > div:first-child {
@@ -757,8 +773,12 @@ a.button span.icon.bookmark {
 
 /* Primary Button */
 .button-container a.button.primary {
-  background: var(--primary-purple);
   color: var(--neutral-white);
+  border: 2px solid var(--primary-purple);
+  background-image: var(--gradient-to-right);
+  background-position: 0 0;
+  background-size: 200% auto;
+  transition: all .4s ease-in-out;
 }
 
 .button-container a.button.primary strong {
@@ -770,6 +790,11 @@ a.button span.icon.bookmark {
   border: 2px solid var(--primary-purple);
   font-weight: 500;
   font-style: normal;
+  padding: 13px 26px;
+  background-image: var(--gradient-to-right-white);
+  background-position: 0 0;
+  background-size: 200% auto;
+  transition: color .3s ease-in-out, background-position .4s ease-in-out;
 }
 
 .button-container a.button.secondary em {
@@ -783,15 +808,16 @@ a.button span.icon.bookmark {
 
 .button-container a.button.primary:hover,
 .button-container a.button.primary:active {
-  background: var(--gradient-left-right);
+  border: 2px solid transparent;
+  background-position: 96% 0;
 }
 
 .button-container a.button.secondary:hover,
 .button-container a.button.secondary:active {
-  border: none;
-  background: var(--gradient-left-right);
+  border: 2px solid transparent;
   color: var(--neutral-white);
-  padding: 13px 26px;
+  background-image: var(--gradient-to-right);
+  background-position: 96% 0;
   }
 
 /* Tertiary (Link) Button */
@@ -911,11 +937,6 @@ main ul a:not(.button):active {
   margin: 0;
 }
 
-/* Back to top button */
-.section.back-to-top {
-  display: none;
-}
-
 main pre {
   background-color: var(--neutral-sand);
   padding: 1em;
@@ -933,51 +954,11 @@ main pre {
 }
 
 /* What we do Section */
-
 .section .columns.column-content-top-border > div > div p {
   margin-top: 0;
   letter-spacing: .01em;
   line-height: 160%;
   font-weight: bold;
-}
-
-/* Back to top button */
-.section.back-to-top.active[data-section-status='loaded'] {
-  position: fixed;
-  display: block;
-  padding: 0;
-  right: 20px;
-  bottom: 20px;
-  z-index: 999;
-  height: 49px;
-  width: 49px;
-}
-
-.section.back-to-top.active::before,
-.section.back-to-top.active::after {
-  content: '';
-  position: fixed;
-  border: 2px solid #90f;
-  border-radius: 50%;
-  background-position: 50%;
-  transform: rotate(-90deg);
-  width: 49px;
-  height: 49px;
-  background-color: var(--neutral-white);
-}
-
-.section.back-to-top.active::after {
-  background: url('../icons/right-arrow-purple-large.svg') no-repeat center center;
-}
-
-.section.back-to-top.active:hover::after {
-  background: url('../icons/arrow-white.svg') no-repeat center center;
-  border: unset;
-}
-
-.section.back-to-top.active:hover::before {
-  background: var(--gradient-diagonal-up);
-  border: unset;
 }
 
 /* blog article */
@@ -1285,18 +1266,6 @@ main pre {
     max-width: 60%;
   }
 
-  /* Back to top button */
-  main .section.back-to-top.active[data-section-status='loaded'] {
-    height: 54px;
-    width: 54px;
-  }
-
-  main .section.back-to-top.active::before,
-  main .section.back-to-top.active::after {
-    width: 54px;
-    height: 54px;
-  }
-
   main .desktop-reverse > div {
     flex-flow: row-reverse;
   }
@@ -1306,9 +1275,9 @@ main pre {
     min-width: inherit;
   }
 
+  /* Section Container */
   main .section > div {
-    width: var(--section-width-tablet-small);
-    margin: 0 auto;
+    width: calc(100% - 72px);
   }
 
   .columns.column-content-top-border div {
@@ -1487,25 +1456,14 @@ main pre {
     padding-top: calc(var(--nav-height) + 37px);
   }
 
+  /* Section Container */
   main .section > div {
-    width: var(--section-width-desktop);
     margin: 0 auto;
+    width: 100%;
   }
 
   .tags {
     margin-bottom: 48px;
-  }
-
-  /* Back to top button */
-  main .section.back-to-top.active[data-section-status='loaded'] {
-    height: 78px;
-    width: 78px;
-  }
-
-  main .section.back-to-top.active::before,
-  main .section.back-to-top.active::after {
-    width: 78px;
-    height: 78px;
   }
 
   main .section.leadership-content .columns > div > div > h6 {

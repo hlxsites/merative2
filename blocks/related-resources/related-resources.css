@@ -76,6 +76,7 @@
 .related-resources > div:hover {
     border-radius: 0 0 10px 10px;
     box-shadow: 2px 4px 4px 2px rgb(0 0 0 / 15%);
+    transition: all .4s ease-in-out;
 }
 
 .related-resources .document-card a {
@@ -99,6 +100,10 @@
     height: 54px;
     border: 2px solid var(--primary-purple);
     border-radius: 50%;
+    background-image: var(--gradient-to-right-white);
+    background-position: 0 0;
+    background-size: 200% auto;
+    transition: all .4s ease-in-out;
 }
 
 .related-resources a.document-link span.icon > svg {
@@ -133,8 +138,9 @@
 
 .related-resources .document-card:hover a.document-link,
 .related-resources-container.highlight .related-resources .document-card:hover a.document-link {
-    background: var(--gradient-diagonal-up);
-    border: unset;
+    border: 2px solid transparent;
+    background-image: var(--gradient-to-right);
+    background-position: 96% 0;
 }
 
 /* Mobile and Tablet hide scrollbar */

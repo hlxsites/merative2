@@ -34,7 +34,9 @@
       "https://*.hotjar.com",
       "*.tt.omtrdc.net",
       "*.spotify.com",
-      "embed.podcasts.apple.com"
+      "embed.podcasts.apple.com",
+      "bat.bing.com",
+      "https://www.clarity.ms"
   ],
   "connect-src": [
       "'self'",
@@ -60,7 +62,8 @@
       "*.kampyle.com",
       "https://*.hotjar.com",
       "https://*.hotjar.io",
-      "wss://*.hotjar.com"
+      "wss://*.hotjar.com",
+      "*.clarity.ms"
   ],
   "img-src": [
     "'self'",
@@ -79,7 +82,9 @@
     "cm.everesttech.net",
     "*.medallia.com",
     "*.kampyle.com",
-    "*.salesloft.com"
+    "*.salesloft.com",
+    "bat.bing.com",
+    "*.clarity.ms"
   ],
   "frame-src": [
     "'self'",
@@ -126,6 +131,7 @@
     "'none'"
   ],
   "media-src": [
-    "'self'"
+    "'self'",
+    "data: blob: *;"
   ]
 }

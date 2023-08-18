@@ -67,9 +67,7 @@ h5 {
   display: block;
   margin: 0 auto 58px;
   text-decoration: none;
-  background: #90f;
   border-radius: var(--spacer-element-09);
-  height: var(--spacer-element-10);
   padding: var(--spacer-element-05);
   width: 165px;
   font-family: var(--sans-serif-font-regular);
@@ -79,11 +77,15 @@ h5 {
   color: var(--neutral-white);
   text-align: center;
   cursor: pointer;
+  background-image: var(--gradient-to-right);
+  background-position: 0 0;
+  background-size: 200% auto;
+  transition: all .4s ease-in-out;
 }
 
 .thought-leadership-home > .blog-content > .load-more:hover,
 .blog-home > .blog-content > .load-more:hover {
-  background: var(--gradient-diagonal-up);
+  background-position: 100% 0;
 }
 
 .thought-leadership-home > .blog-content > .load-more[aria-hidden="true"],
@@ -97,6 +99,7 @@ h5 {
   background: var(--neutral-bone);
   height: 100%;
   border-radius: 10px;
+  transition: all .3s ease-out;
 }
 
 .thought-leadership-home > .blog-content > .card-group > .card-item[card-active="false"],
