@@ -390,7 +390,7 @@ main .section div.carousel-wrapper {
     
     .carousel.case-study .carousel-nav.carousel-nav-prev {
         transform: unset;
-        background: url('./../../icons/CarouselArrowLeft.svg') no-repeat;
+        background: url('./../../icons/carousel-arrow-left.svg') no-repeat;
         background-size: contain;
         width: 101px;
         height: 101px;
@@ -399,7 +399,7 @@ main .section div.carousel-wrapper {
     
     .carousel.case-study .carousel-nav.carousel-nav-next {
         transform: unset;
-        background: url('./../../icons/CarouselArrowRight.svg') no-repeat;
+        background: url('./../../icons/carousel-arrow-right.svg') no-repeat;
         background-size: contain;
         width: 101px;
         height: 101px;
