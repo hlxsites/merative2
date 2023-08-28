@@ -322,12 +322,16 @@ main .section div.carousel-wrapper {
         min-width: 1128px;
     }
 
-    .carousel.case-study .carousel-dots li {
-        width: 169px;
-    }
-
     .carousel ul.carousel-dots {
         margin-top: var(--spacer-layout-02);
+    }
+
+    .carousel.case-study ul.carousel-dots {
+        margin-top: var(--spacer-layout-05);
+    }
+
+    .carousel.case-study .carousel-dots li {
+        width: 169px;
     }
 
     .carousel .carousel-slide {
@@ -380,13 +384,13 @@ main .section div.carousel-wrapper {
 
     .carousel.case-study .carousel-nav {
         opacity: 1;
-        top: 35%;
+        top: 36%;
         background: unset;
     }
     
     .carousel.case-study .carousel-nav.carousel-nav-prev {
         transform: unset;
-        background: url('./../../icons/carousel-arrow-left.svg') no-repeat;
+        background: url('./../../icons/CarouselArrowLeft.svg') no-repeat;
         background-size: contain;
         width: 101px;
         height: 101px;
@@ -395,7 +399,7 @@ main .section div.carousel-wrapper {
     
     .carousel.case-study .carousel-nav.carousel-nav-next {
         transform: unset;
-        background: url('./../../icons/carousel-arrow-right.svg') no-repeat;
+        background: url('./../../icons/CarouselArrowRight.svg') no-repeat;
         background-size: contain;
         width: 101px;
         height: 101px;
@@ -407,7 +411,7 @@ main .section div.carousel-wrapper {
     }
       
     .carousel.case-study .carousel-slide-container .carousel-slide .case-study__container-wrapper .case-study__title-wrapper > p:first-child {
-        font-size: var(--font-size-16);
+        font-size: var(--font-size-14);
         letter-spacing: 0.175rem;
     }
     
@@ -424,12 +428,14 @@ main .section div.carousel-wrapper {
       
     .carousel.case-study .carousel-slide-container .carousel-slide .case-study__container-wrapper .case-study__content-wrapper > h2 {
         font-size: var(--font-size-45);
+        max-width: 268px;
         letter-spacing: 0.0493rem;
         margin: 0;
     }
       
     .carousel.case-study .carousel-slide-container .carousel-slide .case-study__container-wrapper .case-study__content-wrapper > p:nth-child(2) {
         font-size: var(--font-size-21);
+        max-width: 446px;
         letter-spacing: 0.013rem;
         margin: 0;
     }
