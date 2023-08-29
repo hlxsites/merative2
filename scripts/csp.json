@@ -84,9 +84,10 @@
     "*.medallia.com",
     "*.kampyle.com",
     "*.salesloft.com",
-    "bat.bing.com",
+    "*.bing.com",
     "*.clarity.ms",
-    "px.ads.linkedin.com"
+    "px.ads.linkedin.com",
+    "googleads.g.doubleclick.net"
   ],
   "frame-src": [
     "'self'",
