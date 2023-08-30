@@ -41,8 +41,6 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
             return false;
           });
 
-          // const conReasonField = document.querySelector('#contactmeHowcanwehelp');
-          // const noButtonReasons = ['Customer Support'];
           let hasTrackedFormLoad = false;
           window.MktoForms2.whenReady((f) => {
             if (!hasTrackedFormLoad && window._satellite) {
@@ -51,19 +49,6 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
               });
               hasTrackedFormLoad = true;
             }
-            // Keeping the below code that I got from the original site.
-            // function noMoreButton() {
-            //   const reason = conReasonField.value;
-            //   if (noButtonReasons.includes(reason)) {
-            //     f.submittable(false);
-            //     document.querySelector('.mktoForm .mktoButtonRow').style.display = 'none';
-            //     return false;
-            //   }
-            //   f.submittable(true);
-            //   document.querySelector('.mktoForm .mktoButtonRow').style.display = 'block';
-            //   return false;
-            // }
-            // if (conReasonField) conReasonField.addEventListener('change', noMoreButton);
 
             f.addHiddenFields({
               RBN_Referral_URL_Cargo__c: document.URL,
@@ -90,64 +75,40 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
 };
 
 export default function decorate(block) {
+  // Read block configuration
   const blockConfig = readBlockConfig(block);
   const marketoId = placeholders.marketoid;
+
+  // Extract form configuration details
+  const formTitle = blockConfig['form-title'];
   const formId = blockConfig['form-id'];
   const successUrl = blockConfig['success-url'];
-  const section = block.closest('.section.marketo-container');
-
-  // Handle headings in the section
-  if (section.children.length > 0) {
-    section.classList.add('multiple');
-  }
-
-  // Move heading to its own wrapper
-  const h2 = section.querySelector('h2:first-of-type, h3:first-of-type');
-  if (h2 && h2.parentElement) {
-    const h2Wrapper = h2.parentElement;
-    const clonedWrapper = h2Wrapper.cloneNode();
-    clonedWrapper.classList.add('heading');
-    clonedWrapper.appendChild(h2);
-    section.prepend(clonedWrapper);
-    if (h2Wrapper.children.length === 0) {
-      h2Wrapper.parentElement.removeChild(h2Wrapper);
-    }
-  }
-
-  // Move remaining content to marketo wrapper
-  section.querySelectorAll('.marketo-wrapper > div:not(.marketo)').forEach((div) => {
-    if (div.querySelector('h6')) {
-      div.classList.add('spacious');
-    }
-  });
-
-  // Add read more/less link to default content
-  const defaultContent = section.querySelectorAll('.default-content-wrapper:not(.heading)');
-  defaultContent.forEach((wrapper) => {
-    if (wrapper.querySelectorAll(':scope > p:first-of-type ~ *').length > 0) {
-      const showMore = createTag('a', { role: 'button' });
-      showMore.textContent = 'Read more';
-      showMore.addEventListener('click', () => {
-        wrapper.classList.toggle('open');
-        showMore.textContent = wrapper.classList.contains('open') ? 'Read less' : 'Read more';
-      });
-      wrapper.classList.add('show-more');
-      wrapper.appendChild(showMore);
-    }
-  });
 
   if (formId && marketoId) {
+    // Create the form element
     const formElement = createTag('form', { id: `mktoForm_${formId}` });
     block.textContent = '';
+
+    // Create and append form title (if available)
+    if (formTitle) {
+      const titleElement = createTag('h2', { id: `${formTitle.toLowerCase()}` });
+      titleElement.textContent = formTitle;
+      block.append(titleElement);
+    }
+
+    // Append the form element
     block.append(formElement);
 
+    // Set up an observer to embed the Marketo form when block is in view
     const observer = new IntersectionObserver((entries) => {
       if (entries.some((e) => e.isIntersecting)) {
+        // Embed the Marketo form
         embedMarketoForm(marketoId, formId, successUrl);
         observer.disconnect();
       }
     });
+
+    // Start observing the block
     observer.observe(block);
-    // window.setTimeout(() => embedMarketoForm(marketoId, formId, successUrl), 3000);
   }
 }

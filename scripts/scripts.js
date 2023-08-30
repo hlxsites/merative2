@@ -131,6 +131,75 @@ export function getMetadata(name) {
 }
 
 /**
+ * Retrieves the content of a cookie.
+ * @param {string} cname The cookie name (or property)
+ * @returns {string} The cookie value
+ */
+export function getCookie(cname) {
+  const name = cname.concat('=');
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const ca = decodedCookie.split(';');
+  for (let i = 0; i < ca.length; i += 1) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) === 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return '';
+}
+
+/**
+* Set the content of a cookie
+* @param {string} cname The cookie name (or property)
+* @param {string} cvalue The cookie value
+* @param {number} exdays The cookie expiry days (default 30 days)
+* @param {string} path The cookie path (optional)
+*
+* example - setCookie('username', cookieExist, 5); this cookie expires in 5 days.
+*/
+export function setCookie(cname, cvalue, exdays = 30, path = '/') {
+  const expiresDate = exdays * 1000 * 60 * 60 * 24;
+  const today = new Date();
+  today.setTime(today.getTime() + (expiresDate));
+  const expires = 'expires='.concat(today.toGMTString());
+  const cookieString = cname.concat('=')
+    .concat(cvalue)
+    .concat(';')
+    .concat(expires)
+    .concat(';path=')
+    .concat(path);
+  document.cookie = cookieString; // cname + '=' + cvalue + ';' + expires + ';path=' + path;
+}
+
+/**
+* Delete content of a cookie
+* @param {string} cname The cookie name (or property)
+* @param {string} path The cookie path (optional)
+*/
+export function deleteCookie(cname, path = '/') {
+  if (getCookie(cname)) {
+    document.cookie = cname.concat('=;expires=Sat, 01-Jan-2000 00:00:01 GMT;path=').concat(path);
+  }
+}
+
+/**
+* Create a unique hash from a specific string
+* @param {string} str The String value
+* @returns {number} The created hash code of string
+*/
+export function createStringToHash(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i += 1) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i) | 0; // eslint-disable-line no-bitwise
+    hash &= hash; // eslint-disable-line no-bitwise
+  }
+  return hash;
+}
+
+/**
  * sets the Content-Security-Policy meta tag to the document based on JSON file
  */
 async function setCSP() {
@@ -353,6 +422,33 @@ export async function lookupBlogs(pathnames) {
 }
 
 /**
+ * Gets details about people that are indexed
+ * @param {Array} pathnames list of pathnames
+ */
+
+export async function lookupPeople(pathnames) {
+  if (!window.peopleIndex) {
+    const resp = await fetch(`${window.hlx.codeBasePath}/people/query-index.json`);
+    const json = await resp.json();
+    const lookup = {};
+    json.data.forEach((row) => {
+      lookup[row.path] = row;
+      if (row.image.startsWith('/default-meta-image.png')) {
+        row.image = getRandomDefaultImage();
+      } else {
+        row.image = `/${window.hlx.codeBasePath}${row.image}`;
+      }
+    });
+    window.peopleIndex = {
+      data: json.data,
+      lookup,
+    };
+  }
+  const result = pathnames.map((path) => window.peopleIndex.lookup[path]).filter((e) => e);
+  return (result);
+}
+
+/**
  * Fetches and transforms data from a JSON file
  * @param {string} path - The path to the JSON file
  * @returns {Promise<Array>} - A promise resolving to the transformed data array
@@ -568,6 +664,85 @@ export function createDocumentCard(row, styles) {
 }
 
 /**
+ * Creates a Headshot List using a JSON object and style associated with the List
+ * @param {Object} row JSON Object typically coming from an index array item
+ * @param {Array} styles Class names that needs to be added to the List root div
+ */
+export function createHeadshotList(row, styles) {
+  const list = document.createElement('div');
+  if (styles) list.classList.add(styles);
+
+  // Add image
+  if (row.image !== '0' && row.title !== '0') {
+    const listImage = document.createElement('div');
+    listImage.classList.add('headshot-list__image');
+    listImage.appendChild(createOptimizedPicture(row.image, row.title));
+    list.prepend(listImage);
+  }
+
+  // Add content
+  const listContent = document.createElement('div');
+  listContent.classList.add('headshot-list__content');
+
+  if (row.title) {
+    listContent.innerHTML += `<div class="headshot-list__title">${row.title}</div>`;
+  }
+
+  if (row['display-title']) {
+    listContent.innerHTML += `<h4>${row['display-title']}</h4>`;
+  }
+
+  if (row.description) {
+    listContent.innerHTML += `<p>${row.description}</p>`;
+  }
+
+  listContent.innerHTML += '<hr></hr>';
+
+  // Socials
+  const socialLinks = [];
+
+  if (row.twitter) {
+    socialLinks.push({
+      href: row.twitter,
+      label: 'Open Twitter',
+      iconClass: 'icon-twitter',
+    });
+  }
+
+  if (row.linkedin) {
+    socialLinks.push({
+      href: row.linkedin,
+      label: 'Open LinkedIn',
+      iconClass: 'icon-linkedin',
+    });
+  }
+
+  if (socialLinks.length > 0) {
+    const listContentSocial = document.createElement('div');
+    listContentSocial.classList.add('headshot-list__socials');
+
+    socialLinks.forEach((linkInfo) => {
+      const link = document.createElement('a');
+      link.href = linkInfo.href;
+      link.target = '_blank';
+      link.setAttribute('aria-label', linkInfo.label);
+
+      const iconSpan = document.createElement('span');
+      iconSpan.classList.add('icon', linkInfo.iconClass);
+      link.appendChild(iconSpan);
+
+      listContentSocial.appendChild(link);
+    });
+
+    decorateIcons(listContentSocial);
+    listContent.appendChild(listContentSocial);
+  }
+  list.appendChild(listContent);
+
+  return list;
+}
+
+/**
  * Gets details about documents that are indexed
  * @param {Array} pathnames list of pathnames
  */
@@ -655,11 +830,13 @@ export function sortArrayOfObjects(arr, property, type) {
 export function decorateExternalLinks(main) {
   main.querySelectorAll('a').forEach((a) => {
     const href = a.getAttribute('href');
-    const extension = href.split('.').pop().trim();
-    if (!href.startsWith('/')
-      && !href.startsWith('#')) {
-      if (!href.includes('merative.com') || (extension === 'pdf')) {
-        a.setAttribute('target', '_blank');
+    if (href) {
+      const extension = href.split('.').pop().trim();
+      if (!href.startsWith('/')
+        && !href.startsWith('#')) {
+        if (!href.includes('merative.com') || (extension === 'pdf')) {
+          a.setAttribute('target', '_blank');
+        }
       }
     }
   });
@@ -674,26 +851,45 @@ function decorateOnlyPicture(main) {
 }
 
 /**
- * Move any content in a Marketo section under marketo wrapper.
+ * Restructure DOM into Two Column Layout.
  * @param main
  */
-function decorateMarketo(main) {
-  // Move remaining content to marketo wrapper
-  const wrapper = main.querySelector('.marketo-wrapper');
-  if (!wrapper) {
+function restructureContentLayout(main) {
+  // Find the Section Content Body element
+  const sectionContentBody = main.querySelector('.section-content-body');
+  if (!sectionContentBody) {
     return;
   }
-  const section = wrapper.closest('.section');
-  [...section.children].forEach((div) => {
-    if (div === wrapper) {
-      return;
-    }
-    if (div.nextElementSibling === wrapper) {
-      wrapper.prepend(div);
-    } else {
-      wrapper.appendChild(div);
-    }
-  });
+
+  // Find the Marketo element
+  const marketoWrapper = main.querySelector('.marketo-wrapper');
+  if (!marketoWrapper) {
+    return;
+  }
+
+  // Check if '.section-content-body__text' already exists, otherwise create it
+  let contentBodyText = main.querySelector('.section-content-body__text');
+  if (!contentBodyText) {
+    contentBodyText = document.createElement('div');
+    contentBodyText.classList.add('section-content-body__text');
+
+    // Get all parent-level elements within '.section-content-body'
+    const parentElements = Array.from(sectionContentBody.children);
+
+    // Iterate through the parent-level elements
+    parentElements.forEach((element) => {
+      // Check if the element is not equal to  '.marketo-wrapper'
+      if (!element.classList.contains('marketo-wrapper')) {
+        contentBodyText.appendChild(element);
+      }
+    });
+
+    // Insert '.section-content-body__text' before '.marketo-wrapper'
+    sectionContentBody.insertBefore(contentBodyText, marketoWrapper);
+
+    // Add '.section-content-body__form' class to '.marketo-wrapper'
+    marketoWrapper.classList.add('section-content-body__form');
+  }
 }
 
 /**
@@ -710,7 +906,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
-  decorateMarketo(main);
+  restructureContentLayout(main);
 }
 
 /**

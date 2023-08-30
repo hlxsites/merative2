@@ -2,14 +2,6 @@
 /* stylelint-disable selector-class-pattern */
 /* stylelint-disable no-descending-specificity */
 
-.section.marketo-container .default-content-wrapper h2 {
-  margin-bottom: 80px;
-}
-
-.section.marketo-container .default-content-wrapper h3 {
-  margin-bottom: var(--spacer-layout-02)
-}
-
 .section.marketo-container.multiple .marketo-wrapper {
   display: flex;
   flex-direction: column;
@@ -60,53 +52,6 @@
   margin: 0 0 var(--spacer-element-10);
 }
 
-/* Read more/less button */
-.section.marketo-container .marketo-wrapper .default-content-wrapper.show-more {
-  border-bottom: 1px solid var(--neutral-sand);
-}
-
-.section.marketo-container .marketo-wrapper .default-content-wrapper.show-more > a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: var(--spacer-element-03);
-  font-weight: 700;
-  margin-bottom: var(--spacer-layout-02);
-  cursor: pointer;
-}
-
-.section.marketo-container .marketo-wrapper .default-content-wrapper.show-more > a:hover,
-.section.marketo-container .marketo-wrapper .default-content-wrapper.show-more > a:active {
-  background: transparent;
-  color: var(--neutral-carbon);
-  /* stylelint-disable-line */
-  -webkit-text-fill-color: unset;}
-
-.section.marketo-container .marketo-wrapper .default-content-wrapper.show-more.open > a {
-  margin-top: var(--spacer-layout-06);
-}
-
-.section.marketo-container .marketo-wrapper .default-content-wrapper.show-more > a::after {
-  content: '';
-  width: 16px;
-  height: 16px;
-  background: url('../../icons/arrow-up-black.svg') no-repeat;
-  transform: rotate(180deg);
-}
-
-.section.marketo-container .marketo-wrapper .default-content-wrapper.show-more.open > a::after {
-  transform: unset;
-}
-
-.section.marketo-container .marketo-wrapper .default-content-wrapper.show-more > p:first-of-type ~ *:not(a) {
-  display: none;
-}
-
-.section.marketo-container .marketo-wrapper .default-content-wrapper.show-more.open > p:first-of-type ~ *:not(a) {
-  display: revert;
-}
-
 .marketo {
   width: 100%;
 }
@@ -129,6 +74,7 @@
   letter-spacing: .01em !important;
   line-height: 160% !important;
   width: 100% !important;
+  margin: 0 0 var(--spacer-element-07) 0;
 }
 
 .mktoForm .mktoFieldWrap .mktoHtmlText p {
@@ -138,6 +84,10 @@
   letter-spacing: .01em !important;
   line-height: 160% !important;
   width: 100% !important;
+}
+
+.mktoForm .mktoFieldWrap .mktoHtmlText a {
+  padding: 0 !important;
 }
 
 .mktoForm .mktoFormRow {
@@ -162,7 +112,6 @@
 .mktoForm div:first-of-type .mktoFormCol .mktoFieldWrap .mktoHtmlText small {
   float: right;
   font-size: var(--font-size-16);
-  margin-top: 37px;
   text-align: right !important;
 }
 
@@ -170,7 +119,6 @@
   -webkit-box-align: center !important;
   -ms-flex-align: center !important;
   align-items: center !important;
-  background: var(--primary-purple) !important;
   border: 0 !important;
   border-radius: 40px !important;
   box-sizing: border-box !important;
@@ -187,17 +135,17 @@
   margin: 37px 0;
   max-height: 62px !important;
   padding: 11px 16px 11px 24px !important;
-  transition: all .4s ease-in-out !important;
   width: auto !important;
+  background-image: var(--gradient-to-right);
+  background-position: 0 0;
+  background-size: 200% auto;
+  transition: all .4s ease-in-out;
 }
 
 .mktoForm .mktoButtonWrap .mktoButton:active,
 .mktoForm .mktoButtonWrap .mktoButton:hover {
-  /* background-image: -webkit-gradient(linear, right top, left top, from(#fa1e32), to(var(--primary-purple))) !important; */
-  background-image: linear-gradient(270deg, #fa1e32, var(--primary-purple)) !important;
-
-  /* -webkit-transition: all .2s ease-in-out !important; */
-  transition: all .2s ease-in-out !important;
+  border: 2px solid transparent;
+  background-position: 96% 0;
 }
 
 .mktoForm .mktoButtonWrap .mktoButton::after {
@@ -230,7 +178,11 @@
 }
 
 .mktoForm .mktoFormCol .mktoLabel {
-  padding-bottom: var(--spacer-layout-01) !important;
+  padding-bottom: var(--spacer-element-04) !important;
+}
+
+.mktoForm .mktoGutter.mktoHasWidth {
+  height: auto;
 }
 
 .mktoForm .mktoRequiredField .mktoLabel::after {
@@ -244,7 +196,8 @@
 .mktoForm .mktoTextField,
 .mktoForm select.mktoField,
 .mktoForm textarea.mktoField {
-  appearance: none !important;
+  /* stylelint-disable property-no-vendor-prefix */
+  -webkit-appearance: none;
   background: var(--neutral-bone) !important;
   border-color: var(--neutral-carbon) !important;
   border-width: 0 0 1px !important;
@@ -396,6 +349,9 @@ input[type=radio] {
   opacity: 1 !important;
   height: 20px !important;
   width: 20px !important;
+  flex-basis: 20px;
+  flex-shrink: 0;
+  cursor: pointer;
 }
 
 .mktoForm select.mktoField[multiple] {
@@ -416,8 +372,9 @@ input[type=radio] {
   display: flex;
   width: auto !important;
   align-items: center;
-  padding: 0.3em;
-  float: left;
+  padding: 0 !important;
+  margin: var(--spacer-element-07) 0;
+  float: left !important;
 }
 
 .mktoForm .mktoRadioList > label {
@@ -426,7 +383,7 @@ input[type=radio] {
   font-size: var(--font-size-16) !important;
   letter-spacing: 0.16px;
   line-height: 160% !important;
-  margin: 0 32px 0 8px !important;
+  margin: 0 var(--spacer-element-07) 0 var(--spacer-element-04) !important;
 }
 
 /* Media queries */

@@ -52,6 +52,7 @@
 }
 
 .leadspace h4:first-of-type {
+  font-family: var(--sans-serif-font-medium);
   font-size: var(--font-size-11);
   letter-spacing: .2em;
   line-height: var(--line-height-120);
@@ -439,6 +440,7 @@ main div.leadspace-wrapper {
 
   .leadspace:not(.document) > div:first-child > div:nth-child(1) {
     width: 334px;
+    padding: var(--spacer-layout-05) 0;
   }
 
   .leadspace.brand-logo > div:first-child > div:nth-child(1) {
@@ -582,7 +584,7 @@ main div.leadspace-wrapper {
 
   .leadspace:not(.document) > div:first-child > div:nth-child(1) {
     width: 552px;
-    padding: 96px 0;
+    padding: var(--spacer-layout-06) 0;
     margin: auto auto auto 0;
   }
 
