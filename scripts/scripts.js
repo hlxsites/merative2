@@ -19,11 +19,12 @@ const LCP_BLOCKS = ['leadspace', 'blog-home']; // add your LCP blocks to the lis
 window.hlx.RUM_GENERATION = 'merative'; // add your RUM generation information here
 
 /**
- * Determine if we are serving content for the block-library, if so don't load the header or footer
- * @returns {boolean} True if we are loading block library content
+ * Determine if we are serving content for a specific keyword
+ * @param {string} keyword - The keyword to check in the URL path
+ * @returns {boolean} True if we are loading content for the specified keyword
  */
-export function isBlockLibrary() {
-  return window.location.pathname.includes('block-library');
+export function locationCheck(keyword) {
+  return window.location.pathname.includes(keyword);
 }
 
 /**
@@ -761,11 +762,13 @@ export function sortArrayOfObjects(arr, property, type) {
 export function decorateExternalLinks(main) {
   main.querySelectorAll('a').forEach((a) => {
     const href = a.getAttribute('href');
-    const extension = href.split('.').pop().trim();
-    if (!href.startsWith('/')
-      && !href.startsWith('#')) {
-      if (!href.includes('merative.com') || (extension === 'pdf')) {
-        a.setAttribute('target', '_blank');
+    if (href) {
+      const extension = href.split('.').pop().trim();
+      if (!href.startsWith('/')
+        && !href.startsWith('#')) {
+        if (!href.includes('merative.com') || (extension === 'pdf')) {
+          a.setAttribute('target', '_blank');
+        }
       }
     }
   });
@@ -882,7 +885,7 @@ async function loadLazy(doc) {
   const element = hash ? main.querySelector(hash) : false;
   if (hash && element) element.scrollIntoView();
 
-  if (!isBlockLibrary()) {
+  if (!locationCheck('block-library') && !locationCheck('quick-links')) {
     loadHeader(doc.querySelector('header'));
     loadFooter(doc.querySelector('footer'));
   }

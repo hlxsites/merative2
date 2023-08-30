@@ -471,7 +471,7 @@ header nav .nav-sections > ul > li {
   header nav .nav-sections > ul > li[aria-expanded='true']::after {
     content: '';
     position: fixed;
-    top: calc(var(--nav-height) + 37px);
+    top: var(--nav-height-desktop);
     bottom: 0;
     left: 0;
     right: 0;
@@ -486,7 +486,7 @@ header nav .nav-sections > ul > li {
     grid-template-columns: repeat(3, 1fr);
     gap: 3.5rem 5.937rem;
     justify-content: space-between;
-    top: calc(var(--nav-height) + 37px);
+    top: var(--nav-height-desktop);
     left: 0;
     width: 100vw;
     height: auto;

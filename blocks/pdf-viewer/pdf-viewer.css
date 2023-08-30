@@ -15,7 +15,7 @@ body.document .section.leadspace-container > div:first-child > .leadspace.docume
   border-radius: 10px;
   overflow: hidden;
   background-color: var(--neutral-white);
-  box-shadow: 0 var(--spacer-element-03) var(--spacer-element-07) rgba(0 0 0 / 15%);
+  box-shadow: var(--box-shadow-large);
 }
 
 .pdf-viewer.embed-mode--full-window {
