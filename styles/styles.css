@@ -200,10 +200,11 @@
   /* nav height */
   --nav-height: 93px;
   --nav-height-mobile: 93px;
-  --nav-height-mobile-section: 93px;
+  --nav-height-desktop: 130px;
   --sticky-nav-height: 80px;
 
   /* gap spacers */
+  --gap-16: 16px;
   --gap-24: 24px;
   --gap-48: 48px;
   --gap-84: 84px;
@@ -329,12 +330,17 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Set body to display when content has been loaded */
 body.appear {
   display: unset;
 }
 
-main {
+/* Add padding-top when Header Nav is visible */
+body.header-visible main {
   padding-top: var(--nav-height-mobile);
+}
+
+main {
   margin: auto;
 }
 
@@ -1385,12 +1391,52 @@ main > .section-content-body.section-with-sidebar .section-content-body__text p 
   margin: var(--spacer-element-05) 0;
 }
 
+/* Page - Quick Links */
+body.quick-links {
+  background-color: var(--neutral-white);
+  height: 100%;
+}
+
+body.quick-links > main {
+  max-width: var(--text-max-container);
+  margin: 0 auto;
+  background-color: var(--neutral-bone);
+}
+
+body.quick-links main .section > div {
+  max-width: inherit;
+  padding: 0;
+}
+
+/* Section - Quick Links */
+.section.section-quick-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--gap-84) * 2);
+  padding: var(--spacer-layout-06) 0;
+}
+
+/* Section - Pattern Bar */
+.section-pattern {
+  height: var(--gap-84);
+  background-color: var(--neutral-bone);
+  background-repeat: repeat-x; 
+  background-size: auto 100%;
+  background-position: bottom left;
+}
+
+.bg-pattern-health-insights {
+  background-image: url('../../styles/images/patterns/pattern-health-insights.svg');
+}
+
+.bg-pattern-micromedex {
+  background-image: url('../../styles/images/patterns/pattern-micromedex.svg');
+}
+
 /* Tablet */
 @media only screen and (min-width: 768px) {
-  main {
-    padding-top: var(--nav-height-mobile)
-  }
-
   main .section.section-header > div:nth-child(1) > p {
     max-width: 60%;
   }
@@ -1488,6 +1534,16 @@ main > .section-content-body.section-with-sidebar .section-content-body__text p 
 
   .section-content-body .section-content-body__text h6 {
     font-size: var(--font-size-21);
+  }
+
+  /* Section - Quick Links */
+  .section.section-quick-links {
+    min-height: calc(100vh - var(--gap-120) * 2);
+  }
+
+  /* Section - Pattern Bar */
+  .section-pattern {
+    height: var(--gap-120);
   }
 }
 
@@ -1602,8 +1658,9 @@ main > .section-content-body.section-with-sidebar .section-content-body__text p 
     letter-spacing: var(--letter-spacing-1);
   }
 
-  main {
-    padding-top: calc(var(--nav-height) + 37px);
+  /* Add padding-top when Header Nav is visible */
+  body.header-visible main {
+    padding-top: var(--nav-height-desktop);
   }
 
   /* Section Container */

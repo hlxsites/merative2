@@ -562,6 +562,8 @@ export function loadHeader(header) {
   const headerBlock = buildBlock('header', '');
   header.append(headerBlock);
   decorateBlock(headerBlock);
+  document.querySelector('body').classList.add('header-visible');
+
   return loadBlock(headerBlock);
 }
 
