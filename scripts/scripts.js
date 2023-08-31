@@ -18,6 +18,15 @@ const LCP_BLOCKS = ['leadspace', 'blog-home']; // add your LCP blocks to the lis
 window.hlx.RUM_GENERATION = 'merative'; // add your RUM generation information here
 
 /**
+ * Determine if we are serving content for a specific keyword
+ * @param {string} keyword - The keyword to check in the URL path
+ * @returns {boolean} True if we are loading content for the specified keyword
+ */
+export function locationCheck(keyword) {
+  return window.location.pathname.includes(keyword);
+}
+
+/**
  * Added 2023-06-26 per new sidekick instructions
  * Returns the true origin of the current page in the browser.
  * If the page is running in an iframe with srcdoc, the ancestor origin is returned.

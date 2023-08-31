@@ -93,15 +93,29 @@
   --primary-purple: #9900FF;
   --purple-140: #6400A6;
 
-  /* Merative figma design spec */
-  --primary-red: #FA1E32;
-  --primary-black: #000;
-
-  /* secondary */
+  /* brand secondary */
   --secondary-blue: #1385E2;
   --secondary-green: #05BC71;
   --secondary-yellow: #FFC036;
-  --dark-purple: #6400a6;
+  --secondary-orange: #FF8241;
+  --secondary-magenta: #E834BA;
+  --secondary-red: #FB4B5B;
+
+  /* neutrals */
+  --neutral-carbon: #20201F;
+  --neutral-sand: #E7E2DA;
+  --neutral-bone: #FAF8F6;
+  --neutral-white: #FFF;
+  --neutral-grey-tint100: #B9B5AE;
+  --neutral-grey-tint120: #8B8883;
+
+  /* feedback */
+  --feedback-green: #059641;
+  --feedback-red: #D21313;
+
+  /* utility */
+  --primary-red: #FA1E32;
+  --primary-black: #000;
 
   /* gradient */
   --gradient-horizontal-down: linear-gradient(180deg, var(--primary-purple) 0%, var(--primary-red) 100%);
@@ -115,17 +129,8 @@
   --gradient-to-right-transparent-hover: linear-gradient(-270deg, transparent 0%, var(--primary-purple) 50%, var(--primary-red) 100%);
   --gradient-to-right-white: linear-gradient(-270deg, var(--neutral-white) 0%, var(--neutral-white) 50%, var(--primary-red) 100%);
 
-  /* neutrals */
-  --neutral-carbon: #20201F;
-  --neutral-sand: #E7E2DA;
-  --neutral-bone: #FAF8F6;
-  --neutral-white: #FFF;
-  --neutral-grey-tint100: #B9B5AE;
-  --neutral-grey-tint120: #8B8883;
-
-  /* feedback */
-  --feedback-green: #059641;
-  --feedback-red: #D21313;
+  /* box shadow */
+  --box-shadow-large: 0 var(--spacer-element-02) var(--spacer-element-06) 0 rgb(185 181 174 / 40%);
 
   /* ----typography--- */
 
@@ -1079,12 +1084,6 @@ main pre {
   color: var(--neutral-white);
 }
 
-.section .bg-dark-purple,
-.section.bg-dark-purple {
-  background-color: var(--dark-purple);
-  color: var(--neutral-white);
-}
-
 .section.bg-purple .button-container > strong > a.button.primary {
   border: solid 2px;
 }
@@ -1492,7 +1491,7 @@ main > .section-content-body.section-with-sidebar .section-content-body__text p 
 }
 
 /* All except desktop */
-@media only screen and (max-width: 1200px) {  
+@media only screen and (max-width: 1200px) {
   html {
     scroll-padding-top: calc(var(--nav-height-mobile) + var(--spacer-element-03));
   }
@@ -1564,7 +1563,7 @@ main > .section-content-body.section-with-sidebar .section-content-body__text p 
     letter-spacing: var(--letter-spacing-1-75);
   }
 
-  h4, 
+  h4,
   code,
   h5 {
     font-family: var(--sans-serif-font-regular);
