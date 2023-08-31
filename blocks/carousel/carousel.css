@@ -182,16 +182,16 @@ main .section div.carousel-wrapper {
 }
 
 .carousel .carousel-dots li {
-    width: 12px;
-    height: 12px;
+    width: var(--spacer-element-04);
+    height: var(--spacer-element-04);
     box-shadow: inset 0 0 100px 100px var(--neutral-sand);
     cursor: pointer;
     border-radius: 50%;
 }
 
 .carousel.case-study .carousel-dots li {
-    width: 68px;
-    height: 5px;
+    width: var(--spacer-layout-05);
+    height: var(--spacer-element-02);
     border-radius: unset;
 }
 
@@ -200,8 +200,9 @@ main .section div.carousel-wrapper {
 }
 
 .carousel.case-study .carousel-dots li.carousel-dots-active {
-    box-shadow: inset 0 0 100px 100px var(--gradient-left-right);
+    box-shadow: inherit;
     background-image: var(--gradient-left-right);
+    background-position: 0 100%;
 }
 
 .carousel .carousel-dots button {
@@ -278,7 +279,7 @@ main .section div.carousel-wrapper {
 @media screen and (min-width: 768px) {
     .carousel.case-study ul.carousel-dots {
         margin-top: var(--spacer-layout-04);
-        gap: 10px;
+        gap: var(--gap-10);
     }
   
     .carousel.case-study .carousel-slide-container {
@@ -310,7 +311,6 @@ main .section div.carousel-wrapper {
 
     .carousel .carousel-slide-container {
         width: 100%;
-        max-width: 740px;
         position: relative;
         overflow: hidden;
         margin: 0 auto;
@@ -319,7 +319,7 @@ main .section div.carousel-wrapper {
 
     .carousel.case-study .carousel-slide-container {
         min-height: 774px;
-        min-width: 1128px;
+        min-width: var(--secton-max-container);
     }
 
     .carousel ul.carousel-dots {
@@ -331,7 +331,7 @@ main .section div.carousel-wrapper {
     }
 
     .carousel.case-study .carousel-dots li {
-        width: 169px;
+        width: var(--spacer-layout-07);
     }
 
     .carousel .carousel-slide {
@@ -347,7 +347,7 @@ main .section div.carousel-wrapper {
         font-family: var(--serif-font);
         font-weight: var(--font-weight-light);
         line-height: 124%;
-        font-size: 31px;
+        font-size: var(--font-size-32);
     }
 
     /* Testimonial */
@@ -367,7 +367,7 @@ main .section div.carousel-wrapper {
     }
 
     .carousel.testimonial p {
-        margin-left: 1em;
+        margin-left: var(--spacer-element-05);
         font-size: var(--font-size-16);
         font-family: var(--sans-serif-font-regular);
         letter-spacing: var(--letter-spacing-1);
@@ -392,14 +392,32 @@ main .section div.carousel-wrapper {
         transform: unset;
         background: url('./../../icons/carousel-arrow-left.svg') no-repeat;
         background-size: contain;
-        width: 101px;
-        height: 101px;
+        width: 100px;
+        height: 100px;
+        left: -50px;
+    }
+
+    .carousel.case-study .carousel-nav.carousel-nav-prev:hover {
+        transform: unset;
+        background: url('./../../icons/carousel-arrow-left-hover.svg')  no-repeat;
+        background-size: contain;
+        width: 100px;
+        height: 100px;
         left: -50px;
     }
     
     .carousel.case-study .carousel-nav.carousel-nav-next {
         transform: unset;
         background: url('./../../icons/carousel-arrow-right.svg') no-repeat;
+        background-size: contain;
+        width: 101px;
+        height: 101px;
+        right: -50px;
+    }
+
+    .carousel.case-study .carousel-nav.carousel-nav-next:hover {
+        transform: unset;
+        background: url('./../../icons/carousel-arrow-right-hover.svg')  no-repeat;
         background-size: contain;
         width: 101px;
         height: 101px;

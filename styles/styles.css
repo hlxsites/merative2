@@ -204,6 +204,7 @@
   --sticky-nav-height: 80px;
 
   /* gap spacers */
+  --gap-10: 10px;
   --gap-16: 16px;
   --gap-24: 24px;
   --gap-48: 48px;
