@@ -96,14 +96,6 @@ export function createOptimizedPicture(src, alt = '', eager = false, breakpoints
   return picture;
 }
 
-/** BLOCK LIBRARY
- * Determine if we are serving content for the block-library, if so don't load the header or footer
- * @returns {boolean} True if we are loading block library content
- */
-export function isBlockLibrary() {
-  return window.location.pathname.includes('block-library');
-}
-
 /**
  * Helper function to create DOM elements
  * @param {string} tag DOM element to be created
@@ -962,7 +954,7 @@ async function loadLazy(doc) {
   const element = hash ? main.querySelector(hash) : false;
   if (hash && element) element.scrollIntoView();
 
-  if (!isBlockLibrary()) {
+  if (!locationCheck('block-library') && !locationCheck('quick-links')) {
     loadHeader(doc.querySelector('header'));
     loadFooter(doc.querySelector('footer'));
   }
