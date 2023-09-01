@@ -32,6 +32,7 @@
  */
 
 const SLIDE_CAPTION_SIZE = 64;
+const SLIDE_CAPTION_SIZE_WITH_ICON = 89;
 const SLIDE_ID_PREFIX = 'carousel-slide';
 const SLIDE_CONTROL_ID_PREFIX = 'carousel-slide-control';
 
@@ -88,7 +89,7 @@ function getLineCount(text, width, options = {}) {
   * @param slide A slide within the carousel
   */
 function calculateSlideHeight(carousel, slide) {
-  if (carouselType === 'default' || carouselType === 'testimonial') {
+  if (carouselType === 'default' || carouselType === 'testimonial' || carouselType === 'case-study') {
     requestAnimationFrame(() => {
       const slideBody = slide.querySelector('div');
       const slideH3 = slide.querySelector('H3');
@@ -103,7 +104,7 @@ function calculateSlideHeight(carousel, slide) {
       );
       const bodyHeight = parseFloat(bodyStyle.lineHeight) * lineCount;
       const figureStyle = window.getComputedStyle(slide.querySelector('.figure'));
-      const figureHeight = figureStyle ? parseFloat(figureStyle.height) : SLIDE_CAPTION_SIZE;
+      const figureHeight = (figureStyle && figureStyle.height !== 'auto') ? parseFloat(figureStyle.height) : SLIDE_CAPTION_SIZE_WITH_ICON;
       carousel.style.height = `${bodyHeight + figureHeight}px`;
     });
   }
