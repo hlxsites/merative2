@@ -107,7 +107,7 @@ export function renderScaffolding() {
  */
 export async function createCopy(blob) {
   // eslint-disable-next-line no-undef
-  const data = [new ClipboardItem({[blob.type]: blob})];
+  const data = [new ClipboardItem({ [blob.type]: blob })];
   await navigator.clipboard.write(data);
 }
 
@@ -118,7 +118,7 @@ export function processMarkup(pageBlock, path) {
     const srcSplit = img.src.split('/');
     const mediaPath = srcSplit.pop();
     img.src = `${url.origin}/${mediaPath}`;
-    const {width, height} = img;
+    const { width, height } = img;
     const ratio = width > 450 ? 450 / width : 1;
     img.width = width * ratio;
     img.height = height * ratio;
@@ -131,15 +131,15 @@ export function processMarkup(pageBlock, path) {
 
 export async function copyBlock(pageBlock, path, container) {
   const processed = processMarkup(pageBlock, path);
-  const blob = new Blob([processed.innerHTML], {type: 'text/html'});
+  const blob = new Blob([processed.innerHTML], { type: 'text/html' });
   try {
     await createCopy(blob);
     // Show toast
-    container.dispatchEvent(new CustomEvent('Toast', {detail: {message: 'Copied Block'}}));
+    container.dispatchEvent(new CustomEvent('Toast', { detail: { message: 'Copied Block' } }));
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error(err.message);
-    container.dispatchEvent(new CustomEvent('Toast', {detail: {message: err.message, variant: 'negative'}}));
+    container.dispatchEvent(new CustomEvent('Toast', { detail: { message: err.message, variant: 'negative' } }));
   }
 }
 
@@ -160,21 +160,21 @@ export function initSplitFrame(content) {
   }, [
     createElement('div', 'view', {}, [
       createElement('div', 'action-bar', {}, [
-        createElement('sp-action-group', '', {compact: '', selects: 'single', selected: 'desktop'}, [
-          createElement('sp-action-button', '', {value: 'mobile'}, [
-            createElement('sp-icon-device-phone', '', {slot: 'icon'}),
+        createElement('sp-action-group', '', { compact: '', selects: 'single', selected: 'desktop' }, [
+          createElement('sp-action-button', '', { value: 'mobile' }, [
+            createElement('sp-icon-device-phone', '', { slot: 'icon' }),
             'Mobile',
           ]),
-          createElement('sp-action-button', '', {value: 'tablet'}, [
-            createElement('sp-icon-device-tablet', '', {slot: 'icon'}),
+          createElement('sp-action-button', '', { value: 'tablet' }, [
+            createElement('sp-icon-device-tablet', '', { slot: 'icon' }),
             'Tablet',
           ]),
-          createElement('sp-action-button', '', {value: 'desktop'}, [
-            createElement('sp-icon-device-desktop', '', {slot: 'icon'}),
+          createElement('sp-action-button', '', { value: 'desktop' }, [
+            createElement('sp-icon-device-desktop', '', { slot: 'icon' }),
             'Desktop',
           ]),
         ]),
-        createElement('sp-divider', '', {size: 's'}),
+        createElement('sp-divider', '', { size: 's' }),
       ]),
       createElement('div', 'frame-view', {}),
     ]),
@@ -183,7 +183,7 @@ export function initSplitFrame(content) {
         createElement('h3', 'block-title'),
         createElement('div', 'actions', {}, createElement('sp-button', 'copy-button', {}, 'Copy Block')),
       ]),
-      createElement('sp-divider', '', {size: 's'}),
+      createElement('sp-divider', '', { size: 's' }),
       createElement('div', 'details'),
     ]),
   ]));

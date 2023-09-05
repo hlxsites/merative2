@@ -21,8 +21,8 @@ async function processIcons(pageBlock, path) {
       .find((c) => c.startsWith('icon-'))
       .substring(5);
     // need to comment out host to run locally
-    //     const response = await fetch(`https://${host}/icons/${iconName}.svg`);
-    const response = await fetch(`http://localhost:3000/icons/${iconName}.svg`);
+    const response = await fetch(`https://${host}/icons/${iconName}.svg`);
+    // const response = await fetch(`http://localhost:3000/icons/${iconName}.svg`);
     const svg = await response.text();
     icons[iconText] = { label: iconText, name: iconName, svg };
   }));

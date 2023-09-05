@@ -121,7 +121,7 @@ async function loadSections(data, container, sideNav) {
  * @param {Object} data The data contained in the plugin sheet
  * @param {String} query If search is active, the current search query
  */
-export async function decorate(container, data, _query) {
+export async function decorate(container, data) {
   container.dispatchEvent(new CustomEvent('ShowLoader'));
   const content = renderScaffolding();
   const sideNav = createElement('sp-sidenav', '', { 'data-testid': 'sections' });
