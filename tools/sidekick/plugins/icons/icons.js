@@ -20,7 +20,9 @@ async function processIcons(pageBlock, path) {
     const iconName = Array.from(icon.classList)
       .find((c) => c.startsWith('icon-'))
       .substring(5);
-    const response = await fetch(`https://${host}/icons/${iconName}.svg`);
+    // need to comment out host to run locally
+    //     const response = await fetch(`https://${host}/icons/${iconName}.svg`);
+    const response = await fetch(`http://localhost:3000/icons/${iconName}.svg`);
     const svg = await response.text();
     icons[iconText] = { label: iconText, name: iconName, svg };
   }));
@@ -28,7 +30,7 @@ async function processIcons(pageBlock, path) {
 }
 
 export async function fetchBlock(path) {
-  if (!window.blocks) {
+  if (!window.blocks) { // look for all paths from the helix-icons sheet
     window.blocks = {};
   }
   if (!window.icons) {
@@ -50,7 +52,8 @@ export async function fetchBlock(path) {
 }
 
 /**
- * Called when a user tries to load the plugin
+ * Called when a user tries to load the plugin.
+ * This takes all icons from all sheets and puts in 1 gridContainer
  * @param {HTMLElement} container The container to render the plugin in
  * @param {Object} data The data contained in the plugin sheet
  * @param {String} query If search is active, the current search query
