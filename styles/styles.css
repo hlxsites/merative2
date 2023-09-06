@@ -204,6 +204,7 @@
   --sticky-nav-height: 80px;
 
   /* gap spacers */
+  --gap-10: 10px;
   --gap-16: 16px;
   --gap-24: 24px;
   --gap-48: 48px;
@@ -1941,7 +1942,6 @@ body.quick-links main .section > div {
   /* Section - Content body with sidebar text */
   main > .section-content-body.section-with-sidebar {
     flex-direction: row-reverse;
-    gap: var(--gap-216);
   }
 
   .section-content-body.section-with-sidebar .section-content-body__form {
@@ -1950,7 +1950,8 @@ body.quick-links main .section > div {
 
   main .section-content-body.section-with-sidebar > div:first-child,
   .section-content-body.section-with-sidebar .section-content-body__text {
-    width: 264px;
+    width: var(--sidebar-max-container);
+    max-width: var(--sidebar-max-container);
   }
 
   /* Section - Content body with Read more/less button */
