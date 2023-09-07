@@ -1,10 +1,6 @@
 export default function decorate(block) {
-  const numberOfChildren = block.childElementCount || 0;
   const cols = [...block.firstElementChild.children];
   block.classList.add(`columns-${cols.length}-cols`);
-  if (numberOfChildren > 1) {
-    block.classList.add('add-bottom-space');
-  }
 
   // Add alt text to images based on column type
   const isContentBand = block.classList.contains('content-band');
