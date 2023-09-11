@@ -1,260 +1,168 @@
-
-/* Linkable cards container styles */
-.linkable-cards-container {
-  background: #7e00d3;
-  color: var(--neutral-white);
-  padding-bottom: 60px;
+/* Section - Linkable cards */
+main .section.linkable-cards-container {
+  overflow: hidden;
 }
 
-/* this is considered an eyebrow style */
-.linkable-cards-container h4 {
-  font-family: var(--sans-serif-font-medium);
-  font-size: var(--font-size-11);
-  letter-spacing: .2em;
-  line-height: var(--line-height-120);
-  color: var(--neutral-white);
-  margin: var(--spacer-layout-03) auto;
+main .section > .linkable-cards-wrapper,
+main .section > .linkable-cards-wrapper:last-child {
+  width: 100%;
+  padding-bottom: var(--spacer-layout-06);
+  margin: 0 0 0 var(--spacer-element-07);
 }
 
-.linkable-cards-container p {
-  font-size: var(--font-size-16);
-}
-
-.linkable-cards-container.related-resources-container h4 {
-  color: var(--neutral-carbon);
-}
-
-.neutral-bone-style .linkable-cards-container {
-  background-color: var(--neutral-bone);
-}
-
-/* Linkable cards block */
+/* Block - Linkable cards */
 .linkable-cards {
-  overflow: auto;
-  margin-top: 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: var(--spacer-element-10) var(--spacer-element-07);
-  margin-right: -15px;
+  overflow-y: hidden;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacer-element-07);
+  padding: 0 var(--spacer-element-10) var(--spacer-element-03) 0 !important;
 }
 
-.linkable-cards > div {
+.linkable-cards .card {
+  position: relative;
   flex: 1;
-  background: var(--neutral-bone);
   border-radius: 10px;
   min-height: 435px;
   min-width: 255px;
   max-width: 255px;
-  margin: 0 var(--spacer-element-02) var(--spacer-element-06);
-  position: relative;
-  padding: 48px 24px 24px;
+  margin: 0;
 }
 
-.linkable-cards-container .default-content-wrapper h5,
-.linkable-cards-container .linkable-cards .document-category,
-.linkable-cards-container .linkable-cards .document-category code {
-    font-family: var(--sans-serif-font-regular);
-    font-weight: 500;
-    font-size: var(--font-size-14);
-    line-height: var(--line-height-120);
-    letter-spacing: var(--letter-spacing-02-em);
-    text-transform: uppercase;
-    margin: unset;
-}
-
-.linkable-cards .document-card .document-category,
-.linkable-cards .document-card .document-category code,
-.linkable-cards .document-card h3 {
-    margin: unset;
-}
-
-.linkable-cards .document-card .document-category,
-.linkable-cards .document-card .document-category code {
-    font-size: var(--font-size-11);
-}
-
-/* linkable cards arrow button start */
-.linkable-cards .document-link-container {
-  height: 54px;
-  min-height: 54px;
-}
-
-.linkable-cards a.document-link {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  bottom: 24px;
-  right: 24px;
-  width: 54px;
-  height: 54px;
-  border: 2px solid var(--primary-purple);
-  border-radius: 50%;
-}
-
-.linkable-cards.purple-cards a.document-link {
-  border: 2px solid var(--neutral-white);
-}
-
-.linkable-cards a.document-link span.icon > svg {
-  display: block;
-  width: 24px;
-  height: 24px;
-}
-
-.linkable-cards a.document-link span.icon svg * {
-  stroke: var(--primary-purple);
-}
-
-.section.linkable-cards-container > div:first-child > *:first-child, .section > div:first-child > *:first-child > *:first-child {
-  margin-top: 0;
-  padding-top: 48px;
-}
-
-.linkable-cards.purple-cards a.document-link span.icon svg * {
-  stroke: var(--neutral-white);
-}
-
-.linkable-cards a.document-link span.icon.video svg * {
-  stroke: none;
-  fill: var(--primary-purple);
-}
-
-.section.linkable-cards-container > div:last-child > *:last-child > *:last-child {
-  margin: 0 var(--spacer-element-02) var(--spacer-element-06);
-  padding: 48px 24px 24px;
-}
-
-.linkable-cards.purple-cards a.document-link span.icon.video svg * {
-  fill: var(--neutral-white);
-}
-
-.linkable-cards-container.highlight .linkable-cards a.document-link span.icon svg *,
-.linkable-cards .document-card:hover a.document-link span.icon svg * {
-  stroke: var(--neutral-white);
-}
-
-.linkable-cards-container.highlight .linkable-cards a.document-link span.icon.video svg *,
-.linkable-cards .document-card:hover a.document-link span.icon.video svg * {
-  stroke: none;
-  fill: var(--neutral-white);
-}
-
-.linkable-cards-container.highlight .linkable-cards a.document-link {
-  border: 2px solid var(--neutral-white);
-}
-
-.linkable-cards .document-card:hover a.document-link {
-  background: var(--gradient-diagonal-up);
-  border: unset;
-}
-
-.linkable-cards-container.highlight .linkable-cards.purple-cards a.document-link {
-  border: 2px solid var(--neutral-white);
-}
-
-.linkable-cards-container.highlight .linkable-cards .document-card:hover a.document-link {
-  background: var(--gradient-diagonal-up);
-  border: unset;
-}
-
-.linkable-cards-container.highlight .linkable-cards.purple-cards a.document-link span.icon.video svg *,
-.linkable-cards.purple-cards .document-card:hover a.document-link span.icon.video svg * {
-  fill: var(--primary-purple);
-}
-
-/* linkable cards arrow button end */
-
-.linkable-cards > div:hover {
-  transition: all .2s ease-out;
-  box-shadow: 2px 4px 4px 2px rgb(0 0 0 / 15%);
-}
-
-.linkable-cards.purple-cards > div {
-  background-color: var(--purple-140);
-}
-
-.linkable-cards.purple-cards > div::after {
-    background: url("../../icons/download-arrow-white.svg") no-repeat center;
-    border: 2px solid var(--neutral-white);
-    border-radius: 50%;
-}
-
-.section .linkable-cards > div:hover::after {
-  cursor: pointer;
-  transition: all .2s ease-out;
-  background: url("../../icons/download-arrow-white.svg") no-repeat center, var(--gradient-left-right);
-}
-
-.section .linkable-cards.purple-cards > div:hover::after {
-  background: url("../../icons/download-arrow-white.svg") no-repeat center, var(--gradient-left-right);
-}
-
-.linkable-cards.neutral-bone-style > div {
-  background-color: var(--neutral-bone);
-  color: var(--neutral-carbon);
-}
-
-.linkable-cards > div > a {
-  display: block;
-  text-decoration: none;
-}
-
-/* Fix greedy styles above */
-.linkable-cards.neutral-bone-style h4,
-.linkable-cards > div a {
-  color: var(--neutral-carbon);
-}
-
-.linkable-cards.purple-cards > div a, .linkable-cards.purple-cards > div {
-  color: var(--neutral-white);
-}
-
-/* if we make all eyebrows h4 then we don't need this */
-.linkable-cards a:nth-child(1) > p:first-child {
+.linkable-cards .card p:first-of-type {
   font-family: var(--sans-serif-font-medium);
-  font-size: var(--font-size-11);
+  font-size: var(--font-size-14);
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-02-em);
   line-height: var(--line-height-120);
   margin: 0;
 }
 
-.linkable-cards a:nth-child(1) > h3 {
+.linkable-cards .card p:last-of-type {
+  font-size: var(--font-size-16);
+  padding-bottom: calc(54px + 24px);
+  margin: var(--spacer-layout-05) 0 0;
+}
+
+.linkable-cards .card h3 {
   margin: var(--spacer-element-06) 0 var(--spacer-element-07);
 }
 
-.linkable-cards.lc-static-style {
-  flex-wrap: wrap;
+.linkable-cards .card span.icon {
+  position: absolute;
+  bottom: var(--spacer-element-07);
+  right: var(--spacer-element-07);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 54px;
+  height: 54px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--primary-purple);
+  border-radius: 50%;
+  background-image: var(--gradient-to-right-white);
+  background-position: 0 0;
+  background-size: 200% auto;
+  transition: all .3s ease-in;
 }
 
+.linkable-cards .card span.icon svg * {
+  stroke: var(--primary-purple);
+}
+
+.linkable-cards .card span.icon-play-button svg * {
+  fill: var(--primary-purple);
+  stroke: transparent;
+}
+
+.linkable-cards .card a {
+  position: relative;
+  display: block;
+  background: var(--neutral-bone);
+  text-decoration: none;
+  border-radius: 10px;
+  padding: var(--spacer-element-10) var(--spacer-element-07) var(--spacer-element-07) var(--spacer-element-07);
+  height: 100%;
+  transition: all .3s ease-in;
+}
+
+.linkable-cards .card a:hover {
+  box-shadow: var(--spacer-element-01) var(--spacer-element-02) var(--spacer-element-02) var(--spacer-element-01) rgb(0 0 0 / 15%);
+}
+
+.linkable-cards .card a:hover span.icon {
+  border-color: transparent;
+  background-position: 100% 0;
+}
+
+/* Section Theme - Linkable cards */
+.section[data-theme] .linkable-cards .card a {
+  color: var(--theme-text-primary);
+  background-color: var(--theme-card-background-color);
+}
+
+.section[data-theme] .linkable-cards .card span.icon {
+  border-color: var(--theme-button-border);
+  background-image: var(--theme-button-bg);
+}
+
+.section[data-theme] .linkable-cards .card a:hover span.icon {
+  background-image: var(--theme-button-bg-hover);
+  border-color: var(--theme-button-hover);
+}
+
+.section[data-theme] .linkable-cards .card span.icon svg * {
+  stroke: var(--theme-icon-01);
+}
+
+.section[data-theme] .linkable-cards .card span.icon-play-button svg * {
+  fill: var(--theme-icon-01);
+}
+
+.section[data-theme] .linkable-cards .card a:hover span.icon svg * {
+  stroke: var(--theme-button-hover);
+}
+
+.section[data-theme] .linkable-cards .card a:hover span.icon-play-button svg * {
+  fill: var(--theme-button-hover);
+}
+
+/* Tablet */
 @media (min-width: 768px) {
-  .linkable-cards > div {
-    min-height: 405px;
-    min-width: 315px;
-    max-width: 315px;
+  /* Section - Linkable cards */
+  main .section > .linkable-cards-wrapper,
+  main .section > .linkable-cards-wrapper:last-child {
+    margin: 0 0 0 var(--spacer-layout-036);
+  }
+
+  /* Block - Linkable cards */
+  .linkable-cards {
+    padding: 0 var(--spacer-layout-05) var(--spacer-element-03) 0 !important;
+  }
+  
+  .linkable-cards > .card {
+    flex: 0 0 45%;
+    width: 100%;
+    max-width: 360px;
   }
 }
+
+/* Desktop */
 @media (min-width: 1200px) {
-  .linkable-cards > div {
-    min-height: 445px;
-    min-width: 335px;
-    max-width: 335px;
+  /* Section - Linkable cards */
+  main .section > .linkable-cards-wrapper,
+  main .section > .linkable-cards-wrapper:last-child {
+    width: var(--secton-max-container);
+    padding-bottom: var(--spacer-layout-07);
+    margin: 0 auto;
   }
 
-  .linkable-cards .document-card .document-category,
-  .linkable-cards .document-card .document-category code {
-    font-size: var(--font-size-14);
-  }
-
-  .linkable-cards[data-block-status="loaded"] > .document-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    width: 360px;
-    height: 100%;
-    padding: 48px 24px 0;
-    gap: 24px;
+  /* Block - Linkable cards */
+  .linkable-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0 var(--spacer-element-02) var(--spacer-element-03) 0 !important;
   }
 }

@@ -1,5 +1,6 @@
 /* Leadspace block styles */
-.leadspace, .leadspace p {
+.leadspace, 
+.leadspace p {
   font-family: var(--sans-serif-font-light);
   font-size: var(--font-size-16);
   line-height: var(--line-height-160);
@@ -29,22 +30,12 @@
   clip-path: inset(50% 0 0 0 round 50% 50% 0 0);
 }
 
-.leadspace.brand-logo > div > div svg{
-  height: 45px;
-  width: auto;
-}
-
 .leadspace h1 {
   font-family: var(--serif-font);
   line-height: var(--line-height-120);
   letter-spacing: var(--letter-spacing-1-75);
   font-size: var(--font-size-36);
   margin: 0 0 var(--spacer-element-05);
-}
-
-.leadspace.brand-logo h1 {
-  font-size: var(--font-size-32);
-  margin: var(--spacer-element-08) 0 var(--spacer-element-05);
 }
 
 .leadspace.event h1 {
@@ -81,6 +72,21 @@ main .leadspace-container > div:last-child { /* needs this specificity */
   padding: 0;
   overflow-x: clip;
   overflow-y: visible;
+}
+
+/** Brand Logo **/
+.leadspace.brand-logo > div > div svg {
+  height: 45px;
+  width: auto;
+}
+
+.leadspace.brand-logo h1 {
+  font-size: var(--font-size-32);
+  margin: var(--spacer-element-08) 0 var(--spacer-element-05);
+}
+
+.leadspace.brand-logo p {
+  margin-top: 0;
 }
 
 /** Block styling **/
@@ -200,7 +206,7 @@ main div.leadspace-wrapper {
 .leadspace .button-group {
   display: flex;
   flex-flow: column;
-  gap: var(--spacer-layout-01);
+  gap: var(--spacer-element-05);
 }
 
 /* Any button */
@@ -208,14 +214,13 @@ main div.leadspace-wrapper {
   margin: 0;
 }
 
-.leadspace.brand-logo .button-group .button-container a{
+.leadspace.brand-logo .button-group .button-container a {
   font-weight: var(--font-weight-regular);
   height: unset;
 }
 
 .leadspace.brand-logo .button-group .button-container a.tertiary {
-  line-height: var(--line-height-120);
-  font-weight: var(--font-weight-medium);
+  margin-left: var(--spacer-element-05);
 }
 
 .leadspace.brand-logo .button-group .button-container:nth-child(3){
@@ -305,7 +310,7 @@ main div.leadspace-wrapper {
 }
 
 .leadspace.video button .video-button-icon {
-  background: var(--primary-purple) url('./../../icons/play-button.svg') no-repeat 55% 50%;
+  background: var(--primary-purple) url('./../../icons/play-button-white.svg') no-repeat 55% 50%;
   border-radius: 50%;
   height: 66px;
   width: 66px;
@@ -314,7 +319,7 @@ main div.leadspace-wrapper {
 }
 
 .leadspace.video button.open-video:hover .video-button-icon {
-  background: url('./../../icons/play-button.svg') no-repeat 55% 50%, var(--gradient-left-right);
+  background: url('./../../icons/play-button-white.svg') no-repeat 55% 50%, var(--gradient-left-right);
 }
 
 /* Video control button */
@@ -366,7 +371,7 @@ main div.leadspace-wrapper {
 }
 
 .leadspace.video .video-control.play button > span {
-  background-image: url('./../../icons/play-button.svg');
+  background-image: url('./../../icons/play-button-white.svg');
   background-repeat: no-repeat;
   height: 23px;
   width: 15px;
@@ -501,7 +506,7 @@ main div.leadspace-wrapper {
     font-size: var(--font-size-21);
   }
 
-  .leadspace.brand-logo > div > div svg{
+  .leadspace.brand-logo > div > div svg {
     height: 55px;
     width: auto;
   }
@@ -511,7 +516,7 @@ main div.leadspace-wrapper {
     margin: 0 0 var(--spacer-element-07);
   }
 
-  .leadspace.brand-logo h1{
+  .leadspace.brand-logo h1 {
     font-size: var(--font-size-45);
     margin: var(--spacer-element-10) 0 var(--spacer-element-07);
   }

@@ -14,6 +14,10 @@ div.stat-container .stat {
     padding: var(--spacer-layout-05) var(--spacer-layout-02) var(--spacer-layout-04);
 }
 
+div.stat-container.carousel-container .stat {
+    padding-bottom: 0;
+}
+
 div.stat-container .stat > div {
     display: flex;
     flex-direction: column;
@@ -29,28 +33,39 @@ div.stat-container .stat > div > div::before {
     background-image: var(--gradient-left-right);
 }
 
-div.stat-container .stat h1 {
-    font-size: 96px;
+div.stat-container .stat h1,
+div.stat-container .stat h2 {
+    font-size: var(--font-size-96);
     line-height: var(--line-height-120);
     letter-spacing: 0;
-    font-weight: 300;
+    font-weight: var(--font-weight-light);
     padding: 0;
     margin: 0;
 }
 
 div.stat-container .stat p {
+    font-family: var(--sans-serif-font-regular);
     font-size: var(--font-size-16);
     letter-spacing: var(--letter-spacing-001-em);
-    line-height: 160%;
-    font-weight: 400;
+    line-height: var(--line-height-160);
+    font-weight: var(--font-weight-regular);
     color: var(--neutral-white);
     padding: 0;
     margin: 0 0 var(--spacer-layout-03) 0;
     overflow-wrap: break-word;
 }
 
+div.stat-container .stat p a.tertiary {
+    color: var(--neutral-white);
+    border-bottom: 2px solid var(--neutral-white);
+}
+
 div.stat-container .stat p:last-child {
     margin-bottom: 0;
+}
+
+div.stat-container .stat p.button-container {
+    margin: 0;
 }
 
 /* A single stat element */
@@ -76,16 +91,57 @@ div.stat-container .stat::after {
 
     div.stat-container .stat > div {
         flex-direction: unset;
+        justify-content: space-between;
+        column-gap: normal;
+    }
+
+    div.stat-container .stat > div.no-effect {
+        justify-content: normal;
+        column-gap: var(--spacer-element-07);
+    }
+
+    .max-width-third {
+        max-width: calc((100% / 3) - var(--spacer-element-05));
+    }
+
+    .max-width-half {
+        max-width: calc(50% - var(--spacer-element-04));
     }
 }
 
 /* Desktop styles */
 @media (min-width: 1200px) {
     div.stat-container .stat {
-        padding: var(--spacer-layout-07) var(--spacer-layout-156) var(--spacer-layout-05);
+        padding: var(--spacer-layout-07) 0 var(--spacer-layout-05);
     }
 
-    div.stat-container .stat h1 {
-        font-size: 128px;
+    div.stat-container .stat > div {
+        justify-content: normal;
+        column-gap: var(--spacer-element-07);
+    }
+
+    div.stat-container .stat > div > div {
+        margin-bottom: var(--spacer-layout-05);
+    }
+
+    div.stat-container .stat h1,
+    div.stat-container .stat h2 {
+        font-size: var(--font-size-128);
+    }
+
+    div.stat-container .stat h2 {
+        margin-bottom: var(--spacer-element-05);
+    }
+
+    div.stat-container.carousel-container .stat::after {
+        padding-top: var(--spacer-element-10);
+    }
+
+    .max-width-third {
+        max-width: none;
+    }
+
+    .max-width-half {
+        max-width: none;
     }
 }

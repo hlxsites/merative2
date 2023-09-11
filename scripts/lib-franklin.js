@@ -264,10 +264,13 @@ export function decorateSections(main) {
     const sectionMeta = section.querySelector('div.section-metadata');
     if (sectionMeta) {
       const meta = readBlockConfig(sectionMeta);
+
       Object.keys(meta).forEach((key) => {
         if (key === 'style') {
           const styles = meta.style.split(',').map((style) => toClassName(style.trim()));
           styles.forEach((style) => section.classList.add(style));
+        } if (key === 'theme') {
+          section.setAttribute('data-theme', meta.theme);
         } else {
           section.dataset[toCamelCase(key)] = meta[key];
         }
@@ -504,6 +507,21 @@ function getButtonLabel(button) {
   // try href
   if (button.href) {
     return button.href.replace(/[^\w]/gi, '-');
+  }
+  return undefined;
+}
+
+/**
+ * Determine the icon class based on the URL path
+ */
+
+export function getIconTypebyPath(url) {
+  const iconEntry = Object.entries(iconMap).find(
+    ([, item]) => item.expression.some((exp) => exp.test(url)),
+  );
+  if (iconEntry) {
+    const [iconVariant, iconItem] = iconEntry;
+    return [iconItem.className, iconVariant];
   }
   return undefined;
 }
