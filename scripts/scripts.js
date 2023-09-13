@@ -267,9 +267,47 @@ function buildDocumentUrl(main) {
 }
 
 /**
+ * Fetch frgament by path
+ */
+export async function fetchFragment(path) {
+  const resp = await fetch(`${path}.plain.html`);
+  if (resp.ok) {
+    const container = document.createElement('main');
+    container.innerHTML = await resp.text();
+    // eslint-disable-next-line no-use-before-define
+    decorateMain(container);
+    await loadBlocks(container);
+    return container.querySelector(':scope .section');
+  }
+  return null;
+}
+
+// Auto block to create breadcrumb for pages with `breadcrumb` metadata
+async function buildBreadcrumb() {
+  const breadcrumbMetadata = getMetadata('breadcrumb');
+  const breadcrumbImageMetadata = getMetadata('breadcrumb-image');
+
+  if (breadcrumbMetadata) {
+    const main = document.querySelector('main');
+
+    // Fetch breadcrumb content asynchronously
+    const fragmentBlock = await fetchFragment(breadcrumbMetadata);
+
+    // Prepend breadcrumb content to the main element
+    main.prepend(fragmentBlock);
+
+    // Check if `breadcrumb-image` metadata is set to 'False' and add class accordingly
+    if (breadcrumbImageMetadata && breadcrumbImageMetadata.toLowerCase() === 'false') {
+      fragmentBlock.classList.add('breadcrumb-no-image');
+    }
+  }
+}
+
+/**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
+
 function buildAutoBlocks(main) {
   try {
     buildBlogLeftNavBlock();
@@ -888,6 +926,7 @@ async function loadLazy(doc) {
   if (!locationCheck('block-library') && !locationCheck('quick-links')) {
     loadHeader(doc.querySelector('header'));
     loadFooter(doc.querySelector('footer'));
+    await buildBreadcrumb();
   }
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);

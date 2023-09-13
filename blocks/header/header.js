@@ -2,30 +2,17 @@ import {
   readBlockConfig,
   decorateButtons,
   decorateIcons,
-  loadBlocks,
 } from '../../scripts/lib-franklin.js';
 
 import {
   createTag,
-  decorateMain,
+  fetchFragment,
 } from '../../scripts/scripts.js';
 
 const KEY_ENTER = 'Enter';
 
 const mobileMedia = window.matchMedia('(max-width: 1199px)');
 const desktopMedia = window.matchMedia('(min-width: 1200px)');
-
-async function fetchFragment(path) {
-  const resp = await fetch(`${path}.plain.html`);
-  if (resp.ok) {
-    const container = document.createElement('main');
-    container.innerHTML = await resp.text();
-    decorateMain(container);
-    await loadBlocks(container);
-    return container.querySelector(':scope .section');
-  }
-  return null;
-}
 
 /**
  * collapses all open nav sections
