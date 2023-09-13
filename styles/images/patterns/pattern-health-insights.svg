@@ -1,1 +1,99 @@
-<?xml version="1.0" encoding="UTF-8"?><svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300"><defs><style>.cls-1{fill:none;}.cls-1,.cls-2,.cls-3,.cls-4,.cls-5,.cls-6{stroke-width:0px;}.cls-2{fill:#49007a;}.cls-3{fill:#d699ff;}.cls-4{fill:#7e00d3;}.cls-5{fill:#90f;}.cls-6{fill:#ebccff;}</style></defs><g id="Layer_1-2"><rect class="cls-2" x="200" y="0" width="100" height="100" transform="translate(300 -200) rotate(90)"/><rect class="cls-3" x="0" y="0" width="100" height="100" transform="translate(100 0) rotate(90)"/><path class="cls-6" d="m100,0c0,55.23-44.77,100-100,100V0s100,0,100,0Z"/><rect class="cls-3" x="300" y="100" width="100" height="100" transform="translate(500 -200) rotate(90)"/><rect class="cls-5" x="100" y="0" width="100" height="100" transform="translate(200 -100) rotate(90)"/><rect class="cls-1" x="200" y="0" width="100" height="100" transform="translate(300 -200) rotate(90)"/><path class="cls-5" d="m200,100c55.23,0,100-44.77,100-100h-100s0,100,0,100Z"/><rect class="cls-6" x="500" y="100" width="100" height="100" transform="translate(400 700) rotate(-90)"/><rect class="cls-3" x="300" y="0" width="100" height="100" transform="translate(300 400) rotate(-90)"/><path class="cls-2" d="m400,100C400,44.77,355.23,0,300,0v100h100Z"/><rect class="cls-3" x="200" y="100" width="100" height="100"/><path class="cls-2" d="m200,200c55.23,0,100-44.77,100-100h-100s0,100,0,100Z"/><path class="cls-5" d="m400,100c-55.23,0-100,44.77-100,100h100v-100Z"/><rect class="cls-3" y="200" width="100" height="100" transform="translate(100 500) rotate(180)"/><path class="cls-2" d="m0,200c0,55.23,44.77,100,100,100v-100H0Z"/><rect class="cls-4" x="300" y="200" width="100" height="100" transform="translate(600 -100) rotate(90)"/><rect class="cls-5" x="400" y="0" width="100" height="100" transform="translate(500 -400) rotate(90)"/><path class="cls-3" d="m400,100C455.23,100,500,55.23,500,0h-100v100Z"/><rect class="cls-2" x="400" y="100" width="100" height="100" transform="translate(900 300) rotate(180)"/><rect class="cls-4" x="200" y="200" width="100" height="100" transform="translate(500 0) rotate(90)"/><rect class="cls-5" x="500" y="200" width="100" height="100"/><path class="cls-3" d="m200,200c0,55.23,44.77,100,100,100v-100s-100,0-100,0Z"/><path class="cls-5" d="m500,200c0-55.23,44.77-100,100-100v100s-100,0-100,0Z"/><circle class="cls-2" cx="350" cy="250" r="50"/><circle class="cls-6" cx="150" cy="50" r="50"/><rect class="cls-4" x="400" y="200" width="100" height="100" transform="translate(200 700) rotate(-90)"/><path class="cls-5" d="m500,200c-55.23,0-100,44.77-100,100h100v-100Z"/><path class="cls-2" d="m600,200c-55.23,0-100,44.77-100,100h100v-100Z"/><rect class="cls-3" x="100" y="200" width="100" height="100" transform="translate(300 500) rotate(-180)"/><path class="cls-4" d="m100,200c0,55.23,44.77,100,100,100v-100s-100,0-100,0Z"/><rect class="cls-2" x="500" y="0" width="100" height="100"/><path class="cls-6" d="m600,100C600,44.77,555.23,0,500,0v100h100Z"/><rect class="cls-4" y="100" width="100" height="100"/><rect class="cls-4" x="100" y="100" width="100" height="100"/><path class="cls-6" d="m200,100c-55.23,0-100,44.77-100,100h100v-100Z"/><path class="cls-6" d="m100,200c0-55.23-44.77-100-100-100v100s100,0,100,0Z"/><path class="cls-5" d="m400,200c55.23,0,100-44.77,100-100h-100s0,100,0,100Z"/></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.7.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 600 300" style="enable-background:new 0 0 600 300;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:#49007A;}
+	.st2{fill:#D699FF;}
+	.st3{fill:#EBCCFF;}
+	.st4{fill:#9900FF;}
+	.st5{fill:#7E00D3;}
+</style>
+<polygon class="st0" points="200,200 200,300 200,200.01 "/>
+<polygon class="st0" points="200,100 200,100 300,100 "/>
+<polygon class="st0" points="500,200 500,200 400,200 400,200 500,200 "/>
+<polygon class="st0" points="600,100 600,100 500,100 "/>
+<polygon class="st0" points="0,100 100,100 0,100 "/>
+<polygon class="st0" points="400,250 400,250 400,200 "/>
+<polygon class="st0" points="200,100 200,100 200,100 "/>
+<polygon class="st0" points="300,100 300,100 300,100 "/>
+<polygon class="st0" points="500,200 600,200 550,200 "/>
+<polygon class="st1" points="200,100 200,0 200,0 200,50 "/>
+<rect x="200" y="100" class="st1" width="0" height="0"/>
+<rect x="250" y="50" class="st1" width="0" height="100"/>
+<path class="st2" d="M0,100l100,0l0-100l0,0C100,55.23,55.23,100,0,100z"/>
+<polygon class="st2" points="0,0 0,0 50,0 "/>
+<polygon class="st3" points="0,0 0,100 0,0 "/>
+<polygon class="st3" points="0,100 0,100 0,100 "/>
+<polygon class="st3" points="50,0 100,0 100,0 "/>
+<path class="st3" d="M0,0l0,100h0c55.23,0,100-44.77,100-100L50,0L0,0z"/>
+<polygon class="st4" points="200,100 200,100 200,50 200,50 200,100 "/>
+<polygon class="st4" points="200,50 200,0 200,50 "/>
+<rect x="300" y="0" class="st0" width="0" height="100"/>
+<polygon class="st0" points="200,0 200,0 200,0 "/>
+<rect x="200" y="0" class="st1" width="0" height="100"/>
+<path class="st1" d="M400,100H300c0,27.62-11.19,52.62-29.29,70.71C252.62,188.81,227.62,200,200,200V100c55.23,0,100-44.77,100-100
+	C355.23,0,400,44.77,400,100z"/>
+<polygon class="st4" points="200,100 200,100 200,100 "/>
+<rect x="200" y="100" class="st4" width="0" height="0"/>
+<polygon class="st4" points="300,0 300,0 300,0 "/>
+<rect x="250" y="-50" class="st4" width="0" height="100"/>
+<path class="st4" d="M300,0c0,27.62-11.19,52.62-29.29,70.71C252.62,88.81,227.62,100,200,100h-50c27.61,0,50-22.39,50-50
+	S177.61,0,150,0H300z"/>
+<path class="st4" d="M100,50V0h50C122.39,0,100,22.39,100,50z"/>
+<path class="st4" d="M150,100h-50V50C100,77.61,122.39,100,150,100z"/>
+<path class="st3" d="M600,100c-55.23,0-100,44.77-100,100V0C555.23,0,600,44.77,600,100z"/>
+<polygon class="st3" points="600,100 600,100 600,150 "/>
+<polygon class="st3" points="600,200 600,200 550,200 "/>
+<path class="st2" d="M500,0c0,55.23-44.77,100-100,100C400,44.77,355.23,0,300,0H500z"/>
+<polygon class="st1" points="300,0 300,0 300,0 300,0 "/>
+<polygon class="st1" points="200,200 200,200 200,200 200,200 "/>
+<g>
+	<path class="st4" d="M500,0v100c0,27.62-11.19,52.62-29.29,70.71C452.62,188.81,427.62,200,400,200H300c0-55.23,44.77-100,100-100
+		S500,55.23,500,0z"/>
+</g>
+<path class="st2" d="M0,200v100h100C44.77,300,0,255.23,0,200z"/>
+<path class="st1" d="M100,300V200H0C0,255.23,44.77,300,100,300z"/>
+<rect x="200" y="200" class="st5" width="100" height="0"/>
+<polygon class="st5" points="300,200 300,300 300,300 "/>
+<polygon class="st2" points="300,200 300,200 300,200 "/>
+<polygon class="st2" points="300,300 300,300 300,300 "/>
+<polygon class="st2" points="200,200.01 200,200 200,200 200,200 "/>
+<path class="st2" d="M400,100c-55.23,0-100,44.77-100,100v100c-55.23,0-99.99-44.77-100-99.99V200c55.23,0,100-44.77,100-100H400z"
+	/>
+<polygon class="st4" points="600,100 600,100 600,100 "/>
+<polygon class="st4" points="600,200 600,150 600,200 "/>
+<polygon class="st4" points="550,200 500,200 500,200 "/>
+<polygon class="st1" points="350,200 350,200 350,200 "/>
+<polygon class="st1" points="300,250 300,250 300,250 "/>
+<polygon class="st1" points="400,250 400,250 400,250 "/>
+<path class="st1" d="M350,200L350,200c-27.62,0-50,22.39-50,50l0,0c0,27.61,22.39,50,50,50s50-22.39,50-50l0,0
+	C400,222.39,377.61,200,350,200z"/>
+<path class="st3" d="M150,100c27.61,0,50-22.39,50-50l0,0c0-27.61-22.39-50-50-50c-27.61,0-50,22.39-50,50
+	C100,77.61,122.39,100,150,100z"/>
+<polygon class="st3" points="200,50 200,50 200,50 "/>
+<path class="st5" d="M500,200c-55.23,0-100,44.77-100,100h-50c27.61,0,50-22.39,50-50s-22.39-50-50-50H500z"/>
+<path class="st5" d="M300,250v-50h50C322.39,200,300,222.39,300,250z"/>
+<path class="st5" d="M350,300h-50v-50C300,277.61,322.39,300,350,300z"/>
+<path class="st4" d="M600,100v100c-55.23,0-100,44.77-100,100H400c0-55.23,44.77-100,100-100c0-27.62,11.19-52.62,29.29-70.71
+	C547.38,111.19,572.38,100,600,100z"/>
+<path class="st1" d="M500,300h100V200C544.77,200,500,244.77,500,300z"/>
+<path class="st2" d="M100,200v100h100C144.77,300,100,255.23,100,200z"/>
+<path class="st5" d="M300,300H200c-55.23,0-100-44.77-100-100h100v0.01C200.01,255.23,244.77,300,300,300z"/>
+<polygon class="st5" points="200,200 200,200 200,200 "/>
+<polygon class="st5" points="200,200 200,200 200,200 "/>
+<path class="st1" d="M600,100V0H500C555.23,0,600,44.77,600,100z"/>
+<polygon class="st5" points="0,200 0,200 0,100 "/>
+<path class="st5" d="M200,100c-55.23,0-100,44.77-100,100c0-55.23-44.77-100-100-100H200z"/>
+<polygon class="st5" points="200,100 200,100 200,100 "/>
+<polygon class="st5" points="200,100 200,100 200,100 "/>
+<path class="st3" d="M100,200h100V100C144.77,100,100,144.77,100,200z"/>
+<rect x="200" y="100" class="st3" width="0" height="100"/>
+<rect x="200" y="100" class="st3" width="0" height="100"/>
+<path class="st3" d="M0,100l0,100h100C100,144.77,55.23,100,0,100z"/>
+<g>
+	<polygon class="st4" points="400,200 400,200 400,200 	"/>
+</g>
+<path class="st1" d="M400,200H500l0-100C500,155.23,455.23,200,400,200z"/>
+</svg>

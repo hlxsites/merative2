@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.7.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 600 300" style="enable-background:new 0 0 600 300;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFC7F7;}
+	.st1{fill:#F487DD;}
+	.st2{fill:#E834BA;}
+	.st3{fill:#9900FF;}
+	.st4{fill:#9E2387;}
+</style>
+<path class="st0" d="M200,0v300c-55.23,0-100-44.77-100-100c0,55.23-44.77,100-100,100V200c55.23,0,100-44.77,100-100
+	C100,44.77,144.77,0,200,0z"/>
+<path class="st1" d="M450,100h-50c55.23,0,100,44.77,100,100V100H450z"/>
+<path class="st2" d="M450,0h-50v50C400,22.39,422.39,0,450,0z"/>
+<path class="st2" d="M400,50v50h50C422.38,100,400,77.61,400,50z"/>
+<path class="st2" d="M500,50V0h-50C477.61,0,500,22.39,500,50z"/>
+<path class="st2" d="M500,50c0,27.61-22.38,50-50,50h50V50z"/>
+<polygon class="st2" points="400,100 400,100 450,100 450,100 "/>
+<path class="st3" d="M600,0v100c-55.23,0-100,44.77-100,100V100C555.23,100,600,55.23,600,0z"/>
+<polygon class="st0" points="200,100 200,100 200,100 "/>
+<path class="st0" d="M200,100L200,100v50v50h100C244.77,200,200,155.23,200,100z"/>
+<polygon class="st1" points="200,100 200,100 200,100 "/>
+<path class="st1" d="M400,0v100c-55.23,0-100,44.77-100,100c-55.23,0-100-44.77-100-100h100C355.23,100,400,55.23,400,0z"/>
+<path class="st4" d="M600,100v200c-55.23,0-100-44.77-100-100c0-27.62,11.19-52.62,29.29-70.71C547.38,111.19,572.38,100,600,100z"
+	/>
+<polygon class="st4" points="600,100 600,100 600,100 "/>
+<polygon class="st1" points="400,100 400,200 400,100 "/>
+<path class="st4" d="M400,100v100c0,55.23-44.77,100-100,100V200C300,144.77,344.77,100,400,100z"/>
+<path class="st3" d="M500,200c0,55.23-44.77,100-100,100V100C455.23,100,500,144.77,500,200z"/>
+<polygon class="st3" points="400,100 400,100 400,100 "/>
+<polygon class="st1" points="300,100 300,100 400,100 400,100 "/>
+<rect x="400" y="100" class="st1" width="0" height="0"/>
+<polygon class="st1" points="400,100 400,100 400,100 "/>
+<path class="st4" d="M300,100L300,100c55.23,0,100-44.77,100-100H300v0V100z"/>
+<polygon class="st4" points="300,100 300,100 300,100 "/>
+<path class="st2" d="M200,0c-55.23,0-100,44.77-100,100c0,55.23-44.77,100-100,100V100c55.23,0,100-44.77,100-100H200z"/>
+<polygon class="st2" points="200,100 200,0 200,100 "/>
+<polygon class="st0" points="150,100 150,100 200,100 "/>
+<rect x="200" y="100" class="st0" width="0" height="0"/>
+<polygon class="st0" points="100,100 100,100 150,100 150,100 "/>
+<polygon class="st0" points="100,100 100,100 100,100 "/>
+<path class="st0" d="M100,0H0v100h0C55.23,100,100,55.23,100,0z"/>
+<polygon class="st2" points="0,100 0,100 0,100 "/>
+<path class="st0" d="M600,0c0,55.23-44.77,100-100,100V0H600z"/>
+<polygon class="st0" points="500,100 500,100 500,100 "/>
+<polygon class="st0" points="500,100 500,100 500,100 "/>
+<path class="st1" d="M300,300h100V200C400,255.23,355.23,300,300,300z"/>
+<path class="st1" d="M300,0L200,0l0,100C200,44.77,244.77,0,300,0z"/>
+<polygon class="st1" points="200,100 200,100 200,100 "/>
+<polygon class="st1" points="200,100 200,100 300,100 200,100 "/>
+<polygon class="st3" points="200,100 200,100 200,100 "/>
+<polygon class="st3" points="300,0 300,0 300,0 "/>
+<polygon class="st3" points="200,100 200,100 200,100 "/>
+<path class="st3" d="M300,100V0h0c-55.23,0-100,44.77-100,100l0,0H300z"/>
+<rect x="250" y="50" class="st3" width="0" height="100"/>
+<path class="st3" d="M200,150c0-27.61-22.38-50-50-50h0c-27.61,0-50,22.39-50,50c0,27.61,22.39,50,50,50S200,177.61,200,150z"/>
+<polygon class="st3" points="150,100 150,100 150,100 150,100 "/>
+<polygon class="st3" points="150,100 150,100 150,100 "/>
+<path class="st0" d="M400,50c0,27.61,22.38,50,50,50h0c27.61,0,50-22.39,50-50c0-27.61-22.39-50-50-50S400,22.39,400,50z"/>
+<polygon class="st0" points="450,100 450,100 450,100 "/>
+<path class="st2" d="M600,300H400c55.23,0,100-44.77,100-100C500,255.23,544.77,300,600,300z"/>
+<path class="st1" d="M200,200v100h100C244.77,300,200,255.23,200,200z"/>
+<path class="st2" d="M200,200c0,55.23,44.77,100,100,100V200H200z"/>
+<path class="st2" d="M200,300H0c55.23,0,100-44.77,100-100C100,255.23,144.77,300,200,300z"/>
+</svg>

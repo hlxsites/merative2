@@ -8,7 +8,6 @@
   margin-bottom: 0;
 }
 
-/* Brand - Base Button */
 .quick-links-buttons .quick-links-buttons__item a {
   width: 100%;
   display: block;
@@ -20,72 +19,28 @@
   letter-spacing: var(--letter-spacing-1);
   padding: var(--spacer-element-04) var(--spacer-element-07);
   border-radius: 40px;
-  color: var(--primary-purple);
+  color: var(--neutral-carbon);
   border-width: 2px;
   border-color: var(--primary-purple);
   border-style: solid;
   background-color: transparent;
-  transition: all .25s ease-in;
+  transition: all .2s ease-in;
 }
 
 .quick-links-buttons .quick-links-buttons__item a:hover {
-  color: var(--neutral-white) !important;
-  background-color: var(--primary-purple);
+  background-color: var(--neutral-white);
 }
 
-/* Brand - Curam */
-.quick-links-buttons.color-curam .quick-links-buttons__item a {
-  color: var(--secondary-orange);
-  border-color: var(--secondary-orange);
+/* Themes - Quick Links Buttons */
+.section[data-theme] .quick-links-buttons .quick-links-buttons__item a {
+  background-color: var(--theme-button-bg);
+  border-color: var(--theme-button-border);
+  color: var(--neutral-carbon);
 }
 
-/* Brand - Health Insights */
-.quick-links-buttons.color-health-insights .quick-links-buttons__item a {
-  color: var(--primary-purple);
-  border-color: var(--primary-purple);
-}
-
-/* Brand - Merge */
-.quick-links-buttons.color-merge .quick-links-buttons__item a {
-  color: var(--secondary-magenta);
-  border-color: var(--secondary-magenta);
-}
-
-/* Brand - MarketScan */
-.quick-links-buttons.color-marketscan .quick-links-buttons__item a {
-  color: var(--secondary-red);
-  border-color: var(--secondary-red);
-}
-
-/* Brand - Micromedex */
-.quick-links-buttons.color-micromedex .quick-links-buttons__item a {
-  color: var(--secondary-blue);
-  border-color: var(--secondary-blue);
-}
-
-/* Brand - Base Button Hover */
-.quick-links-buttons.color-curam .quick-links-buttons__item a:hover {
-  background-color: var(--secondary-orange);
-}
-
-.quick-links-buttons.color-health-insights .quick-links-buttons__item a:hover {
-  background-color: var(--primary-purple);
-}
-
-.quick-links-buttons.color-merge .quick-links-buttons__item a:hover {
-  background-color: var(--secondary-magenta);
-}
-
-.quick-links-buttons.color-marketscan .quick-links-buttons__item a:hover {
-  background-color: var(--secondary-red);
-}
-
-.quick-links-buttons.color-micromedex .quick-links-buttons__item a:hover {
-  background-color: var(--secondary-blue);
-}
-
-.quick-links-buttons.color-zelta .quick-links-buttons__item a:hover {
-  background-color: var(--secondary-green);
+.section[data-theme] .quick-links-buttons .quick-links-buttons__item a:hover,
+.section[data-theme] .quick-links-buttons .quick-links-buttons__item a:focus {
+  background-color: var(--neutral-white);
 }
 
 /* Tablet */

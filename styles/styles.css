@@ -230,7 +230,7 @@
   --box-shadow-large: 0 var(--spacer-element-02) var(--spacer-element-06) 0 rgb(185 181 174 / 40%);
 }
 
-/* Theme */
+/* Theme - Global */
 .section[data-theme='purple'] {
   --theme-text-primary: var(--neutral-white);
   --theme-text-secondary: var(--neutral-white);
@@ -304,6 +304,97 @@
 .section[data-theme] {
   color: var(--theme-text-primary);
   background-color: var(--theme-background-color);
+}
+
+/* Theme - Brands */
+.section[data-theme='curam'] {
+  --theme-text-primary: var(--neutral-carbon);
+  --theme-text-secondary: var(--neutral-carbon);
+  --theme-background-color: var(--neutral-bone);
+  --theme-card-background-color: var(--neutral-white);
+  --theme-icon-01: var(--secondary-orange);
+  --theme-link-01: var(--secondary-orange);
+  --theme-button-bg: transparent;
+  --theme-button-bg-hover: var(--secondary-orange);
+  --theme-button-border: var(--secondary-orange);
+  --theme-button-hover: var(--neutral-white);
+  --theme-line-color: var(--neutral-sand);
+  --theme-pattern: url('../../styles/images/patterns/pattern-curam.svg');
+}
+
+.section[data-theme='health-insights'] {
+  --theme-text-primary: var(--neutral-carbon);
+  --theme-text-secondary: var(--neutral-carbon);
+  --theme-background-color: var(--neutral-bone);
+  --theme-card-background-color: var(--neutral-white);
+  --theme-icon-01: var(--primary-purple);
+  --theme-link-01: var(--primary-purple);
+  --theme-button-bg: transparent;
+  --theme-button-bg-hover: var(--primary-purple);
+  --theme-button-border: var(--primary-purple);
+  --theme-button-hover: var(--neutral-white);
+  --theme-line-color: var(--neutral-sand);
+  --theme-pattern: url('../../styles/images/patterns/pattern-health-insights.svg');
+}
+
+.section[data-theme='marketscan'] {
+  --theme-text-primary: var(--neutral-carbon);
+  --theme-text-secondary: var(--neutral-carbon);
+  --theme-background-color: var(--neutral-bone);
+  --theme-card-background-color: var(--neutral-white);
+  --theme-icon-01: var(--secondary-red);
+  --theme-link-01: var(--secondary-red);
+  --theme-button-bg: transparent;
+  --theme-button-bg-hover: var(--secondary-red);
+  --theme-button-border: var(--secondary-red);
+  --theme-button-hover: var(--neutral-white);
+  --theme-line-color: var(--neutral-sand);
+  --theme-pattern: url('../../styles/images/patterns/pattern-marketscan.svg');
+}
+
+.section[data-theme='merge'] {
+  --theme-text-primary: var(--neutral-carbon);
+  --theme-text-secondary: var(--neutral-carbon);
+  --theme-background-color: var(--neutral-bone);
+  --theme-card-background-color: var(--neutral-white);
+  --theme-icon-01: var(--secondary-magenta);
+  --theme-link-01: var(--secondary-magenta);
+  --theme-button-bg: transparent;
+  --theme-button-bg-hover: var(--secondary-magenta);
+  --theme-button-border: var(--secondary-magenta);
+  --theme-button-hover: var(--neutral-white);
+  --theme-line-color: var(--neutral-sand);
+  --theme-pattern: url('../../styles/images/patterns/pattern-merge.svg');
+}
+
+.section[data-theme='micromedex'] {
+  --theme-text-primary: var(--neutral-carbon);
+  --theme-text-secondary: var(--neutral-carbon);
+  --theme-background-color: var(--neutral-bone);
+  --theme-card-background-color: var(--neutral-white);
+  --theme-icon-01: var(--secondary-blue);
+  --theme-link-01: var(--secondary-blue);
+  --theme-button-bg: transparent;
+  --theme-button-bg-hover: var(--secondary-blue);
+  --theme-button-border: var(--secondary-blue);
+  --theme-button-hover: var(--neutral-white);
+  --theme-line-color: var(--neutral-sand);
+  --theme-pattern: url('../../styles/images/patterns/pattern-micromedex.svg');
+}
+
+.section[data-theme='zelta'] {
+  --theme-text-primary: var(--neutral-carbon);
+  --theme-text-secondary: var(--neutral-carbon);
+  --theme-background-color: var(--neutral-bone);
+  --theme-card-background-color: var(--neutral-white);
+  --theme-icon-01: var(--secondary-green);
+  --theme-link-01: var(--secondary-green);
+  --theme-button-bg: transparent;
+  --theme-button-bg-hover: var(--secondary-green);
+  --theme-button-border: var(--secondary-green);
+  --theme-button-hover: var(--neutral-white);
+  --theme-line-color: var(--neutral-sand);
+  --theme-pattern: url('../../styles/images/patterns/pattern-zelta.svg');
 }
 
 html {
@@ -1518,16 +1609,12 @@ body.quick-links main .section > div {
   height: var(--gap-84);
   background-color: var(--neutral-bone);
   background-repeat: repeat-x; 
-  background-size: auto 100%;
-  background-position: bottom left;
+  background-size: 400px auto;
+  background-position: calc(var(--spacer-element-04) * -1) 0;
 }
 
-.bg-pattern-health-insights {
-  background-image: url('../../styles/images/patterns/pattern-health-insights.svg');
-}
-
-.bg-pattern-micromedex {
-  background-image: url('../../styles/images/patterns/pattern-micromedex.svg');
+.section.section-pattern[data-theme] {
+  background-image: var(--theme-pattern);
 }
 
 /* Tablet */
