@@ -1,4 +1,6 @@
-import { decorateIcons, getIconTypebyPath } from '../../scripts/lib-franklin.js';
+import {
+  decorateIcons, getIconTypebyPath, getVideoType, buildVideoModal, toggleVideoOverlay,
+} from '../../scripts/lib-franklin.js';
 
 // Function to create HTML for links with optional icons
 function createLinkHtml(blockName, content, link, iconClass) {
@@ -53,6 +55,20 @@ export default async function decorate(block) {
 
   // Set the modified HTML content
   block.innerHTML = html;
+
+  block.querySelectorAll('a').forEach((a) => {
+    const videoType = getVideoType(a.href);
+    if (['youtube', 'mp4'].includes(videoType)) {
+      const videoModal = buildVideoModal(a.href, videoType);
+      const videoClose = videoModal.querySelector('button.video-modal-close');
+      videoClose.addEventListener('click', () => toggleVideoOverlay(videoModal));
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleVideoOverlay(videoModal);
+      });
+      block.appendChild(videoModal);
+    }
+  });
 
   // Replace icons with inline SVG
   decorateIcons(block);
