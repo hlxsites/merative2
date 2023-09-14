@@ -100,6 +100,14 @@ main .columns-container h4 {
   margin-bottom: 0;
 }
 
+.columns.content-band.icon-list > div {
+  margin-bottom: var(--spacer-layout-04);
+}
+
+.columns.content-band > div > div > p.only-picture {
+  justify-content: left;
+}
+
 .columns.content-band.icon-list h3 {
   margin: var(--spacer-layout-01) auto;
 }

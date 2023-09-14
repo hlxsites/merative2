@@ -45,7 +45,7 @@ main .section > .quick-links-socials-wrapper:last-child {
 }
 
 .quick-links-socials .quick-links-socials__item a span svg {
-  height: 16px;
+  height: var(--spacer-element-06);
 }
 
 .quick-links-socials .quick-links-socials__item a:hover span svg path {

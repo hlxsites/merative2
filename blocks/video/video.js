@@ -206,7 +206,7 @@ export default function decorate(block) {
   }
 
   // decorate video link
-  const videoLink = block.querySelector('a');
+  const videoLink = block.querySelector('.video-image a');
   let videoHref;
   if (videoLink) {
     videoHref = videoLink.href;

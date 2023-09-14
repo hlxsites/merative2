@@ -32,32 +32,32 @@
  */
 
 const SLIDE_CAPTION_SIZE = 64;
+const SLIDE_CAPTION_SIZE_WITH_ICON = 89;
 const SLIDE_ID_PREFIX = 'carousel-slide';
 const SLIDE_CONTROL_ID_PREFIX = 'carousel-slide-control';
 
-let resizeTimeout;
 let scrollInterval;
 let curSlide = 0;
 let maxSlide = 0;
 let carouselType = 'default';
 
 /**
- * Clear any active scroll intervals
- */
+  * Clear any active scroll intervals
+  */
 function stopAutoScroll() {
   clearInterval(scrollInterval);
   scrollInterval = undefined;
 }
 
 /**
- * Count how many lines a block of text will consume when wrapped within a container
- * that has a maximum width.
- * @param text The full text
- * @param width Width of container
- * @param options Options to be applied to context (e.g. font style)
- *
- * @return {number} The number of lines
- */
+  * Count how many lines a block of text will consume when wrapped within a container
+  * that has a maximum width.
+  * @param text The full text
+  * @param width Width of container
+  * @param options Options to be applied to context (e.g. font style)
+  *
+  * @return {number} The number of lines
+  */
 function getLineCount(text, width, options = {}) {
   // re-use canvas object for better performance
   const canvas = getLineCount.canvas || (getLineCount.canvas = document.createElement('canvas'));
@@ -82,38 +82,42 @@ function getLineCount(text, width, options = {}) {
 }
 
 /**
- * Calculate the actual height of a slide based on its contents.
- *
- * @param carousel The carousel
- * @param slide A slide within the carousel
- */
+  * Calculate the actual height of a slide based on its contents.
+  *
+  * @param carousel The carousel
+  * @param slide A slide within the carousel
+  */
 function calculateSlideHeight(carousel, slide) {
-  if (carouselType === 'default' || carouselType === 'testimonial') {
+  if (carouselType === 'default' || carouselType === 'testimonial' || carouselType === 'case-study') {
     requestAnimationFrame(() => {
       const slideBody = slide.querySelector('div');
-      const slideH3 = slide.querySelector('H3');
+      const slideH3 = slide.querySelector('h3');
       const bodyStyle = window.getComputedStyle(slideBody);
       const textOptions = {
         font: `${bodyStyle.fontWeight} ${bodyStyle.fontSize} ${bodyStyle.fontFamily}`,
       };
-      const lineCount = getLineCount(
-        slideH3.textContent,
-        parseInt(bodyStyle.width, 10),
-        textOptions,
-      );
-      const bodyHeight = parseFloat(bodyStyle.lineHeight) * lineCount;
-      const figureStyle = window.getComputedStyle(slide.querySelector('.figure'));
-      const figureHeight = figureStyle ? parseFloat(figureStyle.height) : SLIDE_CAPTION_SIZE;
-      carousel.style.height = `${bodyHeight + figureHeight}px`;
+
+      // Check if slideH3 exists before accessing its textContent
+      if (slideH3) {
+        const lineCount = getLineCount(
+          slideH3.textContent,
+          parseInt(bodyStyle.width, 10),
+          textOptions,
+        );
+        const bodyHeight = parseFloat(bodyStyle.lineHeight) * lineCount;
+        const figureStyle = window.getComputedStyle(slide.querySelector('.figure'));
+        const figureHeight = (figureStyle && figureStyle.height !== 'auto') ? parseFloat(figureStyle.height) : SLIDE_CAPTION_SIZE_WITH_ICON;
+        carousel.style.height = `${bodyHeight + figureHeight}px`;
+      }
     });
   }
 }
 
 /**
- * Keep active dot in sync with current slide
- * @param carousel The carousel
- * @param activeSlide {number} The active slide
- */
+  * Keep active dot in sync with current slide
+  * @param carousel The carousel
+  * @param activeSlide {number} The active slide
+  */
 function syncActiveDot(carousel, activeSlide) {
   carousel.querySelectorAll('ul.carousel-dots li').forEach((item, index) => {
     const btn = item.querySelector('button');
@@ -130,15 +134,21 @@ function syncActiveDot(carousel, activeSlide) {
 }
 
 /**
- * Scroll a single slide into view.
- *
- * @param carousel The carousel
- * @param slideIndex {number} The slide index
- */
+  * Scroll a single slide into view.
+  *
+  * @param carousel The carousel
+  * @param slideIndex {number} The slide index
+  */
 function scrollToSlide(carousel, slideIndex = 0) {
   const carouselSlider = carousel.querySelector('.carousel-slide-container');
   calculateSlideHeight(carouselSlider, carouselSlider.children[slideIndex]);
-  carouselSlider.scrollTo({ left: carouselSlider.offsetWidth * slideIndex, behavior: 'smooth' });
+  let extraSpace = 0;
+  if (carouselType === 'image-carousel-full-width' && slideIndex !== 0) {
+    if (window.screen.width >= 768 && window.screen.width < 1200) {
+      extraSpace = 61;
+    }
+  }
+  carouselSlider.scrollTo({ left: carouselSlider.offsetWidth * slideIndex + extraSpace, behavior: 'smooth' });
   syncActiveDot(carousel, slideIndex);
   // sync slide
   [...carouselSlider.children].forEach((slide, index) => {
@@ -154,13 +164,13 @@ function scrollToSlide(carousel, slideIndex = 0) {
 }
 
 /**
- * Based on the direction of a scroll snap the scroll position based on the
- * offset width of the scrollable element. The snap threshold is determined
- * by the direction of the scroll to ensure that snap direction is natural.
- *
- * @param el the scrollable element
- * @param dir the direction of the scroll
- */
+  * Based on the direction of a scroll snap the scroll position based on the
+  * offset width of the scrollable element. The snap threshold is determined
+  * by the direction of the scroll to ensure that snap direction is natural.
+  *
+  * @param el the scrollable element
+  * @param dir the direction of the scroll
+  */
 function snapScroll(el, dir = 1) {
   if (!el) {
     return;
@@ -179,11 +189,11 @@ function snapScroll(el, dir = 1) {
 }
 
 /**
- * Build a navigation button for controlling the direction of carousel slides.
- *
- * @param dir A string of either 'prev or 'next'
- * @return {HTMLDivElement} The resulting nav element
- */
+  * Build a navigation button for controlling the direction of carousel slides.
+  *
+  * @param dir A string of either 'prev or 'next'
+  * @return {HTMLDivElement} The resulting nav element
+  */
 function buildNav(dir) {
   const btn = document.createElement('div');
   btn.classList.add('carousel-nav', `carousel-nav-${dir}`);
@@ -202,10 +212,10 @@ function buildNav(dir) {
 }
 
 /**
- *
- * @param slides An array of slide elements within the carousel
- * @return {HTMLUListElement} The carousel dots element
- */
+  *
+  * @param slides An array of slide elements within the carousel
+  * @return {HTMLUListElement} The carousel dots element
+  */
 function buildDots(slides = []) {
   const dots = document.createElement('ul');
   dots.classList.add('carousel-dots');
@@ -243,17 +253,19 @@ function buildDots(slides = []) {
 }
 
 /**
- * Decorate a base slide element.
- *
- * @param slide A base block slide element
- * @param index The slide's position
- * @return {HTMLUListElement} A decorated carousel slide element
- */
+  * Decorate a base slide element.
+  *
+  * @param slide A base block slide element
+  * @param index The slide's position
+  * @return {HTMLUListElement} A decorated carousel slide element
+  */
 function buildSlide(slide, index) {
   slide.setAttribute('id', `${SLIDE_ID_PREFIX}${index}`);
   slide.setAttribute('data-slide-index', index);
   slide.classList.add('carousel-slide');
-  slide.style.transform = `translateX(${index * 100}%)`;
+  if (carouselType !== 'image-carousel-full-width') {
+    slide.style.transform = `translateX(${index * 100}%)`;
+  }
   // accessibility
   slide.setAttribute('role', 'tabpanel');
   slide.setAttribute('aria-hidden', index === 0 ? 'false' : 'true');
@@ -284,23 +296,31 @@ function startAutoScroll(block) {
   if (!scrollInterval) {
     scrollInterval = setInterval(() => {
       scrollToSlide(block, curSlide < maxSlide ? curSlide + 1 : 0);
-    }, 8000);
+    }, 10000);
   }
 }
 
 /**
- * Decorate and transform a carousel block.
- *
- * @param block HTML block from Franklin
- */
+  * Decorate and transform a carousel block.
+  *
+  * @param block HTML block from Franklin
+  */
 export default function decorate(block) {
+  let isAnimationEnabled = true;
   const carousel = document.createElement('div');
   carousel.classList.add('carousel-slide-container');
   if (block.classList.contains('image-carousel-full-width')) {
     carouselType = 'image-carousel-full-width';
-  }
-  if (block.classList.contains('testimonial')) {
+    if (block.children.length < 5) {
+      block.classList.add('no-animation-effect');
+      isAnimationEnabled = false;
+    }
+  } else if (block.classList.contains('testimonial')) {
     carouselType = 'testimonial';
+  } else if (block.classList.contains('case-study')) {
+    carouselType = 'case-study';
+  } else {
+    carouselType = 'default';
   }
 
   // make carousel draggable
@@ -309,53 +329,67 @@ export default function decorate(block) {
   let startScroll = 0;
   let prevScroll = 0;
 
-  carousel.addEventListener('mousedown', (e) => {
-    isDown = true;
-    startX = e.pageX - carousel.offsetLeft;
-    startScroll = carousel.scrollLeft;
-    prevScroll = startScroll;
-  });
+  if (isAnimationEnabled) {
+    carousel.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - carousel.offsetLeft;
+      startScroll = carousel.scrollLeft;
+      prevScroll = startScroll;
+    });
 
-  carousel.addEventListener('mouseenter', () => {
-    stopAutoScroll();
-  });
+    carousel.addEventListener('mouseenter', () => {
+      stopAutoScroll();
+    });
 
-  carousel.addEventListener('mouseleave', () => {
-    if (isDown) {
-      snapScroll(carousel, carousel.scrollLeft > startScroll ? 1 : -1);
-    }
-    startAutoScroll(block);
-    isDown = false;
-  });
+    carousel.addEventListener('mouseleave', () => {
+      if (isDown) {
+        snapScroll(carousel, carousel.scrollLeft > startScroll ? 1 : -1);
+      }
+      startAutoScroll(block);
+      isDown = false;
+    });
 
-  carousel.addEventListener('mouseup', () => {
-    if (isDown) {
-      snapScroll(carousel, carousel.scrollLeft > startScroll ? 1 : -1);
-    }
-    isDown = false;
-  });
+    carousel.addEventListener('mouseup', () => {
+      if (isDown) {
+        snapScroll(carousel, carousel.scrollLeft > startScroll ? 1 : -1);
+      }
+      isDown = false;
+    });
 
-  carousel.addEventListener('mousemove', (e) => {
-    if (!isDown) {
-      return;
-    }
-    e.preventDefault();
-    const x = e.pageX - carousel.offsetLeft;
-    const walk = (x - startX);
-    carousel.scrollLeft = prevScroll - walk;
-  });
+    carousel.addEventListener('mousemove', (e) => {
+      if (!isDown) {
+        return;
+      }
+      e.preventDefault();
+      const x = e.pageX - carousel.offsetLeft;
+      const walk = (x - startX);
+      carousel.scrollLeft = prevScroll - walk;
+    });
+  }
 
   // process each slide
   const slides = [...block.children];
   maxSlide = slides.length - 1;
   slides.forEach((slide, index) => {
+    if (carouselType === 'case-study') {
+      const titleTag = slide.querySelector('p');
+      const contentDivElement = titleTag.parentElement;
+      const parentDivElement = contentDivElement.parentElement;
+      const titleDiv = document.createElement('div');
+      const contentDiv = document.createElement('div');
+      contentDiv.classList.add('case-study__container-wrapper');
+      titleDiv.classList.add('case-study__title-wrapper');
+      contentDivElement.classList.add('case-study__content-wrapper');
+      titleDiv.append(titleTag);
+      contentDiv.append(titleDiv, contentDivElement);
+      parentDivElement.prepend(contentDiv);
+    }
     carousel.appendChild(buildSlide(slide, index));
   });
 
   // add decorated carousel to block
   block.append(carousel);
 
-  // calculate height of first slide
   calculateSlideHeight(carousel, slides[0]);
 
   // add nav buttons and dots to block
@@ -384,20 +418,23 @@ export default function decorate(block) {
     });
   };
 
-  const carouselObserver = new IntersectionObserver(handleAutoScroll, intersectionOptions);
-  carouselObserver.observe(block);
+  if (isAnimationEnabled) {
+    const carouselObserver = new IntersectionObserver(handleAutoScroll, intersectionOptions);
+    carouselObserver.observe(block);
 
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      stopAutoScroll();
-    } else {
-      startAutoScroll(block);
-    }
-  });
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        stopAutoScroll();
+      } else {
+        startAutoScroll(block);
+      }
+    });
+  }
 
-  window.addEventListener('resize', () => {
-    // clear the timeout
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => calculateSlideHeight(carousel, slides[curSlide]), 500);
+  // Observe the carousel container for resize events
+  const carouselContainer = block.querySelector('.carousel-slide-container');
+  const resizeObserver = new ResizeObserver(() => {
+    calculateSlideHeight(carouselContainer, carouselContainer.children[curSlide]);
   });
+  resizeObserver.observe(carouselContainer);
 }

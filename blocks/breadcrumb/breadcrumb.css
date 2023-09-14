@@ -1,0 +1,114 @@
+/* Section - Breadcrumb */
+main .section.breadcrumb-container {
+  width: 100%;
+  background-color: var(--neutral-40);
+}
+
+main .section.breadcrumb-container .breadcrumb-wrapper,
+main .section.breadcrumb-container > div:first-child > *:first-child > *:first-child {
+  padding: 0;
+}
+
+/* Block - Breadcrumb */
+.breadcrumb {
+  width: 100%;
+}
+
+.breadcrumb .breadcrumb__inner {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: var(--spacer-layout-05);
+}
+
+.breadcrumb .breadcrumb__col ul {
+  display: flex;
+  padding-inline-start: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb .breadcrumb__col ul li {
+  display: inline-block;
+  list-style: none;
+  color: var(--neutral-carbon);
+  font-family: var(--sans-serif-font-regular);
+  font-size: var(--font-size-16);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  margin: 0 0 0 var(--spacer-element-05);
+}
+
+.breadcrumb .breadcrumb__col ul li:first-child {
+  margin: 0;
+}
+
+.breadcrumb .breadcrumb__col ul li a {
+  position: relative;
+  list-style: none;
+  color: var(--neutral-carbon);
+  border-bottom: 0;
+}
+
+.breadcrumb .breadcrumb__col ul li a:active,
+.breadcrumb .breadcrumb__col ul li a:hover {
+  color: var(--primary-purple);
+  background: none;
+  -webkit-text-fill-color: unset;
+  text-decoration: underline;
+}
+
+.breadcrumb .breadcrumb__col ul li a::after {
+  position: relative;
+  display: inline-block;
+  content: url('../../icons/caret-right.svg');
+  vertical-align: middle;
+  margin: 0 var(--spacer-element-02);
+  width: var(--spacer-element-05);
+  height: var(--spacer-element-05);
+  line-height: 0;
+  top: -1px;
+}
+
+.breadcrumb .breadcrumb__col ul li.breadcrumb__ellipsis::before {
+  content: "...";
+}
+
+.breadcrumb .breadcrumb__col ul li.breadcrumb__ellipsis span {
+  display: none;
+}
+
+.breadcrumb .breadcrumb__col .icon {
+  display: block;
+  width: var(--spacer-element-08);
+  height: var(--spacer-element-08);
+  clip-path: circle(50% at 50% 50%);
+}
+
+.breadcrumb .breadcrumb__col .icon svg {
+  display: block;
+  width: auto;
+  height: var(--spacer-element-08);
+}
+
+.breadcrumb-no-image .breadcrumb .breadcrumb__col-2 {
+  display: none;
+  visibility: hidden;
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) {
+  .breadcrumb .breadcrumb__col .icon {
+    width: 100%;
+    clip-path: unset;
+  }
+
+  .breadcrumb .breadcrumb__col .icon svg {
+    width: 100%;
+  }
+}

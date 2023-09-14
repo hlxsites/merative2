@@ -1,0 +1,83 @@
+/* Stat with illustration */
+main .section > .stat-with-illustration-wrapper:last-child {
+  padding-bottom: 0;
+}
+
+.stat-with-illustration > .stat-with-illustration__inner:first-child .stat-with-illustration__col-1 {
+  position: relative;
+  width: 66.6666%;
+}
+
+.stat-with-illustration > .stat-with-illustration__inner:first-child .stat-with-illustration__col-1::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-image: var(--gradient-vertical);
+}
+
+.stat-with-illustration .stat-with-illustration__inner .stat-with-illustration__col-1 h2 {
+  font-size: var(--font-size-96);
+  margin: 0;
+  line-height: 120%;
+}
+
+.stat-with-illustration .stat-with-illustration__inner .stat-with-illustration__col-1 p {
+  font-family: var(--sans-serif-font-medium);
+  font-size: var(--font-size-11);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: var(--letter-spacing-02-em);
+  text-transform: uppercase;
+}
+
+.stat-with-illustration > .stat-with-illustration__inner .stat-with-illustration__col-2 {
+  font-size: var(--font-size-28);
+  font-family: var(--serif-font);
+  font-style: normal;
+  font-weight: 300;
+  line-height: 120%;
+  letter-spacing: var(--letter-spacing-001-em);
+  margin-top: var(--spacer-element-09);
+}
+
+.stat-with-illustration .stat-with-illustration__inner picture {
+  margin-top: var(--spacer-layout-06);
+  display: block;
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) {
+  .stat-with-illustration > .stat-with-illustration__inner {
+    display: flex;
+    flex-direction: row;
+    gap: var(--gap-84);
+    align-items: flex-start;
+  }
+
+  .stat-with-illustration > .stat-with-illustration__inner:first-child .stat-with-illustration__col-1 {
+    width: 25%;
+  }
+
+  .stat-with-illustration > .stat-with-illustration__inner .stat-with-illustration__col-2 {
+    width: 66.6666%;
+    max-width: calc(var(--text-max-container) - var(--spacer-layout-06));
+    margin-top: 0;
+  }
+}
+
+/* Desktop */
+@media only screen and (min-width: 1200px) {
+  .stat-with-illustration .stat-with-illustration__inner .stat-with-illustration__col-1 h2 {
+    font-size: var(--font-size-128);
+  }
+
+  .stat-with-illustration .stat-with-illustration__inner .stat-with-illustration__col-1 p {
+    font-size: var(--font-size-14);
+  }
+
+  .stat-with-illustration > .stat-with-illustration__inner .stat-with-illustration__col-2 {
+    font-size: var(--font-size-32);
+  }
+}
