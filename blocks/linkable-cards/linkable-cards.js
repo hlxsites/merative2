@@ -56,16 +56,29 @@ export default async function decorate(block) {
   // Set the modified HTML content
   block.innerHTML = html;
 
+  // Select all anchor elements within the 'block' container
   block.querySelectorAll('a').forEach((a) => {
+    // Determine the type of video based on the href attribute
     const videoType = getVideoType(a.href);
+
+    // Check if the video type is 'youtube' or 'mp4'
     if (['youtube', 'mp4'].includes(videoType)) {
+      // Build a modal for the video
       const videoModal = buildVideoModal(a.href, videoType);
+
       const videoClose = videoModal.querySelector('button.video-modal-close');
+
+      // Add a click event listener to close the video modal when the close button is clicked
       videoClose.addEventListener('click', () => toggleVideoOverlay(videoModal));
+
       a.addEventListener('click', (e) => {
         e.preventDefault();
+
+        // Toggle the video overlay when the anchor element is clicked
         toggleVideoOverlay(videoModal);
       });
+
+      // Append the video modal to the 'block' container
       block.appendChild(videoModal);
     }
   });
