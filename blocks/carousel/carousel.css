@@ -98,6 +98,7 @@ main .section.stat-container.carousel-container div.carousel-wrapper {
     flex-direction: column;
     margin: 0 auto;
     padding-top: var(--spacer-layout-03);
+    max-width: calc(var(--spacer-layout-06) * 5);
 }
 
 .carousel .carousel-slide > div {
@@ -329,7 +330,6 @@ main .section.stat-container.carousel-container div.carousel-wrapper {
 
     main .section div.carousel-wrapper {
         padding-top: var(--spacer-layout-07);
-        padding-bottom: var(--spacer-layout-07);
     }
 
     .section.carousel-container .default-content-wrapper {
