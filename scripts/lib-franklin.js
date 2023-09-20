@@ -724,7 +724,11 @@ export function decorateButtons(element, options = {}) {
       });
 
       // Append the video modal to the 'block' container
-      element.appendChild(videoModal);
+      if (element.tagName === 'MAIN') {
+        document.body.appendChild(videoModal);
+      } else {
+        element.appendChild(videoModal);
+      }
     }
 
     if (a.href !== a.textContent) {
