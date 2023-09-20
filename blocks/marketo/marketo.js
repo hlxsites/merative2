@@ -25,16 +25,17 @@ const embedMarketoForm = (marketoId, formId, successUrl, driftCampaignID, fastla
     const mktoScriptTag = loadScript('//go.merative.com/js/forms2/js/forms2.min.js');
     mktoScriptTag.onload = () => {
       if (successUrl) {
-        if (fastlaneEnable) {
-          drift.api.collectFormData(values, {
-            campaignId: driftCampaignID,
-            followupUrl: '/thank-you',
-          });
-        }
         window.MktoForms2.loadForm('//go.merative.com', `${marketoId}`, formId, (form) => {
           // Add an onSuccess handler
           // eslint-disable-next-line no-unused-vars
           form.onSuccess((values, followUpUrl) => {
+            // Adding drift script for chatbot
+            if (fastlaneEnable) {
+              drift.api.collectFormData(values, {
+                campaignId: driftCampaignID,
+                followupUrl: '/thank-you',
+              });
+            }
             // Take the lead to a different page on successful submit,
             // ignoring the form's configured followUpUrl
             location.href = successUrl;
