@@ -94,10 +94,22 @@ main .section.stat-container.carousel-container div.carousel-wrapper {
     width: fit-content;
 }
 
+.carousel.image-carousel-full-width .carousel-slide img {
+    max-width: inherit;
+    width: 90px;
+    height: 90px;
+}
+
 .carousel.testimonial .carousel-slide div .figure {
     flex-direction: column;
     margin: 0 auto;
     padding-top: var(--spacer-layout-03);
+    max-width: calc(var(--spacer-layout-06) * 5);
+}
+
+.carousel.testimonial .carousel-slide div .figure img {
+    width: var(--spacer-layout-05);
+    height: var(--spacer-layout-05);
 }
 
 .carousel .carousel-slide > div {
@@ -141,20 +153,6 @@ main .section.stat-container.carousel-container div.carousel-wrapper {
     width: auto;
     box-sizing: border-box;
     position: relative;
-}
-
-.carousel .carousel-slide > .figure img {
-    border-radius: 50%;
-    height: 64px;
-    width: 64px;
-    margin-bottom: 0;
-    margin-right: var(--spacer-layout-02);
-}
-
-.carousel.image-carousel-full-width .carousel-slide img {
-    max-width: inherit;
-    width: 90px;
-    height: 90px;
 }
 
 .carousel.image-carousel-full-width .carousel-slide-container {
@@ -329,7 +327,6 @@ main .section.stat-container.carousel-container div.carousel-wrapper {
 
     main .section div.carousel-wrapper {
         padding-top: var(--spacer-layout-07);
-        padding-bottom: var(--spacer-layout-07);
     }
 
     .section.carousel-container .default-content-wrapper {

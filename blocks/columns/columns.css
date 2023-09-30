@@ -22,7 +22,7 @@ main .columns-container h4 {
 
 .columns.terms > div {
   margin-bottom: var(--spacer-layout-04);
-  column-gap: 13px;
+  column-gap: var(--spacer-element-04);
 }
 
 .columns > div:last-of-type {
@@ -290,7 +290,7 @@ main .columns > div > div > h4:first-child {
 
 .section-bottom .columns-2-cols > div > :nth-child(2) h1 {
   font-family: var(--serif-font);
-  margin: var(--spacer-element-09) 0 0;
+  margin: 0;
   font-size: 90px;
   -webkit-text-fill-color: transparent;
   background: var(--gradient-diagonal-up);
@@ -298,7 +298,6 @@ main .columns > div > div > h4:first-child {
   -webkit-background-clip: text; /* stylelint-disable-line */
   border-image-slice: 1;
   border-image-source: var(--gradient-diagonal-up);
-  border-top: 1px solid var(--neutral-sand);
 }
 
 .section-bottom.columns-container {
@@ -313,8 +312,20 @@ main .columns > div > div > h4:first-child {
 }
 
 .section-bottom .columns-2-cols > div > :nth-child(2) {
+  position: relative;
   flex: 1 1 40%;
-  margin: 0 0 0 var(--spacer-layout-05);
+  margin: var(--spacer-element-10) 0 0 calc(42px + var(--spacer-element-05));
+  padding-inline-end: calc(42px + var(--spacer-element-05));
+}
+
+.section-bottom .columns-2-cols > div > :nth-child(2)::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 1px;
+  background-image: var(--gradient-vertical);
 }
 
 .section-bottom .columns-2-cols {
@@ -385,15 +396,20 @@ main .columns > div > div > h4:first-child {
 
   .section-bottom .columns-2-cols > div {
     flex-flow: row nowrap;
-    gap: 84px;
+    gap: var(--gap-84);
+  }
+
+  .section-bottom .columns-2-cols > div > :nth-child(2) {
+    margin: 0;
+    padding-inline-end: 0;
   }
 
   .columns.quarter-circle > div {
-    gap: 80px;
+    gap: var(--gap-80);
   }
 
   .columns.stretch-last > div {
-    gap: 25px;
+    gap: var(--gap-24);
   }
 
   .columns.stretch-last > div > div,
@@ -415,7 +431,7 @@ main .columns > div > div > h4:first-child {
   }
 
   .section.promo .columns > div {
-    gap: 41px;
+    gap: var(--gap-42);
   }
 
   .columns.terms > div > div:nth-of-type(even) {
@@ -529,7 +545,7 @@ main .columns > div > div > h4:first-child {
   .section.promo .columns.image-end > div > div:last-child {
     display: flex;
     justify-content: flex-end;
-    gap: 20px;
+    gap: var(--spacer-element-06);
   }
 
   .news .columns.quarter-circle.image-start img {
@@ -612,12 +628,12 @@ main .columns > div > div > h4:first-child {
 
   .columns.terms div {
     margin: var(--spacer-element-05) 0 var(--spacer-element-07);
-    column-gap: 120px;
+    column-gap: var(--gap-120);
   }
 
   .columns.stretch-last > div,
   .columns.quarter-circle > div {
-    gap: 120px;
+    gap: var(--gap-120);
   }
 
   .content-band.columns > div > div {

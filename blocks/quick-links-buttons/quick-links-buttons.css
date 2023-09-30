@@ -40,7 +40,7 @@
 
 .section[data-theme] .quick-links-buttons .quick-links-buttons__item a:hover,
 .section[data-theme] .quick-links-buttons .quick-links-buttons__item a:focus {
-  background-color: var(--neutral-white);
+  background-color: var(--theme-button-bg-hover);
 }
 
 /* Tablet */
