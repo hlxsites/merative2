@@ -17,7 +17,7 @@ import {
   getLibraryMetadata,
   initSplitFrame,
   renderPreview,
-} from '../../library-utils.js';
+} from '../../../library-utils.js';
 
 function createBlockTable(block) {
   let blockName = block.classList[0];

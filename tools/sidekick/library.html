@@ -1,4 +1,5 @@
-<!-- In the code below we load the sidekick library from hlx.live and then create
+<!-- see https://github.com/adobe/franklin-sidekick-library for plugin info.
+In the code below we load the sidekick library from hlx.live and then create
 a custom sidekick-library element and add it to the page. The sidekick-library element
 accepts a config object that is required to configure the sidekick library.
 If you have custom plugins for the sidekick library they can be added by including the
@@ -34,16 +35,20 @@ hosted at the same origin as the library.html document.-->
 </head>
 
 <body>
+
 <script
         type="module"
         src="https://www.hlx.live/tools/sidekick/library/index.js"
 ></script>
+<!-- <script
+        type="module"
+        src="https://main--franklin-library-host--dylandepass.hlx.live/tools/sidekick/library/index.js"
+></script-->
 <script>
   const library = document.createElement('sidekick-library')
   library.config = {
     base: '/block-library/library.json',
-    icons: '/tools/sidekick/plugins/icons/icons.js',
-    sections: '/tools/sidekick/plugins/sections/sections.js'
+    icons: '/tools/sidekick/library/plugins/icons/icons.js'
   }
 
   document.body.prepend(library)
