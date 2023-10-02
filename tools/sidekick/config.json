@@ -14,7 +14,9 @@
 
           "excludePaths": [
             "**/drafts/**",
-            "**%2Fdrafts**"
+            "**%2Fdrafts**",
+            "**/block-library/**",
+            "**%2Fblock-library**"
           ]
         },
         {
