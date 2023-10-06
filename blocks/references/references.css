@@ -1,0 +1,5 @@
+.references ul, ol, li, a {
+    font-size: var(--font-size-14);
+    font-family: var(--sans-serif-font-regular);
+    color: var(--neutral-grey-tint140);
+  }
