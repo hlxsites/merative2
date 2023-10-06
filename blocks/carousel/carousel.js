@@ -105,8 +105,9 @@ function calculateSlideHeight(carousel, slide) {
           textOptions,
         );
         const bodyHeight = parseFloat(bodyStyle.lineHeight) * lineCount;
-        const figureStyle = window.getComputedStyle(slide.querySelector('.figure'));
-        const figureHeight = (figureStyle && figureStyle.height !== 'auto') ? parseFloat(figureStyle.height) : SLIDE_CAPTION_SIZE_WITH_ICON;
+        const figure = slide.querySelector('.figure');
+        const figureStyle = window.getComputedStyle(figure);
+        const figureHeight = (figureStyle && figureStyle.height !== 'auto') ? parseFloat(figure.offsetHeight) : SLIDE_CAPTION_SIZE_WITH_ICON;
         carousel.style.height = `${bodyHeight + figureHeight}px`;
       }
     });

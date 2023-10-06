@@ -8,7 +8,6 @@ main .section.accordion-container > .default-content-wrapper h2,
 main .section.accordion-container > .default-content-wrapper h3,
 main .section.accordion-container > .default-content-wrapper p {
   max-width: var(--text-max-container);
-  margin: 0;
 }
 
 main .section.accordion-container > .default-content-wrapper h2,
@@ -17,11 +16,12 @@ main .section.accordion-container > .default-content-wrapper h3 {
   font-family: var(--serif-font);
   font-style: normal;
   font-weight: 300;
+  margin: 0;
 }
 
 main .section.accordion-container > .default-content-wrapper p {
   font-size: var(--font-size-16);
-  margin-top: var(--spacer-element-08);
+  margin: var(--spacer-element-08) 0;
 }
 
 main .section.accordion-container blockquote {
@@ -31,7 +31,6 @@ main .section.accordion-container blockquote {
 /* Block - Accordion */
 .accordion {
   padding: 0;
-  margin-top: var(--spacer-element-10);
 }
 
 .accordion .accordion-item {
@@ -102,8 +101,10 @@ main .section.accordion-container blockquote {
 
 .accordion .accordion-arrow-down {
   display: block;
+  flex-shrink: 0;
   width: 32px;
-  height: 19px;
+  height: 20px;
+  margin-left: var(--spacer-element-08);
   transition: all .5s ease-out;
   background: url('../../icons/caret-down-accordion-purple.svg') no-repeat center/contain;
 }

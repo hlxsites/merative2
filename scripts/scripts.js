@@ -2,6 +2,7 @@ import {
   sampleRUM,
   buildBlock,
   loadHeader,
+  loadSolutionHeader,
   loadFooter,
   decorateButtons,
   decorateIcons,
@@ -757,6 +758,38 @@ export async function getPDFsDocuments() {
   return (result);
 }
 
+/**
+ * Remove duplicate enteries from array or set
+ * @param {Array | Set} arr Array or Set object
+ * @param {string} type Identifier to check Array or Set. Value: set or array
+ * @returns {Array | Set} Result
+ */
+export function removeDuplicateEnteries(arr, type) {
+  const mapArr = new Map();
+  let result = [];
+
+  // Check if the array empty
+  if (!arr.length && type !== 'set') {
+    return result;
+  }
+  if (!arr.size && type === 'set') {
+    return new Set([]);
+  }
+
+  arr.forEach((item) => {
+    const key = item.toString().trim().toLowerCase();
+    if (!mapArr.has(key)) {
+      mapArr.set(key, item);
+    }
+  });
+  result = [...mapArr.values()];
+  if (type === 'set') {
+    result = new Set(result);
+  }
+
+  return result;
+}
+
 export function sortArrayOfObjects(arr, property, type) {
   let result = [];
   let sortedArray;
@@ -923,10 +956,12 @@ async function loadLazy(doc) {
   const element = hash ? main.querySelector(hash) : false;
   if (hash && element) element.scrollIntoView();
 
-  if (!locationCheck('block-library') && !locationCheck('quick-links')) {
+  if (!locationCheck('block-library') && !locationCheck('quick-links') && !locationCheck('campaigns')) {
     loadHeader(doc.querySelector('header'));
     loadFooter(doc.querySelector('footer'));
     await buildBreadcrumb();
+  } else if (locationCheck('campaigns')) {
+    loadSolutionHeader(doc.querySelector('header'));
   }
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);

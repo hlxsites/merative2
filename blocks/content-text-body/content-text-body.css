@@ -1,0 +1,59 @@
+/* Section - Content Text Body */
+.section.content-text-body-container .content-text-body,
+.section.content-text-body-container .divider {
+  max-width: 840px;
+}
+
+.section.content-text-body-container > div,
+.section.content-text-body-container > div:first-child {
+  margin-bottom: 96px;
+}
+
+/* Block - Content Text Body */
+.content-text-body h2,
+.content-text-body h3,
+.content-text-body h4,
+.content-text-body h5 {
+  margin: var(--spacer-element-08) 0 0 0;
+}
+
+.content-text-body h5 {
+  font-family: var(--sans-serif-font-light);
+  font-size: var(--font-size-16);
+  font-weight: 300;
+}
+
+.content-text-body p,
+.content-text-body ul,
+.content-text-body ol,
+.content-text-body blockquote {
+  margin: var(--spacer-element-08) 0 0 0;
+  font-size: var(--font-size-16);
+}
+
+.content-text-body h2:first-of-type,
+.content-text-body h4 + ul,
+.content-text-body h4 + p,
+.content-text-body h5 + ul,
+.content-text-body h5 + p,
+.content-text-body p + ul {
+  margin-top: 0;
+}
+
+.content-text-body p span.icon {
+  display: inline-block;
+  line-height: 0;
+  margin-right: var(--spacer-element-03);
+  vertical-align: text-top;
+}
+
+/* Desktop */
+@media only screen and (min-width: 1200px) {
+  /* Block - Content Text Body */
+  .content-text-body p,
+  .content-text-body ul,
+  .content-text-body ol,
+  .content-text-body blockquote {
+    font-size: var(--font-size-21);
+  }
+}
