@@ -18,12 +18,7 @@
 .section.cta-container .cta.block > div,
 .section.cta-container .cta.block .cta__inner {
   text-align: center;
-  max-width: var(--text-max-container);
   margin: 0 auto;
-}
-
-.cta.block .button-group p {
-  margin: 0;
 }
 
 .section.cta-container .cta.block h2 {
@@ -39,6 +34,13 @@
   line-height: 160%;
   text-align: center;
   letter-spacing: 0.01em;
+  max-width: var(--text-max-container);
+  margin: 0 auto;
+}
+
+.section.cta-container .cta.block p picture {
+  display: block;
+  line-height: 0;
 }
 
 .section.cta-container .cta.block p.only-picture:last-child {

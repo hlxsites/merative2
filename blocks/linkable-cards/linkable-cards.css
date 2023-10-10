@@ -110,7 +110,7 @@ main .section > .linkable-cards-wrapper:last-child {
 
 .section[data-theme] .linkable-cards .card a:hover span.icon {
   background-image: var(--theme-button-bg-hover);
-  border-color: var(--theme-button-hover);
+  border-color: var(--theme-button-icon-hover);
 }
 
 .section[data-theme] .linkable-cards .card span.icon svg * {
@@ -122,11 +122,11 @@ main .section > .linkable-cards-wrapper:last-child {
 }
 
 .section[data-theme] .linkable-cards .card a:hover span.icon svg * {
-  stroke: var(--theme-button-hover);
+  stroke: var(--theme-button-icon-hover);
 }
 
 .section[data-theme] .linkable-cards .card a:hover span.icon-play-button svg * {
-  fill: var(--theme-button-hover);
+  fill: var(--theme-button-icon-hover);
 }
 
 /* Tablet */

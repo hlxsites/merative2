@@ -124,6 +124,23 @@ export function toCamelCase(name) {
 }
 
 /**
+ * Convert text to sentence case.
+ * @param {string} text property
+ * @returns {string} The sentence case value(s)
+ */
+export function toSentenceCase(text) {
+  // Split the text by hyphens or other non-word characters
+  const words = text.split(/[-\s]+/);
+
+  // Capitalize the first letter of each word and convert the rest to lowercase
+  // eslint-disable-next-line max-len
+  const sentenceCaseWords = words.map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+
+  // Join the words back together with spaces
+  return sentenceCaseWords.join(' ');
+}
+
+/**
  * Replace icons with inline SVG and prefix with codeBasePath.
  * @param {Element} element
  */
@@ -264,17 +281,30 @@ export function decorateSections(main) {
     const sectionMeta = section.querySelector('div.section-metadata');
     if (sectionMeta) {
       const meta = readBlockConfig(sectionMeta);
+      let styles;
 
       Object.keys(meta).forEach((key) => {
-        if (key === 'style') {
-          const styles = meta.style.split(',').map((style) => toClassName(style.trim()));
-          styles.forEach((style) => section.classList.add(style));
-        } if (key === 'theme') {
-          section.setAttribute('data-theme', meta.theme);
-        } else {
-          section.dataset[toCamelCase(key)] = meta[key];
+        switch (key) {
+          case 'style':
+            styles = meta.style.split(',').map((style) => toClassName(style.trim()));
+            styles.forEach((style) => section.classList.add(style));
+            break;
+          case 'theme':
+            section.setAttribute('data-theme', meta.theme);
+            break;
+          case 'id':
+            section.setAttribute('id', toClassName(meta.id));
+            if (key === 'title') {
+              section.setAttribute('data-title', meta.title);
+            } else {
+              section.setAttribute('data-title', toSentenceCase(meta.id));
+            }
+            break;
+          default:
+            section.dataset[toCamelCase(key)] = meta[key];
         }
       });
+
       sectionMeta.parentNode.remove();
     }
   });
@@ -511,6 +541,175 @@ function getButtonLabel(button) {
   return undefined;
 }
 
+const videoTypeMap = Object.freeze({
+  youtube: [/youtube\.com/, /youtu\.be/],
+  mp4: [/\.mp4/],
+  external: [/vimeo\.com/],
+});
+
+/**
+ * Determine the type of video from its href.
+ * @param href
+ * @return {undefined|youtube|mp4|external}
+ */
+export const getVideoType = (href) => {
+  const videoEntry = Object.entries(videoTypeMap).find(
+    ([, allowedUrls]) => allowedUrls.some((urlToCompare) => urlToCompare.test(href)),
+  );
+  if (videoEntry) {
+    return videoEntry[0];
+  }
+  return undefined;
+};
+
+/**
+ * Extract YouTube video id from its URL.
+ * @param href A valid YouTube URL
+ * @return {string|null}
+ */
+const getYouTubeId = (href) => {
+  const ytExp = /(?:[?&]v=|\/embed\/|\/1\/|\/v\/|https:\/\/(?:www\.)?youtu\.be\/)([^&\n?#]+)/;
+  const match = href.match(ytExp);
+  if (match && match.length > 1) {
+    return match[1];
+  }
+  return null;
+};
+
+/**
+ * Helper function to create DOM elements
+ * @param {string} tag DOM element to be created
+ * @param {object} attributes attributes to be added
+ * @param html {HTMLElement | SVGAElement | string} Additional html to be appended to tag
+ */
+
+export function createTag(tag, attributes = {}, html = undefined) {
+  const el = document.createElement(tag);
+  if (html) {
+    if (html instanceof HTMLElement || html instanceof SVGElement) {
+      el.append(html);
+    } else {
+      el.insertAdjacentHTML('beforeend', html);
+    }
+  }
+  if (attributes) {
+    Object.entries(attributes).forEach(([key, val]) => {
+      el.setAttribute(key, val);
+    });
+  }
+  return el;
+}
+
+/**
+ * Display video within a modal overlay. Video can be served directly or via YouTube.
+ * @param href
+ * @return {HTMLElement}
+ */
+export const buildVideoModal = (href, videoType) => {
+  const videoModal = createTag('div', { class: 'video-modal', 'aria-modal': 'true', role: 'dialog' });
+  videoModal.style.display = 'none';
+  const videoOverlay = createTag('div', { class: 'video-modal-overlay' });
+  const videoContainer = createTag('div', { class: 'video-modal-container' });
+
+  const videoHeader = createTag('div', { class: 'video-modal-header' });
+  const videoClose = createTag('button', { class: 'video-modal-close', 'aria-label': 'close' });
+  videoHeader.appendChild(videoClose);
+  videoContainer.appendChild(videoHeader);
+
+  const videoContent = createTag('div', { class: 'video-modal-content' });
+  if (videoType === 'youtube') {
+    const videoId = getYouTubeId(href);
+    videoContent.dataset.ytid = videoId;
+    videoContent.setAttribute('data-videoType', 'youtube');
+    videoContent.setAttribute('data-videoId', videoId);
+  } else {
+    videoContent.innerHTML = `<video controls playsinline loop preload="auto">
+        <source src="${href}" type="video/mp4" />
+        "Your browser does not support videos"
+        </video>`;
+  }
+  videoContainer.appendChild(videoContent);
+
+  videoModal.appendChild(videoOverlay);
+  videoModal.appendChild(videoContainer);
+  return videoModal;
+};
+
+let player;
+
+/**
+ * Create a new YT Player and store the result of its player ready event.
+ * @param element iFrame element YouTube player will be attached to.
+ * @param videoId The YouTube video id
+ */
+const loadYouTubePlayer = (element, videoId) => {
+  // The API will call this function when the video player is ready.
+  const onPlayerReady = (event) => {
+    event.target.playVideo();
+  };
+
+  // eslint-disable-next-line no-new
+  player = new window.YT.Player(element, {
+    videoId,
+    playerVars: {
+      start: 0, // Always start from the beginning
+    },
+    events: {
+      onReady: onPlayerReady,
+    },
+  });
+};
+
+/**
+ * Toggle video overlay modal between open and closed.
+ * When the overlay is opened the video will start playing.
+ * When the overlay is closed the video will be paused.
+ * @param block Block containing a video modal
+ */
+export const toggleVideoOverlay = (modal) => {
+  const videoContent = modal.querySelector('.video-modal-content');
+  const videoType = videoContent.getAttribute('data-videoType');
+  const videoId = videoContent.getAttribute('data-videoId');
+
+  if (modal?.classList?.contains('open')) {
+    modal.style.display = 'none';
+    modal.classList.remove('open');
+    if (videoType === 'youtube') {
+      player?.stopVideo();
+      // Destroy the iframe when the video is closed.
+      const iFrame = document.getElementById(`ytFrame-${videoId}`);
+      if (iFrame) {
+        const container = iFrame.parentElement;
+        container.removeChild(iFrame);
+      }
+    } else {
+      modal.querySelector('video')?.pause();
+      modal.querySelector('video').currentTime = 0;
+    }
+  } else {
+    modal.style.display = 'block';
+    modal.classList.add('open');
+    if (videoType === 'youtube') {
+      // Create a YouTube compatible iFrame
+      videoContent.innerHTML = `<div id="ytFrame-${videoId}" data-hj-allow-iframe="true"></div>`;
+      if (window.YT) {
+        loadYouTubePlayer(`ytFrame-${videoId}`, videoId);
+      } else {
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        // eslint-disable-next-line func-names
+        window.onYouTubePlayerAPIReady = function () {
+          loadYouTubePlayer(`ytFrame-${videoId}`, videoId);
+        };
+      }
+    } else {
+      modal.querySelector('video')?.play();
+    }
+  }
+};
+
 /**
  * Determine the icon class based on the URL path
  */
@@ -534,6 +733,34 @@ export function getIconTypebyPath(url) {
 export function decorateButtons(element, options = {}) {
   const mergedOptions = { ...{ decorateClasses: true, excludeIcons: ['internal'] }, ...options };
   element.querySelectorAll('a').forEach((a) => {
+    // Determine the type of video based on the href attribute
+    const videoType = getVideoType(a.href);
+
+    // Check if the video type is 'youtube' or 'mp4'
+    if (['youtube', 'mp4'].includes(videoType)) {
+      // Build a modal for the video
+      const videoModal = buildVideoModal(a.href, videoType);
+
+      const videoClose = videoModal.querySelector('button.video-modal-close');
+
+      // Add a click event listener to close the video modal when the close button is clicked
+      videoClose.addEventListener('click', () => toggleVideoOverlay(videoModal));
+
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // Toggle the video overlay when the anchor element is clicked
+        toggleVideoOverlay(videoModal);
+      });
+
+      // Append the video modal to the 'block' container
+      if (element.tagName === 'MAIN') {
+        document.body.appendChild(videoModal);
+      } else {
+        element.appendChild(videoModal);
+      }
+    }
+
     if (a.href !== a.textContent) {
       const up = a.parentElement;
       const twoup = a.parentElement.parentElement;
@@ -621,6 +848,26 @@ export function loadHeader(header) {
   document.querySelector('body').classList.add('header-visible');
 
   return loadBlock(headerBlock);
+}
+
+/**
+ * loads a block named 'solution-header' into header
+ */
+
+export function loadSolutionHeader(header) {
+  const solutionHeaderBlock = document.querySelector('.solution-header-wrapper');
+
+  if (solutionHeaderBlock) {
+    header.append(solutionHeaderBlock);
+
+    // Create a promise that resolves when the next animation frame is available
+    const waitForAnimationFrame = () => new Promise(requestAnimationFrame);
+
+    // Wait for the next animation frame before adding the class
+    waitForAnimationFrame().then(() => {
+      document.querySelector('body').classList.add('header-visible');
+    });
+  }
 }
 
 /**

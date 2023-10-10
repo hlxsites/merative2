@@ -1,5 +1,6 @@
 import {
-  getAllBlogs, createCard, getBlogCategoryPages, createTag, sortArrayOfObjects,
+  getAllBlogs, createCard, getBlogCategoryPages,
+  createTag, sortArrayOfObjects, removeDuplicateEnteries,
 } from '../../scripts/scripts.js';
 
 const NUM_CARDS_SHOWN_AT_A_TIME = 6;
@@ -193,7 +194,8 @@ export function refreshCards(mode) {
       if (card.hasAttribute(attribute)) {
         const filterGroupValues = card.getAttribute(attribute).split(',');
         const found = filterGroupValues.some(
-          (checkedItem) => checkedList.find((item) => item.value === checkedItem.trim()),
+          (checkedItem) => checkedList.find((item) => item.value && checkedItem.trim()
+          && item.value.toLowerCase() === checkedItem.trim().toLowerCase()),
         );
         if (found) {
           card.removeAttribute('aria-hidden');
@@ -499,8 +501,8 @@ export default async function decorate(block) {
   // Make a call to get all blog details from the blog index
   const blogList = await getAllBlogs(category);
   const categoriesList = await getBlogCategoryPages();
-  const topics = new Set();
-  const audiences = new Set();
+  let topics = new Set();
+  let audiences = new Set();
   if (blogList.length) {
     const blogContent = createTag('div', { class: 'blog-content' });
     // Get default content in this section and add it to blog-content
@@ -546,6 +548,10 @@ export default async function decorate(block) {
       }
       blogCards.append(blogCard);
     });
+
+    // remove duplicate enteries
+    topics = removeDuplicateEnteries(topics, 'set');
+    audiences = removeDuplicateEnteries(audiences, 'set');
 
     // Full card should be clickable
     blogCards.querySelectorAll('.card-item').forEach((card) => {

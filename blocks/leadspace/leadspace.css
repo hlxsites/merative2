@@ -22,14 +22,6 @@
   margin-top: 24px;
 }
 
-.leadspace.quarter-circle:not(.no-clip) > div > div:nth-child(2) picture {
-  clip-path: circle(100% at 100% 100%);
-}
-
-.leadspace.half-circle:not(.no-clip) > div > div:nth-child(2) picture {
-  clip-path: inset(50% 0 0 0 round 50% 50% 0 0);
-}
-
 .leadspace h1 {
   font-family: var(--serif-font);
   line-height: var(--line-height-120);
@@ -173,27 +165,35 @@ main div.leadspace-wrapper {
   width: 320px;
 }
 
-.leadspace.event > div:first-child > div:nth-child(2) picture {
-  display: none;
-}
-
 .leadspace > div > div:nth-child(1) img {
   width: 235px;
 }
 
-.leadspace.half-circle > div > div:nth-child(2) img,
 .leadspace.quarter-circle > div > div:nth-child(2) img {
   width: 328px;
   object-fit: cover;
 }
 
-.leadspace.half-circle:not(.no-clip) > div > div:nth-child(2) img,
+/* Leadspace - Half Circle */
+.leadspace.half-circle > div > div:nth-child(2) picture {
+  margin: var(--spacer-element-10) auto 0 auto;
+}
+
+.leadspace.event > div:first-child > div:nth-child(2) picture {
+  display: none;
+}
+
+.leadspace.half-circle > div > div:nth-child(2) img {
+  width: 100%;
+}
+
+/* Leadspace - Quarter Circle */
 .leadspace.quarter-circle:not(.no-clip) > div > div:nth-child(2) img {
   aspect-ratio: 1 / 1;
 }
 
-.leadspace.half-circle:not(.no-clip) > div > div:nth-child(2) img {
-  transform: translateY(50%);
+.leadspace.quarter-circle:not(.no-clip) > div > div:nth-child(2) picture {
+  clip-path: circle(100% at 100% 100%);
 }
 
 /* Groups */
@@ -438,7 +438,6 @@ main div.leadspace-wrapper {
     display: inline-block;
   }
 
-  .leadspace.half-circle > div > div:nth-child(2) img,
   .leadspace.quarter-circle > div > div:nth-child(2) img {
     width: 336px;
   }
@@ -602,7 +601,6 @@ main div.leadspace-wrapper {
     width: 235px;
   }
 
-  .leadspace.half-circle > div > div:nth-child(2) img,
   .leadspace.quarter-circle > div > div:nth-child(2) img {
     width: 552px;
   }
@@ -611,10 +609,12 @@ main div.leadspace-wrapper {
     margin-top: var(--spacer-element-10);
   }
 
-  .leadspace.half-circle > div:first-child > div:nth-child(2) picture {
+  /* Leadspace - Half Circle */
+  .leadspace.half-circle > div > div:nth-child(2) picture {
     margin-top: var(--spacer-layout-06);
   }
-
+  
+  /* Leadspace - Video */
   .leadspace.video > div:first-child > div:nth-child(2) {
     width: 45%;
     height: 888px;
