@@ -21,8 +21,6 @@ const loadScript = (url, attrs) => {
 };
 
 const embedMarketoForm = (marketoId, formId, successUrl, driftCampaignID, fastlaneEnable) => {
-  console.log('***Number(driftCampaignID)', Number(driftCampaignID));
-  console.log('***Number(driftCampaignID)', driftCampaignID);
   if (formId && marketoId) {
     const mktoScriptTag = loadScript('//go.merative.com/js/forms2/js/forms2.min.js');
     mktoScriptTag.onload = () => {
