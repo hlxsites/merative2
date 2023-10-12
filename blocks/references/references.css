@@ -1,0 +1,14 @@
+.references p, .references p strong {
+  font-size: var(--font-size-32);
+  font-family: var(--serif-font);
+  margin: unset;
+  margin-bottom: var(--spacer-element-10);
+  line-height: var(--line-height-120);
+  letter-spacing: var(--letter-spacing-001-em);
+}
+
+.references ul, ol, li, a {
+  font-size: var(--font-size-14);
+  font-family: var(--sans-serif-font-regular);
+  color: var(--neutral-grey-tint140);
+}
