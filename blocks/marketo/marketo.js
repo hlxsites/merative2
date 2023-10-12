@@ -21,6 +21,8 @@ const loadScript = (url, attrs) => {
 };
 
 const embedMarketoForm = (marketoId, formId, successUrl, driftCampaignID, fastlaneEnable) => {
+  console.log('***Number(driftCampaignID)', Number(driftCampaignID));
+  console.log('***Number(driftCampaignID)', driftCampaignID);
   if (formId && marketoId) {
     const mktoScriptTag = loadScript('//go.merative.com/js/forms2/js/forms2.min.js');
     mktoScriptTag.onload = () => {
@@ -32,7 +34,7 @@ const embedMarketoForm = (marketoId, formId, successUrl, driftCampaignID, fastla
             // Adding drift script for chatbot
             if (fastlaneEnable) {
               drift.api.collectFormData(values, {
-                campaignId: driftCampaignID,
+                campaignId: Number(driftCampaignID),
                 followupUrl: '/thank-you',
               });
             }
