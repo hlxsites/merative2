@@ -68,6 +68,10 @@ main .solution-list-container {
   margin: 0;
 }
 
+.solution-list-container .solution-list-wrapper .solution-list div .button-container {
+  margin: 0;
+}
+
 .solution-list-container .solution-list-wrapper .solution-list div a {
   display: inline-block;
   text-decoration: none;
@@ -158,6 +162,11 @@ main .solution-list-container {
 
   .solution-list-container .solution-list-wrapper .solution-list div:nth-child(even) > *, .solution-list-container .solution-list-wrapper .solution-list div:nth-child(even) > p {
     margin-left: 60px;
+  }
+
+  /* no bottom padding for last row of cards */
+  .solution-list-container .solution-list-wrapper .solution-list div:nth-last-child(2), .solution-list-container .solution-list-wrapper .solution-list div:last-child {
+    padding-bottom: 0;
   }
 
   /* no border on last row of cards */
