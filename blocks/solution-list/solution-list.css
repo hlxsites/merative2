@@ -1,4 +1,8 @@
 main .solution-list-container {
+  width: 100%;
+}
+
+main .solution-list-container .solution-list-content-wrapper {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -13,13 +17,14 @@ main .solution-list-container {
   margin: 0;
 }
 
-.solution-list-container .default-content-wrapper:first-child {
+.section.solution-list-container .solution-list-content-wrapper .default-content-wrapper:first-child {
   padding-top: var(--spacer-element-10);
 }
 
 .solution-list-container .default-content-wrapper h2 {
   margin: unset;
   margin-top: var(--spacer-element-06);
+  width: 85%;
 }
 
 .solution-list-container .default-content-wrapper .only-picture {
@@ -94,27 +99,31 @@ main .solution-list-container {
 }
 
 @media only screen and (min-width: 768px) {
-  main .section > div:last-child {
-    padding-bottom: unset;
-  }
-
-  main .solution-list-container {
+  main .solution-list-container .solution-list-content-wrapper {
     display: flex;
-    flex-direction: row;
-    padding: var(--spacer-layout-06) var(--spacer-layout-036);
+    flex-flow: row nowrap;
+    padding: var(--spacer-layout-06) 0;
     align-items: flex-start;
     gap: var(--gap-24);
     flex-shrink: 0;
+    margin: 0 auto;
+    width: calc(100% - 72px);
+  }
+
+  .section.solution-list-container .solution-list-wrapper  {
+    width: 60%;
+    padding-bottom: 0;
   }
 
   .solution-list-container .default-content-wrapper {
-    max-width: 215px;
+    width: 40%;
   }
 
   .solution-list-container .default-content-wrapper h2 {
     margin: unset;
     margin-top: var(--spacer-element-07);
     margin-bottom: var(--spacer-layout-05);
+    width: 100%;
   }
 
   .solution-list-container .default-content-wrapper .only-picture {
@@ -127,15 +136,14 @@ main .solution-list-container {
 }
 
 @media only screen and (min-width: 1200px) {
-  main .solution-list-container {
-    display: flex;
-    padding: var(--spacer-layout-07) var(--spacer-layout-156);
-    align-items: flex-start;
+  main .solution-list-container .solution-list-content-wrapper {
+    width: var(--section-width-desktop);
+    padding: var(--spacer-layout-07) 0;
     gap: var(--gap-120);
   }
 
   .solution-list-container .default-content-wrapper {
-    max-width: var(--sidebar-max-container);
+    width: var(--sidebar-max-container);
   }
 
   .solution-list-container .default-content-wrapper p {
