@@ -110,6 +110,10 @@ main .section.content-intro-container > .content-intro-wrapper + [class*="wrappe
   margin-top: 0;
   margin-bottom: var(--spacer-element-05);
   line-height: 120%;
+  background: var(--gradient-vertical);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .content-intro-stat .content-intro .content-intro__col-2 p {

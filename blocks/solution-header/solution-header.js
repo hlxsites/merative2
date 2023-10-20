@@ -77,7 +77,7 @@ export default function decorate(block) {
   const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.5, // Trigger when 50% of the element is in the viewport
+    threshold: 0.2, // Trigger when 50% of the element is in the viewport
   };
 
   // Create Intersection Observer callback function

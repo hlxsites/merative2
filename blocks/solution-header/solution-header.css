@@ -50,7 +50,6 @@
   overflow-x: auto;
   height: 100%;
   margin: var(--spacer-element-07) 0 calc(var(--spacer-element-07) * -1) 0;
-  border-top: 1px solid var(--neutral-sand);
 }
 
 .solution-header .solution-header__inner .solution-header__col-3 {
@@ -74,11 +73,11 @@
   font-family: var(--sans-serif-font-medium);
   list-style: none;
   height: 100%;
-  padding-left: var(--spacer-element-07);
+  padding-left: var(--spacer-element-05);
 }
 
 .solution-header ul li:last-child {
-  padding-right: var(--spacer-element-07);
+  padding-right: var(--spacer-element-05);
 }
 
 .solution-header ul li a {
@@ -126,23 +125,23 @@ body.microsites.header-visible main {
 
 .solution-header-wrapper.is-sticky .solution-header .icon {
   display: block;
-  width: var(--spacer-layout-03);
+  width: var(--spacer-layout-05);
   height: var(--spacer-layout-03);
-  clip-path: circle(50% at 50% 50%);
+  border-right: 1px solid var(--neutral-grey-tint140);
 }
 
 .solution-header-wrapper.is-sticky .solution-header .icon svg {
+  width: 100px;
   height: var(--spacer-layout-03);
 }
 
 .solution-header-wrapper.is-sticky .solution-header .solution-header__col-1 {
-  margin: var(--spacer-element-05) var(--spacer-element-07);
+  margin: var(--spacer-element-05) 0 var(--spacer-element-05) var(--spacer-element-08);
 }
 
 .solution-header-wrapper.is-sticky .solution-header .solution-header__col-2 {
   border-color: transparent;
   margin: 0;
-  border-left: 1px solid var(--neutral-grey-tint140);
 }
 
 .solution-header-wrapper.is-sticky .solution-header ul li a {
