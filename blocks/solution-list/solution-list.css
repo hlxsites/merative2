@@ -48,11 +48,6 @@ main .solution-list-container .solution-list-content-wrapper {
   margin: unset;
 }
 
-.solution-list-container .solution-list-wrapper .solution-list div p span svg {
-  height: var(--spacer-layout-03);
-  margin-left: -40px;
-}
-
 .solution-list-container .solution-list-wrapper .solution-list div {
   width: 100%;
   margin: 0 auto;
