@@ -2,7 +2,6 @@
 .solution-header-wrapper {
   opacity: 0;
   position: fixed;
-  border-bottom: 1px solid var(--neutral-sand);
   width: 100%;
   height: 140px;
   background-color: var(--neutral-bone);
@@ -50,6 +49,7 @@
   overflow-x: auto;
   height: 100%;
   margin: var(--spacer-element-07) 0 calc(var(--spacer-element-07) * -1) 0;
+  border-top: 1px solid var(--neutral-sand);
 }
 
 .solution-header .solution-header__inner .solution-header__col-3 {
@@ -125,13 +125,12 @@ body.microsites.header-visible main {
 
 .solution-header-wrapper.is-sticky .solution-header .icon {
   display: block;
-  width: var(--spacer-layout-05);
+  width: 56px;
   height: var(--spacer-layout-03);
   border-right: 1px solid var(--neutral-grey-tint140);
 }
 
 .solution-header-wrapper.is-sticky .solution-header .icon svg {
-  width: 100px;
   height: var(--spacer-layout-03);
 }
 
@@ -154,6 +153,10 @@ body.microsites.header-visible main {
   /* Block - Solution Header */
   .solution-header ul {
     justify-content: center;
+  }
+
+  .solution-header-wrapper.is-sticky .solution-header .icon {
+    width: 68px;
   }
 
   .solution-header .solution-header__inner .solution-header__col-1 {
@@ -278,9 +281,11 @@ body.microsites.header-visible main {
     width: var(--spacer-element-09);
     height: var(--spacer-element-09);
     clip-path: circle(50% at 50% 50%);
+    border: unset;
   }
   
   .solution-header-wrapper.is-sticky .solution-header .icon svg {
     height: var(--spacer-element-09);
+    width: unset;
   }
 }
