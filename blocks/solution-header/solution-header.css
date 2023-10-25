@@ -48,7 +48,7 @@
 .solution-header .solution-header__inner .solution-header__col-2 {
   overflow-x: auto;
   height: 100%;
-  margin: var(--spacer-element-07) 0 calc(var(--spacer-element-07) * -1) 0;
+  margin: var(--spacer-element-07) 0 calc(var(--spacer-element-07) * -1) var(--spacer-element-03);
   border-top: 1px solid var(--neutral-sand);
 }
 
@@ -248,6 +248,7 @@ body.microsites.header-visible main {
   }
   
   .solution-header-wrapper {
+    border-bottom: 1px solid var(--neutral-sand);
     height: var(--nav-height-desktop);
   }
 

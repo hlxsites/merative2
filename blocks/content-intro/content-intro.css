@@ -184,7 +184,12 @@ main .section.content-intro-container > .content-intro-wrapper + [class*="wrappe
     flex-shrink: 0;
     gap: var(--gap-120);
     max-width: 1128px;
+    padding-bottom: var(--spacer-element-10);
   }
+  
+.content-intro .content-intro__col-1 h2 {
+  font-size: 64px;
+}
 
   .content-intro .content-intro__inner h2 + p {
     margin-top: var(--spacer-element-08);
@@ -231,7 +236,6 @@ main .section.content-intro-container > .content-intro-wrapper + [class*="wrappe
     align-items: flex-start;
     flex-shrink: 0;
     gap: var(--gap-120);
-    padding-bottom: var(--spacer-element-10);
   }
 
   .content-intro-stat .content-intro .content-intro__col-2 p {

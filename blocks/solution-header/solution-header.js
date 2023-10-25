@@ -77,7 +77,7 @@ export default function decorate(block) {
   const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.2, // Trigger when 50% of the element is in the viewport
+    threshold: 0.3, // Trigger when 50% of the element is in the viewport
   };
 
   // Create Intersection Observer callback function
@@ -123,5 +123,24 @@ export default function decorate(block) {
         });
       }
     });
+  });
+
+  const navbar = document.querySelector('.solution-header__col-2');
+  window.addEventListener('scroll', () => {
+    // Find the selected navigation item
+    const selectedNavItem = navbar.querySelector('a.active');
+
+    // Scroll to the selected navigation item if it's not fully visible
+    if (selectedNavItem) {
+      const navbarRect = navbar.getBoundingClientRect();
+      const selectedItemRect = selectedNavItem.getBoundingClientRect();
+      if (selectedItemRect.right > navbarRect.right) {
+      // Scroll to the right to make the selected item fully visible
+        navbar.scrollLeft += selectedItemRect.right - navbarRect.right;
+      } else if (selectedItemRect.left < navbarRect.left) {
+      // Scroll to the left to make the selected item fully visible
+        navbar.scrollLeft -= navbarRect.left - selectedItemRect.left;
+      }
+    }
   });
 }
