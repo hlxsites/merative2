@@ -1,3 +1,5 @@
+import { createTag } from '../../scripts/scripts.js';
+
 export default function decorate(block) {
   const blockName = block.getAttribute('data-block-name');
   if (!blockName) {
@@ -77,7 +79,7 @@ export default function decorate(block) {
   const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.3, // Trigger when 50% of the element is in the viewport
+    threshold: 0.2, // Trigger when 50% of the element is in the viewport
   };
 
   // Create Intersection Observer callback function
@@ -136,11 +138,19 @@ export default function decorate(block) {
       const selectedItemRect = selectedNavItem.getBoundingClientRect();
       if (selectedItemRect.right > navbarRect.right) {
       // Scroll to the right to make the selected item fully visible
-        navbar.scrollLeft += selectedItemRect.right - navbarRect.right;
+        navbar.scrollLeft += (selectedItemRect.right - navbarRect.right) + 20;
       } else if (selectedItemRect.left < navbarRect.left) {
       // Scroll to the left to make the selected item fully visible
-        navbar.scrollLeft -= navbarRect.left - selectedItemRect.left;
+        navbar.scrollLeft -= (navbarRect.left - selectedItemRect.left) + 20;
       }
     }
   });
+
+  // Create new div element to inject
+  const gradientLeft = createTag('div', { class: 'gradient-left' });
+  const gradientRight = createTag('div', { class: 'gradient-right' });
+
+  // Insert the new div elements before and after the target div
+  navbar.insertBefore(gradientLeft, navbar.firstChild);
+  navbar.appendChild(gradientRight);
 }
