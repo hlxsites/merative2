@@ -33,6 +33,7 @@ export function locationCheck(keyword) {
  * If the page is running in an iframe with srcdoc, the ancestor origin is returned.
  * @returns {String} The true origin
  */
+
 export function getOrigin() {
   const { location } = window;
   return location.href === 'about:srcdoc' ? window.parent.location.origin : location.origin;
@@ -64,7 +65,8 @@ export function createOptimizedPicture(src, alt = '', eager = false, breakpoints
   media: '(min-width: 600px)',
   width: '2000',
 }, { width: '750' }]) {
-  const url = new URL(src, window.location.href);
+  //const url = new URL(src, window.location.href);
+  const url = new URL(src, getHref());
   const picture = document.createElement('picture');
   const { pathname } = url;
   const ext = pathname.substring(pathname.lastIndexOf('.') + 1);
