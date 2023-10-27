@@ -110,13 +110,15 @@ main .section.content-intro-container > .content-intro-wrapper + [class*="wrappe
 }
 
 .content-intro-stat .content-intro .content-intro__col-2 h2 {
+  width: 150px;
   font-size: var(--font-size-96);
   margin-top: 0;
   margin-bottom: var(--spacer-element-05);
   line-height: 120%;
   background: var(--gradient-vertical);
-  -webkit-background-clip: text;
   background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   color: transparent;
 }
 
@@ -187,9 +189,9 @@ main .section.content-intro-container > .content-intro-wrapper + [class*="wrappe
     padding-bottom: var(--spacer-element-10);
   }
   
-.content-intro .content-intro__col-1 h2 {
-  font-size: 64px;
-}
+  .content-intro .content-intro__col-1 h2#explore-our-platform {
+    font-size: 64px;
+  }
 
   .content-intro .content-intro__inner h2 + p {
     margin-top: var(--spacer-element-08);
@@ -244,5 +246,6 @@ main .section.content-intro-container > .content-intro-wrapper + [class*="wrappe
 
   .content-intro-stat .content-intro .content-intro__col-2 h2 {
     font-size: var(--font-size-128);
+    width: 195px;
   }
 }
