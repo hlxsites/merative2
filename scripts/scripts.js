@@ -65,7 +65,6 @@ export function createOptimizedPicture(src, alt = '', eager = false, breakpoints
   media: '(min-width: 600px)',
   width: '2000',
 }, { width: '750' }]) {
-  //const url = new URL(src, window.location.href);
   const url = new URL(src, getHref());
   const picture = document.createElement('picture');
   const { pathname } = url;
