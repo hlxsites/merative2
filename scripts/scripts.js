@@ -2,6 +2,7 @@ import {
   sampleRUM,
   buildBlock,
   loadHeader,
+  loadSolutionHeader,
   loadFooter,
   decorateButtons,
   decorateIcons,
@@ -817,6 +818,24 @@ export async function lookupDocuments(pathnames) {
 }
 
 /**
+ * Gets details about pages that are indexed filtered by path
+ * @param {String} filter return only pages that start with this filter
+ */
+
+export async function getSearchIndex(filter) {
+  if (!window.pageIndex) {
+    const resp = await fetch(`${window.hlx.codeBasePath}/query-index.json`);
+    const json = await resp.json();
+    window.pageIndex = {
+      data: json.data,
+    };
+  }
+
+  const result = window.pageIndex.data.filter((row) => row.path.startsWith(filter));
+  return (result);
+}
+
+/**
  * Gets pdf and documents list that are indexed
  */
 
@@ -824,6 +843,38 @@ export async function getPDFsDocuments() {
   const resp = await fetch(`${window.hlx.codeBasePath}/documents/query-index.json`);
   const result = await resp.json();
   return (result);
+}
+
+/**
+ * Remove duplicate enteries from array or set
+ * @param {Array | Set} arr Array or Set object
+ * @param {string} type Identifier to check Array or Set. Value: set or array
+ * @returns {Array | Set} Result
+ */
+export function removeDuplicateEnteries(arr, type) {
+  const mapArr = new Map();
+  let result = [];
+
+  // Check if the array empty
+  if (!arr.length && type !== 'set') {
+    return result;
+  }
+  if (!arr.size && type === 'set') {
+    return new Set([]);
+  }
+
+  arr.forEach((item) => {
+    const key = item.toString().trim().toLowerCase();
+    if (!mapArr.has(key)) {
+      mapArr.set(key, item);
+    }
+  });
+  result = [...mapArr.values()];
+  if (type === 'set') {
+    result = new Set(result);
+  }
+
+  return result;
 }
 
 export function sortArrayOfObjects(arr, property, type) {
@@ -992,10 +1043,12 @@ async function loadLazy(doc) {
   const element = hash ? main.querySelector(hash) : false;
   if (hash && element) element.scrollIntoView();
 
-  if (!locationCheck('block-library') && !locationCheck('quick-links')) {
+  if (!locationCheck('block-library') && !locationCheck('quick-links') && !locationCheck('campaigns')) {
     loadHeader(doc.querySelector('header'));
     loadFooter(doc.querySelector('footer'));
     await buildBreadcrumb();
+  } else if (locationCheck('campaigns')) {
+    loadSolutionHeader(doc.querySelector('header'));
   }
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);

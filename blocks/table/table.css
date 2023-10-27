@@ -1,0 +1,35 @@
+/* Section - Table */
+main .section > .table-wrapper {
+  margin-top: var(--spacer-layout-04);
+  margin-bottom: var(--spacer-layout-04);
+}
+
+/* Block - Table */
+.table.block {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--spacer-element-06) var(--spacer-element-06) 0 0;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+table thead tr {
+  background-color: var(--neutral-bone);
+}
+
+table tr td, 
+table tr th {
+  padding: var(--spacer-element-06);
+  font-size: var(--font-size-16);
+  line-height: 160%;
+  text-align: left;
+  width: 20%;
+  border-bottom: 1px solid var(--neutral-sand);
+}
+
+table p {
+  font-size: var(--font-size-16);
+}

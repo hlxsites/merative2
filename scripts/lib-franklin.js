@@ -124,6 +124,23 @@ export function toCamelCase(name) {
 }
 
 /**
+ * Convert text to sentence case.
+ * @param {string} text property
+ * @returns {string} The sentence case value(s)
+ */
+export function toSentenceCase(text) {
+  // Split the text by hyphens or other non-word characters
+  const words = text.split(/[-\s]+/);
+
+  // Capitalize the first letter of each word and convert the rest to lowercase
+  // eslint-disable-next-line max-len
+  const sentenceCaseWords = words.map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+
+  // Join the words back together with spaces
+  return sentenceCaseWords.join(' ');
+}
+
+/**
  * Replace icons with inline SVG and prefix with codeBasePath.
  * @param {Element} element
  */
@@ -264,17 +281,30 @@ export function decorateSections(main) {
     const sectionMeta = section.querySelector('div.section-metadata');
     if (sectionMeta) {
       const meta = readBlockConfig(sectionMeta);
+      let styles;
 
       Object.keys(meta).forEach((key) => {
-        if (key === 'style') {
-          const styles = meta.style.split(',').map((style) => toClassName(style.trim()));
-          styles.forEach((style) => section.classList.add(style));
-        } if (key === 'theme') {
-          section.setAttribute('data-theme', meta.theme);
-        } else {
-          section.dataset[toCamelCase(key)] = meta[key];
+        switch (key) {
+          case 'style':
+            styles = meta.style.split(',').map((style) => toClassName(style.trim()));
+            styles.forEach((style) => section.classList.add(style));
+            break;
+          case 'theme':
+            section.setAttribute('data-theme', meta.theme);
+            break;
+          case 'id':
+            section.setAttribute('id', toClassName(meta.id));
+            if (key === 'title') {
+              section.setAttribute('data-title', meta.title);
+            } else {
+              section.setAttribute('data-title', toSentenceCase(meta.id));
+            }
+            break;
+          default:
+            section.dataset[toCamelCase(key)] = meta[key];
         }
       });
+
       sectionMeta.parentNode.remove();
     }
   });
@@ -780,6 +810,26 @@ export function loadHeader(header) {
   document.querySelector('body').classList.add('header-visible');
 
   return loadBlock(headerBlock);
+}
+
+/**
+ * loads a block named 'solution-header' into header
+ */
+
+export function loadSolutionHeader(header) {
+  const solutionHeaderBlock = document.querySelector('.solution-header-wrapper');
+
+  if (solutionHeaderBlock) {
+    header.append(solutionHeaderBlock);
+
+    // Create a promise that resolves when the next animation frame is available
+    const waitForAnimationFrame = () => new Promise(requestAnimationFrame);
+
+    // Wait for the next animation frame before adding the class
+    waitForAnimationFrame().then(() => {
+      document.querySelector('body').classList.add('header-visible');
+    });
+  }
 }
 
 /**

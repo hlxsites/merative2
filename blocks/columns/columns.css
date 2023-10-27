@@ -63,6 +63,7 @@ main .columns-container h4 {
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-160);
   letter-spacing: var(--letter-spacing-1);
+  padding-inline-start: var(--spacer-element-02);
 }
 
 .columns.terms div, .columns.terms div strong,

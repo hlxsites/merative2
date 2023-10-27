@@ -135,6 +135,7 @@
   --neutral-160: #454544;
   --neutral-grey-tint100: #B9B5AE;
   --neutral-grey-tint120: #8B8883;
+  --neutral-grey-tint140: #5C5A57;
 
   /* Feedback */
   --feedback-green: #059641;
@@ -250,6 +251,7 @@
   --section-width-tablet-large: 928px;
   --text-max-container: 648px;
   --sidebar-max-container: 360px;
+  --body-text-container: 840px;
 
   /* box shadow */
   --box-shadow-large: 0 var(--spacer-element-02) var(--spacer-element-06) 0 rgb(185 181 174 / 40%);
@@ -1074,7 +1076,8 @@ a.button span.icon.bookmark {
 /* Paragraph link styles */
 main h2 a:not(.button):any-link,
 main p a:not(.button):any-link,
-main ul a:not(.button):any-link {
+main ul a:not(.button):any-link,
+main table a:not(.button):any-link {
   text-decoration: none;
   color: var(--primary-purple);
   border-bottom: 1px solid var(--primary-purple);
@@ -1087,9 +1090,11 @@ main h2 a:not(.button):any-link {
 main h2 a:not(.button):hover,
 main p a:not(.button):hover,
 main ul a:not(.button):hover,
+main table a:not(.button):hover,
 main h2 a:not(.button):active,
 main p a:not(.button):active,
-main ul a:not(.button):active {
+main ul a:not(.button):active,
+main table a:not(.button):active {
   background: var(--gradient-left-right);
   background-clip: text;
   -webkit-background-clip: text;
