@@ -1,4 +1,4 @@
-/**
+/** Needed for icons
  * Create an element with the given id and classes.
  * @param {string} tagName the tag
  * @param {string[]|string} classes the class or classes to add
