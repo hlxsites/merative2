@@ -62,7 +62,6 @@ main .section > .linkable-cards-wrapper:last-child {
   border-style: solid;
   border-color: var(--primary-purple);
   border-radius: 50%;
-  background-image: var(--gradient-to-right-white);
   background-position: 0 0;
   background-size: 200% auto;
   transition: all .3s ease-in;
@@ -105,7 +104,6 @@ main .section > .linkable-cards-wrapper:last-child {
 
 .section[data-theme] .linkable-cards .card span.icon {
   border-color: var(--theme-button-border);
-  background-image: var(--theme-button-bg);
 }
 
 .section[data-theme] .linkable-cards .card a:hover span.icon {
