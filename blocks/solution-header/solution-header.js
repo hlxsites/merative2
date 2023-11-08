@@ -1,3 +1,5 @@
+import { createTag } from '../../scripts/scripts.js';
+
 export default function decorate(block) {
   const blockName = block.getAttribute('data-block-name');
   if (!blockName) {
@@ -77,7 +79,7 @@ export default function decorate(block) {
   const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.5, // Trigger when 50% of the element is in the viewport
+    threshold: 0.2, // Trigger when 50% of the element is in the viewport
   };
 
   // Create Intersection Observer callback function
@@ -124,4 +126,49 @@ export default function decorate(block) {
       }
     });
   });
+
+  const navbar = document.querySelector(`.${blockName}__col-2`);
+  window.addEventListener('scroll', () => {
+    // Find the selected navigation item
+    const selectedNavItem = navbar.querySelector('a.active');
+
+    // Scroll to the selected navigation item if it's not fully visible
+    if (selectedNavItem) {
+      const navbarRect = navbar.getBoundingClientRect();
+      const selectedItemRect = selectedNavItem.getBoundingClientRect();
+      if (selectedItemRect.right > navbarRect.right) {
+      // Scroll to the right to make the selected item fully visible
+        navbar.scrollLeft += (selectedItemRect.right - navbarRect.right) + 20;
+      } else if (selectedItemRect.left < navbarRect.left) {
+      // Scroll to the left to make the selected item fully visible
+        navbar.scrollLeft -= (navbarRect.left - selectedItemRect.left) + 20;
+      }
+    }
+  });
+
+  // Create new div element to inject
+  const gradientLeft = createTag('div', { class: 'gradient-left' });
+  const gradientRight = createTag('div', { class: 'gradient-right' });
+
+  // Insert the new div elements before and after the target div
+  navbar.insertBefore(gradientLeft, navbar.firstChild);
+  navbar.appendChild(gradientRight);
+
+  // hamburger for mobile
+  const findNavattic = document.querySelector('.navattic');
+  if (findNavattic) {
+    const nav = document.querySelector(`.${blockName}__inner`);
+    const hamburger = createTag('a', {
+      class: 'nav-hamburger', role: 'button', tabindex: '0', 'aria-label': 'Menu',
+    });
+    hamburger.innerHTML = '<div class="nav-hamburger-icon"></div>';
+    hamburger.addEventListener('click', () => {
+      const expanded = nav.getAttribute('aria-expanded') === 'true';
+      document.body.style.overflowY = expanded ? '' : 'hidden';
+      nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+    });
+    nav.append(hamburger);
+    nav.setAttribute('aria-expanded', 'false');
+    block.append(nav);
+  }
 }
