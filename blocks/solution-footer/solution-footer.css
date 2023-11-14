@@ -12,6 +12,22 @@ main .section.solution-footer-container {
   gap: var(--gap-16);
 }
 
+.solution-footer.navattic > div div {
+  color: var(--neutral-white);
+  font-family: var(--sans-serif-font-light);
+  font-size: var(--font-size-14);
+  font-style: normal;
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-160);
+  letter-spacing: 0.16px;
+}
+
+.solution-footer.navattic > div > div:first-child {
+  width: 100%;
+  padding-bottom: var(--spacer-element-08);
+  border-bottom: 1px solid var(--neutral-grey-tint140);
+}
+
 main .section.solution-footer-container > div:last-child {
   padding: var(--spacer-element-08) 0;
 }
@@ -33,27 +49,11 @@ main .section.solution-footer-container > div:last-child {
   line-height: 0;
 }
 
-.solution-footer.navattic > div > div:first-child {
-  width: 100%;
-  padding-bottom: var(--spacer-element-08);
-  border-bottom: 1px solid var(--neutral-grey-tint140);
-}
-
 .solution-footer.navattic .icon {
   margin-left: unset;
 }
 
-.solution-footer.navattic .button-container a:not(.has-icon) {
-  color: var(--neutral-white);
-  font-family: var(--sans-serif-font-light);
-  font-size: var(--font-size-14);
-  font-style: normal;
-  font-weight: var(--font-weight-light);
-  line-height: var(--line-height-160);
-  letter-spacing: 0.16px;
-}
-
-.solution-footer.navattic div div:not(.button-container):last-child {
+.solution-footer.navattic > div div:last-child {
   color: var(--neutral-grey-tint100);
   margin-top: var(--spacer-element-10);
 }
@@ -133,6 +133,10 @@ main .section.solution-footer-container > div:last-child {
     align-items: center;
   }
 
+  .solution-footer.navattic > div div {
+    font-size: var(--font-size-16);
+  }
+
   .solution-footer ul {
     display: flex;
     justify-content: flex-end;
@@ -164,10 +168,6 @@ main .section.solution-footer-container > div:last-child {
 
   .solution-footer .default-content-wrapper ul + p {
     position: relative;
-  }
-
-  .solution-footer.navattic .button-container a:not(.has-icon) {
-    font-size: var(--font-size-16);
   }
 }
 

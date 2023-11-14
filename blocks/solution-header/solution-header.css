@@ -225,6 +225,7 @@ body.microsites.header-visible main {
   height: unset;
   background: var(--neutral-carbon);
   opacity: 1;
+  border-bottom: 1px solid var(--neutral-grey-tint140);
 }
 
 .solution-header-wrapper .solution-header.navattic, .solution-header-wrapper.is-sticky .solution-header.navattic {
@@ -246,11 +247,10 @@ body.microsites.header-visible main {
   flex-direction: column;
   position: fixed;
   background: var(--neutral-carbon);
-  top: 89px;
+  top: 97px;
   width: 100vw;
   left: 0;
   align-items: center;
-  border-top: 1px solid var(--neutral-grey-tint140);
   padding: var(--spacer-element-07);
 }
 
