@@ -189,6 +189,10 @@ body.microsites.header-visible main {
   transition: padding-bottom .5s ease;
 }
 
+.solution-header-wrapper.is-sticky .solution-header.navattic .solution-header__inner {
+  align-items: center;
+}
+
 .solution-header-wrapper.is-sticky .solution-header .icon {
   display: block;
   width: 56px;
@@ -247,7 +251,7 @@ body.microsites.header-visible main {
   flex-direction: column;
   position: fixed;
   background: var(--neutral-carbon);
-  top: 97px;
+  top: 91px;
   width: 100vw;
   left: 0;
   align-items: center;
@@ -258,31 +262,58 @@ body.microsites.header-visible main {
   width: unset;
   height: unset;
   clip-path: unset;
+  border-right: 0;
 }
 
 .solution-header-wrapper .solution-header.navattic .icon svg, .solution-header-wrapper.is-sticky .solution-header.navattic .icon svg {
-  height: var(--spacer-layout-04);
+  height: var(--spacer-layout-036);
 }
 
-.solution-header.navattic .solution-header__inner .solution-header__col-3 .button-container .button.secondary {
+.solution-header.navattic .solution-header__inner .solution-header__col-3 .button.secondary {
   color: var(--neutral-white);
   border: 2px solid var(--neutral-white);
   background-image: none;
   white-space: nowrap;
 }
 
-.solution-header.navattic .solution-header__inner .solution-header__col-3 .button-container .button.secondary:hover {
+.solution-header.navattic .solution-header__inner .solution-header__col-3 .button.secondary:hover {
   background-image: var(--gradient-to-right);
 }
 
-.solution-header-wrapper.is-sticky .solution-header.navattic .solution-header__inner .solution-header__col-3 .button-container .button.secondary {
+.solution-header-wrapper.is-sticky .solution-header.navattic .solution-header__inner .solution-header__col-3 .button.secondary {
   color: var(--neutral-white);
   border: 2px solid var(--neutral-white);
   background-image: none;
   white-space: nowrap;
 }
 
-.solution-header-wrapper.is-sticky .solution-header.navattic .solution-header__inner .solution-header__col-3 .button-container .button.secondary:hover {
+.solution-header-wrapper.is-sticky .solution-header.navattic .solution-header__inner .solution-header__col-3 .button.secondary:hover {
+  background-image: var(--gradient-to-right); 
+}
+
+.solution-header.navattic .solution-header__inner .solution-header__col-3 .button.primary {
+  color: var(--neutral-white);
+  border: 2px solid var(--primary-purple);
+  background-image: var(--gradient-to-right);
+  background-position: 0 0;
+  background-size: 200% auto;
+  transition: all .4s ease-in-out;
+}
+
+.solution-header.navattic .solution-header__inner .solution-header__col-3 .button.primary:hover {
+  background-image: var(--gradient-to-right);
+}
+
+.solution-header-wrapper.is-sticky .solution-header.navattic .solution-header__inner .solution-header__col-3 .button.primary {
+  color: var(--neutral-white);
+  border: 2px solid var(--primary-purple);
+  background-image: var(--gradient-to-right);
+  background-position: 0 0;
+  background-size: 200% auto;
+  transition: all .4s ease-in-out;
+}
+
+.solution-header-wrapper.is-sticky .solution-header.navattic .solution-header__inner .solution-header__col-3 .button.primary:hover {
   background-image: var(--gradient-to-right); 
 }
 
@@ -487,5 +518,9 @@ body.microsites.header-visible main {
   .solution-header-wrapper.is-sticky .solution-header .icon svg {
     height: var(--spacer-element-09);
     width: unset;
+  }
+
+  .solution-header-wrapper .solution-header.navattic .icon svg, .solution-header-wrapper.is-sticky .solution-header.navattic .icon svg {
+    height: var(--spacer-layout-04);
   }
 }

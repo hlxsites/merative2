@@ -1,12 +1,20 @@
 .section.iframe-container .iframe-wrapper {
-    padding-bottom: 0;
-    width: auto;
-    margin: 0;
-    max-width: unset;
+  padding-bottom: 0;
+  width: auto;
+  margin: 0;
+  max-width: unset;
+  padding-top: 90px;
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) {
+  .section.iframe-container .iframe-wrapper {
+    padding-top: var(--spacer-layout-06);
   }
-  
-  @media only screen and (min-width: 1200px) {
-    .section.iframe-container .iframe-wrapper {
-      padding-top: var(--spacer-layout-06);
-    }
+}
+
+@media only screen and (min-width: 1200px) {
+  .section.iframe-container .iframe-wrapper {
+    padding-top: var(--spacer-layout-06);
   }
+}
