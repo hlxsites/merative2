@@ -12,7 +12,7 @@ main .section.solution-footer-container {
   gap: var(--gap-16);
 }
 
-.solution-footer.navattic > div div {
+.solution-footer.navattic > div .button-container a {
   color: var(--neutral-white);
   font-family: var(--sans-serif-font-light);
   font-size: var(--font-size-14);
@@ -20,6 +20,31 @@ main .section.solution-footer-container {
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-160);
   letter-spacing: 0.16px;
+  display: inline;
+}
+
+.solution-footer.navattic > div div {
+  color: var(--neutral-white);
+  font-family: var(--sans-serif-font-light);
+  font-size: var(--font-size-14);
+  font-style: normal;
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-120);
+  letter-spacing: 0.16px;
+}
+
+.solution-footer.navattic > div .button-container > a.tertiary:not(.has-icon), .solution-footer.navattic > div .button-container > a.tertiary.has-icon::before {
+  border-bottom: 0;
+}
+
+.solution-footer.navattic > div .button-container > a.tertiary:active, .solution-footer.navattic > div .button-container > a.tertiary:hover {
+  -webkit-text-fill-color: unset;
+  color: unset;
+  border-image-source: unset;
+}
+
+.solution-footer.navattic > div .button-container > a.tertiary:not(.has-icon):hover {
+  border-bottom: 1px solid #FFF;
 }
 
 .solution-footer.navattic > div > div:first-child {
@@ -63,6 +88,11 @@ main .section.solution-footer-container > div:last-child {
   height: 38px;
 }
 
+.solution-footer.navattic > div .button-container > a.button.tertiary span.icon > svg {
+  height: 38px;
+  width: 43px;
+}
+
 .solution-footer svg #text * {
   fill: var(--neutral-white);
 }
@@ -93,6 +123,15 @@ main .section.solution-footer-container > div:last-child {
 
 .solution-footer ul li .cookie-consent {
   color: var(--neutral-white);
+}
+
+.solution-footer.navattic > div .cookie-consent {
+  cursor: pointer;
+  height: 17px;
+}
+
+.solution-footer.navattic > div .cookie-consent:hover {
+  border-bottom: 1px solid #FFF;
 }
 
 /* stylelint-disable no-descending-specificity */
@@ -133,6 +172,10 @@ main .section.solution-footer-container > div:last-child {
     align-items: center;
   }
 
+  .solution-footer.navattic > div .button-container a {
+    font-size: var(--font-size-16);
+  }
+
   .solution-footer.navattic > div div {
     font-size: var(--font-size-16);
   }
@@ -168,6 +211,15 @@ main .section.solution-footer-container > div:last-child {
 
   .solution-footer .default-content-wrapper ul + p {
     position: relative;
+  }
+
+  .solution-footer.navattic > div .button-container > a.button.tertiary span.icon > svg {
+    height: 48px;
+    width: 54px;
+  }
+
+  .solution-footer.navattic > div .cookie-consent {
+    height: unset;
   }
 }
 
