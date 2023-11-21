@@ -59,6 +59,16 @@ if (document.querySelector('#podcast-container-id')) {
   }
 }
 
+// Check if the element with id 'navattic-iframe' exists in the document
+if (document.querySelector('#navattic-iframe')) {
+  const navatticIframeURL = document.querySelector('#navattic-iframe')?.src;
+  if (navatticIframeURL) {
+    loadScript(navatticIframeURL, {
+      type: 'text/javascript',
+    });
+  }
+}
+
 // Adobe Target
 window.targetGlobalSettings = {
   bodyHidingEnabled: false,

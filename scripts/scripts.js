@@ -974,7 +974,7 @@ async function loadLazy(doc) {
   const element = hash ? main.querySelector(hash) : false;
   if (hash && element) element.scrollIntoView();
 
-  if (!locationCheck('block-library') && !locationCheck('quick-links') && !locationCheck('campaigns')) {
+  if (!locationCheck('block-library') && !locationCheck('quick-links') && !locationCheck('campaigns') && !(getMetadata('template') === 'navattic')) {
     loadHeader(doc.querySelector('header'));
     loadFooter(doc.querySelector('footer'));
     await buildBreadcrumb();

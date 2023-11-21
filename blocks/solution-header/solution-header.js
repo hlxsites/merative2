@@ -127,7 +127,7 @@ export default function decorate(block) {
     });
   });
 
-  const navbar = document.querySelector('.solution-header__col-2');
+  const navbar = document.querySelector(`.${blockName}__col-2`);
   window.addEventListener('scroll', () => {
     // Find the selected navigation item
     const selectedNavItem = navbar.querySelector('a.active');
@@ -153,4 +153,22 @@ export default function decorate(block) {
   // Insert the new div elements before and after the target div
   navbar.insertBefore(gradientLeft, navbar.firstChild);
   navbar.appendChild(gradientRight);
+
+  // hamburger for mobile
+  const findNavattic = document.querySelector('.navattic');
+  if (findNavattic) {
+    const nav = document.querySelector(`.${blockName}__inner`);
+    const hamburger = createTag('a', {
+      class: 'nav-hamburger', role: 'button', tabindex: '0', 'aria-label': 'Menu',
+    });
+    hamburger.innerHTML = '<div class="nav-hamburger-icon"></div>';
+    hamburger.addEventListener('click', () => {
+      const expanded = nav.getAttribute('aria-expanded') === 'true';
+      document.body.style.overflowY = expanded ? '' : 'hidden';
+      nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+    });
+    nav.append(hamburger);
+    nav.setAttribute('aria-expanded', 'false');
+    block.append(nav);
+  }
 }
