@@ -111,6 +111,7 @@ main .image-content-grid-container .main-image-content-grid-wrapper {
 
   .image-content-grid-container .default-content-wrapper {
     display: block;
+    flex-shrink: 0;
   }
 
   .image-content-grid-container .image-content-grid-wrapper > h2 {
@@ -138,13 +139,13 @@ main .image-content-grid-container .main-image-content-grid-wrapper {
     gap: var(--gap-120);
   }
 
-  .image-content-grid-container .default-content-wrapper {
-    width: var(--sidebar-max-container);
-  }
-
   .image-content-grid-container .image-content-grid-wrapper > p {
     font-size: var(--font-size-14);
     letter-spacing: var(--letter-spacing-02-em);
+  }
+  
+  .image-content-grid-container .image-content-grid-wrapper .image-content-grid div p {
+    max-width: 305px;
   }
 
   .image-content-grid-container .image-content-grid-wrapper > h2 {
@@ -165,9 +166,9 @@ main .image-content-grid-container .main-image-content-grid-wrapper {
   }
 
   .main-image-content-grid-wrapper .default-content-wrapper > p > picture > img {
-    width: 270px;
-    border-bottom-right-radius: 270px;
-    border-top-right-radius: 270px;
+    width: 265px;
+    border-bottom-right-radius: 265px;
+    border-top-right-radius: 265px;
   }
 
   .image-content-grid-container .image-content-grid-wrapper .image-content-grid div h3 {
