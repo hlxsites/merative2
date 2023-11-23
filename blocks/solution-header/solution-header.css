@@ -52,8 +52,24 @@
   border-top: 1px solid var(--neutral-sand);
 }
 
+.solution-header.navattic .solution-header__inner .solution-header__col-2 {
+  border-color: transparent;
+}
+
 .solution-header .solution-header__inner .solution-header__col-3 {
   display: none;
+}
+
+.solution-header.navattic .solution-header__inner[aria-expanded='true'] .nav-hamburger-icon {
+  height: 41px;
+  width: 40px;
+  background: url('../../icons/navattic-hamburger-close.svg') no-repeat;
+}
+
+.solution-header.navattic .solution-header__inner[aria-expanded='false'] .nav-hamburger-icon {
+  height: 41px;
+  width: 40px;
+  background: url('../../icons/navattic-hamburger.svg') no-repeat;
 }
 
 .solution-header .solution-header__inner .solution-header__col-3 p:not(.button-container) {
@@ -70,6 +86,10 @@
   background: linear-gradient(90deg, #FAF8F6 0%, #faf8f600 50%);
 }
 
+.solution-header-wrapper .solution-header.navattic .gradient-left {
+  display: none;
+}
+
 .solution-header-wrapper.is-sticky .solution-header .gradient-left {
   height: 50px;
   top: 0;
@@ -84,6 +104,10 @@
   width: var(--spacer-element-09);
   height: 40px;
   background: linear-gradient(270deg, #FAF8F6 0%, #faf8f600 50%);
+}
+
+.solution-header-wrapper .solution-header.navattic .gradient-right {
+  display: none;
 }
 
 .solution-header-wrapper.is-sticky .solution-header .gradient-right {
@@ -151,11 +175,22 @@ body.microsites.header-visible main {
   height: var(--spacer-layout-05);
 }
 
+.solution-header.navattic .solution-header__inner {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 var(--spacer-element-07);
+  align-items: center;
+}
+
 .solution-header-wrapper.is-sticky .solution-header__inner {
   display: flex;
   align-items: flex-end;
   height: 100%;
   transition: padding-bottom .5s ease;
+}
+
+.solution-header-wrapper.is-sticky .solution-header.navattic .solution-header__inner {
+  align-items: center;
 }
 
 .solution-header-wrapper.is-sticky .solution-header .icon {
@@ -173,9 +208,113 @@ body.microsites.header-visible main {
   margin: var(--spacer-element-05) var(--spacer-element-01) var(--spacer-element-05) var(--spacer-element-08);
 }
 
+.solution-header.navattic .solution-header__inner .solution-header__col-1 {
+  margin: 0;
+}
+
+.solution-header-wrapper.is-sticky .solution-header.navattic .solution-header__inner .solution-header__col-1 {
+  margin: 0;
+}
+
 .solution-header-wrapper.is-sticky .solution-header .solution-header__col-2 {
   border-color: transparent;
   margin: 0;
+}
+
+.solution-header-wrapper:has(.navattic), .solution-header-wrapper.is-sticky:has(.navattic) {
+  width: 100%;
+  max-width: unset;
+  padding-bottom: var(--spacer-element-07) !important;
+  padding-top: var(--spacer-element-07) !important;
+  height: unset;
+  background: var(--neutral-carbon);
+  opacity: 1;
+  border-bottom: 1px solid var(--neutral-grey-tint140);
+}
+
+.solution-header-wrapper .solution-header.navattic, .solution-header-wrapper.is-sticky .solution-header.navattic {
+  opacity: 1;
+}
+
+.solution-header.navattic .solution-header__inner .solution-header__col-2, .solution-header-wrapper.is-sticky .solution-header.navattic .solution-header__inner .solution-header__col-2 {
+  margin: unset;
+}
+
+.solution-header.navattic .solution-header__inner .solution-header__col-3 {
+  display: none;
+  position: unset;
+}
+
+.solution-header.navattic .solution-header__inner[aria-expanded='true'] .solution-header__col-3 {
+  display: flex;
+  gap: var(--gap-16);
+  flex-direction: column;
+  position: fixed;
+  background: var(--neutral-carbon);
+  top: 91px;
+  width: 100vw;
+  left: 0;
+  align-items: center;
+  padding: var(--spacer-element-07);
+}
+
+.solution-header-wrapper.is-sticky .solution-header.navattic .icon {
+  width: unset;
+  height: unset;
+  clip-path: unset;
+  border-right: 0;
+}
+
+.solution-header-wrapper .solution-header.navattic .icon svg, .solution-header-wrapper.is-sticky .solution-header.navattic .icon svg {
+  height: var(--spacer-layout-036);
+}
+
+.solution-header.navattic .solution-header__inner .solution-header__col-3 .button.secondary {
+  color: var(--neutral-white);
+  border: 2px solid var(--neutral-white);
+  background-image: none;
+  white-space: nowrap;
+}
+
+.solution-header.navattic .solution-header__inner .solution-header__col-3 .button.secondary:hover {
+  background-image: var(--gradient-to-right);
+}
+
+.solution-header-wrapper.is-sticky .solution-header.navattic .solution-header__inner .solution-header__col-3 .button.secondary {
+  color: var(--neutral-white);
+  border: 2px solid var(--neutral-white);
+  background-image: none;
+  white-space: nowrap;
+}
+
+.solution-header-wrapper.is-sticky .solution-header.navattic .solution-header__inner .solution-header__col-3 .button.secondary:hover {
+  background-image: var(--gradient-to-right); 
+}
+
+.solution-header.navattic .solution-header__inner .solution-header__col-3 .button.primary {
+  color: var(--neutral-white);
+  border: 2px solid var(--primary-purple);
+  background-image: var(--gradient-to-right);
+  background-position: 0 0;
+  background-size: 200% auto;
+  transition: all .4s ease-in-out;
+}
+
+.solution-header.navattic .solution-header__inner .solution-header__col-3 .button.primary:hover {
+  background-image: var(--gradient-to-right);
+}
+
+.solution-header-wrapper.is-sticky .solution-header.navattic .solution-header__inner .solution-header__col-3 .button.primary {
+  color: var(--neutral-white);
+  border: 2px solid var(--primary-purple);
+  background-image: var(--gradient-to-right);
+  background-position: 0 0;
+  background-size: 200% auto;
+  transition: all .4s ease-in-out;
+}
+
+.solution-header-wrapper.is-sticky .solution-header.navattic .solution-header__inner .solution-header__col-3 .button.primary:hover {
+  background-image: var(--gradient-to-right); 
 }
 
 .solution-header-wrapper.is-sticky .solution-header ul li a {
@@ -218,8 +357,16 @@ body.microsites.header-visible main {
     width: 106px;
   }
 
+  .solution-header-wrapper.is-sticky .solution-header.navattic .icon svg {
+    width: auto;
+  }
+
   .solution-header .solution-header__inner .solution-header__col-1 {
     margin: var(--spacer-element-07) var(--spacer-element-08);
+  }
+
+  .solution-header.navattic .solution-header__inner {
+    margin: 0 var(--spacer-element-08);
   }
 
   .solution-header .solution-header__inner .solution-header__col-3 {
@@ -229,14 +376,34 @@ body.microsites.header-visible main {
     top: calc(var(--spacer-element-02) * -1);
     right: var(--spacer-layout-036);
   }
+  
+  .solution-header-wrapper.is-sticky .solution-header .solution-header__inner .solution-header__col-3 {
+    display: none;
+  }
+
+  .solution-header.navattic .solution-header__inner[aria-expanded='true'] .solution-header__col-3,
+  .solution-header.navattic .solution-header__inner[aria-expanded='false'] .solution-header__col-3,
+  .solution-header-wrapper.is-sticky .solution-header.navattic .solution-header__inner[aria-expanded='true'] .solution-header__col-3,
+  .solution-header-wrapper.is-sticky .solution-header.navattic .solution-header__inner[aria-expanded='false'] .solution-header__col-3 {
+    display: flex;
+    flex-direction: row;
+    gap: var(--gap-16);
+    position: unset;
+    background: unset;
+    width: unset;
+    align-items: unset;
+    border-top: unset;
+    padding: unset;
+    max-width: unset;
+  }
+
+  .solution-header.navattic .solution-header__inner .nav-hamburger, .solution-header-wrapper.is-sticky .solution-header.navattic .solution-header__inner .nav-hamburger {
+    display: none;
+  }
 
   /* Sticky - Solution Header */
   .solution-header-wrapper.is-sticky .solution-header .solution-header__inner .solution-header__col-1 {
     margin: var(--spacer-element-05) var(--spacer-element-08);
-  }
-  
-  .solution-header-wrapper.is-sticky .solution-header .solution-header__inner .solution-header__col-3 {
-    display: none;
   }
 }
 
@@ -277,6 +444,10 @@ body.microsites.header-visible main {
 
   .solution-header .icon svg {
     height: var(--spacer-layout-04);
+  }
+
+  .solution-header.navattic .solution-header__inner {
+    margin: unset;
   }
 
   .solution-header .solution-header__inner .solution-header__col-1 {
@@ -347,5 +518,9 @@ body.microsites.header-visible main {
   .solution-header-wrapper.is-sticky .solution-header .icon svg {
     height: var(--spacer-element-09);
     width: unset;
+  }
+
+  .solution-header-wrapper .solution-header.navattic .icon svg, .solution-header-wrapper.is-sticky .solution-header.navattic .icon svg {
+    height: var(--spacer-layout-04);
   }
 }

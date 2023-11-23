@@ -4,8 +4,62 @@ main .section.solution-footer-container {
   color: var(--neutral-white);
 }
 
+.solution-footer.navattic > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-16);
+}
+
+.solution-footer.navattic > div .button-container a {
+  color: var(--neutral-white);
+  font-family: var(--sans-serif-font-light);
+  font-size: var(--font-size-14);
+  font-style: normal;
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-160);
+  letter-spacing: 0.16px;
+  display: inline;
+}
+
+.solution-footer.navattic > div div {
+  color: var(--neutral-white);
+  font-family: var(--sans-serif-font-light);
+  font-size: var(--font-size-14);
+  font-style: normal;
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-120);
+  letter-spacing: 0.16px;
+}
+
+.solution-footer.navattic > div .button-container > a.tertiary:not(.has-icon), .solution-footer.navattic > div .button-container > a.tertiary.has-icon::before {
+  border-bottom: 0;
+}
+
+.solution-footer.navattic > div .button-container > a.tertiary:active, .solution-footer.navattic > div .button-container > a.tertiary:hover {
+  -webkit-text-fill-color: unset;
+  color: unset;
+  border-image-source: unset;
+}
+
+.solution-footer.navattic > div .button-container > a.tertiary:not(.has-icon):hover {
+  border-bottom: 1px solid #FFF;
+}
+
+.solution-footer.navattic > div > div:first-child {
+  width: 100%;
+  padding-bottom: var(--spacer-element-08);
+  border-bottom: 1px solid var(--neutral-grey-tint140);
+}
+
 main .section.solution-footer-container > div:last-child {
   padding: var(--spacer-element-08) 0;
+}
+
+.solution-footer-container:has(.navattic)  {
+  position: relative;
+  bottom: 0;
 }
 
 /* Block - Solution Footer */
@@ -20,9 +74,23 @@ main .section.solution-footer-container > div:last-child {
   line-height: 0;
 }
 
+.solution-footer.navattic .icon {
+  margin-left: unset;
+}
+
+.solution-footer.navattic > div div:last-child {
+  color: var(--neutral-grey-tint100);
+  margin-top: var(--spacer-element-10);
+}
+
 .solution-footer svg {
   width: auto;
   height: 38px;
+}
+
+.solution-footer.navattic > div .button-container > a.button.tertiary span.icon > svg {
+  height: 38px;
+  width: 43px;
 }
 
 .solution-footer svg #text * {
@@ -55,6 +123,15 @@ main .section.solution-footer-container > div:last-child {
 
 .solution-footer ul li .cookie-consent {
   color: var(--neutral-white);
+}
+
+.solution-footer.navattic > div .cookie-consent {
+  cursor: pointer;
+  height: 17px;
+}
+
+.solution-footer.navattic > div .cookie-consent:hover {
+  border-bottom: 1px solid #FFF;
 }
 
 /* stylelint-disable no-descending-specificity */
@@ -90,12 +167,36 @@ main .section.solution-footer-container > div:last-child {
     align-items: center;
   }
 
+  .solution-footer.navattic > div {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .solution-footer.navattic > div .button-container a {
+    font-size: var(--font-size-16);
+  }
+
+  .solution-footer.navattic > div div {
+    font-size: var(--font-size-16);
+  }
+
   .solution-footer ul {
     display: flex;
     justify-content: flex-end;
     flex-direction: row;
     align-items: center;
     gap: var(--gap-24);
+  }
+
+  .solution-footer.navattic > div > div:first-child {
+    flex-grow: 1;
+    padding-bottom: unset;
+    border-bottom: unset;
+    width: unset;
+  }
+
+  .solution-footer.navattic div div:not(.button-container):last-child {
+    margin-top: unset;
   }
 
   .solution-footer .default-content-wrapper {
@@ -111,10 +212,23 @@ main .section.solution-footer-container > div:last-child {
   .solution-footer .default-content-wrapper ul + p {
     position: relative;
   }
+
+  .solution-footer.navattic > div .button-container > a.button.tertiary span.icon > svg {
+    height: 48px;
+    width: 54px;
+  }
+
+  .solution-footer.navattic > div .cookie-consent {
+    height: unset;
+  }
 }
 
 /* Desktop */
-@media (min-width: 1200px) {  
+@media (min-width: 1200px) {
+  .solution-footer.navattic > div {
+    gap: var(--gap-24);
+  }
+
   main .section.solution-footer-container > div:last-child {
     padding: var(--spacer-element-10) 0;
   }
