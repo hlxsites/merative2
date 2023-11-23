@@ -326,7 +326,7 @@ main .section.stat-container.carousel-container div.carousel-wrapper {
     }
 
     .section.carousel-container .default-content-wrapper {
-        padding-top: 0;
+        padding-top: var(--spacer-layout-05);
         padding-bottom: var(--spacer-layout-07);
     }
 

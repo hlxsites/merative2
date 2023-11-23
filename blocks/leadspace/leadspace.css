@@ -60,6 +60,7 @@ main .leadspace-container > div:last-child { /* needs this specificity */
 }
 
 .section.leadspace-container {
+  position: relative;
   background: var(--neutral-bone);
   padding: 0;
   overflow-x: clip;
