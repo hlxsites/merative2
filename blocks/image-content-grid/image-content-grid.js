@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 export default async function decorate(block) {
   // Remove first level of nesting
   const childDivs = block.querySelectorAll('.image-content-grid > div');
@@ -9,8 +10,21 @@ export default async function decorate(block) {
     childDiv.remove();
   });
 
-  // Select the image-content-grid-container element
-  const imageContentGridContainer = document.querySelector('.image-content-grid-container');
+  // Function to find the ancestor with the class .image-content-grid-container
+  function findImageContentGridContainer(element) {
+    let parent = element.parentElement;
+
+    while (parent) {
+      if (parent.classList.contains('image-content-grid-container')) {
+        return parent; // Return the element with the desired class
+      }
+      parent = parent.parentElement; // Move up to the next parent element
+    }
+
+    return null; // Return null if the ancestor isn't found
+  }
+
+  const imageContentGridContainer = findImageContentGridContainer(block);
 
   // Create a new div element
   const newWrapper = document.createElement('div');
@@ -25,7 +39,7 @@ export default async function decorate(block) {
   imageContentGridContainer.appendChild(newWrapper);
 
   // Get the parent element with class "default-content-wrapper"
-  const defaultContentWrapper = document.querySelector('.default-content-wrapper');
+  const defaultContentWrapper = imageContentGridContainer.querySelector('.default-content-wrapper');
 
   // Get the first p element among all p elements inside the default content wrapper
   const firstPTag = defaultContentWrapper.querySelector('p');
@@ -34,7 +48,7 @@ export default async function decorate(block) {
   const heading = defaultContentWrapper.querySelector('h2');
 
   // Select the image-content-grid-wrapper element
-  const imageContentGridWrapper = document.querySelector('.image-content-grid-wrapper');
+  const imageContentGridWrapper = imageContentGridContainer.querySelector('.image-content-grid-wrapper');
   imageContentGridWrapper.insertBefore(heading, imageContentGridWrapper.firstChild);
   imageContentGridWrapper.insertBefore(firstPTag, imageContentGridWrapper.firstChild);
 }
