@@ -84,7 +84,7 @@ div.stat-container .stat::after {
 }
 
 /* Remove Gray bar If we don't have the bottom elements */
-div.stat-container .stat:last-child:after {
+div.stat-container .stat:last-child::after {
     border-top: none;
     padding-top: 0;
     height: 0;
