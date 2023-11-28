@@ -52,7 +52,7 @@ main .image-content-grid-container .main-image-content-grid-wrapper {
 .image-content-grid-container .image-content-grid-wrapper .image-content-grid div {
   width: 100%;
   margin: 0 auto;
-  padding-top: var(--spacer-element-08);
+  padding-top: var(--spacer-element-10);
 }
 
 .image-content-grid-container .image-content-grid-wrapper .image-content-grid div:last-child {
