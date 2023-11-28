@@ -44,6 +44,11 @@ main .solution-list-container .solution-list-content-wrapper {
   line-height: var(--line-height-160);
 }
 
+.solution-list-container .solution-list-wrapper .solution-list div p span svg {
+  height: var(--spacer-layout-03);
+  width: auto;
+}
+
 .solution-list-container .solution-list-wrapper .solution-list div p:first-child {
   margin: unset;
 }
