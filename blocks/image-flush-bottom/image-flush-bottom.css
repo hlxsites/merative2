@@ -17,12 +17,18 @@ main .section > .columns-wrapper + .image-flush-bottom-wrapper {
   width: calc(100% - var(--spacer-layout-04));
 }
 
+.image-flush-bottom > div {
+  display: flex;
+  justify-content: center;
+}
+
 .image-flush-bottom .only-picture {
   border-radius: 10px 10px 0 0;
   border-top: 1px solid var(--neutral-sand);
   border-right: 1px solid var(--neutral-sand);
   border-left: 1px solid var(--neutral-sand);
   overflow: hidden;
+  max-width: 326px;
 }
 
 .image-flush-bottom .only-picture img {
@@ -37,6 +43,10 @@ main .section > .columns-wrapper + .image-flush-bottom-wrapper {
 
   main .section > .columns-wrapper + .image-flush-bottom-wrapper {
     margin-top: var(--spacer-layout-06);
+  }
+
+  .image-flush-bottom .only-picture {
+    max-width: 576px;
   }
 }
 
