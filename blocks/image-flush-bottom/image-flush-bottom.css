@@ -28,7 +28,6 @@ main .section > .columns-wrapper + .image-flush-bottom-wrapper {
   border-right: 1px solid var(--neutral-sand);
   border-left: 1px solid var(--neutral-sand);
   overflow: hidden;
-  max-width: 326px;
 }
 
 .image-flush-bottom .only-picture img {

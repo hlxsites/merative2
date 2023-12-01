@@ -279,18 +279,20 @@ footer div:last-of-type > ul:last-of-type > li:last-of-type a:hover {
   }
 
   footer .footer-links + ul {
-    max-width: 70vw;
+    max-width: 86vw;
     padding: 0;
     border-top: none;
     margin-top: 12px;
     margin-bottom: 12px;
+    margin-left: 32px;
   }
 
   footer .footer-links + ul li {
     color: var(--neutral-grey-tint120);
     flex: 1 1 fit-content;
     position: relative;
-    right: calc(15vw - 32px);
+
+    /* right: calc(15vw - 32px); */
     font-size: var(--font-size-14);
   }
   }
@@ -455,7 +457,7 @@ footer div:last-of-type > ul:last-of-type > li:last-of-type a:hover {
   }
 
   footer .footer-links + ul > li:first-of-type {
-    flex: 1 1 480px;
+    flex: 1 1 400px;
     display: flex;
     font-size: var(--font-size-16);
     letter-spacing: .01em;
