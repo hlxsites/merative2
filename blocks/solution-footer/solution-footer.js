@@ -1,4 +1,4 @@
-import { decorateMain } from '../../scripts/scripts.js';
+import { decorateMain, createTag } from '../../scripts/scripts.js';
 import { loadBlocks, decorateButtons } from '../../scripts/lib-franklin.js';
 
 /**
@@ -73,5 +73,17 @@ export default async function decorate(block) {
         OneTrust.ToggleInfoDisplay();
       }
     });
+  }
+
+  // Find the navattic footer list
+  const footerList = block.querySelector('.solution-footer.navattic > div');
+  if (footerList) {
+    const cookieConsent = createTag('div', { class: 'cookie-consent' });
+    cookieConsent.innerText = 'Cookie preferences';
+
+    // eslint-disable-next-line no-undef
+    cookieConsent.addEventListener('click', () => { OneTrust.ToggleInfoDisplay(); });
+
+    footerList.insertBefore(cookieConsent, footerList.children[3]);
   }
 }

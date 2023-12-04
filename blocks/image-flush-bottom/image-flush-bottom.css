@@ -7,7 +7,7 @@ main .section.image-flush-bottom-container > .image-flush-bottom-wrapper {
 }
 
 main .section > .columns-wrapper + .image-flush-bottom-wrapper {
-  margin-top: var(--spacer-layout-06);
+  margin-top: var(--spacer-layout-04);
 }
 
 /* Block - Image Flush Bottom */
@@ -33,6 +33,10 @@ main .section > .columns-wrapper + .image-flush-bottom-wrapper {
 @media (min-width: 768px) {
   .image-flush-bottom {
     width: calc(100% - 72px);
+  }
+
+  main .section > .columns-wrapper + .image-flush-bottom-wrapper {
+    margin-top: var(--spacer-layout-06);
   }
 }
 

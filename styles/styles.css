@@ -985,7 +985,6 @@ a.button span.icon.bookmark {
   font-weight: 500;
   font-style: normal;
   padding: 13px 26px;
-  background-image: var(--gradient-to-right-white);
   background-position: 0 0;
   background-size: 200% auto;
   transition: color .3s ease-in-out, background-position .4s ease-in-out;
