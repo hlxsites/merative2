@@ -1,0 +1,53 @@
+<!-- see https://github.com/adobe/franklin-sidekick-library for plugin info.
+In the code below we load the sidekick library from hlx.live and then create
+a custom sidekick-library element and add it to the page. The sidekick-library element
+accepts a config object that is required to configure the sidekick library.
+If you have custom plugins for the sidekick library they can be added by including the
+plugin name in the config and then the path to the plugin. Ideally the plugin code is
+hosted at the same origin as the library.html document.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="Description" content="AEM Franklin Sidekick Library"/>
+    <meta name="robots" content="noindex"/>
+    <base href="/"/>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background-color: #ededed;
+        height: 100%;
+      }
+
+      helix-sidekick {
+        display: none
+      }
+    </style>
+    <title>Sidekick Library</title>
+</head>
+
+<body>
+
+<script
+        type="module"
+        src="https://www.hlx.live/tools/sidekick/library/index.js"
+></script>
+<script>
+  const library = document.createElement('sidekick-library')
+  library.config = {
+    base: '/block-library/library.json',
+    icons: '/tools/sidekick/library/plugins/icons/icons.js',
+  }
+
+  document.body.prepend(library)
+</script>
+</body>
+</html>
