@@ -1761,7 +1761,7 @@ body.quick-links main .section > div {
 }
 
 /* All except desktop */
-@media only screen and (max-width: 1200px) {  
+@media only screen and (max-width: 1200px) {
   html {
     scroll-padding-top: calc(var(--nav-height-mobile) + var(--spacer-element-03));
   }
@@ -1833,7 +1833,7 @@ body.quick-links main .section > div {
     letter-spacing: var(--letter-spacing-1-75);
   }
 
-  h4, 
+  h4,
   code,
   h5 {
     font-family: var(--sans-serif-font-regular);
