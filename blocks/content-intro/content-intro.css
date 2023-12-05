@@ -95,6 +95,7 @@ main .section.content-intro-container > .content-intro-wrapper + [class*="wrappe
 /* Block - Content Intro: Stat Number */
 .content-intro-stat .content-intro .content-intro__col-2 {
   position: relative;
+  max-width: 270px;
   margin: var(--spacer-element-10) 0 0 calc(42px + var(--spacer-element-05));
   padding-inline-end: calc(42px + var(--spacer-element-05));
 }
@@ -210,6 +211,10 @@ main .section.content-intro-container > .content-intro-wrapper + [class*="wrappe
     margin: var(--spacer-layout-05) 0 0;
   }
 
+  .content-intro-stat .content-intro .content-intro__col-2 {
+    max-width: 360px;
+  }
+
   .content-intro p.content-intro__eyebrow,
   .content-intro-stat .content-intro .content-intro__col-2 h4 {
     font-size: var(--font-size-14);
@@ -240,7 +245,7 @@ main .section.content-intro-container > .content-intro-wrapper + [class*="wrappe
   }
 
   .content-intro-stat .content-intro .content-intro__col-2 p {
-    padding-inline-end: var(--spacer-layout-05);
+    /* padding-inline-end: var(--spacer-layout-05); */
   }
 
   .content-intro-stat .content-intro .content-intro__col-2 h2 {
