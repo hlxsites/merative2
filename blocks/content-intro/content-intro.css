@@ -171,7 +171,7 @@ main .section.content-intro-container > .content-intro-wrapper + [class*="wrappe
   }
 
   .content-intro-stat .content-intro .content-intro__col-2 {
-    max-width: var(--sidebar-max-container);
+    max-width: 275px;
     margin-left: auto;
     padding-inline-end: 0;
   }
