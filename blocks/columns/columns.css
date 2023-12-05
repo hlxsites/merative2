@@ -333,6 +333,10 @@ main .columns > div > div > h4:first-child {
   padding: 0;
 }
 
+.columns.solution-header.columns-2-cols .icon svg {
+  height: 96px;
+}
+
 /* teaser-list-manual */
 .teaser-list-manual.columns-container {
   background-color: var(--neutral-white);

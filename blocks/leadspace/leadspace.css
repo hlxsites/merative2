@@ -60,6 +60,7 @@ main .leadspace-container > div:last-child { /* needs this specificity */
 }
 
 .section.leadspace-container {
+  position: relative;
   background: var(--neutral-bone);
   padding: 0;
   overflow-x: clip;
@@ -216,11 +217,7 @@ main div.leadspace-wrapper {
 
 .leadspace.brand-logo .button-group .button-container a {
   font-weight: var(--font-weight-regular);
-  height: unset;
-}
-
-.leadspace.brand-logo .button-group .button-container a.tertiary {
-  margin-left: var(--spacer-element-05);
+  height: var(--spacer-element-10);
 }
 
 .leadspace.brand-logo .button-group .button-container:nth-child(3){
@@ -638,6 +635,10 @@ main div.leadspace-wrapper {
   .leadspace.brand-logo .button-group .button-container a {
     line-height: var(--line-height-160);
     letter-spacing: var(--letter-spacing-001-em);
+  }
+
+  .leadspace.brand-logo .button-group .button-container a.tertiary {
+    margin-left: var(--spacer-element-05);
   }
 
   .leadspace.video .video-wrapper {
