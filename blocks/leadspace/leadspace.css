@@ -684,6 +684,7 @@ main div.leadspace-wrapper {
   .leadspace.video .scroll-border-text {
     display: flex;
     gap: var(--gap-16);
+    font-size: var(--font-size-14);
   }
 
   .leadspace.video .scroll-border-text #scroll-to-next {
