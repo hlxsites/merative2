@@ -1,6 +1,6 @@
 /* Stat with illustration */
 main .section > .stat-with-illustration-wrapper:last-child {
-  padding-bottom: 0;
+  /* padding-bottom: 0; */
 }
 
 .stat-with-illustration > .stat-with-illustration__inner:first-child .stat-with-illustration__col-1 {
