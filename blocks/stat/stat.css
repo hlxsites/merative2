@@ -88,6 +88,13 @@ div.stat-container .stat::after {
     padding-top: var(--spacer-element-08);
 }
 
+/* Remove Gray bar If we don't have the bottom elements */
+div.stat-container .stat:last-child::after {
+    border-top: none;
+    padding-top: 0;
+    height: 0;
+}
+
 /* Tablet (and larger) styles */
 @media (min-width: 768px) {
     div.stat-container .stat {

@@ -326,8 +326,12 @@ main .section.stat-container.carousel-container div.carousel-wrapper {
     }
 
     .section.carousel-container .default-content-wrapper {
-        padding-top: 0;
+        padding-top: var(--spacer-layout-05);
         padding-bottom: var(--spacer-layout-07);
+    }
+
+    main .section div.carousel-wrapper {
+        padding-top: var(--spacer-layout-07);
     }
 
     .carousel .carousel-slide-container {
