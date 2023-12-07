@@ -3,6 +3,10 @@ main .section > .stat-with-illustration-wrapper:last-child {
   /* padding-bottom: 0; */
 }
 
+main .section > .stat-with-illustration-wrapper:has(.no-padding):first-child {
+  padding-top: 0;
+}
+
 .stat-with-illustration > .stat-with-illustration__inner:first-child .stat-with-illustration__col-1 {
   position: relative;
   width: 66.6666%;
