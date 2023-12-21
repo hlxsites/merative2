@@ -1,3 +1,5 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable consistent-return */
 import { getMetadata, decorateButtons, decorateIcons } from '../../scripts/lib-franklin.js';
 import { createTag } from '../../scripts/scripts.js';
 
@@ -142,8 +144,30 @@ export default function decorate(block) {
 
     // add scroll border decoration
     const scrollBorder = createTag('div', { class: 'scroll-border-wrapper' });
-    scrollBorder.innerHTML = '<span class="scroll-border-line"></span><span class="scroll-border-text">SCROLL</span>';
+    scrollBorder.innerHTML = `<span class="scroll-border-line"></span>
+    <span class="scroll-border-text">SCROLL <svg id="scroll-to-next" onClick="scrollToNextSection()" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <path d="M10 3.125V16.875" stroke="#9900FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M4.375 11.25L10 16.875L15.625 11.25" stroke="#9900FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg></span>`;
+
     block.append(scrollBorder);
+    const scrollToNext = scrollBorder.querySelector('#scroll-to-next');
+    scrollToNext.addEventListener('click', () => {
+      const sections = document.querySelectorAll('.section');
+      let nextSection = null;
+
+      for (let i = 0; i < sections.length; i++) {
+        const sectionTop = sections[i].offsetTop;
+
+        if (sectionTop > 1000) {
+          nextSection = sections[i];
+          break; // Exit the loop once the next section is found
+        }
+      }
+      if (nextSection) {
+        nextSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
 
     return;
   }
