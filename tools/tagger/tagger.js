@@ -118,6 +118,7 @@ async function init() {
     selectedTags.forEach((tag) => {
       toggleTag(tag);
     });
+    copyButton.disabled = false;
   });
 
   document.querySelector('#search').addEventListener('keyup', filter);

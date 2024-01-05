@@ -41,6 +41,7 @@ body.document .section.leadspace-container > div:first-child > .leadspace.docume
   }
 
   .section.pdf-viewer-container > .pdf-viewer-wrapper {
+    position: relative;
     width: var(--section-width-desktop);
     margin-top: calc(var(--spacer-layout-06) * -1);
     margin-bottom: var(--spacer-element-08);

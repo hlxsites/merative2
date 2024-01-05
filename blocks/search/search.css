@@ -1,0 +1,75 @@
+/* Search Block CSS */
+.search.block {
+  width: 100%;
+  font-family: var(--sans-serif-font-light);
+  font-size: var(--font-size-16);
+  letter-spacing: var(--letter-spacing-001-em);
+  line-height: var(--line-height-160);
+  font-weight: var(--font-weight-light);
+  color: var(--neutral-carbon);
+}
+
+.search.block form {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: var(--spacer-element-10);
+  background-color: var(--neutral-bone);
+  border-bottom: 1px solid var(--neutral-carbon);
+}
+
+.search.block form input {
+  font-size: var(--font-size-16);
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacer-element-03) var(--spacer-element-05);
+  border: 0;
+  background-color: var(--neutral-bone);
+}
+
+.search.block form span.search-icon {
+  display: block;
+  position: relative;
+  background: url('../../icons/search.svg') no-repeat;
+  color: var(--neutral-carbon);
+  height: var(--spacer-element-07);
+  width: var(--spacer-element-07);
+  margin: var(--spacer-element-04) var(--spacer-element-04) 0 0;
+  padding: 0 var(--spacer-element-07) 0 0;
+  min-width: var(--spacer-element-05);
+}
+
+.search.block div.results ul {
+  max-height: 280px;
+  overflow-y: auto;
+  padding: unset;
+  margin: 0;
+  box-shadow: var(--box-shadow-small);
+}
+
+.search.block div.results ul li {
+  padding: var(--spacer-element-05);
+  text-decoration: none;
+  display: block;
+  margin: 0;
+  border-bottom: 1px solid var(--neutral-sand);
+}
+
+.search.block div.results ul li:hover {
+  background-color: var(--purple-20);
+  cursor: pointer;
+}
+
+.search.block div.results ul li a {
+  text-decoration: none;
+  border: unset;
+  color: var(--neutral-carbon);
+}
+
+/* Tablet styles */
+@media only screen and (min-width: 768px) {
+  .search.block {
+    width: var(--text-max-container);
+  }
+}

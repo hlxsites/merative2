@@ -3,6 +3,11 @@ div.stat-container {
     padding: 0;
 }
 
+div.stat-container .button-container a.tertiary {
+    color: var(--neutral-white);
+    border-bottom: 2px solid var(--neutral-white);
+}
+
 div.stat-container .stat-wrapper {
     width: 100%;
     margin: 0;
@@ -81,6 +86,13 @@ div.stat-container .stat::after {
     height: 1px;
     border-top: 1px solid #8b8883;
     padding-top: var(--spacer-element-08);
+}
+
+/* Remove Gray bar If we don't have the bottom elements */
+div.stat-container .stat:last-child::after {
+    border-top: none;
+    padding-top: 0;
+    height: 0;
 }
 
 /* Tablet (and larger) styles */

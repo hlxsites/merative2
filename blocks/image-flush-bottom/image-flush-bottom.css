@@ -7,7 +7,7 @@ main .section.image-flush-bottom-container > .image-flush-bottom-wrapper {
 }
 
 main .section > .columns-wrapper + .image-flush-bottom-wrapper {
-  margin-top: var(--spacer-layout-06);
+  margin-top: var(--spacer-layout-04);
 }
 
 /* Block - Image Flush Bottom */
@@ -15,6 +15,11 @@ main .section > .columns-wrapper + .image-flush-bottom-wrapper {
   max-width: var(--secton-max-container);
   margin: 0 auto;
   width: calc(100% - var(--spacer-layout-04));
+}
+
+.image-flush-bottom > div {
+  display: flex;
+  justify-content: center;
 }
 
 .image-flush-bottom .only-picture {
@@ -33,6 +38,14 @@ main .section > .columns-wrapper + .image-flush-bottom-wrapper {
 @media (min-width: 768px) {
   .image-flush-bottom {
     width: calc(100% - 72px);
+  }
+
+  main .section > .columns-wrapper + .image-flush-bottom-wrapper {
+    margin-top: var(--spacer-layout-06);
+  }
+
+  .image-flush-bottom .only-picture {
+    max-width: 576px;
   }
 }
 

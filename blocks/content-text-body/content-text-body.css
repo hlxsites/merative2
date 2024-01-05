@@ -1,12 +1,12 @@
 /* Section - Content Text Body */
 .section.content-text-body-container .content-text-body,
 .section.content-text-body-container .divider {
-  max-width: 840px;
+  max-width: var(--body-text-container);
 }
 
 .section.content-text-body-container > div,
 .section.content-text-body-container > div:first-child {
-  margin-bottom: 96px;
+  margin-bottom: var(--spacer-layout-06);
 }
 
 /* Block - Content Text Body */

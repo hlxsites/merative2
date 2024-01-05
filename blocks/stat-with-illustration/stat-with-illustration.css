@@ -1,11 +1,15 @@
 /* Stat with illustration */
 main .section > .stat-with-illustration-wrapper:last-child {
-  padding-bottom: 0;
+  /* padding-bottom: 0; */
+}
+
+main .section > .stat-with-illustration-wrapper:has(.no-padding):first-child {
+  padding-top: 0;
 }
 
 .stat-with-illustration > .stat-with-illustration__inner:first-child .stat-with-illustration__col-1 {
   position: relative;
-  width: 66.6666%;
+  width: 270px;
 }
 
 .stat-with-illustration > .stat-with-illustration__inner:first-child .stat-with-illustration__col-1::before {
@@ -57,7 +61,7 @@ main .section > .stat-with-illustration-wrapper:last-child {
   }
 
   .stat-with-illustration > .stat-with-illustration__inner:first-child .stat-with-illustration__col-1 {
-    width: 25%;
+    width: 275px;
   }
 
   .stat-with-illustration > .stat-with-illustration__inner .stat-with-illustration__col-2 {
@@ -69,6 +73,10 @@ main .section > .stat-with-illustration-wrapper:last-child {
 
 /* Desktop */
 @media only screen and (min-width: 1200px) {
+  .stat-with-illustration > .stat-with-illustration__inner:first-child .stat-with-illustration__col-1 {
+    width: 360px;
+  }
+
   .stat-with-illustration .stat-with-illustration__inner .stat-with-illustration__col-1 h2 {
     font-size: var(--font-size-128);
   }
