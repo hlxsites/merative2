@@ -110,7 +110,7 @@ function displaySelected() {
       clone.addEventListener('click', () => {
         toggleTag(path);
       });
-      toCopyBuffer.push(`${category}: ${tag.dataset.title}`);
+      toCopyBuffer.push(`${tag.dataset.title}`);
       selTagsEl.append(clone);
     }
   });
