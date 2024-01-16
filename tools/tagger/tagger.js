@@ -68,15 +68,18 @@ function filter() {
 
 function toggleTag(target) {
   target.classList.toggle('selected');
-  const title = target.querySelector('.tag').dataset.title;
+  const { title } = target.querySelector('.tag').dataset;
   const category = target.closest('.category').querySelector('h2').textContent; // Assuming category title is in h2
   const tagIdentifier = { title, category };
 
   if (target.classList.contains('selected')) {
     selectedOrder.push(tagIdentifier); // Add to the selection order
   } else {
-    selectedOrder = selectedOrder.filter(item => item.title !== title || item.category !== category); // Remove from the selection order
+    selectedOrder = selectedOrder.filter(
+      (item) => item.title !== title || item.category !== category,
+    );
   }
+  // eslint-disable-next-line no-use-before-define
   displaySelected();
 }
 
@@ -90,9 +93,9 @@ function displaySelected() {
     // Find the category element
     const categories = document.querySelectorAll('#results .category');
     let path;
-    categories.forEach(cat => {
+    categories.forEach((cat) => {
       if (cat.querySelector('h2').textContent === category) {
-        const tag = Array.from(cat.querySelectorAll('.tag')).find(t => t.dataset.title === title);
+        const tag = Array.from(cat.querySelectorAll('.tag')).find((t) => t.dataset.title === title);
         if (tag) {
           path = tag.closest('.path');
         }
@@ -122,7 +125,6 @@ function displaySelected() {
   copybuffer.value = toCopyBuffer.join(', ');
 }
 
-
 async function init() {
   const tax = await getTaxonomy();
 
@@ -137,7 +139,18 @@ async function init() {
     copyButton.disabled = true;
   });
 
-  selEl.querySelector('button.clear').addEventListener('click', () => {
+  const clearButton = selEl.querySelector('button.clear');
+  clearButton.addEventListener('click', () => {
+    // Remove the 'filtered' class from all tags
+    document.querySelectorAll('#results .tag').forEach((tag) => {
+      tag.closest('.path').classList.remove('filtered');
+    });
+
+    // Remove the 'selected' class from all selected tags
+    document.querySelectorAll('.selected').forEach((selectedTag) => {
+      selectedTag.classList.remove('selected');
+    });
+
     selectedOrder = [];
     displaySelected();
     copyButton.disabled = false;
