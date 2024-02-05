@@ -39,7 +39,7 @@ main .section.short-cards-container.section-full-width > .short-cards-wrapper:la
   min-height: var(--spacer-layout-06);
   padding: var(--spacer-element-08);
   font-size: var(--font-size-18);
-  font-family: var(--sans-serif-font-medium);
+  font-family: var(--sans-serif-font-regular);
   font-weight: 500;
   line-height: 160%;
   text-decoration: none;

@@ -12,22 +12,31 @@
 /* Block - Content Text Body */
 .content-text-body h2,
 .content-text-body h3,
-.content-text-body h4,
-.content-text-body h5 {
-  margin: var(--spacer-element-08) 0 0 0;
+
+.content-text-body h4 {
+  margin: var(--spacer-element-11) 0 0 0;
 }
 
 .content-text-body h5 {
+  margin: var(--spacer-element-05) 0 0 0;
   font-family: var(--sans-serif-font-light);
   font-size: var(--font-size-16);
   font-weight: 300;
+}
+
+.content-text-body li::marker {
+  font-size: var(--font-size-21) !important;
+}
+
+.content-text-body ul li {
+  margin: var(--spacer-element-03) 0 0 0;
 }
 
 .content-text-body p,
 .content-text-body ul,
 .content-text-body ol,
 .content-text-body blockquote {
-  margin: var(--spacer-element-08) 0 0 0;
+  margin: var(--spacer-element-03) 0 0 0;
   font-size: var(--font-size-16);
 }
 
@@ -37,7 +46,7 @@
 .content-text-body h5 + ul,
 .content-text-body h5 + p,
 .content-text-body p + ul {
-  margin-top: 0;
+  margin-top: 8;
 }
 
 .content-text-body p span.icon {

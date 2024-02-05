@@ -76,7 +76,7 @@ main .section.breadcrumb-container > div:first-child > *:first-child > *:first-c
 }
 
 .breadcrumb .breadcrumb__col ul li.breadcrumb__ellipsis::before {
-  content: "...";
+  content: "Home";
 }
 
 .breadcrumb .breadcrumb__col ul li.breadcrumb__ellipsis span {

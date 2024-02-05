@@ -1,3 +1,5 @@
+let selectedOrder = [];
+
 function renderItems(items, catId) {
   let html = '';
   items.forEach((tag) => {
@@ -66,6 +68,17 @@ function filter() {
 
 function toggleTag(target) {
   target.classList.toggle('selected');
+  const { title } = target.querySelector('.tag').dataset;
+  const category = target.closest('.category').querySelector('h2').textContent; // Assuming category title is in h2
+  const tagIdentifier = { title, category };
+
+  if (target.classList.contains('selected')) {
+    selectedOrder.push(tagIdentifier); // Add to the selection order
+  } else {
+    selectedOrder = selectedOrder.filter(
+      (item) => item.title !== title || item.category !== category,
+    );
+  }
   // eslint-disable-next-line no-use-before-define
   displaySelected();
 }
@@ -76,9 +89,20 @@ function displaySelected() {
   const toCopyBuffer = [];
 
   selTagsEl.innerHTML = '';
-  const selectedTags = document.querySelectorAll('#results .path.selected');
-  if (selectedTags.length > 0) {
-    selectedTags.forEach((path) => {
+  selectedOrder.forEach(({ title, category }) => {
+    // Find the category element
+    const categories = document.querySelectorAll('#results .category');
+    let path;
+    categories.forEach((cat) => {
+      if (cat.querySelector('h2').textContent === category) {
+        const tag = Array.from(cat.querySelectorAll('.tag')).find((t) => t.dataset.title === title);
+        if (tag) {
+          path = tag.closest('.path');
+        }
+      }
+    });
+
+    if (path) {
       const clone = path.cloneNode(true);
       clone.classList.remove('filtered', 'selected');
       const tag = clone.querySelector('.tag');
@@ -86,10 +110,12 @@ function displaySelected() {
       clone.addEventListener('click', () => {
         toggleTag(path);
       });
-      toCopyBuffer.push(tag.dataset.title);
+      toCopyBuffer.push(`${tag.dataset.title}`);
       selTagsEl.append(clone);
-    });
+    }
+  });
 
+  if (selectedOrder.length > 0) {
     selEl.classList.remove('hidden');
   } else {
     selEl.classList.add('hidden');
@@ -113,11 +139,20 @@ async function init() {
     copyButton.disabled = true;
   });
 
-  selEl.querySelector('button.clear').addEventListener('click', () => {
-    const selectedTags = document.querySelectorAll('#results .path.selected');
-    selectedTags.forEach((tag) => {
-      toggleTag(tag);
+  const clearButton = selEl.querySelector('button.clear');
+  clearButton.addEventListener('click', () => {
+    // Remove the 'filtered' class from all tags
+    document.querySelectorAll('#results .tag').forEach((tag) => {
+      tag.closest('.path').classList.remove('filtered');
     });
+
+    // Remove the 'selected' class from all selected tags
+    document.querySelectorAll('.selected').forEach((selectedTag) => {
+      selectedTag.classList.remove('selected');
+    });
+
+    selectedOrder = [];
+    displaySelected();
     copyButton.disabled = false;
   });
 
