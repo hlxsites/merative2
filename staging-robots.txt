@@ -1,3 +1,2 @@
 User-agent: *
-Deny: /
-Sitemap: https://stage.merative.com/sitemap-index.xml
+Disallow: /
