@@ -144,7 +144,8 @@ and click the button that reads "Compare & pull request".
     
 9. Stay up to date with the activity in your pull request. Maintainers will be
 reviewing your work and making comments, asking questions, and suggesting
-changes to be made before they merge your code. When you need to make a
+changes to be made before they merge your code. 
+10. When you need to make a
 change, add, commit and push to your branch normally.
     
     Once all revisions to your pull request are complete, a maintainer will
