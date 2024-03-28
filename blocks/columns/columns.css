@@ -685,7 +685,7 @@ main .columns > div > div > h4:first-child {
   .section-top-grid > div:nth-child(1) > div:nth-child(1),
   .article-content-wrapper ul {
     font-family: var(--sans-serif-font-light);
-    font-size: var(--font-size-21);
+    font-size: var(--font-size-16);
     font-weight: var(--font-weight-light);
     line-height: var(--line-height-160);
     letter-spacing: var(--letter-spacing-1);
