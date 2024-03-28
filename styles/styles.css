@@ -1817,9 +1817,11 @@ body.quick-links main .section > div {
     line-height: var(--line-height-160);
     letter-spacing: var(--letter-spacing-1);
   }
+
   .article-content-wrapper ul li {
     font-size: inherit;
   }
+
 }
 
 /* Desktop */
