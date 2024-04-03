@@ -3,6 +3,8 @@
       "'self'"
   ],
   "script-src": [
+      "'*.6sc.co'",
+      "'*.6sense.com'",
       "'self'",
       "'unsafe-inline'",
       "'unsafe-eval'",
