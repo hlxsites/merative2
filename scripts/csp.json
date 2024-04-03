@@ -70,7 +70,9 @@
       "*.clarity.ms",
       "cdn.linkedin.oribi.io",
       "*.googlesyndication.com",
-      "https://google.com"
+      "https://google.com",
+      "*.6sc.co",
+      "*.6sense.com"
   ],
   "img-src": [
     "'self'",
