@@ -9,6 +9,6 @@
 
 .references ul, .references ol, .references li, .references a {
   font-size: var(--font-size-21);
-  font-family: var(--sans-serif-font-light);
-  color: var(--neutral-carbon);
+  font-family: var(--sans-serif-font-regular);
+  color: var(--neutral-grey-tint140);
 }
