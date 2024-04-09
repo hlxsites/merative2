@@ -38,7 +38,9 @@
       "bat.bing.com",
       "https://www.clarity.ms",
       "*.licdn.com",
-      "*.googlesyndication.com"
+      "*.googlesyndication.com",
+      "*.6sc.co",
+      "*.6sense.com"
   ],
   "connect-src": [
       "'self'",
@@ -68,7 +70,10 @@
       "*.clarity.ms",
       "cdn.linkedin.oribi.io",
       "*.googlesyndication.com",
-      "https://google.com"
+      "https://google.com",
+      "px.ads.linkedin.com",
+      "*.6sc.co",
+      "*.6sense.com"
   ],
   "img-src": [
     "'self'",
@@ -91,7 +96,11 @@
     "*.bing.com",
     "*.clarity.ms",
     "px.ads.linkedin.com",
-    "googleads.g.doubleclick.net"
+    "px4.ads.linkedin.com",
+    "googleads.g.doubleclick.net",
+    "*.6sc.co",
+    "*.6sense.com"
+
   ],
   "frame-src": [
     "'self'",
