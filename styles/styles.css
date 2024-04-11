@@ -1931,7 +1931,8 @@ body.quick-links main .section > div {
   .article-content-wrapper ul,
   .article-content-wrapper ol {
     font-size: var(--font-size-21);
-    margin: var(--spacer-element-09) 0;
+    margin: var(--spacer-element-05) 0;
+    padding-inline-start: var(--spacer-element-06);
   }
 
   .article-content {

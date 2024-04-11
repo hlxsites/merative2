@@ -2,7 +2,7 @@
   font-size: var(--font-size-32);
   font-family: var(--serif-font);
   margin: unset;
-  margin-bottom: var(--spacer-element-10);
+  margin-bottom: var(--spacer-element-05);
   line-height: var(--line-height-120);
   letter-spacing: var(--letter-spacing-001-em);
 }
