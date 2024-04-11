@@ -826,7 +826,9 @@ main ol li {
 main ul li::marker,
 main ol li::marker {
   color: var(--primary-purple);
-  font-family: var(--sans-serif-font-medium);
+  font-family: var(--sans-serif-font-regular);
+  font-weight: var(--font-weight-light);
+  font-size: var(--font-size-21);
 }
 
 /* Special case lists */
@@ -1932,7 +1934,7 @@ body.quick-links main .section > div {
   .article-content-wrapper ol {
     font-size: var(--font-size-21);
     margin: var(--spacer-element-05) 0;
-    padding-inline-start: var(--spacer-element-06);
+    padding-inline-start: var(--spacer-element-07);
   }
 
   .article-content {
