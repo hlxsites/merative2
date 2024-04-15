@@ -540,9 +540,8 @@ body.appear {
   display: unset;
 }
 
-/* Add padding-top when Header Nav is visible */
-body.header-visible main {
-  padding-top: var(--nav-height-mobile);
+body main {
+  margin-top: var(--nav-height-mobile);
 }
 
 header {
@@ -550,9 +549,8 @@ header {
 }
 
 @media (min-width: 1200px) {
-  /* Add padding-top when Header Nav is visible */
-  body.header-visible main {
-    padding-top: var(--nav-height-desktop);
+  body main {
+    margin-top: var(--nav-height-desktop);
   }
 
   header {
