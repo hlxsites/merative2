@@ -25,7 +25,6 @@ header nav {
   align-items: center;
   z-index: 1;
   width: 100%;
-  height: var(--nav-height-mobile);
   margin: 0 auto;
   padding: 0 24px;
   box-sizing: border-box;
@@ -103,10 +102,6 @@ header nav .nav-sections .mega-menu a.link-with-icon span.icon svg {
 
 /* mobile/tablet nav styles */
 @media only screen and (max-width: 1199px) {
-  header {
-    height: var(--nav-height-mobile);
-  }
-
   header nav {
     display: flex;
     justify-content: space-between;
@@ -322,8 +317,6 @@ header nav .nav-sections .mega-menu a.link-with-icon span.icon svg {
   /* header */
   header {
     padding: 0;
-    max-height: 130px;
-    height: 130px;
     display: flex;
     align-items: flex-end;
   }
@@ -550,10 +543,6 @@ header nav .nav-sections .mega-menu a.link-with-icon span.icon svg {
     gap: unset;
     justify-content: unset;
     padding: var(--spacer-layout-05) calc((100vw - var(--section-width-desktop)) / 2) var(--spacer-layout-07);
-  }
-
-  header.is-sticky nav .nav-sections > ul > li[aria-expanded='true'] > ul.level-two {
-    top: var(--sticky-nav-height);
   }
 
   header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.level-two:not(.mega-menu, .featured) {

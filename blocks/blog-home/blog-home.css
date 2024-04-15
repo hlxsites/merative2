@@ -716,11 +716,6 @@ h5 {
 
 /* Desktop styles */
 @media only screen and (min-width: 1200px) {
-  .thought-leadership-home.main,
-  .blog-home.main {
-    padding-top: var(--nav-height-desktop);
-  }
-
   main .section.thought-leadership-home-container,
   main .section.blog-home-container {
     padding-top: var(--spacer-layout-06);
