@@ -545,6 +545,21 @@ body.header-visible main {
   padding-top: var(--nav-height-mobile);
 }
 
+header {
+  height: var(--nav-height-mobile);
+}
+
+@media (min-width: 1200px) {
+  /* Add padding-top when Header Nav is visible */
+  body.header-visible main {
+    padding-top: var(--nav-height-desktop);
+  }
+
+  header {
+    height: var(--nav-height-desktop);
+  }
+}
+
 main {
   margin: auto;
 }
@@ -1870,11 +1885,6 @@ body.quick-links main .section > div {
     font-weight: var(--font-weight-light);
     line-height: var(--line-height-160);
     letter-spacing: var(--letter-spacing-1);
-  }
-
-  /* Add padding-top when Header Nav is visible */
-  body.header-visible main {
-    padding-top: var(--nav-height-desktop);
   }
 
   /* Section Container */
