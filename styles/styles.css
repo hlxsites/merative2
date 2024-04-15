@@ -541,16 +541,17 @@ body.appear {
 }
 
 body main {
-  margin-top: var(--nav-height-mobile);
+  padding-top: var(--nav-height-mobile);
 }
 
 header {
+  position: fixed;
   height: var(--nav-height-mobile);
 }
 
 @media (min-width: 1200px) {
   body main {
-    margin-top: var(--nav-height-desktop);
+    padding-top: var(--nav-height-desktop);
   }
 
   header {
