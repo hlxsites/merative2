@@ -40,7 +40,7 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
             // Drift popup custom code
             drift.api.collectFormData(values, {
               campaignId: 2787244,
-                followupUrl: 'https://www.merative.com/thank-you'
+              followupUrl: 'https://www.merative.com/thank-you',
             });
             // Return false to prevent the submission handler continuing with its own processing
             return false;
