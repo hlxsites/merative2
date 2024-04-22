@@ -34,6 +34,7 @@
 @media only screen and (min-width: 768px) {
   .author-bio {
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-start;
     gap: var(--spacer-element-07);
     flex-shrink: 0;
