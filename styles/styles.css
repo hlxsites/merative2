@@ -920,6 +920,10 @@ button {
   padding: 11px var(--spacer-element-07);
 }
 
+.button-container a.has-icon {
+  border-bottom: 0 !important;
+}
+
 .button-container a.has-icon.primary,
 .button-container a.has-icon.secondary {
   padding: 11px var(--spacer-element-05) 11px var(--spacer-element-07);

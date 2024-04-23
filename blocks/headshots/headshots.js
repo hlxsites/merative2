@@ -9,7 +9,6 @@ const socialLinks = Object.freeze({
 export default function decorate(block) {
   const headshotElements = block.querySelectorAll(':scope > div > div');
   headshotElements.forEach((headshot) => {
-    // console.log(headshot);
     headshot.classList.add('headshot-item');
     const picture = createTag('div', { class: 'headshot-avatar' });
     picture.appendChild(headshot.querySelector('p:first-child'));
@@ -31,7 +30,6 @@ export default function decorate(block) {
       if (emailContent) {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regular expression pattern to match an email address
         if (emailPattern.test(emailContent)) {
-          // console.log(emailContent);
           const emailLink = document.createElement('a');
           emailLink.href = `mailto:${emailContent}`;
           emailLink.innerHTML = '<span class="icon icon-email-solid"></span>';
@@ -46,11 +44,17 @@ export default function decorate(block) {
       const socialEntry = Object.entries(socialLinks).find(
         ([, { url }]) => anchor.href.indexOf(url) >= 0,
       );
+
       anchor.innerHTML = `<span class="icon icon-${socialEntry ? socialEntry[0] : 'email-solid'}"></span>`;
       const label = socialEntry ? socialEntry[1].label : 'Open profile';
       anchor.setAttribute('aria-label', label);
+
+      // Remove all classes from the anchor element
+      anchor.classList.remove('tertiary', 'button');
+
       return anchor.parentElement;
     });
+
     linkContainer.append(...links);
     details.appendChild(linkContainer);
     decorateIcons(linkContainer);
