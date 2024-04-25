@@ -288,7 +288,7 @@ body.microsites.header-visible main {
 }
 
 .solution-header-wrapper.is-sticky .solution-header.navattic .solution-header__inner .solution-header__col-3 .button.secondary:hover {
-  background-image: var(--gradient-to-right); 
+  background-image: var(--gradient-to-right);
 }
 
 .solution-header.navattic .solution-header__inner .solution-header__col-3 .button.primary {
@@ -314,7 +314,7 @@ body.microsites.header-visible main {
 }
 
 .solution-header-wrapper.is-sticky .solution-header.navattic .solution-header__inner .solution-header__col-3 .button.primary:hover {
-  background-image: var(--gradient-to-right); 
+  background-image: var(--gradient-to-right);
 }
 
 .solution-header-wrapper.is-sticky .solution-header ul li a {
@@ -376,7 +376,7 @@ body.microsites.header-visible main {
     top: calc(var(--spacer-element-02) * -1);
     right: var(--spacer-layout-036);
   }
-  
+
   .solution-header-wrapper.is-sticky .solution-header .solution-header__inner .solution-header__col-3 {
     display: none;
   }
@@ -408,7 +408,7 @@ body.microsites.header-visible main {
 }
 
 /* Desktop */
-@media (min-width: 1200px) {  
+@media (min-width: 1200px) {
   /* Block - Solution Header */
   .solution-header {
     margin: 0 auto;
@@ -437,7 +437,7 @@ body.microsites.header-visible main {
   .solution-header ul li:first-child {
     padding-left: 0;
   }
-  
+
   .solution-header ul li:last-child {
     padding-right: 0;
   }
@@ -473,8 +473,16 @@ body.microsites.header-visible main {
   }
 
   /* Sticky - Solution Header */
+  body.microsites.header-visible main {
+    padding-top: var(--nav-height-desktop);
+  }
+
   .solution-header-wrapper {
     border-bottom: 1px solid var(--neutral-sand);
+  }
+
+  .solution-header-wrapper.is-sticky {
+    height: var(--sticky-nav-height);
   }
 
   .solution-header-wrapper.is-sticky .solution-header__inner {
@@ -505,7 +513,7 @@ body.microsites.header-visible main {
     clip-path: circle(50% at 50% 50%);
     border: unset;
   }
-  
+
   .solution-header-wrapper.is-sticky .solution-header .icon svg {
     height: var(--spacer-element-09);
     width: unset;

@@ -545,6 +545,10 @@ header nav .nav-sections .mega-menu a.link-with-icon span.icon svg {
     padding: var(--spacer-layout-05) calc((100vw - var(--section-width-desktop)) / 2) var(--spacer-layout-07);
   }
 
+  header.is-sticky nav .nav-sections > ul > li[aria-expanded='true'] > ul.level-two {
+    top: var(--sticky-nav-height);
+  }
+
   header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.level-two:not(.mega-menu, .featured) {
     padding: 1% 0;
     width: 280px;
