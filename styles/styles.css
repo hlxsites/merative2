@@ -547,6 +547,7 @@ body main {
 header {
   position: fixed;
   height: var(--nav-height-mobile);
+  z-index: 99999;
 }
 
 @media (min-width: 1200px) {
@@ -1653,7 +1654,7 @@ body.quick-links main .section > div {
 .section-pattern {
   height: var(--gap-84);
   background-color: var(--neutral-bone);
-  background-repeat: repeat-x; 
+  background-repeat: repeat-x;
   background-size: 400px auto;
   background-position: calc(var(--spacer-element-04) * -1) 0;
 }

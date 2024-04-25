@@ -2,7 +2,6 @@
 
 /* header and nav layout */
 header {
-  position: fixed;
   float: left;
   clear: none;
   border-bottom: 1px solid var(--neutral-sand);
@@ -11,7 +10,6 @@ header {
   left: 0;
   top: 0;
   transition: all .5s ease;
-  z-index: 99999;
   font-family: var(--sans-serif-font-medium);
 }
 

@@ -8,7 +8,6 @@
   left: 0;
   top: 0;
   transition: all .5s ease;
-  z-index: 99999;
 }
 
 .solution-header {
@@ -164,7 +163,7 @@
 
 /* Sticky - Solution Header */
 body.microsites.header-visible main {
-  padding-top: 140px;
+
 }
 
 .solution-header-wrapper.is-sticky {
@@ -473,10 +472,6 @@ body.microsites.header-visible main {
   }
 
   /* Sticky - Solution Header */
-  body.microsites.header-visible main {
-    padding-top: var(--nav-height-desktop);
-  }
-
   .solution-header-wrapper {
     border-bottom: 1px solid var(--neutral-sand);
     height: var(--nav-height-desktop);
