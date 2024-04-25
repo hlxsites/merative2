@@ -162,10 +162,6 @@
 }
 
 /* Sticky - Solution Header */
-body.microsites.header-visible main {
-
-}
-
 .solution-header-wrapper.is-sticky {
   background-color: var(--neutral-carbon);
   border-bottom: 1px solid var(--neutral-carbon);
