@@ -479,6 +479,7 @@ body.microsites.header-visible main {
 
   .solution-header-wrapper {
     border-bottom: 1px solid var(--neutral-sand);
+    height: var(--nav-height-desktop);
   }
 
   .solution-header-wrapper.is-sticky {
