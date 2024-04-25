@@ -1,14 +1,42 @@
-.references p, .references p strong {
+.references p,
+.references p strong {
   font-size: var(--font-size-32);
   font-family: var(--serif-font);
   margin: unset;
-  margin-bottom: var(--spacer-element-05);
+  margin-bottom: var(--spacer-element-09);
   line-height: var(--line-height-120);
   letter-spacing: var(--letter-spacing-001-em);
 }
 
-.references ul, .references ol, .references li, .references a {
-  font-size: var(--font-size-21);
-  font-family: var(--sans-serif-font-light);
-  color: var(--neutral-carbon);
+.references ul,
+.references ol,
+.references li,
+.references a {
+  font-size: var(--font-size-14);
+  font-family: var(--sans-serif-font-regular);
+  color: var(--neutral-grey-tint140);
+}
+
+.references ul,
+.references ol {
+  padding-inline-start: var(--spacer-element-05);
+  margin-top: 0;
+}
+
+.references li {
+  margin: var(--spacer-element-03) 0;
+}
+
+.references li::marker {
+  font-size: var(--font-size-14);
+  font-family: var(--sans-serif-font-regular);
+  color: var(--neutral-grey-tint140);
+}
+
+/* All except desktop */
+@media only screen and (max-width: 992px) {
+  .references p,
+  .references p strong {
+    margin-bottom: var(--spacer-element-06);
+  }
 }
