@@ -712,6 +712,10 @@ main .section > div:last-child {
   padding-top: var(--spacer-element-05);
 }
 
+.section.article-content .article-main-wrapper .accordion {
+  margin-right: 0;
+}
+
 .columns.row-header div > div > h2,
 .section.section-header > div:nth-child(1) > h1,
 .section.section-header > div:nth-child(1) > h2 {
