@@ -31,7 +31,8 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
           form.onSuccess((values, followUpUrl) => {
             // Take the lead to a different page on successful submit,
             // ignoring the form's configured followUpUrl
-            location.href = successUrl;
+            // location.href = successUrl;
+            console.log('success');
             if (window._satellite) {
               _satellite.track('formSubmit', {
                 formName: document.title,
@@ -40,10 +41,10 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
             // Drift popup custom code
             drift.api.collectFormData(values, {
               campaignId: 2787244,
-              followupUrl: 'https://www.merative.com/thank-you',
+              // followupUrl: successUrl,
             });
             // Return false to prevent the submission handler continuing with its own processing
-            return false;
+            // return false;
           });
 
           let hasTrackedFormLoad = false;
