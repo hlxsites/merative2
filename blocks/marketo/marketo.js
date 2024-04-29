@@ -32,17 +32,23 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
             // Take the lead to a different page on successful submit,
             // ignoring the form's configured followUpUrl
             // location.href = successUrl;
-            console.log('success');
+            console.log('Form submitted successfully');
             if (window._satellite) {
               _satellite.track('formSubmit', {
                 formName: document.title,
               });
+            }
+            window.onbeforeunload = confirmExit;
+            function confirmExit()
+            {
+                return "You have attempted to leave this page.  If you have made any changes to the fields without clicking the Save button, your changes will be lost.  Are you sure you want to exit this page?";
             }
             // Drift popup custom code
             drift.api.collectFormData(values, {
               campaignId: 2787244,
               // followupUrl: successUrl,
             });
+
             // Return false to prevent the submission handler continuing with its own processing
             // return false;
           });
