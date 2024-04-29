@@ -25,14 +25,6 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
     const mktoScriptTag = loadScript('//go.merative.com/js/forms2/js/forms2.min.js');
     mktoScriptTag.onload = () => {
       if (successUrl) {
-        function openDriftChat(formData) {
-          // Call Drift API to open the chat window and pass the form data
-          drift.api.collectFormData(formData, {
-              campaignId: 2787244,
-              // Add any other parameters you need
-          });
-          return false;
-        }
         window.MktoForms2.loadForm('//go.merative.com', `${marketoId}`, formId, (form) => {
           // Add an onSuccess handler
           // eslint-disable-next-line no-unused-vars
@@ -40,22 +32,20 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
             // Take the lead to a different page on successful submit,
             // ignoring the form's configured followUpUrl
             // location.href = successUrl;
-            console.log('Form submitted successfully');
+            // console.log('success');
             if (window._satellite) {
               _satellite.track('formSubmit', {
                 formName: document.title,
               });
             }
-            openDriftChat(values);
-
-            // // Drift popup custom code
-            // drift.api.collectFormData(values, {
-            //   campaignId: 2787244,
-            //   // followupUrl: successUrl,
-            // });
-
+            // Drift popup custom code
+            drift.api.collectFormData(values, {
+              campaignId: 2787244,
+              // followupUrl: 'https://www.merative.com/thank-you',
+              followupUrl: successUrl,
+            });
             // Return false to prevent the submission handler continuing with its own processing
-            // return false;
+            return false;
           });
 
           let hasTrackedFormLoad = false;
