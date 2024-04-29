@@ -32,7 +32,6 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
             // Take the lead to a different page on successful submit,
             // ignoring the form's configured followUpUrl
             // location.href = successUrl;
-            // console.log('success');
             if (window._satellite) {
               _satellite.track('formSubmit', {
                 formName: document.title,
