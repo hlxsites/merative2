@@ -2,7 +2,6 @@
 
 /* header and nav layout */
 header {
-  position: fixed;
   float: left;
   clear: none;
   border-bottom: 1px solid var(--neutral-sand);
@@ -11,7 +10,6 @@ header {
   left: 0;
   top: 0;
   transition: all .5s ease;
-  z-index: 99999;
   font-family: var(--sans-serif-font-medium);
 }
 
@@ -543,6 +541,10 @@ header nav .nav-sections .mega-menu a.link-with-icon span.icon svg {
     gap: unset;
     justify-content: unset;
     padding: var(--spacer-layout-05) calc((100vw - var(--section-width-desktop)) / 2) var(--spacer-layout-07);
+  }
+
+  header.is-sticky nav .nav-sections > ul > li[aria-expanded='true'] > ul.level-two {
+    top: var(--sticky-nav-height);
   }
 
   header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.level-two:not(.mega-menu, .featured) {

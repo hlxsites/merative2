@@ -5,6 +5,7 @@ body[filters-open="true"] {
 
 .thought-leadership-home.main,
 .blog-home.main {
+  padding-top: var(--nav-height-mobile);
   margin: auto;
 }
 
@@ -648,7 +649,7 @@ h5 {
     font-family: var(--sans-serif-font-light);
   }
 
-  
+
   .thought-leadership-home .blog-content .card-group .card-item.featured-article .card-image,
   .thought-leadership-home .blog-content .card-group .card-item.featured-article .card-content,
   .blog-home .blog-content .card-group .card-item.featured-article .card-image,
@@ -715,6 +716,11 @@ h5 {
 
 /* Desktop styles */
 @media only screen and (min-width: 1200px) {
+  .thought-leadership-home.main,
+  .blog-home.main {
+    padding-top: var(--nav-height-desktop);
+  }
+
   main .section.thought-leadership-home-container,
   main .section.blog-home-container {
     padding-top: var(--spacer-layout-06);

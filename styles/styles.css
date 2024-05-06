@@ -547,6 +547,7 @@ body main {
 header {
   position: fixed;
   height: var(--nav-height-mobile);
+  z-index: 99999;
 }
 
 @media (min-width: 1200px) {
@@ -840,7 +841,9 @@ main ol li {
 main ul li::marker,
 main ol li::marker {
   color: var(--primary-purple);
-  font-family: var(--sans-serif-font-medium);
+  font-family: var(--sans-serif-font-regular);
+  font-weight: var(--font-weight-light);
+  font-size: var(--font-size-21);
 }
 
 /* Special case lists */
@@ -1657,7 +1660,7 @@ body.quick-links main .section > div {
 .section-pattern {
   height: var(--gap-84);
   background-color: var(--neutral-bone);
-  background-repeat: repeat-x; 
+  background-repeat: repeat-x;
   background-size: 400px auto;
   background-position: calc(var(--spacer-element-04) * -1) 0;
 }
@@ -1835,6 +1838,11 @@ body.quick-links main .section > div {
     line-height: var(--line-height-160);
     letter-spacing: var(--letter-spacing-1);
   }
+
+  .article-content-wrapper ul li {
+    font-size: inherit;
+  }
+
 }
 
 /* Desktop */
@@ -1939,7 +1947,8 @@ body.quick-links main .section > div {
   .article-content-wrapper ul,
   .article-content-wrapper ol {
     font-size: var(--font-size-21);
-    margin: var(--spacer-element-09) 0;
+    margin: var(--spacer-element-05) 0;
+    padding-inline-start: var(--spacer-element-07);
   }
 
   .article-content {

@@ -625,7 +625,7 @@ main div.leadspace-wrapper {
   .leadspace .button-group {
     display: flex;
     flex-flow: row nowrap;
-    align-items: center;
+    align-items: baseline;
   }
 
   .leadspace.brand-logo .button-group {
