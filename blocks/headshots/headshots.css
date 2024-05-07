@@ -41,7 +41,7 @@ main .headshots .headshot-item .headshot-avatar img {
 }
 
 main .headshots .headshot-item .headshot-details {
-    flex:1 0 auto;
+    flex: 1 1 auto;
 }
 
 main .headshots .headshot-item .headshot-links {
