@@ -217,7 +217,7 @@ main div.leadspace-wrapper {
 
 .leadspace.brand-logo .button-group .button-container a {
   font-weight: var(--font-weight-regular);
-  height: var(--spacer-element-10);
+  /* height: var(--spacer-element-10); */
 }
 
 .leadspace.brand-logo .button-group .button-container:nth-child(3){
@@ -565,7 +565,7 @@ main div.leadspace-wrapper {
   }
 
   .leadspace.brand-logo .button-group .button-container:nth-child(3){
-    margin-left: var(--spacer-element-05);
+    /* margin-left: var(--spacer-element-05); */
     margin-top: unset;
   }
 
@@ -624,7 +624,7 @@ main div.leadspace-wrapper {
 
   .leadspace .button-group {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     align-items: baseline;
   }
 
@@ -638,7 +638,7 @@ main div.leadspace-wrapper {
   }
 
   .leadspace.brand-logo .button-group .button-container a.tertiary {
-    margin-left: var(--spacer-element-05);
+    /* margin-left: var(--spacer-element-05); */
   }
 
   .leadspace.video .video-wrapper {
