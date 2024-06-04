@@ -28,6 +28,11 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
         window.MktoForms2.loadForm('//go.merative.com', `${marketoId}`, formId, (form) => {
           // Add an onSuccess handler
           // eslint-disable-next-line no-unused-vars
+          // drift.on('ready', function (api) {
+          //   api.commitFormData({
+          //     campaignId: 2787244
+          //   });
+          // });
           form.onSuccess((values, followUpUrl) => {
             // Take the lead to a different page on successful submit,
             // ignoring the form's configured followUpUrl
@@ -37,11 +42,22 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
                 formName: document.title,
               });
             }
+            drift.on('ready', function (api) {
+              console.log('drift');
+              try {
+                api.commitFormData({
+                  campaignId: 2787244
+                });
+              } catch (error) {
+                console.error('Error committing form data to Drift:', error);
+              }
+            });
             // Drift popup custom code
             drift.api.collectFormData(values, {
               campaignId: 2787244,
               // followupUrl: 'https://www.merative.com/thank-you',
               followupUrl: successUrl,
+              stageData: true
             });
             // Return false to prevent the submission handler continuing with its own processing
             return false;
