@@ -928,7 +928,7 @@ button {
 }
 
 .button-container a.has-icon {
-  border-bottom: 0 !important;
+  /* border-bottom: 0 !important; */
 }
 
 .button-container a.has-icon.primary,

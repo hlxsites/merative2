@@ -1,5 +1,5 @@
 /* Leadspace block styles */
-.leadspace, 
+.leadspace,
 .leadspace p {
   font-family: var(--sans-serif-font-light);
   font-size: var(--font-size-16);
@@ -217,7 +217,6 @@ main div.leadspace-wrapper {
 
 .leadspace.brand-logo .button-group .button-container a {
   font-weight: var(--font-weight-regular);
-  height: var(--spacer-element-10);
 }
 
 .leadspace.brand-logo .button-group .button-container:nth-child(3){
@@ -551,7 +550,7 @@ main div.leadspace-wrapper {
   .home-video.leadspace-container .leadspace-wrapper {
     padding-top: 0;
   }
-  
+
   .leadspace.video > div:first-child {
     align-items: flex-start;
   }
@@ -565,7 +564,7 @@ main div.leadspace-wrapper {
   }
 
   .leadspace.brand-logo .button-group .button-container:nth-child(3){
-    margin-left: var(--spacer-element-05);
+    /* margin-left: var(--spacer-element-05); */
     margin-top: unset;
   }
 
@@ -610,7 +609,7 @@ main div.leadspace-wrapper {
   .leadspace.half-circle > div > div:nth-child(2) picture {
     margin-top: var(--spacer-layout-06);
   }
-  
+
   /* Leadspace - Video */
   .leadspace.video > div:first-child > div:nth-child(2) {
     width: 45%;
@@ -624,7 +623,7 @@ main div.leadspace-wrapper {
 
   .leadspace .button-group {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     align-items: baseline;
   }
 
@@ -638,7 +637,7 @@ main div.leadspace-wrapper {
   }
 
   .leadspace.brand-logo .button-group .button-container a.tertiary {
-    margin-left: var(--spacer-element-05);
+    /* margin-left: var(--spacer-element-05); */
   }
 
   .leadspace.video .video-wrapper {
