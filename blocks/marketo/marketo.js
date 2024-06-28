@@ -29,6 +29,7 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
           // Add an onSuccess handler
           form.onSuccess((values) => {
             // Drift API call to commit form data immediately upon form submit
+            console.log(location.href);
             if (typeof drift !== 'undefined') {
               drift.on('ready', (api) => {
                 try {
@@ -36,12 +37,14 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
                     campaignId: 2787244,
                   });
 
-                  // Drift popup custom code
-                  drift.api.collectFormData(values, {
-                    campaignId: 2787244,
-                    followupUrl: successUrl,
-                    stageData: true,
-                  });
+                  if (location.href.includes('/contact')) {
+                    // Drift popup custom code
+                    drift.api.collectFormData(values, {
+                      campaignId: 2787244,
+                      followupUrl: successUrl,
+                      stageData: true,
+                    });
+                  } else { }
 
                   // Adobe Launch tracking for form submission
                   if (window._satellite) {
