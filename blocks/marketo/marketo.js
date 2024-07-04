@@ -29,7 +29,6 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
           // Add an onSuccess handler
           form.onSuccess((values) => {
             // Drift API call to commit form data immediately upon form submit
-            console.log(location.href);
             if (typeof drift !== 'undefined') {
               drift.on('ready', (api) => {
                 try {
@@ -44,7 +43,7 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
                       followupUrl: successUrl,
                       stageData: true,
                     });
-                  } else { }
+                  }
 
                   // Adobe Launch tracking for form submission
                   if (window._satellite) {
@@ -53,11 +52,11 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
                     });
                   }
                 } catch (error) {
-                  console.error('Error with Drift API calls:', error);
+                  // console.error('Error with Drift API calls:', error);
                 }
               });
             } else {
-              console.error('Drift is not defined');
+              // console.error('Drift is not defined');
             }
             // Return false to prevent the submission handler continuing with its own processing
             return false;
