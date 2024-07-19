@@ -27,22 +27,43 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
       if (successUrl) {
         window.MktoForms2.loadForm('//go.merative.com', `${marketoId}`, formId, (form) => {
           // Add an onSuccess handler
-          // eslint-disable-next-line no-unused-vars
-          form.onSuccess((values, followUpUrl) => {
-            // Take the lead to a different page on successful submit,
-            // ignoring the form's configured followUpUrl
-            // location.href = successUrl;
+          form.onSuccess(() => {
+            location.href = successUrl;
             if (window._satellite) {
               _satellite.track('formSubmit', {
                 formName: document.title,
               });
             }
-            // Drift popup custom code
-            drift.api.collectFormData(values, {
-              campaignId: 2787244,
-              // followupUrl: 'https://www.merative.com/thank-you',
-              followupUrl: successUrl,
-            });
+            // Drift API call to commit form data immediately upon form submit
+            // if (typeof drift !== 'undefined') {
+            //   drift.on('ready', (api) => {
+            //     try {
+            //       api.commitFormData({
+            //         campaignId: 2787244,
+            //       });
+
+            //       if (location.href.includes('/contact')) {
+            //         // Drift popup custom code
+            //         drift.api.collectFormData(values, {
+            //           campaignId: 2787244,
+            //           followupUrl: successUrl,
+            //           stageData: true,
+            //         });
+            //       }
+
+            //       // Adobe Launch tracking for form submission
+            //       if (window._satellite) {
+            //         _satellite.track('formSubmit', {
+            //           formName: document.title,
+            //         });
+            //       }
+            //     } catch (error) {
+            //       // console.error('Error with Drift API calls:', error);
+            //     }
+            //   });
+            // } else {
+            //   // console.error('Drift is not defined');
+            // }
             // Return false to prevent the submission handler continuing with its own processing
             return false;
           });
