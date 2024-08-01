@@ -418,7 +418,7 @@
     flex-shrink: 0;
     gap: var(--spacer-layout-04);
     padding-top: 0;
-    padding-bottom: var(--spacer-element-08);
+    padding-bottom: 0;
   }
 
   .solution-header ul {
