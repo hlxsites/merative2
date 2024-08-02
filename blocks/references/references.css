@@ -25,6 +25,7 @@
 
 .references li {
   margin: var(--spacer-element-03) 0;
+  word-break: break-word;
 }
 
 .references li::marker {
