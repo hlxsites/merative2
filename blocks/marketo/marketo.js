@@ -58,11 +58,17 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
                     });
                   }
                 } catch (error) {
-                  console.error('Error with Drift API calls:', error);
+                  console.log('Error with Drift API calls:', error);
                 }
               });
             } else {
-              console.error('Drift is not defined');
+              console.log('Drift is not defined');
+              location.href = successUrl;
+              if (window._satellite) {
+                _satellite.track('formSubmit', {
+                  formName: document.title,
+                });
+              }
             }
             // Return false to prevent the submission handler continuing with its own processing
             return false;
