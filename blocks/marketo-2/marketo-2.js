@@ -69,7 +69,7 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
             // Redirect to the success URL
             // location.href = successUrl;
             // Return false to prevent the submission handler continuing with its own processing
-            // return false;
+            return false;
           });
 
           let hasTrackedFormLoad = false;
