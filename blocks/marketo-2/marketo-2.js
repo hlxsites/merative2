@@ -31,46 +31,46 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
           form.onSuccess(() => {
             console.log('Form submitted successfully');
             location.href = successUrl;
-            if (window._satellite) {
-              _satellite.track('formSubmit', {
-                formName: document.title,
-              });
-            }
-            // Drift API call to commit form data immediately upon form submit
-            // if (typeof drift !== 'undefined') {
-            //   drift.on('ready', (api) => {
-            //     try {
-            //       api.commitFormData({
-            //         campaignId: 2787244,
-            //       });
-
-            //       if (location.href.includes('/contact')) {
-            //         // Drift popup custom code
-            //         drift.api.collectFormData(values, {
-            //           campaignId: 2787244,
-            //           followupUrl: successUrl,
-            //           stageData: true,
-            //         });
-            //       }
-
-            //       // Adobe Launch tracking for form submission
-            //       if (window._satellite) {
-            //         _satellite.track('formSubmit', {
-            //           formName: document.title,
-            //         });
-            //       }
-            //     } catch (error) {
-            //       console.info('Error with Drift API calls:', error);
-            //     }
+            // if (window._satellite) {
+            //   _satellite.track('formSubmit', {
+            //     formName: document.title,
             //   });
-            // } else {
-            //   console.info('Drift is not defined');
-            //   if (window._satellite) {
-            //     _satellite.track('formSubmit', {
-            //       formName: document.title,
-            //     });
-            //   }
             // }
+            // Drift API call to commit form data immediately upon form submit
+            if (typeof drift !== 'undefined') {
+              drift.on('ready', (api) => {
+                try {
+                  api.commitFormData({
+                    campaignId: 2787244,
+                  });
+
+                  if (location.href.includes('/contact')) {
+                    // Drift popup custom code
+                    drift.api.collectFormData(values, {
+                      campaignId: 2787244,
+                      followupUrl: successUrl,
+                      stageData: true,
+                    });
+                  }
+
+                  // Adobe Launch tracking for form submission
+                  if (window._satellite) {
+                    _satellite.track('formSubmit', {
+                      formName: document.title,
+                    });
+                  }
+                } catch (error) {
+                  console.info('Error with Drift API calls:', error);
+                }
+              });
+            } else {
+              console.info('Drift is not defined');
+              if (window._satellite) {
+                _satellite.track('formSubmit', {
+                  formName: document.title,
+                });
+              }
+            }
             // Return false to prevent the submission handler continuing with its own processing
             return false;
           });
