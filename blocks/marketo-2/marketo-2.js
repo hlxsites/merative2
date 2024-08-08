@@ -33,10 +33,12 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
               console.log('in');
               drift.on('ready', (api) => {
                 try {
+                  console.log('in2');
                   api.commitFormData({
                     campaignId: 2787244,
                   });
                   if (location.href.includes('/contact')) {
+                    console.log('in3');
                     // Drift popup custom code
                     api.collectFormData(values, {
                       campaignId: 2787244,
