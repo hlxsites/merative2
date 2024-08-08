@@ -65,11 +65,11 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
               });
             } else {
               console.info('Drift is not defined');
-              if (window._satellite) {
-                _satellite.track('formSubmit', {
-                  formName: document.title,
-                });
-              }
+              // if (window._satellite) {
+              //   _satellite.track('formSubmit', {
+              //     formName: document.title,
+              //   });
+              // }
             }
             // Return false to prevent the submission handler continuing with its own processing
             return false;
