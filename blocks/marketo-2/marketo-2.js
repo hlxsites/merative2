@@ -51,16 +51,16 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
               console.info('Drift is not defined');
             }
             // Adobe Launch tracking for form submission
-            if (window._satellite) {
-              _satellite.track('formSubmit', {
-                formName: document.title,
-              });
-            }
+            // if (window._satellite) {
+            //   _satellite.track('formSubmit', {
+            //     formName: document.title,
+            //   });
+            // }
 
             // Redirect to the success URL
-            location.href = successUrl;
+            // location.href = successUrl;
             // Return false to prevent the submission handler continuing with its own processing
-            return false;
+            // return false;
           });
 
           let hasTrackedFormLoad = false;
