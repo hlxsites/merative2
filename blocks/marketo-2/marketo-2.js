@@ -81,6 +81,16 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
               // followupUrl: 'https://www.merative.com/thank-you',
               followupUrl: successUrl,
             });
+            if (typeof drift !== 'undefined') {
+              console.log('in');
+              drift.on('ready', (api) => {
+                try {
+                  console.log('try');
+                }catch (error) {
+                  console.info('Error with Drift API calls:', error);
+                }
+              });
+            }
 
             // Return false to prevent the submission handler continuing with its own processing
             return false;
