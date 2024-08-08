@@ -45,6 +45,12 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
                       followupUrl: successUrl,
                       stageData: true,
                     });
+                    // Adobe Launch tracking for form submission
+                    if (window._satellite) {
+                      _satellite.track('formSubmit', {
+                        formName: document.title,
+                      });
+                    }
                   }
                 } catch (error) {
                   console.info('Error with Drift API calls:', error);
