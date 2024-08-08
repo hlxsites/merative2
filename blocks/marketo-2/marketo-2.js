@@ -30,7 +30,7 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
           // Add an onSuccess handler
           form.onSuccess(() => {
             console.log('Form submitted successfully');
-            location.href = successUrl;
+            // location.href = successUrl;
             // if (window._satellite) {
             //   _satellite.track('formSubmit', {
             //     formName: document.title,
