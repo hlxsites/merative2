@@ -27,7 +27,7 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
       if (successUrl) {
         window.MktoForms2.loadForm('//go.merative.com', `${marketoId}`, formId, (form) => {
           // Add an onSuccess handler
-          form.onSuccess(() => {
+          form.onSuccess((values, followUpUrl) => {
             // location.href = successUrl;
             // if (window._satellite) {
             //   _satellite.track('formSubmit', {
