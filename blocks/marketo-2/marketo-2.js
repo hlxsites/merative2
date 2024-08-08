@@ -26,37 +26,21 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
     mktoScriptTag.onload = () => {
       if (successUrl) {
         window.MktoForms2.loadForm('//go.merative.com', `${marketoId}`, formId, (form) => {
-          console.log('object1');
           // Add an onSuccess handler
           form.onSuccess((values) => {
             console.log('Form submitted successfully');
-            // location.href = successUrl;
-            // if (window._satellite) {
-            //   _satellite.track('formSubmit', {
-            //     formName: document.title,
-            //   });
-            // }
-            // Drift API call to commit form data immediately upon form submit
             if (typeof drift !== 'undefined') {
               drift.on('ready', (api) => {
                 try {
                   api.commitFormData({
                     campaignId: 2787244,
                   });
-
                   if (location.href.includes('/contact')) {
                     // Drift popup custom code
-                    drift.api.collectFormData(values, {
+                    api.collectFormData(values, {
                       campaignId: 2787244,
                       followupUrl: successUrl,
                       stageData: true,
-                    });
-                  }
-
-                  // Adobe Launch tracking for form submission
-                  if (window._satellite) {
-                    _satellite.track('formSubmit', {
-                      formName: document.title,
                     });
                   }
                 } catch (error) {
@@ -65,12 +49,16 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
               });
             } else {
               console.info('Drift is not defined');
-              // if (window._satellite) {
-              //   _satellite.track('formSubmit', {
-              //     formName: document.title,
-              //   });
-              // }
             }
+            // Adobe Launch tracking for form submission
+            if (window._satellite) {
+              _satellite.track('formSubmit', {
+                formName: document.title,
+              });
+            }
+
+            // Redirect to the success URL
+            location.href = successUrl;
             // Return false to prevent the submission handler continuing with its own processing
             return false;
           });
