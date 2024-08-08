@@ -26,14 +26,16 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
     mktoScriptTag.onload = () => {
       if (successUrl) {
         window.MktoForms2.loadForm('//go.merative.com', `${marketoId}`, formId, (form) => {
+          console.log('object1');
           // Add an onSuccess handler
-          form.onSuccess((values, followUpUrl) => {
-            // location.href = successUrl;
-            // if (window._satellite) {
-            //   _satellite.track('formSubmit', {
-            //     formName: document.title,
-            //   });
-            // }
+          form.onSuccess(() => {
+            console.log('Form submitted successfully');
+            location.href = successUrl;
+            if (window._satellite) {
+              _satellite.track('formSubmit', {
+                formName: document.title,
+              });
+            }
             // Drift API call to commit form data immediately upon form submit
             // if (typeof drift !== 'undefined') {
             //   drift.on('ready', (api) => {
@@ -63,35 +65,12 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
             //   });
             // } else {
             //   console.info('Drift is not defined');
-            //   location.href = successUrl;
             //   if (window._satellite) {
             //     _satellite.track('formSubmit', {
             //       formName: document.title,
             //     });
             //   }
             // }
-            if (window._satellite) {
-              _satellite.track('formSubmit', {
-                formName: document.title,
-              });
-            }
-            // Drift popup custom code
-            drift.api.collectFormData(values, {
-              campaignId: 2787244,
-              // followupUrl: 'https://www.merative.com/thank-you',
-              followupUrl: successUrl,
-            });
-            if (typeof drift !== 'undefined') {
-              console.log('in');
-              drift.on('ready', (api) => {
-                try {
-                  console.log('try');
-                }catch (error) {
-                  console.info('Error with Drift API calls:', error);
-                }
-              });
-            }
-
             // Return false to prevent the submission handler continuing with its own processing
             return false;
           });
