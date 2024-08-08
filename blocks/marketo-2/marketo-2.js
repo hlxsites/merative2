@@ -30,6 +30,7 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
           form.onSuccess((values) => {
             console.log('Form submitted successfully');
             if (typeof drift !== 'undefined') {
+              console.log('in');
               drift.on('ready', (api) => {
                 try {
                   api.commitFormData({
