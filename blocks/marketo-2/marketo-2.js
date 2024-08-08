@@ -28,17 +28,14 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
         window.MktoForms2.loadForm('//go.merative.com', `${marketoId}`, formId, (form) => {
           // Add an onSuccess handler
           form.onSuccess((values) => {
-            console.log('Form submitted successfully');
+            // console.log('Form submitted successfully');
             if (typeof drift !== 'undefined') {
-              console.log('in');
               drift.on('ready', (api) => {
                 try {
-                  console.log('in2');
                   api.commitFormData({
                     campaignId: 2787244,
                   });
                   if (location.href.includes('/contact')) {
-                    console.log('in3');
                     // Drift popup custom code
                     api.collectFormData(values, {
                       campaignId: 2787244,
@@ -59,15 +56,6 @@ const embedMarketoForm = (marketoId, formId, successUrl) => {
             } else {
               console.info('Drift is not defined');
             }
-            // Adobe Launch tracking for form submission
-            // if (window._satellite) {
-            //   _satellite.track('formSubmit', {
-            //     formName: document.title,
-            //   });
-            // }
-
-            // Redirect to the success URL
-            // location.href = successUrl;
             // Return false to prevent the submission handler continuing with its own processing
             return false;
           });
