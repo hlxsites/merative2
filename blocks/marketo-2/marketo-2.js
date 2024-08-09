@@ -103,10 +103,6 @@ export default function decorate(block) {
   const formId = blockConfig['form-id'];
   const successUrl = blockConfig['success-url'];
 
-  const marketo2container = document.querySelector('.section.marketo-2-container');
-  // Get the child elements
-  const m2children = Array.from(marketo2container.children);
-
   if (formId && marketoId) {
     // Create the form element
     const formElement = createTag('form', { id: `mktoForm_${formId}` });
@@ -133,12 +129,5 @@ export default function decorate(block) {
 
     // Start observing the block
     observer.observe(block);
-
-    // Reverse the order of the child elements
-    m2children.reverse();
-    // Append the children back in reversed order
-    m2children.forEach((child) => {
-      marketo2container.appendChild(child);
-    });
   }
 }
