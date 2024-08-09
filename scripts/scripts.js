@@ -952,8 +952,8 @@ function restructureContentLayout(main) {
     return;
   }
 
-  // Find the Marketo element
-  const marketoWrapper = main.querySelector('.marketo-wrapper');
+  // Find the Marketo element (either .marketo-wrapper or .marketo-2-wrapper)
+  const marketoWrapper = main.querySelector('.marketo-wrapper, .marketo-2-wrapper');
   if (!marketoWrapper) {
     return;
   }
@@ -969,16 +969,16 @@ function restructureContentLayout(main) {
 
     // Iterate through the parent-level elements
     parentElements.forEach((element) => {
-      // Check if the element is not equal to  '.marketo-wrapper'
-      if (!element.classList.contains('marketo-wrapper')) {
+      // Check if the element is not equal to '.marketo-wrapper' or '.marketo-2-wrapper'
+      if (!element.classList.contains('marketo-wrapper') && !element.classList.contains('marketo-2-wrapper')) {
         contentBodyText.appendChild(element);
       }
     });
 
-    // Insert '.section-content-body__text' before '.marketo-wrapper'
+    // Insert '.section-content-body__text' before the Marketo wrapper element
     sectionContentBody.insertBefore(contentBodyText, marketoWrapper);
 
-    // Add '.section-content-body__form' class to '.marketo-wrapper'
+    // Add '.section-content-body__form' class to the Marketo wrapper element
     marketoWrapper.classList.add('section-content-body__form');
   }
 }
