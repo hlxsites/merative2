@@ -522,7 +522,7 @@ header nav .nav-sections .mega-menu a.link-with-icon span.icon svg {
     left: 0;
     width: 100vw;
     height: auto;
-    max-height: none;
+    max-height: 100%;
     overflow: hidden;
     background-color: white;
     color: var(--neutral-carbon);
@@ -641,6 +641,7 @@ header nav .nav-sections .mega-menu a.link-with-icon span.icon svg {
 
   header nav .nav-sections > ul > li[aria-expanded='true'] > ul.mega-menu .mega-menu-content {
     flex: 1;
+    overflow: auto;
   }
 
   header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.level-two.mega-menu .mega-menu-content li > ul {
