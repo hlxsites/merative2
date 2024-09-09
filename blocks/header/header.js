@@ -278,6 +278,7 @@ export default async function decorate(block) {
   // Update DOM based on screen size
   const mediaChangeHandler = () => {
     const navTools = nav.querySelector('.nav-tools');
+    if (!navTools) return;
     if (mobileMedia.matches && navTools.parentElement === nav) {
       navSections.appendChild(navTools);
     } else if (desktopMedia.matches && navTools.parentElement === navSections) {
