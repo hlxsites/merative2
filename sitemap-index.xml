@@ -6,4 +6,7 @@
    <sitemap>
       <loc>https://www.merative.com/content/merative/us.sitemap.xml</loc>
    </sitemap>
+     <sitemap>
+      <loc>https://www.merative.com/us-sitemap.xml</loc>
+   </sitemap>
 </sitemapindex>
