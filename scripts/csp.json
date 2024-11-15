@@ -39,8 +39,11 @@
       "https://www.clarity.ms",
       "*.licdn.com",
       "*.googlesyndication.com",
-      "*.6sc.co",
-      "*.6sense.com"
+      "*.hsadspixel.net"
+      "*.hs-analytics.net"
+      "js.hscta.net"
+      "static.hsappstatic.net"
+      "*.hs-scripts.com"
   ],
   "connect-src": [
       "'self'",
@@ -72,8 +75,7 @@
       "*.googlesyndication.com",
       "https://google.com",
       "px.ads.linkedin.com",
-      "*.6sc.co",
-      "*.6sense.com"
+      "js.hscta.net"
   ],
   "img-src": [
     "'self'",
@@ -98,8 +100,8 @@
     "px.ads.linkedin.com",
     "px4.ads.linkedin.com",
     "googleads.g.doubleclick.net",
-    "*.6sc.co",
-    "*.6sense.com"
+    "js.hscta.net"
+    "no-cache.hubspot.com"
 
   ],
   "frame-src": [
