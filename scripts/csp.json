@@ -39,10 +39,10 @@
       "https://www.clarity.ms",
       "*.licdn.com",
       "*.googlesyndication.com",
-      "*.hsadspixel.net"
-      "*.hs-analytics.net"
-      "js.hscta.net"
-      "static.hsappstatic.net"
+      "*.hsadspixel.net",
+      "*.hs-analytics.net",
+      "js.hscta.net",
+      "static.hsappstatic.net",
       "*.hs-scripts.com"
   ],
   "connect-src": [
@@ -100,7 +100,7 @@
     "px.ads.linkedin.com",
     "px4.ads.linkedin.com",
     "googleads.g.doubleclick.net",
-    "js.hscta.net"
+    "js.hscta.net",
     "no-cache.hubspot.com"
 
   ],
