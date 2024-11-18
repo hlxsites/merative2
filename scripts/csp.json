@@ -43,7 +43,8 @@
       "*.hs-analytics.net",
       "js.hscta.net",
       "static.hsappstatic.net",
-      "*.hs-scripts.com"
+      "*.hs-scripts.com",
+      "*.hubspot.com"
   ],
   "connect-src": [
       "'self'",
@@ -75,7 +76,8 @@
       "*.googlesyndication.com",
       "https://google.com",
       "px.ads.linkedin.com",
-      "js.hscta.net"
+      "js.hscta.net",
+      "*.hubspot.com"
   ],
   "img-src": [
     "'self'",
@@ -101,7 +103,8 @@
     "px4.ads.linkedin.com",
     "googleads.g.doubleclick.net",
     "js.hscta.net",
-    "no-cache.hubspot.com"
+    "no-cache.hubspot.com",
+    "*.hubspot.com"
 
   ],
   "frame-src": [
@@ -117,7 +120,9 @@
     "*.medallia.com",
     "*.kampyle.com",
     "js.driftt.com",
-    "*.doubleclick.net"
+    "*.doubleclick.net",
+    "*.hubspot.com",
+    "*.googletagmanager.com"
   ],
   "style-src": [
     "'self'",
