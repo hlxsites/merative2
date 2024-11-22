@@ -2,6 +2,7 @@
 
 /* header and nav layout */
 header {
+  position: fixed;
   float: left;
   clear: none;
   border-bottom: 1px solid var(--neutral-sand);
@@ -10,6 +11,7 @@ header {
   left: 0;
   top: 0;
   transition: all .5s ease;
+  z-index: 99999;
   font-family: var(--sans-serif-font-medium);
 }
 
@@ -23,6 +25,7 @@ header nav {
   align-items: center;
   z-index: 1;
   width: 100%;
+  height: var(--nav-height-mobile);
   margin: 0 auto;
   padding: 0 24px;
   box-sizing: border-box;
@@ -86,6 +89,79 @@ header nav .nav-sections .mega-menu a.link-with-icon span.icon svg {
   height: var(--spacer-layout-02);
 }
 
+header .solution-new-dualmenu-top > div {
+  flex-direction: column;
+  margin-bottom: 0 !important;
+  padding-bottom: 48px;
+}
+
+header .solution-new-dualmenu-top .first-div-wrap h3{
+  margin-bottom:16px;
+}
+
+header .solution-new-dualmenu-top .first-div-wrap p{
+  margin-top: 16px;
+  font-size: 16px;
+  color: #5C5A57;
+}
+
+header .solution-new-dualmenu-top  .second-div-wrap > a {
+  display: flex;
+  gap: var(--gap-16);
+  border: none;
+  margin: 0 0 var(--spacer-element-03);
+  text-decoration: none;
+  color: currentcolor;
+}
+
+header .solution-new-dualmenu-top  .second-div-wrap {
+  margin-left: 0;
+  margin-top: 24px;
+}
+
+header .solution-new-dualmenu-top  .second-div-wrap > a p{
+  margin: 0;
+  height: var(--spacer-layout-02);
+}
+
+header .solution-new-dualmenu-top  .second-div-wrap > a h5{
+  font-size: var(--font-size-14);
+  letter-spacing: 0.14px;
+  margin: 0;
+}
+
+header .solution-new-dualmenu-bottom p{
+  font-size: 16px;
+  color: #5C5A57;
+  margin: 16px 0;
+}
+
+header .solution-new-dualmenu-bottom div[data-valign="middle"] > h5 {
+  margin-top: 44px;
+  margin-bottom: 5px;
+}
+
+header .solution-new-dualmenu-bottom div[data-valign="middle"] > h5 + p {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #5C5A57;
+}
+
+header .solution-new-dualmenu-bottom p .icon {
+  display: block;
+  max-width: 196px;
+}
+
+header .solution-new-dualmenu-bottom p .icon svg{
+  display: block;
+}
+header .solution-new-dualmenu-bottom p .icon img + img {
+  display: none !important;
+}
+header .solution-new-dualmenu-bottom p.button-container {
+  margin-top: 12px !important;
+}
+
 /* tablet nav */
 @media only screen and (min-width: 768px) {
   header nav {
@@ -100,6 +176,10 @@ header nav .nav-sections .mega-menu a.link-with-icon span.icon svg {
 
 /* mobile/tablet nav styles */
 @media only screen and (max-width: 1199px) {
+  header {
+    height: var(--nav-height-mobile);
+  }
+
   header nav {
     display: flex;
     justify-content: space-between;
@@ -315,6 +395,8 @@ header nav .nav-sections .mega-menu a.link-with-icon span.icon svg {
   /* header */
   header {
     padding: 0;
+    max-height: 130px;
+    height: 130px;
     display: flex;
     align-items: flex-end;
   }
@@ -522,7 +604,7 @@ header nav .nav-sections .mega-menu a.link-with-icon span.icon svg {
     left: 0;
     width: 100vw;
     height: auto;
-    max-height: 100%;
+    max-height: none;
     overflow: hidden;
     background-color: white;
     color: var(--neutral-carbon);
@@ -641,7 +723,6 @@ header nav .nav-sections .mega-menu a.link-with-icon span.icon svg {
 
   header nav .nav-sections > ul > li[aria-expanded='true'] > ul.mega-menu .mega-menu-content {
     flex: 1;
-    overflow: auto;
   }
 
   header nav .nav-sections > ul > li[aria-expanded='true'] > ul > li.level-two.mega-menu .mega-menu-content li > ul {

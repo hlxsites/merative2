@@ -73,6 +73,51 @@ function buildMegaMenu(navItem) {
     cell.appendChild(link);
     linkParent.remove();
   });
+  // New Dual menu
+  const menuLinksDual = navItem.querySelectorAll('.columns.solution-new-dualmenu-top p > a');
+  [...menuLinksDual].forEach((link) => {
+    const cell = link.closest('div');
+    cell.classList.add('second-div-wrap');
+    const linkParent = link.parentElement;
+    link.textContent = '';
+    while (linkParent.previousElementSibling && linkParent.previousElementSibling.nodeName !== 'A') {
+      link.prepend(linkParent.previousElementSibling);
+    }
+    link.setAttribute('title', link.querySelector('h5').textContent);
+    if (link.querySelector('span.icon')) {
+      link.classList.add('link-with-icon');
+    }
+    cell.appendChild(link);
+    linkParent.remove();
+  });
+  const solDual = navItem.querySelector('.columns.solution-new-dualmenu-top > div');
+
+  if (solDual) {
+    const newDiv = document.createElement('div');
+    newDiv.classList.add('first-div-wrap');
+
+    const h3Element = solDual.querySelector('h3');
+    const pElement = h3Element ? h3Element.nextElementSibling : null;
+
+    if (h3Element && pElement) {
+      newDiv.appendChild(h3Element);
+      newDiv.appendChild(pElement);
+      solDual.prepend(newDiv);
+    }
+  }
+  // Select the parent container
+  const buttons = navItem.querySelectorAll('.solution-new-dualmenu-bottom a.button.secondary');
+
+  buttons.forEach((button) => {
+    button.classList.replace('secondary', 'tertiary');
+
+    const emTag = button.parentElement;
+    if (emTag && emTag.tagName.toLowerCase() === 'em') {
+      const buttonContainer = emTag.parentElement;
+      buttonContainer.insertBefore(button, emTag);
+      emTag.remove();
+    }
+  });
 }
 
 function buildFeatured(navItem) {
