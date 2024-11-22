@@ -155,9 +155,11 @@ header .solution-new-dualmenu-bottom p .icon {
 header .solution-new-dualmenu-bottom p .icon svg{
   display: block;
 }
+
 header .solution-new-dualmenu-bottom p .icon img + img {
   display: none !important;
 }
+
 header .solution-new-dualmenu-bottom p.button-container {
   margin-top: 12px !important;
 }
