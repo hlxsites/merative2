@@ -77,7 +77,8 @@
       "https://google.com",
       "px.ads.linkedin.com",
       "js.hscta.net",
-      "*.hubspot.com"
+      "*.hubspot.com",
+      "assets.merative.com"
   ],
   "img-src": [
     "'self'",
